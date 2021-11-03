@@ -174,7 +174,7 @@ func (a *CategoriesApiService) AddCategoryToAssetExecute(r CategoriesApiAddCateg
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddCategoryToDeploymentRunRequest struct {
+type CategoriesApiAddCategoryToDeploymentRunRequest struct {
 	ctx        _context.Context
 	ApiService *CategoriesApiService
 	id         string
@@ -182,12 +182,12 @@ type ApiAddCategoryToDeploymentRunRequest struct {
 }
 
 // ID of run to assign
-func (r ApiAddCategoryToDeploymentRunRequest) Runid(runid string) ApiAddCategoryToDeploymentRunRequest {
+func (r CategoriesApiAddCategoryToDeploymentRunRequest) Runid(runid string) CategoriesApiAddCategoryToDeploymentRunRequest {
 	r.runid = &runid
 	return r
 }
 
-func (r ApiAddCategoryToDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r CategoriesApiAddCategoryToDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.AddCategoryToDeploymentRunExecute(r)
 }
 
@@ -200,10 +200,10 @@ Altering the Category will affect future Run filtering.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of category
- @return ApiAddCategoryToDeploymentRunRequest
+ @return CategoriesApiAddCategoryToDeploymentRunRequest
 */
-func (a *CategoriesApiService) AddCategoryToDeploymentRun(ctx _context.Context, id string) ApiAddCategoryToDeploymentRunRequest {
-	return ApiAddCategoryToDeploymentRunRequest{
+func (a *CategoriesApiService) AddCategoryToDeploymentRun(ctx _context.Context, id string) CategoriesApiAddCategoryToDeploymentRunRequest {
+	return CategoriesApiAddCategoryToDeploymentRunRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -212,7 +212,7 @@ func (a *CategoriesApiService) AddCategoryToDeploymentRun(ctx _context.Context, 
 
 // Execute executes the request
 //  @return bool
-func (a *CategoriesApiService) AddCategoryToDeploymentRunExecute(r ApiAddCategoryToDeploymentRunRequest) (bool, *_nethttp.Response, error) {
+func (a *CategoriesApiService) AddCategoryToDeploymentRunExecute(r CategoriesApiAddCategoryToDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -866,7 +866,7 @@ func (a *CategoriesApiService) RemoveCategoryFromAssetExecute(r ApiRemoveCategor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveCategoryFromDeploymentRunRequest struct {
+type CategoriesApiRemoveCategoryFromDeploymentRunRequest struct {
 	ctx        _context.Context
 	ApiService *CategoriesApiService
 	id         string
@@ -874,12 +874,12 @@ type ApiRemoveCategoryFromDeploymentRunRequest struct {
 }
 
 // ID of run to unassign
-func (r ApiRemoveCategoryFromDeploymentRunRequest) Runid(runid string) ApiRemoveCategoryFromDeploymentRunRequest {
+func (r CategoriesApiRemoveCategoryFromDeploymentRunRequest) Runid(runid string) CategoriesApiRemoveCategoryFromDeploymentRunRequest {
 	r.runid = &runid
 	return r
 }
 
-func (r ApiRemoveCategoryFromDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r CategoriesApiRemoveCategoryFromDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RemoveCategoryFromDeploymentRunExecute(r)
 }
 
@@ -892,10 +892,10 @@ Altering the Category will affect future run filtering.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of category
- @return ApiRemoveCategoryFromDeploymentRunRequest
+ @return CategoriesApiRemoveCategoryFromDeploymentRunRequest
 */
-func (a *CategoriesApiService) RemoveCategoryFromDeploymentRun(ctx _context.Context, id string) ApiRemoveCategoryFromDeploymentRunRequest {
-	return ApiRemoveCategoryFromDeploymentRunRequest{
+func (a *CategoriesApiService) RemoveCategoryFromDeploymentRun(ctx _context.Context, id string) CategoriesApiRemoveCategoryFromDeploymentRunRequest {
+	return CategoriesApiRemoveCategoryFromDeploymentRunRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -904,7 +904,7 @@ func (a *CategoriesApiService) RemoveCategoryFromDeploymentRun(ctx _context.Cont
 
 // Execute executes the request
 //  @return bool
-func (a *CategoriesApiService) RemoveCategoryFromDeploymentRunExecute(r ApiRemoveCategoryFromDeploymentRunRequest) (bool, *_nethttp.Response, error) {
+func (a *CategoriesApiService) RemoveCategoryFromDeploymentRunExecute(r CategoriesApiRemoveCategoryFromDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}

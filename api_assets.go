@@ -884,7 +884,7 @@ func (a *AssetsApiService) ListDependentAssetsExecute(r AssetsAssetsApiListDepen
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveCategoryFromAssetRequest struct {
+type AssetsApiRemoveCategoryFromAssetRequest struct {
 	ctx        _context.Context
 	ApiService *AssetsApiService
 	id         string
@@ -892,12 +892,12 @@ type ApiRemoveCategoryFromAssetRequest struct {
 }
 
 // ID of asset to unassign
-func (r ApiRemoveCategoryFromAssetRequest) Assetid(assetid string) ApiRemoveCategoryFromAssetRequest {
+func (r AssetsApiRemoveCategoryFromAssetRequest) Assetid(assetid string) AssetsApiRemoveCategoryFromAssetRequest {
 	r.assetid = &assetid
 	return r
 }
 
-func (r ApiRemoveCategoryFromAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r AssetsApiRemoveCategoryFromAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RemoveCategoryFromAssetExecute(r)
 }
 
@@ -910,10 +910,10 @@ Altering the Category will affect future Asset filtering.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of category
- @return ApiRemoveCategoryFromAssetRequest
+ @return AssetsApiRemoveCategoryFromAssetRequest
 */
-func (a *AssetsApiService) RemoveCategoryFromAsset(ctx _context.Context, id string) ApiRemoveCategoryFromAssetRequest {
-	return ApiRemoveCategoryFromAssetRequest{
+func (a *AssetsApiService) RemoveCategoryFromAsset(ctx _context.Context, id string) AssetsApiRemoveCategoryFromAssetRequest {
+	return AssetsApiRemoveCategoryFromAssetRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -922,7 +922,7 @@ func (a *AssetsApiService) RemoveCategoryFromAsset(ctx _context.Context, id stri
 
 // Execute executes the request
 //  @return bool
-func (a *AssetsApiService) RemoveCategoryFromAssetExecute(r ApiRemoveCategoryFromAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *AssetsApiService) RemoveCategoryFromAssetExecute(r AssetsApiRemoveCategoryFromAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
