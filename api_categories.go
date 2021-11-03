@@ -28,20 +28,20 @@ var (
 // CategoriesApiService CategoriesApi service
 type CategoriesApiService service
 
-type ApiAddCategoryToAssetRequest struct {
-	ctx _context.Context
+type CategoriesApiAddCategoryToAssetRequest struct {
+	ctx        _context.Context
 	ApiService *CategoriesApiService
-	id string
-	assetid *string
+	id         string
+	assetid    *string
 }
 
 // ID of asset to assign
-func (r ApiAddCategoryToAssetRequest) Assetid(assetid string) ApiAddCategoryToAssetRequest {
+func (r CategoriesApiAddCategoryToAssetRequest) Assetid(assetid string) CategoriesApiAddCategoryToAssetRequest {
 	r.assetid = &assetid
 	return r
 }
 
-func (r ApiAddCategoryToAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r CategoriesApiAddCategoryToAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.AddCategoryToAssetExecute(r)
 }
 
@@ -54,19 +54,19 @@ Altering the Category will affect future Asset filtering.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of category
- @return ApiAddCategoryToAssetRequest
+ @return CategoriesApiAddCategoryToAssetRequest
 */
-func (a *CategoriesApiService) AddCategoryToAsset(ctx _context.Context, id string) ApiAddCategoryToAssetRequest {
-	return ApiAddCategoryToAssetRequest{
+func (a *CategoriesApiService) AddCategoryToAsset(ctx _context.Context, id string) CategoriesApiAddCategoryToAssetRequest {
+	return CategoriesApiAddCategoryToAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *CategoriesApiService) AddCategoryToAssetExecute(r ApiAddCategoryToAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *CategoriesApiService) AddCategoryToAssetExecute(r CategoriesApiAddCategoryToAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -175,10 +175,10 @@ func (a *CategoriesApiService) AddCategoryToAssetExecute(r ApiAddCategoryToAsset
 }
 
 type ApiAddCategoryToDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CategoriesApiService
-	id string
-	runid *string
+	id         string
+	runid      *string
 }
 
 // ID of run to assign
@@ -205,8 +205,8 @@ Altering the Category will affect future Run filtering.
 func (a *CategoriesApiService) AddCategoryToDeploymentRun(ctx _context.Context, id string) ApiAddCategoryToDeploymentRunRequest {
 	return ApiAddCategoryToDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -321,8 +321,8 @@ func (a *CategoriesApiService) AddCategoryToDeploymentRunExecute(r ApiAddCategor
 }
 
 type ApiCreateCategoryRequest struct {
-	ctx _context.Context
-	ApiService *CategoriesApiService
+	ctx           _context.Context
+	ApiService    *CategoriesApiService
 	inputCategory *InputCategory
 }
 
@@ -347,7 +347,7 @@ Creates a single Category in order to organize Assets.
 func (a *CategoriesApiService) CreateCategory(ctx _context.Context) ApiCreateCategoryRequest {
 	return ApiCreateCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -459,11 +459,10 @@ func (a *CategoriesApiService) CreateCategoryExecute(r ApiCreateCategoryRequest)
 }
 
 type ApiDeleteCategoryRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CategoriesApiService
-	id string
+	id         string
 }
-
 
 func (r ApiDeleteCategoryRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteCategoryExecute(r)
@@ -481,8 +480,8 @@ Deletes a single Category with the given ID.
 func (a *CategoriesApiService) DeleteCategory(ctx _context.Context, id string) ApiDeleteCategoryRequest {
 	return ApiDeleteCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -593,10 +592,9 @@ func (a *CategoriesApiService) DeleteCategoryExecute(r ApiDeleteCategoryRequest)
 }
 
 type ApiGetCategoriesRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CategoriesApiService
 }
-
 
 func (r ApiGetCategoriesRequest) Execute() ([]MinimalCategory, *_nethttp.Response, error) {
 	return r.ApiService.GetCategoriesExecute(r)
@@ -613,7 +611,7 @@ Returns a collection of the currently available Categories.
 func (a *CategoriesApiService) GetCategories(ctx _context.Context) ApiGetCategoriesRequest {
 	return ApiGetCategoriesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -723,10 +721,10 @@ func (a *CategoriesApiService) GetCategoriesExecute(r ApiGetCategoriesRequest) (
 }
 
 type ApiRemoveCategoryFromAssetRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CategoriesApiService
-	id string
-	assetid *string
+	id         string
+	assetid    *string
 }
 
 // ID of asset to unassign
@@ -753,8 +751,8 @@ Altering the Category will affect future Asset filtering.
 func (a *CategoriesApiService) RemoveCategoryFromAsset(ctx _context.Context, id string) ApiRemoveCategoryFromAssetRequest {
 	return ApiRemoveCategoryFromAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -869,10 +867,10 @@ func (a *CategoriesApiService) RemoveCategoryFromAssetExecute(r ApiRemoveCategor
 }
 
 type ApiRemoveCategoryFromDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CategoriesApiService
-	id string
-	runid *string
+	id         string
+	runid      *string
 }
 
 // ID of run to unassign
@@ -899,8 +897,8 @@ Altering the Category will affect future run filtering.
 func (a *CategoriesApiService) RemoveCategoryFromDeploymentRun(ctx _context.Context, id string) ApiRemoveCategoryFromDeploymentRunRequest {
 	return ApiRemoveCategoryFromDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1015,10 +1013,10 @@ func (a *CategoriesApiService) RemoveCategoryFromDeploymentRunExecute(r ApiRemov
 }
 
 type ApiSetCategoryParentRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CategoriesApiService
-	id string
-	parentid *string
+	id         string
+	parentid   *string
 }
 
 // ID of desired parent category
@@ -1043,8 +1041,8 @@ Sets the Parent for an existing Category
 func (a *CategoriesApiService) SetCategoryParent(ctx _context.Context, id string) ApiSetCategoryParentRequest {
 	return ApiSetCategoryParentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1159,9 +1157,9 @@ func (a *CategoriesApiService) SetCategoryParentExecute(r ApiSetCategoryParentRe
 }
 
 type ApiUpdateCategoryRequest struct {
-	ctx _context.Context
-	ApiService *CategoriesApiService
-	id string
+	ctx           _context.Context
+	ApiService    *CategoriesApiService
+	id            string
 	inputCategory *InputCategory
 }
 
@@ -1187,8 +1185,8 @@ Updates the content of a single Category with the given ID.
 func (a *CategoriesApiService) UpdateCategory(ctx _context.Context, id string) ApiUpdateCategoryRequest {
 	return ApiUpdateCategoryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
