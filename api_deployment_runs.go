@@ -2687,13 +2687,13 @@ func (a *DeploymentRunsApiService) PerformHostActionExecute(r ApiPerformHostActi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPublishDeploymentRunRequest struct {
+type DeploymentRunsApiPublishDeploymentRunRequest struct {
 	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
 	id         string
 }
 
-func (r ApiPublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentRunsApiPublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.PublishDeploymentRunExecute(r)
 }
 
@@ -2706,10 +2706,10 @@ Consumers will be able to connect to the run, but will not be able to manage the
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
- @return ApiPublishDeploymentRunRequest
+ @return DeploymentRunsApiPublishDeploymentRunRequest
 */
-func (a *DeploymentRunsApiService) PublishDeploymentRun(ctx _context.Context, id string) ApiPublishDeploymentRunRequest {
-	return ApiPublishDeploymentRunRequest{
+func (a *DeploymentRunsApiService) PublishDeploymentRun(ctx _context.Context, id string) DeploymentRunsApiPublishDeploymentRunRequest {
+	return DeploymentRunsApiPublishDeploymentRunRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -2718,7 +2718,7 @@ func (a *DeploymentRunsApiService) PublishDeploymentRun(ctx _context.Context, id
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentRunsApiService) PublishDeploymentRunExecute(r ApiPublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) PublishDeploymentRunExecute(r DeploymentRunsApiPublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -3966,13 +3966,13 @@ func (a *DeploymentRunsApiService) SetPowerScheduleForDeploymentRunExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUnpublishDeploymentRunRequest struct {
+type DeploymentRunsApiUnpublishDeploymentRunRequest struct {
 	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
 	id         string
 }
 
-func (r ApiUnpublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentRunsApiUnpublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UnpublishDeploymentRunExecute(r)
 }
 
@@ -3985,10 +3985,10 @@ Consumers will no longer be able to connect to the run, and the run will no long
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
- @return ApiUnpublishDeploymentRunRequest
+ @return DeploymentRunsApiUnpublishDeploymentRunRequest
 */
-func (a *DeploymentRunsApiService) UnpublishDeploymentRun(ctx _context.Context, id string) ApiUnpublishDeploymentRunRequest {
-	return ApiUnpublishDeploymentRunRequest{
+func (a *DeploymentRunsApiService) UnpublishDeploymentRun(ctx _context.Context, id string) DeploymentRunsApiUnpublishDeploymentRunRequest {
+	return DeploymentRunsApiUnpublishDeploymentRunRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -3997,7 +3997,7 @@ func (a *DeploymentRunsApiService) UnpublishDeploymentRun(ctx _context.Context, 
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentRunsApiService) UnpublishDeploymentRunExecute(r ApiUnpublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) UnpublishDeploymentRunExecute(r DeploymentRunsApiUnpublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
