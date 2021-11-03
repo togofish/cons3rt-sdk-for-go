@@ -1,4 +1,4 @@
-module GoCons3rt
+module github.com/togofish/gocons3rt
 
 go 1.13
 
