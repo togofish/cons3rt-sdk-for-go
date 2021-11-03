@@ -30,7 +30,7 @@ var (
 // AssetsApiService AssetsApi service
 type AssetsApiService service
 
-type ApiAddCategoryToAssetRequest struct {
+type AssetsApiAddCategoryToAssetRequest struct {
 	ctx        _context.Context
 	ApiService *AssetsApiService
 	id         string
@@ -38,12 +38,12 @@ type ApiAddCategoryToAssetRequest struct {
 }
 
 // ID of asset to assign
-func (r ApiAddCategoryToAssetRequest) Assetid(assetid string) ApiAddCategoryToAssetRequest {
+func (r AssetsApiAddCategoryToAssetRequest) Assetid(assetid string) AssetsApiAddCategoryToAssetRequest {
 	r.assetid = &assetid
 	return r
 }
 
-func (r ApiAddCategoryToAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r AssetsApiAddCategoryToAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.AddCategoryToAssetExecute(r)
 }
 
@@ -56,10 +56,10 @@ Altering the Category will affect future Asset filtering.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of category
- @return ApiAddCategoryToAssetRequest
+ @return AssetsApiAddCategoryToAssetRequest
 */
-func (a *AssetsApiService) AddCategoryToAsset(ctx _context.Context, id string) ApiAddCategoryToAssetRequest {
-	return ApiAddCategoryToAssetRequest{
+func (a *AssetsApiService) AddCategoryToAsset(ctx _context.Context, id string) AssetsApiAddCategoryToAssetRequest {
+	return AssetsApiAddCategoryToAssetRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -68,7 +68,7 @@ func (a *AssetsApiService) AddCategoryToAsset(ctx _context.Context, id string) A
 
 // Execute executes the request
 //  @return bool
-func (a *AssetsApiService) AddCategoryToAssetExecute(r ApiAddCategoryToAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *AssetsApiService) AddCategoryToAssetExecute(r AssetsApiAddCategoryToAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
