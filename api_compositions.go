@@ -29,11 +29,10 @@ var (
 type CompositionsApiService service
 
 type ApiDeleteCompositionRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CompositionsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiDeleteCompositionRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteCompositionExecute(r)
@@ -51,8 +50,8 @@ Deletes a single Composition with the given ID.
 func (a *CompositionsApiService) DeleteComposition(ctx _context.Context, id string) ApiDeleteCompositionRequest {
 	return ApiDeleteCompositionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -163,11 +162,10 @@ func (a *CompositionsApiService) DeleteCompositionExecute(r ApiDeleteComposition
 }
 
 type ApiGetCompositionRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CompositionsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetCompositionRequest) Execute() (FullComposition, *_nethttp.Response, error) {
 	return r.ApiService.GetCompositionExecute(r)
@@ -185,8 +183,8 @@ Returns a single Composition event by the given ID.
 func (a *CompositionsApiService) GetComposition(ctx _context.Context, id string) ApiGetCompositionRequest {
 	return ApiGetCompositionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -297,10 +295,10 @@ func (a *CompositionsApiService) GetCompositionExecute(r ApiGetCompositionReques
 }
 
 type ApiListCompositionsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CompositionsApiService
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Maximum number of results to return
@@ -308,6 +306,7 @@ func (r ApiListCompositionsRequest) Maxresults(maxresults int64) ApiListComposit
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiListCompositionsRequest) Page(page int64) ApiListCompositionsRequest {
 	r.page = &page
@@ -329,7 +328,7 @@ Returns a collection of the user's relevant Compositions matching a specified qu
 func (a *CompositionsApiService) ListCompositions(ctx _context.Context) ApiListCompositionsRequest {
 	return ApiListCompositionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -444,14 +443,13 @@ func (a *CompositionsApiService) ListCompositionsExecute(r ApiListCompositionsRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPublishDeploymentRunRequest struct {
-	ctx _context.Context
+type CompositionsApiPublishDeploymentRunRequest struct {
+	ctx        _context.Context
 	ApiService *CompositionsApiService
-	id string
+	id         string
 }
 
-
-func (r ApiPublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r CompositionsApiPublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.PublishDeploymentRunExecute(r)
 }
 
@@ -464,19 +462,19 @@ Consumers will be able to connect to the run, but will not be able to manage the
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
- @return ApiPublishDeploymentRunRequest
+ @return CompositionsApiPublishDeploymentRunRequest
 */
-func (a *CompositionsApiService) PublishDeploymentRun(ctx _context.Context, id string) ApiPublishDeploymentRunRequest {
-	return ApiPublishDeploymentRunRequest{
+func (a *CompositionsApiService) PublishDeploymentRun(ctx _context.Context, id string) CompositionsApiPublishDeploymentRunRequest {
+	return CompositionsApiPublishDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *CompositionsApiService) PublishDeploymentRunExecute(r ApiPublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
+func (a *CompositionsApiService) PublishDeploymentRunExecute(r CompositionsApiPublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -580,20 +578,20 @@ func (a *CompositionsApiService) PublishDeploymentRunExecute(r ApiPublishDeploym
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPublishScenarioToCompositionRequest struct {
-	ctx _context.Context
-	ApiService *CompositionsApiService
-	id string
+type CompositionsApiPublishScenarioToCompositionRequest struct {
+	ctx              _context.Context
+	ApiService       *CompositionsApiService
+	id               string
 	inputComposition *InputComposition
 }
 
 // The composition definition used when launching the deployment
-func (r ApiPublishScenarioToCompositionRequest) InputComposition(inputComposition InputComposition) ApiPublishScenarioToCompositionRequest {
+func (r CompositionsApiPublishScenarioToCompositionRequest) InputComposition(inputComposition InputComposition) CompositionsApiPublishScenarioToCompositionRequest {
 	r.inputComposition = &inputComposition
 	return r
 }
 
-func (r ApiPublishScenarioToCompositionRequest) Execute() (string, *_nethttp.Response, error) {
+func (r CompositionsApiPublishScenarioToCompositionRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.PublishScenarioToCompositionExecute(r)
 }
 
@@ -604,19 +602,19 @@ Publishes the specified Scenario as a Composition, with the provided Run Options
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
- @return ApiPublishScenarioToCompositionRequest
+ @return CompositionsApiPublishScenarioToCompositionRequest
 */
-func (a *CompositionsApiService) PublishScenarioToComposition(ctx _context.Context, id string) ApiPublishScenarioToCompositionRequest {
-	return ApiPublishScenarioToCompositionRequest{
+func (a *CompositionsApiService) PublishScenarioToComposition(ctx _context.Context, id string) CompositionsApiPublishScenarioToCompositionRequest {
+	return CompositionsApiPublishScenarioToCompositionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return string
-func (a *CompositionsApiService) PublishScenarioToCompositionExecute(r ApiPublishScenarioToCompositionRequest) (string, *_nethttp.Response, error) {
+func (a *CompositionsApiService) PublishScenarioToCompositionExecute(r CompositionsApiPublishScenarioToCompositionRequest) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -722,14 +720,13 @@ func (a *CompositionsApiService) PublishScenarioToCompositionExecute(r ApiPublis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUnpublishDeploymentRunRequest struct {
-	ctx _context.Context
+type CompositionsApiUnpublishDeploymentRunRequest struct {
+	ctx        _context.Context
 	ApiService *CompositionsApiService
-	id string
+	id         string
 }
 
-
-func (r ApiUnpublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r CompositionsApiUnpublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UnpublishDeploymentRunExecute(r)
 }
 
@@ -742,19 +739,19 @@ Consumers will no longer be able to connect to the run, and the run will no long
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
- @return ApiUnpublishDeploymentRunRequest
+ @return CompositionsApiUnpublishDeploymentRunRequest
 */
-func (a *CompositionsApiService) UnpublishDeploymentRun(ctx _context.Context, id string) ApiUnpublishDeploymentRunRequest {
-	return ApiUnpublishDeploymentRunRequest{
+func (a *CompositionsApiService) UnpublishDeploymentRun(ctx _context.Context, id string) CompositionsApiUnpublishDeploymentRunRequest {
+	return CompositionsApiUnpublishDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *CompositionsApiService) UnpublishDeploymentRunExecute(r ApiUnpublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
+func (a *CompositionsApiService) UnpublishDeploymentRunExecute(r CompositionsApiUnpublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -859,9 +856,9 @@ func (a *CompositionsApiService) UnpublishDeploymentRunExecute(r ApiUnpublishDep
 }
 
 type ApiUpdateCompositionRequest struct {
-	ctx _context.Context
-	ApiService *CompositionsApiService
-	id string
+	ctx              _context.Context
+	ApiService       *CompositionsApiService
+	id               string
 	inputComposition *InputComposition
 }
 
@@ -887,8 +884,8 @@ Updates the content of a single Composition with the given ID.
 func (a *CompositionsApiService) UpdateComposition(ctx _context.Context, id string) ApiUpdateCompositionRequest {
 	return ApiUpdateCompositionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 

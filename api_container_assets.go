@@ -17,8 +17,9 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
+	"os"
 	"reflect"
+	"strings"
 )
 
 // Linger please
@@ -29,20 +30,20 @@ var (
 // ContainerAssetsApiService ContainerAssetsApi service
 type ContainerAssetsApiService service
 
-type ApiAddTrustedProjectRequest struct {
-	ctx _context.Context
+type ContainerApiAddTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to trust
-func (r ApiAddTrustedProjectRequest) Trustedid(trustedid string) ApiAddTrustedProjectRequest {
+func (r ContainerApiAddTrustedProjectRequest) Trustedid(trustedid string) ContainerApiAddTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.AddTrustedProjectExecute(r)
 }
 
@@ -55,19 +56,19 @@ The Asset must have a visibility set to TRUSTED_PROJECT for this to have any eff
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiAddTrustedProjectRequest
+ @return ContainerApiAddTrustedProjectRequest
 */
-func (a *ContainerAssetsApiService) AddTrustedProject(ctx _context.Context, id string) ApiAddTrustedProjectRequest {
-	return ApiAddTrustedProjectRequest{
+func (a *ContainerAssetsApiService) AddTrustedProject(ctx _context.Context, id string) ContainerApiAddTrustedProjectRequest {
+	return ContainerApiAddTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) AddTrustedProjectExecute(r ContainerApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -175,20 +176,20 @@ func (a *ContainerAssetsApiService) AddTrustedProjectExecute(r ApiAddTrustedProj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAssetRequest struct {
-	ctx _context.Context
+type ContainerApiDeleteAssetRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
-	force *bool
+	id         string
+	force      *bool
 }
 
 // Allow delete if there are dependent assets
-func (r ApiDeleteAssetRequest) Force(force bool) ApiDeleteAssetRequest {
+func (r ContainerApiDeleteAssetRequest) Force(force bool) ContainerApiDeleteAssetRequest {
 	r.force = &force
 	return r
 }
 
-func (r ApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteAssetExecute(r)
 }
 
@@ -201,19 +202,19 @@ Delete a single Asset with the given ID.<br/>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiDeleteAssetRequest
+ @return ContainerApiDeleteAssetRequest
 */
-func (a *ContainerAssetsApiService) DeleteAsset(ctx _context.Context, id string) ApiDeleteAssetRequest {
-	return ApiDeleteAssetRequest{
+func (a *ContainerAssetsApiService) DeleteAsset(ctx _context.Context, id string) ContainerApiDeleteAssetRequest {
+	return ContainerApiDeleteAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) DeleteAssetExecute(r ContainerApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -320,20 +321,20 @@ func (a *ContainerAssetsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDownloadRequest struct {
-	ctx _context.Context
+type ContainerApiDownloadRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
+	id         string
 	background *bool
 }
 
 // Force the download to happen in the background
-func (r ApiDownloadRequest) Background(background bool) ApiDownloadRequest {
+func (r ContainerApiDownloadRequest) Background(background bool) ContainerApiDownloadRequest {
 	r.background = &background
 	return r
 }
 
-func (r ApiDownloadRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiDownloadRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DownloadExecute(r)
 }
 
@@ -348,19 +349,19 @@ If the background flag is set to true (or if no value for the background flag is
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiDownloadRequest
+ @return ContainerApiDownloadRequest
 */
-func (a *ContainerAssetsApiService) Download(ctx _context.Context, id string) ApiDownloadRequest {
-	return ApiDownloadRequest{
+func (a *ContainerAssetsApiService) Download(ctx _context.Context, id string) ContainerApiDownloadRequest {
+	return ContainerApiDownloadRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) DownloadExecute(r ApiDownloadRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) DownloadExecute(r ContainerApiDownloadRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -468,11 +469,10 @@ func (a *ContainerAssetsApiService) DownloadExecute(r ApiDownloadRequest) (bool,
 }
 
 type ApiGetContainerRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetContainerRequest) Execute() (FullContainerAsset, *_nethttp.Response, error) {
 	return r.ApiService.GetContainerExecute(r)
@@ -490,8 +490,8 @@ Returns a single Container Asset event by the given ID.
 func (a *ContainerAssetsApiService) GetContainer(ctx _context.Context, id string) ApiGetContainerRequest {
 	return ApiGetContainerRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -602,11 +602,11 @@ func (a *ContainerAssetsApiService) GetContainerExecute(r ApiGetContainerRequest
 }
 
 type ApiGetContainerAssetsRequest struct {
-	ctx _context.Context
-	ApiService *ContainerAssetsApiService
+	ctx         _context.Context
+	ApiService  *ContainerAssetsApiService
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
@@ -614,11 +614,13 @@ func (r ApiGetContainerAssetsRequest) Categoryids(categoryids []int32) ApiGetCon
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetContainerAssetsRequest) Maxresults(maxresults int64) ApiGetContainerAssetsRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetContainerAssetsRequest) Page(page int64) ApiGetContainerAssetsRequest {
 	r.page = &page
@@ -640,7 +642,7 @@ Returns a collection of the user's relevant Container Assets matching a specifie
 func (a *ContainerAssetsApiService) GetContainerAssets(ctx _context.Context) ApiGetContainerAssetsRequest {
 	return ApiGetContainerAssetsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -767,12 +769,12 @@ func (a *ContainerAssetsApiService) GetContainerAssetsExecute(r ApiGetContainerA
 }
 
 type ApiGetContainerAssetsExpandedRequest struct {
-	ctx _context.Context
-	ApiService *ContainerAssetsApiService
-	community *bool
+	ctx         _context.Context
+	ApiService  *ContainerAssetsApiService
+	community   *bool
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Include community assets
@@ -780,16 +782,19 @@ func (r ApiGetContainerAssetsExpandedRequest) Community(community bool) ApiGetCo
 	r.community = &community
 	return r
 }
+
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
 func (r ApiGetContainerAssetsExpandedRequest) Categoryids(categoryids []int32) ApiGetContainerAssetsExpandedRequest {
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetContainerAssetsExpandedRequest) Maxresults(maxresults int64) ApiGetContainerAssetsExpandedRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetContainerAssetsExpandedRequest) Page(page int64) ApiGetContainerAssetsExpandedRequest {
 	r.page = &page
@@ -811,7 +816,7 @@ Returns a collection of all relevant Container Assets matching a specified query
 func (a *ContainerAssetsApiService) GetContainerAssetsExpanded(ctx _context.Context) ApiGetContainerAssetsExpandedRequest {
 	return ApiGetContainerAssetsExpandedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -940,14 +945,13 @@ func (a *ContainerAssetsApiService) GetContainerAssetsExpandedExecute(r ApiGetCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiItarRestrictAssetRequest struct {
-	ctx _context.Context
+type ContainerApiItarRestrictAssetRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
+	id         string
 }
 
-
-func (r ApiItarRestrictAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiItarRestrictAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.ItarRestrictAssetExecute(r)
 }
 
@@ -962,19 +966,19 @@ Setting an Export Restriction cannot be undone.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiItarRestrictAssetRequest
+ @return ContainerApiItarRestrictAssetRequest
 */
-func (a *ContainerAssetsApiService) ItarRestrictAsset(ctx _context.Context, id string) ApiItarRestrictAssetRequest {
-	return ApiItarRestrictAssetRequest{
+func (a *ContainerAssetsApiService) ItarRestrictAsset(ctx _context.Context, id string) ContainerApiItarRestrictAssetRequest {
+	return ContainerApiItarRestrictAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) ItarRestrictAssetExecute(r ApiItarRestrictAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) ItarRestrictAssetExecute(r ContainerApiItarRestrictAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1078,14 +1082,13 @@ func (a *ContainerAssetsApiService) ItarRestrictAssetExecute(r ApiItarRestrictAs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDependentAssetsRequest struct {
-	ctx _context.Context
+type ContainerApiListDependentAssetsRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
+	id         string
 }
 
-
-func (r ApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
+func (r ContainerApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
 	return r.ApiService.ListDependentAssetsExecute(r)
 }
 
@@ -1096,19 +1099,19 @@ Returns a collection of the Composite Assets that include the specified Asset.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiListDependentAssetsRequest
+ @return ContainerApiListDependentAssetsRequest
 */
-func (a *ContainerAssetsApiService) ListDependentAssets(ctx _context.Context, id string) ApiListDependentAssetsRequest {
-	return ApiListDependentAssetsRequest{
+func (a *ContainerAssetsApiService) ListDependentAssets(ctx _context.Context, id string) ContainerApiListDependentAssetsRequest {
+	return ContainerApiListDependentAssetsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return []BasicAsset
-func (a *ContainerAssetsApiService) ListDependentAssetsExecute(r ApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) ListDependentAssetsExecute(r ContainerApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1212,20 +1215,20 @@ func (a *ContainerAssetsApiService) ListDependentAssetsExecute(r ApiListDependen
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveTrustedProjectRequest struct {
-	ctx _context.Context
+type ContainerApiRemoveTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to untrust
-func (r ApiRemoveTrustedProjectRequest) Trustedid(trustedid string) ApiRemoveTrustedProjectRequest {
+func (r ContainerApiRemoveTrustedProjectRequest) Trustedid(trustedid string) ContainerApiRemoveTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RemoveTrustedProjectExecute(r)
 }
 
@@ -1236,19 +1239,19 @@ Removes the provided Project from the Asset's list of Trusted Projects.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiRemoveTrustedProjectRequest
+ @return ContainerApiRemoveTrustedProjectRequest
 */
-func (a *ContainerAssetsApiService) RemoveTrustedProject(ctx _context.Context, id string) ApiRemoveTrustedProjectRequest {
-	return ApiRemoveTrustedProjectRequest{
+func (a *ContainerAssetsApiService) RemoveTrustedProject(ctx _context.Context, id string) ContainerApiRemoveTrustedProjectRequest {
+	return ContainerApiRemoveTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) RemoveTrustedProjectExecute(r ContainerApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1357,10 +1360,10 @@ func (a *ContainerAssetsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrust
 }
 
 type ApiSubmitAssetToSubmissionServiceRequest struct {
-	ctx _context.Context
-	ApiService *ContainerAssetsApiService
-	id string
-	submissionServiceId string
+	ctx                                      _context.Context
+	ApiService                               *ContainerAssetsApiService
+	id                                       string
+	submissionServiceId                      string
 	inputSubmissionServiceForAssetSubmission *InputSubmissionServiceForAssetSubmission
 }
 
@@ -1392,9 +1395,9 @@ If the Service's endpoint is a Docker Registry, an image name and image tag for 
 */
 func (a *ContainerAssetsApiService) SubmitAssetToSubmissionService(ctx _context.Context, id string, submissionServiceId string) ApiSubmitAssetToSubmissionServiceRequest {
 	return ApiSubmitAssetToSubmissionServiceRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:          a,
+		ctx:                 ctx,
+		id:                  id,
 		submissionServiceId: submissionServiceId,
 	}
 }
@@ -1508,27 +1511,28 @@ func (a *ContainerAssetsApiService) SubmitAssetToSubmissionServiceExecute(r ApiS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSubmitBucketResourceToSubmissionServiceRequest struct {
-	ctx _context.Context
-	ApiService *ContainerAssetsApiService
-	id string
-	submissionServiceId string
-	fileName *string
+type ContainerApiSubmitBucketResourceToSubmissionServiceRequest struct {
+	ctx                                      _context.Context
+	ApiService                               *ContainerAssetsApiService
+	id                                       string
+	submissionServiceId                      string
+	fileName                                 *string
 	inputSubmissionServiceForAssetSubmission *InputSubmissionServiceForAssetSubmission
 }
 
 // The filename within the bucket to download
-func (r ApiSubmitBucketResourceToSubmissionServiceRequest) FileName(fileName string) ApiSubmitBucketResourceToSubmissionServiceRequest {
+func (r ContainerApiSubmitBucketResourceToSubmissionServiceRequest) FileName(fileName string) ContainerApiSubmitBucketResourceToSubmissionServiceRequest {
 	r.fileName = &fileName
 	return r
 }
+
 // Submission service override values
-func (r ApiSubmitBucketResourceToSubmissionServiceRequest) InputSubmissionServiceForAssetSubmission(inputSubmissionServiceForAssetSubmission InputSubmissionServiceForAssetSubmission) ApiSubmitBucketResourceToSubmissionServiceRequest {
+func (r ContainerApiSubmitBucketResourceToSubmissionServiceRequest) InputSubmissionServiceForAssetSubmission(inputSubmissionServiceForAssetSubmission InputSubmissionServiceForAssetSubmission) ContainerApiSubmitBucketResourceToSubmissionServiceRequest {
 	r.inputSubmissionServiceForAssetSubmission = &inputSubmissionServiceForAssetSubmission
 	return r
 }
 
-func (r ApiSubmitBucketResourceToSubmissionServiceRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiSubmitBucketResourceToSubmissionServiceRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.SubmitBucketResourceToSubmissionServiceExecute(r)
 }
 
@@ -1544,20 +1548,20 @@ If the Service's endpoint is an SFTP Host, the Submission will only be able to o
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of the bucket to publish a resource from
  @param submissionServiceId ID of project submission service
- @return ApiSubmitBucketResourceToSubmissionServiceRequest
+ @return ContainerApiSubmitBucketResourceToSubmissionServiceRequest
 */
-func (a *ContainerAssetsApiService) SubmitBucketResourceToSubmissionService(ctx _context.Context, id string, submissionServiceId string) ApiSubmitBucketResourceToSubmissionServiceRequest {
-	return ApiSubmitBucketResourceToSubmissionServiceRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+func (a *ContainerAssetsApiService) SubmitBucketResourceToSubmissionService(ctx _context.Context, id string, submissionServiceId string) ContainerApiSubmitBucketResourceToSubmissionServiceRequest {
+	return ContainerApiSubmitBucketResourceToSubmissionServiceRequest{
+		ApiService:          a,
+		ctx:                 ctx,
+		id:                  id,
 		submissionServiceId: submissionServiceId,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) SubmitBucketResourceToSubmissionServiceExecute(r ApiSubmitBucketResourceToSubmissionServiceRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) SubmitBucketResourceToSubmissionServiceExecute(r ContainerApiSubmitBucketResourceToSubmissionServiceRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1668,20 +1672,20 @@ func (a *ContainerAssetsApiService) SubmitBucketResourceToSubmissionServiceExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetRequest struct {
-	ctx _context.Context
-	ApiService *ContainerAssetsApiService
-	id string
+type ContainerApiUpdateAssetRequest struct {
+	ctx                 _context.Context
+	ApiService          *ContainerAssetsApiService
+	id                  string
 	inputAssetForUpdate *InputAssetForUpdate
 }
 
 // The modified Asset metadata
-func (r ApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) ApiUpdateAssetRequest {
+func (r ContainerApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) ContainerApiUpdateAssetRequest {
 	r.inputAssetForUpdate = &inputAssetForUpdate
 	return r
 }
 
-func (r ApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetExecute(r)
 }
 
@@ -1692,19 +1696,19 @@ Updates the metadata of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateAssetRequest
+ @return ContainerApiUpdateAssetRequest
 */
-func (a *ContainerAssetsApiService) UpdateAsset(ctx _context.Context, id string) ApiUpdateAssetRequest {
-	return ApiUpdateAssetRequest{
+func (a *ContainerAssetsApiService) UpdateAsset(ctx _context.Context, id string) ContainerApiUpdateAssetRequest {
+	return ContainerApiUpdateAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateAssetExecute(r ContainerApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1810,24 +1814,24 @@ func (a *ContainerAssetsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetContentRequest struct {
-	ctx _context.Context
+type ContainerApiUpdateAssetContentRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
-	file *[]*os.File
-	filename *string
+	id         string
+	file       *[]*os.File
+	filename   *string
 }
 
-func (r ApiUpdateAssetContentRequest) File(file []*os.File) ApiUpdateAssetContentRequest {
+func (r ContainerApiUpdateAssetContentRequest) File(file []*os.File) ContainerApiUpdateAssetContentRequest {
 	r.file = &file
 	return r
 }
-func (r ApiUpdateAssetContentRequest) Filename(filename string) ApiUpdateAssetContentRequest {
+func (r ContainerApiUpdateAssetContentRequest) Filename(filename string) ContainerApiUpdateAssetContentRequest {
 	r.filename = &filename
 	return r
 }
 
-func (r ApiUpdateAssetContentRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateAssetContentRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetContentExecute(r)
 }
 
@@ -1840,19 +1844,19 @@ The 'Update Content' call is only available for importable Asset types (i.e. Sof
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateAssetContentRequest
+ @return ContainerApiUpdateAssetContentRequest
 */
-func (a *ContainerAssetsApiService) UpdateAssetContent(ctx _context.Context, id string) ApiUpdateAssetContentRequest {
-	return ApiUpdateAssetContentRequest{
+func (a *ContainerAssetsApiService) UpdateAssetContent(ctx _context.Context, id string) ContainerApiUpdateAssetContentRequest {
+	return ContainerApiUpdateAssetContentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateAssetContentExecute(r ApiUpdateAssetContentRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateAssetContentExecute(r ContainerApiUpdateAssetContentRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1970,20 +1974,20 @@ func (a *ContainerAssetsApiService) UpdateAssetContentExecute(r ApiUpdateAssetCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetStateRequest struct {
-	ctx _context.Context
+type ContainerApiUpdateAssetStateRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
-	state *string
+	id         string
+	state      *string
 }
 
 // The new asset state type
-func (r ApiUpdateAssetStateRequest) State(state string) ApiUpdateAssetStateRequest {
+func (r ContainerApiUpdateAssetStateRequest) State(state string) ContainerApiUpdateAssetStateRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetStateExecute(r)
 }
 
@@ -1994,19 +1998,19 @@ Updates the state of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiUpdateAssetStateRequest
+ @return ContainerApiUpdateAssetStateRequest
 */
-func (a *ContainerAssetsApiService) UpdateAssetState(ctx _context.Context, id string) ApiUpdateAssetStateRequest {
-	return ApiUpdateAssetStateRequest{
+func (a *ContainerAssetsApiService) UpdateAssetState(ctx _context.Context, id string) ContainerApiUpdateAssetStateRequest {
+	return ContainerApiUpdateAssetStateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateAssetStateExecute(r ContainerApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2114,20 +2118,20 @@ func (a *ContainerAssetsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetVisibilityQueryRequest struct {
-	ctx _context.Context
+type ContainerApiUpdateAssetVisibilityQueryRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
+	id         string
 	visibility *string
 }
 
 // The new asset visibility type
-func (r ApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) ApiUpdateAssetVisibilityQueryRequest {
+func (r ContainerApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) ContainerApiUpdateAssetVisibilityQueryRequest {
 	r.visibility = &visibility
 	return r
 }
 
-func (r ApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetVisibilityQueryExecute(r)
 }
 
@@ -2138,19 +2142,19 @@ Updates the visibility of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateAssetVisibilityQueryRequest
+ @return ContainerApiUpdateAssetVisibilityQueryRequest
 */
-func (a *ContainerAssetsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) ApiUpdateAssetVisibilityQueryRequest {
-	return ApiUpdateAssetVisibilityQueryRequest{
+func (a *ContainerAssetsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) ContainerApiUpdateAssetVisibilityQueryRequest {
+	return ContainerApiUpdateAssetVisibilityQueryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateAssetVisibilityQueryExecute(r ContainerApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2258,20 +2262,20 @@ func (a *ContainerAssetsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateImpactLevelRequest struct {
-	ctx _context.Context
-	ApiService *ContainerAssetsApiService
-	id string
+type ContainerApiUpdateImpactLevelRequest struct {
+	ctx         _context.Context
+	ApiService  *ContainerAssetsApiService
+	id          string
 	impactlevel *string
 }
 
 // The new asset impact level type.
-func (r ApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) ApiUpdateImpactLevelRequest {
+func (r ContainerApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) ContainerApiUpdateImpactLevelRequest {
 	r.impactlevel = &impactlevel
 	return r
 }
 
-func (r ApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateImpactLevelExecute(r)
 }
 
@@ -2284,19 +2288,19 @@ Updates the Impact Level of a single Asset with the given ID.<br>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateImpactLevelRequest
+ @return ContainerApiUpdateImpactLevelRequest
 */
-func (a *ContainerAssetsApiService) UpdateImpactLevel(ctx _context.Context, id string) ApiUpdateImpactLevelRequest {
-	return ApiUpdateImpactLevelRequest{
+func (a *ContainerAssetsApiService) UpdateImpactLevel(ctx _context.Context, id string) ContainerApiUpdateImpactLevelRequest {
+	return ContainerApiUpdateImpactLevelRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateImpactLevelExecute(r ContainerApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2404,20 +2408,20 @@ func (a *ContainerAssetsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateInstanceLimitRequest struct {
-	ctx _context.Context
+type ContainerApiUpdateInstanceLimitRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
-	limit *int64
+	id         string
+	limit      *int64
 }
 
 // The new asset instance limit
-func (r ApiUpdateInstanceLimitRequest) Limit(limit int64) ApiUpdateInstanceLimitRequest {
+func (r ContainerApiUpdateInstanceLimitRequest) Limit(limit int64) ContainerApiUpdateInstanceLimitRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateInstanceLimitExecute(r)
 }
 
@@ -2428,19 +2432,19 @@ Updates the instance limit of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateInstanceLimitRequest
+ @return ContainerApiUpdateInstanceLimitRequest
 */
-func (a *ContainerAssetsApiService) UpdateInstanceLimit(ctx _context.Context, id string) ApiUpdateInstanceLimitRequest {
-	return ApiUpdateInstanceLimitRequest{
+func (a *ContainerAssetsApiService) UpdateInstanceLimit(ctx _context.Context, id string) ContainerApiUpdateInstanceLimitRequest {
+	return ContainerApiUpdateInstanceLimitRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateInstanceLimitExecute(r ContainerApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2548,20 +2552,20 @@ func (a *ContainerAssetsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstan
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateOfflineStatusRequest struct {
-	ctx _context.Context
+type ContainerApiUpdateOfflineStatusRequest struct {
+	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id string
-	offline *bool
+	id         string
+	offline    *bool
 }
 
 // Set the asset status to offline
-func (r ApiUpdateOfflineStatusRequest) Offline(offline bool) ApiUpdateOfflineStatusRequest {
+func (r ContainerApiUpdateOfflineStatusRequest) Offline(offline bool) ContainerApiUpdateOfflineStatusRequest {
 	r.offline = &offline
 	return r
 }
 
-func (r ApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateOfflineStatusExecute(r)
 }
 
@@ -2572,19 +2576,19 @@ Updates the Offline Status of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateOfflineStatusRequest
+ @return ContainerApiUpdateOfflineStatusRequest
 */
-func (a *ContainerAssetsApiService) UpdateOfflineStatus(ctx _context.Context, id string) ApiUpdateOfflineStatusRequest {
-	return ApiUpdateOfflineStatusRequest{
+func (a *ContainerAssetsApiService) UpdateOfflineStatus(ctx _context.Context, id string) ContainerApiUpdateOfflineStatusRequest {
+	return ContainerApiUpdateOfflineStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateOfflineStatusExecute(r ApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateOfflineStatusExecute(r ContainerApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}

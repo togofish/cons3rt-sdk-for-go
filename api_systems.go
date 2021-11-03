@@ -17,8 +17,8 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
 
 // Linger please
@@ -29,20 +29,20 @@ var (
 // SystemsApiService SystemsApi service
 type SystemsApiService service
 
-type ApiAddTrustedProjectRequest struct {
-	ctx _context.Context
+type SystemsApiAddTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to trust
-func (r ApiAddTrustedProjectRequest) Trustedid(trustedid string) ApiAddTrustedProjectRequest {
+func (r SystemsApiAddTrustedProjectRequest) Trustedid(trustedid string) SystemsApiAddTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.AddTrustedProjectExecute(r)
 }
 
@@ -55,19 +55,19 @@ The Asset must have a visibility set to TRUSTED_PROJECT for this to have any eff
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiAddTrustedProjectRequest
+ @return SystemsApiAddTrustedProjectRequest
 */
-func (a *SystemsApiService) AddTrustedProject(ctx _context.Context, id string) ApiAddTrustedProjectRequest {
-	return ApiAddTrustedProjectRequest{
+func (a *SystemsApiService) AddTrustedProject(ctx _context.Context, id string) SystemsApiAddTrustedProjectRequest {
+	return SystemsApiAddTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) AddTrustedProjectExecute(r SystemsApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -176,10 +176,10 @@ func (a *SystemsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectReque
 }
 
 type ApiCloneSystemRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	name *string
+	id         string
+	name       *string
 }
 
 // Name of the new system
@@ -204,8 +204,8 @@ Clones the specified System to a new System with the provided name.
 func (a *SystemsApiService) CloneSystem(ctx _context.Context, id string) ApiCloneSystemRequest {
 	return ApiCloneSystemRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -320,11 +320,11 @@ func (a *SystemsApiService) CloneSystemExecute(r ApiCloneSystemRequest) (string,
 }
 
 type ApiCreateScenario1Request struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	name *string
-	role *string
+	id         string
+	name       *string
+	role       *string
 }
 
 // Name of the new scenario
@@ -332,6 +332,7 @@ func (r ApiCreateScenario1Request) Name(name string) ApiCreateScenario1Request {
 	r.name = &name
 	return r
 }
+
 // System role name in the new scenario
 func (r ApiCreateScenario1Request) Role(role string) ApiCreateScenario1Request {
 	r.role = &role
@@ -354,8 +355,8 @@ Creates a single-Host Scenario with the provided name from the specified System.
 func (a *SystemsApiService) CreateScenario1(ctx _context.Context, id string) ApiCreateScenario1Request {
 	return ApiCreateScenario1Request{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -474,11 +475,11 @@ func (a *SystemsApiService) CreateScenario1Execute(r ApiCreateScenario1Request) 
 }
 
 type ApiCreateSoftwareBundleFromSystemModuleRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	name *string
-	body *string
+	id         string
+	name       *string
+	body       *string
 }
 
 // Name of the new software bundle
@@ -486,6 +487,7 @@ func (r ApiCreateSoftwareBundleFromSystemModuleRequest) Name(name string) ApiCre
 	r.name = &name
 	return r
 }
+
 // Description of the new software bundle
 func (r ApiCreateSoftwareBundleFromSystemModuleRequest) Body(body string) ApiCreateSoftwareBundleFromSystemModuleRequest {
 	r.body = &body
@@ -508,8 +510,8 @@ Creates a single Software Bundle from the Software Components of the specified S
 func (a *SystemsApiService) CreateSoftwareBundleFromSystemModule(ctx _context.Context, id string) ApiCreateSoftwareBundleFromSystemModuleRequest {
 	return ApiCreateSoftwareBundleFromSystemModuleRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -626,8 +628,8 @@ func (a *SystemsApiService) CreateSoftwareBundleFromSystemModuleExecute(r ApiCre
 }
 
 type ApiCreateSystemEntireRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
+	ctx               _context.Context
+	ApiService        *SystemsApiService
 	inputSystemModule *InputSystemModule
 }
 
@@ -654,7 +656,7 @@ All existing Assets used in creation must contain their Asset ID.
 func (a *SystemsApiService) CreateSystemEntire(ctx _context.Context) ApiCreateSystemEntireRequest {
 	return ApiCreateSystemEntireRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -765,20 +767,20 @@ func (a *SystemsApiService) CreateSystemEntireExecute(r ApiCreateSystemEntireReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAssetRequest struct {
-	ctx _context.Context
+type SystemsApiDeleteAssetRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	force *bool
+	id         string
+	force      *bool
 }
 
 // Allow delete if there are dependent assets
-func (r ApiDeleteAssetRequest) Force(force bool) ApiDeleteAssetRequest {
+func (r SystemsApiDeleteAssetRequest) Force(force bool) SystemsApiDeleteAssetRequest {
 	r.force = &force
 	return r
 }
 
-func (r ApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteAssetExecute(r)
 }
 
@@ -791,19 +793,19 @@ Delete a single Asset with the given ID.<br/>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiDeleteAssetRequest
+ @return SystemsApiDeleteAssetRequest
 */
-func (a *SystemsApiService) DeleteAsset(ctx _context.Context, id string) ApiDeleteAssetRequest {
-	return ApiDeleteAssetRequest{
+func (a *SystemsApiService) DeleteAsset(ctx _context.Context, id string) SystemsApiDeleteAssetRequest {
+	return SystemsApiDeleteAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) DeleteAssetExecute(r SystemsApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -911,11 +913,10 @@ func (a *SystemsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool, *
 }
 
 type ApiGetSystemRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetSystemRequest) Execute() (FullSystemModule, *_nethttp.Response, error) {
 	return r.ApiService.GetSystemExecute(r)
@@ -933,8 +934,8 @@ Returns a single System by the given ID.
 func (a *SystemsApiService) GetSystem(ctx _context.Context, id string) ApiGetSystemRequest {
 	return ApiGetSystemRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1045,12 +1046,12 @@ func (a *SystemsApiService) GetSystemExecute(r ApiGetSystemRequest) (FullSystemM
 }
 
 type ApiGetSystemsRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	type_ *string
+	ctx         _context.Context
+	ApiService  *SystemsApiService
+	type_       *string
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // System module type
@@ -1058,16 +1059,19 @@ func (r ApiGetSystemsRequest) Type_(type_ string) ApiGetSystemsRequest {
 	r.type_ = &type_
 	return r
 }
+
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
 func (r ApiGetSystemsRequest) Categoryids(categoryids []int32) ApiGetSystemsRequest {
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetSystemsRequest) Maxresults(maxresults int64) ApiGetSystemsRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetSystemsRequest) Page(page int64) ApiGetSystemsRequest {
 	r.page = &page
@@ -1089,7 +1093,7 @@ Returns a collection of the user's relevant Systems matching a specified query.
 func (a *SystemsApiService) GetSystems(ctx _context.Context) ApiGetSystemsRequest {
 	return ApiGetSystemsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1219,13 +1223,13 @@ func (a *SystemsApiService) GetSystemsExecute(r ApiGetSystemsRequest) ([]Minimal
 }
 
 type ApiGetSystemsExpandedRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	type_ *string
-	community *bool
+	ctx         _context.Context
+	ApiService  *SystemsApiService
+	type_       *string
+	community   *bool
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // System module type
@@ -1233,21 +1237,25 @@ func (r ApiGetSystemsExpandedRequest) Type_(type_ string) ApiGetSystemsExpandedR
 	r.type_ = &type_
 	return r
 }
+
 // Include community assets
 func (r ApiGetSystemsExpandedRequest) Community(community bool) ApiGetSystemsExpandedRequest {
 	r.community = &community
 	return r
 }
+
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
 func (r ApiGetSystemsExpandedRequest) Categoryids(categoryids []int32) ApiGetSystemsExpandedRequest {
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetSystemsExpandedRequest) Maxresults(maxresults int64) ApiGetSystemsExpandedRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetSystemsExpandedRequest) Page(page int64) ApiGetSystemsExpandedRequest {
 	r.page = &page
@@ -1269,7 +1277,7 @@ Returns a collection of all relevant Systems matching a specified query, includi
 func (a *SystemsApiService) GetSystemsExpanded(ctx _context.Context) ApiGetSystemsExpandedRequest {
 	return ApiGetSystemsExpandedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1401,14 +1409,13 @@ func (a *SystemsApiService) GetSystemsExpandedExecute(r ApiGetSystemsExpandedReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDependentAssetsRequest struct {
-	ctx _context.Context
+type SystemsApiListDependentAssetsRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
+	id         string
 }
 
-
-func (r ApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
+func (r SystemsApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
 	return r.ApiService.ListDependentAssetsExecute(r)
 }
 
@@ -1419,19 +1426,19 @@ Returns a collection of the Composite Assets that include the specified Asset.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiListDependentAssetsRequest
+ @return SystemsApiListDependentAssetsRequest
 */
-func (a *SystemsApiService) ListDependentAssets(ctx _context.Context, id string) ApiListDependentAssetsRequest {
-	return ApiListDependentAssetsRequest{
+func (a *SystemsApiService) ListDependentAssets(ctx _context.Context, id string) SystemsApiListDependentAssetsRequest {
+	return SystemsApiListDependentAssetsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return []BasicAsset
-func (a *SystemsApiService) ListDependentAssetsExecute(r ApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
+func (a *SystemsApiService) ListDependentAssetsExecute(r SystemsApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1536,9 +1543,9 @@ func (a *SystemsApiService) ListDependentAssetsExecute(r ApiListDependentAssetsR
 }
 
 type ApiQuickBuild1Request struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
+	ctx                       _context.Context
+	ApiService                *SystemsApiService
+	id                        string
 	inputDeploymentRunOptions *InputDeploymentRunOptions
 }
 
@@ -1568,8 +1575,8 @@ The override of Host passwords may fail due to template password complexity rule
 func (a *SystemsApiService) QuickBuild1(ctx _context.Context, id string) ApiQuickBuild1Request {
 	return ApiQuickBuild1Request{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1681,20 +1688,20 @@ func (a *SystemsApiService) QuickBuild1Execute(r ApiQuickBuild1Request) (string,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveTrustedProjectRequest struct {
-	ctx _context.Context
+type SystemsApiRemoveTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to untrust
-func (r ApiRemoveTrustedProjectRequest) Trustedid(trustedid string) ApiRemoveTrustedProjectRequest {
+func (r SystemsApiRemoveTrustedProjectRequest) Trustedid(trustedid string) SystemsApiRemoveTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RemoveTrustedProjectExecute(r)
 }
 
@@ -1705,19 +1712,19 @@ Removes the provided Project from the Asset's list of Trusted Projects.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiRemoveTrustedProjectRequest
+ @return SystemsApiRemoveTrustedProjectRequest
 */
-func (a *SystemsApiService) RemoveTrustedProject(ctx _context.Context, id string) ApiRemoveTrustedProjectRequest {
-	return ApiRemoveTrustedProjectRequest{
+func (a *SystemsApiService) RemoveTrustedProject(ctx _context.Context, id string) SystemsApiRemoveTrustedProjectRequest {
+	return SystemsApiRemoveTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) RemoveTrustedProjectExecute(r SystemsApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1826,11 +1833,11 @@ func (a *SystemsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedProjec
 }
 
 type ApiReplaceSoftwareAssetForSoftwareComponentRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
+	ctx         _context.Context
+	ApiService  *SystemsApiService
+	id          string
 	componentid *string
-	assetid *string
+	assetid     *string
 }
 
 // ID of software component to modify
@@ -1838,6 +1845,7 @@ func (r ApiReplaceSoftwareAssetForSoftwareComponentRequest) Componentid(componen
 	r.componentid = &componentid
 	return r
 }
+
 // ID of desired software asset
 func (r ApiReplaceSoftwareAssetForSoftwareComponentRequest) Assetid(assetid string) ApiReplaceSoftwareAssetForSoftwareComponentRequest {
 	r.assetid = &assetid
@@ -1860,8 +1868,8 @@ Replaces the underlying Software Asset within the specified Software Component o
 func (a *SystemsApiService) ReplaceSoftwareAssetForSoftwareComponent(ctx _context.Context, id string) ApiReplaceSoftwareAssetForSoftwareComponentRequest {
 	return ApiReplaceSoftwareAssetForSoftwareComponentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1979,20 +1987,20 @@ func (a *SystemsApiService) ReplaceSoftwareAssetForSoftwareComponentExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
+type SystemsApiUpdateAssetRequest struct {
+	ctx                 _context.Context
+	ApiService          *SystemsApiService
+	id                  string
 	inputAssetForUpdate *InputAssetForUpdate
 }
 
 // The modified Asset metadata
-func (r ApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) ApiUpdateAssetRequest {
+func (r SystemsApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) SystemsApiUpdateAssetRequest {
 	r.inputAssetForUpdate = &inputAssetForUpdate
 	return r
 }
 
-func (r ApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetExecute(r)
 }
 
@@ -2003,19 +2011,19 @@ Updates the metadata of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateAssetRequest
+ @return SystemsApiUpdateAssetRequest
 */
-func (a *SystemsApiService) UpdateAsset(ctx _context.Context, id string) ApiUpdateAssetRequest {
-	return ApiUpdateAssetRequest{
+func (a *SystemsApiService) UpdateAsset(ctx _context.Context, id string) SystemsApiUpdateAssetRequest {
+	return SystemsApiUpdateAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) UpdateAssetExecute(r SystemsApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2121,20 +2129,20 @@ func (a *SystemsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool, *
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetStateRequest struct {
-	ctx _context.Context
+type SystemsApiUpdateAssetStateRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	state *string
+	id         string
+	state      *string
 }
 
 // The new asset state type
-func (r ApiUpdateAssetStateRequest) State(state string) ApiUpdateAssetStateRequest {
+func (r SystemsApiUpdateAssetStateRequest) State(state string) SystemsApiUpdateAssetStateRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetStateExecute(r)
 }
 
@@ -2145,19 +2153,19 @@ Updates the state of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiUpdateAssetStateRequest
+ @return SystemsApiUpdateAssetStateRequest
 */
-func (a *SystemsApiService) UpdateAssetState(ctx _context.Context, id string) ApiUpdateAssetStateRequest {
-	return ApiUpdateAssetStateRequest{
+func (a *SystemsApiService) UpdateAssetState(ctx _context.Context, id string) SystemsApiUpdateAssetStateRequest {
+	return SystemsApiUpdateAssetStateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) UpdateAssetStateExecute(r SystemsApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2265,20 +2273,20 @@ func (a *SystemsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetVisibilityQueryRequest struct {
-	ctx _context.Context
+type SystemsApiUpdateAssetVisibilityQueryRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
+	id         string
 	visibility *string
 }
 
 // The new asset visibility type
-func (r ApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) ApiUpdateAssetVisibilityQueryRequest {
+func (r SystemsApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) SystemsApiUpdateAssetVisibilityQueryRequest {
 	r.visibility = &visibility
 	return r
 }
 
-func (r ApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetVisibilityQueryExecute(r)
 }
 
@@ -2289,19 +2297,19 @@ Updates the visibility of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateAssetVisibilityQueryRequest
+ @return SystemsApiUpdateAssetVisibilityQueryRequest
 */
-func (a *SystemsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) ApiUpdateAssetVisibilityQueryRequest {
-	return ApiUpdateAssetVisibilityQueryRequest{
+func (a *SystemsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) SystemsApiUpdateAssetVisibilityQueryRequest {
+	return SystemsApiUpdateAssetVisibilityQueryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) UpdateAssetVisibilityQueryExecute(r SystemsApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2409,20 +2417,20 @@ func (a *SystemsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAssetVi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateImpactLevelRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
+type SystemsApiUpdateImpactLevelRequest struct {
+	ctx         _context.Context
+	ApiService  *SystemsApiService
+	id          string
 	impactlevel *string
 }
 
 // The new asset impact level type.
-func (r ApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) ApiUpdateImpactLevelRequest {
+func (r SystemsApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) SystemsApiUpdateImpactLevelRequest {
 	r.impactlevel = &impactlevel
 	return r
 }
 
-func (r ApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateImpactLevelExecute(r)
 }
 
@@ -2435,19 +2443,19 @@ Updates the Impact Level of a single Asset with the given ID.<br>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateImpactLevelRequest
+ @return SystemsApiUpdateImpactLevelRequest
 */
-func (a *SystemsApiService) UpdateImpactLevel(ctx _context.Context, id string) ApiUpdateImpactLevelRequest {
-	return ApiUpdateImpactLevelRequest{
+func (a *SystemsApiService) UpdateImpactLevel(ctx _context.Context, id string) SystemsApiUpdateImpactLevelRequest {
+	return SystemsApiUpdateImpactLevelRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) UpdateImpactLevelExecute(r SystemsApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2555,20 +2563,20 @@ func (a *SystemsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateInstanceLimitRequest struct {
-	ctx _context.Context
+type SystemsApiUpdateInstanceLimitRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	limit *int64
+	id         string
+	limit      *int64
 }
 
 // The new asset instance limit
-func (r ApiUpdateInstanceLimitRequest) Limit(limit int64) ApiUpdateInstanceLimitRequest {
+func (r SystemsApiUpdateInstanceLimitRequest) Limit(limit int64) SystemsApiUpdateInstanceLimitRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateInstanceLimitExecute(r)
 }
 
@@ -2579,19 +2587,19 @@ Updates the instance limit of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateInstanceLimitRequest
+ @return SystemsApiUpdateInstanceLimitRequest
 */
-func (a *SystemsApiService) UpdateInstanceLimit(ctx _context.Context, id string) ApiUpdateInstanceLimitRequest {
-	return ApiUpdateInstanceLimitRequest{
+func (a *SystemsApiService) UpdateInstanceLimit(ctx _context.Context, id string) SystemsApiUpdateInstanceLimitRequest {
+	return SystemsApiUpdateInstanceLimitRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) UpdateInstanceLimitExecute(r SystemsApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2699,20 +2707,20 @@ func (a *SystemsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLimitR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateOfflineStatusRequest struct {
-	ctx _context.Context
+type SystemsApiUpdateOfflineStatusRequest struct {
+	ctx        _context.Context
 	ApiService *SystemsApiService
-	id string
-	offline *bool
+	id         string
+	offline    *bool
 }
 
 // Set the asset status to offline
-func (r ApiUpdateOfflineStatusRequest) Offline(offline bool) ApiUpdateOfflineStatusRequest {
+func (r SystemsApiUpdateOfflineStatusRequest) Offline(offline bool) SystemsApiUpdateOfflineStatusRequest {
 	r.offline = &offline
 	return r
 }
 
-func (r ApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r SystemsApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateOfflineStatusExecute(r)
 }
 
@@ -2723,19 +2731,19 @@ Updates the Offline Status of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateOfflineStatusRequest
+ @return SystemsApiUpdateOfflineStatusRequest
 */
-func (a *SystemsApiService) UpdateOfflineStatus(ctx _context.Context, id string) ApiUpdateOfflineStatusRequest {
-	return ApiUpdateOfflineStatusRequest{
+func (a *SystemsApiService) UpdateOfflineStatus(ctx _context.Context, id string) SystemsApiUpdateOfflineStatusRequest {
+	return SystemsApiUpdateOfflineStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *SystemsApiService) UpdateOfflineStatusExecute(r ApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
+func (a *SystemsApiService) UpdateOfflineStatusExecute(r SystemsApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2843,10 +2851,10 @@ func (a *SystemsApiService) UpdateOfflineStatusExecute(r ApiUpdateOfflineStatusR
 }
 
 type ApiUpdateSoftwareComponentForSystemModuleRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
-	componentid string
+	ctx                    _context.Context
+	ApiService             *SystemsApiService
+	id                     string
+	componentid            string
 	inputSoftwareComponent *InputSoftwareComponent
 }
 
@@ -2872,9 +2880,9 @@ Update a single Software Component of the specified System.
 */
 func (a *SystemsApiService) UpdateSoftwareComponentForSystemModule(ctx _context.Context, id string, componentid string) ApiUpdateSoftwareComponentForSystemModuleRequest {
 	return ApiUpdateSoftwareComponentForSystemModuleRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:  a,
+		ctx:         ctx,
+		id:          id,
 		componentid: componentid,
 	}
 }
@@ -2992,9 +3000,9 @@ func (a *SystemsApiService) UpdateSoftwareComponentForSystemModuleExecute(r ApiU
 }
 
 type ApiUpdateSoftwareComponentsForSystemModuleRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
+	ctx                    _context.Context
+	ApiService             *SystemsApiService
+	id                     string
 	inputSoftwareComponent *[]InputSoftwareComponent
 }
 
@@ -3020,8 +3028,8 @@ Updates the Software Components of a System, including their individual Configur
 func (a *SystemsApiService) UpdateSoftwareComponentsForSystemModule(ctx _context.Context, id string) ApiUpdateSoftwareComponentsForSystemModuleRequest {
 	return ApiUpdateSoftwareComponentsForSystemModuleRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3137,9 +3145,9 @@ func (a *SystemsApiService) UpdateSoftwareComponentsForSystemModuleExecute(r Api
 }
 
 type ApiUpdateSoftwareConfigurationForSystemModuleRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
+	ctx                    _context.Context
+	ApiService             *SystemsApiService
+	id                     string
 	inputSoftwareComponent *[]InputSoftwareComponent
 }
 
@@ -3167,8 +3175,8 @@ User must be an Administrator and System Module Software Components will be repl
 func (a *SystemsApiService) UpdateSoftwareConfigurationForSystemModule(ctx _context.Context, id string) ApiUpdateSoftwareConfigurationForSystemModuleRequest {
 	return ApiUpdateSoftwareConfigurationForSystemModuleRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3284,9 +3292,9 @@ func (a *SystemsApiService) UpdateSoftwareConfigurationForSystemModuleExecute(r 
 }
 
 type ApiUpdateTemplateProfileForSystemModuleRequest struct {
-	ctx _context.Context
-	ApiService *SystemsApiService
-	id string
+	ctx                  _context.Context
+	ApiService           *SystemsApiService
+	id                   string
 	inputTemplateProfile *InputTemplateProfile
 }
 
@@ -3312,8 +3320,8 @@ Update the Template Profile of the specified System.
 func (a *SystemsApiService) UpdateTemplateProfileForSystemModule(ctx _context.Context, id string) ApiUpdateTemplateProfileForSystemModuleRequest {
 	return ApiUpdateTemplateProfileForSystemModuleRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 

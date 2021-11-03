@@ -17,8 +17,8 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
 
 // Linger please
@@ -30,9 +30,9 @@ var (
 type DeploymentsApiService service
 
 type ApiAddRecurringScheduleRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
-	id string
+	ctx                    _context.Context
+	ApiService             *DeploymentsApiService
+	id                     string
 	inputRecurringSchedule *InputRecurringSchedule
 }
 
@@ -68,8 +68,8 @@ In addition, values can also be specified as comma lists (e.g. hours 1,4,6 would
 func (a *DeploymentsApiService) AddRecurringSchedule(ctx _context.Context, id string) ApiAddRecurringScheduleRequest {
 	return ApiAddRecurringScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -181,20 +181,20 @@ func (a *DeploymentsApiService) AddRecurringScheduleExecute(r ApiAddRecurringSch
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddTrustedProjectRequest struct {
-	ctx _context.Context
+type DeploymentsApiAddTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to trust
-func (r ApiAddTrustedProjectRequest) Trustedid(trustedid string) ApiAddTrustedProjectRequest {
+func (r DeploymentsApiAddTrustedProjectRequest) Trustedid(trustedid string) DeploymentsApiAddTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.AddTrustedProjectExecute(r)
 }
 
@@ -207,19 +207,19 @@ The Asset must have a visibility set to TRUSTED_PROJECT for this to have any eff
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiAddTrustedProjectRequest
+ @return DeploymentsApiAddTrustedProjectRequest
 */
-func (a *DeploymentsApiService) AddTrustedProject(ctx _context.Context, id string) ApiAddTrustedProjectRequest {
-	return ApiAddTrustedProjectRequest{
+func (a *DeploymentsApiService) AddTrustedProject(ctx _context.Context, id string) DeploymentsApiAddTrustedProjectRequest {
+	return DeploymentsApiAddTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) AddTrustedProjectExecute(r DeploymentsApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -328,10 +328,10 @@ func (a *DeploymentsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectR
 }
 
 type ApiCloneDeploymentRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	name *string
+	id         string
+	name       *string
 }
 
 // Name of the new deployment
@@ -356,8 +356,8 @@ Clones the specified Deployment to a new Deployment with the provided name.
 func (a *DeploymentsApiService) CloneDeployment(ctx _context.Context, id string) ApiCloneDeploymentRequest {
 	return ApiCloneDeploymentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -471,20 +471,20 @@ func (a *DeploymentsApiService) CloneDeploymentExecute(r ApiCloneDeploymentReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCloneSystemRequest struct {
-	ctx _context.Context
+type DeploymentsApiCloneSystemRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	name *string
+	id         string
+	name       *string
 }
 
 // Name of the new system
-func (r ApiCloneSystemRequest) Name(name string) ApiCloneSystemRequest {
+func (r DeploymentsApiCloneSystemRequest) Name(name string) DeploymentsApiCloneSystemRequest {
 	r.name = &name
 	return r
 }
 
-func (r ApiCloneSystemRequest) Execute() (string, *_nethttp.Response, error) {
+func (r DeploymentsApiCloneSystemRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.CloneSystemExecute(r)
 }
 
@@ -495,19 +495,19 @@ Clones the specified System to a new System with the provided name.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of system
- @return ApiCloneSystemRequest
+ @return DeploymentsApiCloneSystemRequest
 */
-func (a *DeploymentsApiService) CloneSystem(ctx _context.Context, id string) ApiCloneSystemRequest {
-	return ApiCloneSystemRequest{
+func (a *DeploymentsApiService) CloneSystem(ctx _context.Context, id string) DeploymentsApiCloneSystemRequest {
+	return DeploymentsApiCloneSystemRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return string
-func (a *DeploymentsApiService) CloneSystemExecute(r ApiCloneSystemRequest) (string, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) CloneSystemExecute(r DeploymentsApiCloneSystemRequest) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -616,8 +616,8 @@ func (a *DeploymentsApiService) CloneSystemExecute(r ApiCloneSystemRequest) (str
 }
 
 type ApiCreateDeploymentEntireRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
+	ctx             _context.Context
+	ApiService      *DeploymentsApiService
 	inputDeployment *InputDeployment
 }
 
@@ -644,7 +644,7 @@ All existing Assets used in creation must contain their Asset ID, while to-be-co
 func (a *DeploymentsApiService) CreateDeploymentEntire(ctx _context.Context) ApiCreateDeploymentEntireRequest {
 	return ApiCreateDeploymentEntireRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -755,20 +755,20 @@ func (a *DeploymentsApiService) CreateDeploymentEntireExecute(r ApiCreateDeploym
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAssetRequest struct {
-	ctx _context.Context
+type DeploymentsApiDeleteAssetRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	force *bool
+	id         string
+	force      *bool
 }
 
 // Allow delete if there are dependent assets
-func (r ApiDeleteAssetRequest) Force(force bool) ApiDeleteAssetRequest {
+func (r DeploymentsApiDeleteAssetRequest) Force(force bool) DeploymentsApiDeleteAssetRequest {
 	r.force = &force
 	return r
 }
 
-func (r ApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteAssetExecute(r)
 }
 
@@ -781,19 +781,19 @@ Delete a single Asset with the given ID.<br/>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiDeleteAssetRequest
+ @return DeploymentsApiDeleteAssetRequest
 */
-func (a *DeploymentsApiService) DeleteAsset(ctx _context.Context, id string) ApiDeleteAssetRequest {
-	return ApiDeleteAssetRequest{
+func (a *DeploymentsApiService) DeleteAsset(ctx _context.Context, id string) DeploymentsApiDeleteAssetRequest {
+	return DeploymentsApiDeleteAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) DeleteAssetExecute(r DeploymentsApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -901,11 +901,10 @@ func (a *DeploymentsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (boo
 }
 
 type ApiDetermineValidVirtualizationRealmsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiDetermineValidVirtualizationRealmsRequest) Execute() ([]MinimalVirtualizationRealm, *_nethttp.Response, error) {
 	return r.ApiService.DetermineValidVirtualizationRealmsExecute(r)
@@ -923,8 +922,8 @@ Returns a collection of the available Virtualization Realms for launching the sp
 func (a *DeploymentsApiService) DetermineValidVirtualizationRealms(ctx _context.Context, id string) ApiDetermineValidVirtualizationRealmsRequest {
 	return ApiDetermineValidVirtualizationRealmsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1035,9 +1034,9 @@ func (a *DeploymentsApiService) DetermineValidVirtualizationRealmsExecute(r ApiD
 }
 
 type ApiGetBindingsForDeploymentRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
-	id string
+	ctx                                  _context.Context
+	ApiService                           *DeploymentsApiService
+	id                                   string
 	inputDeploymentRunOptionsForBindings *InputDeploymentRunOptionsForBindings
 }
 
@@ -1063,8 +1062,8 @@ Returns a collection of the possible Virtualization Realm bindings for a single 
 func (a *DeploymentsApiService) GetBindingsForDeployment(ctx _context.Context, id string) ApiGetBindingsForDeploymentRequest {
 	return ApiGetBindingsForDeploymentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1177,11 +1176,10 @@ func (a *DeploymentsApiService) GetBindingsForDeploymentExecute(r ApiGetBindings
 }
 
 type ApiGetDeploymentRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetDeploymentRequest) Execute() (FullDeployment, *_nethttp.Response, error) {
 	return r.ApiService.GetDeploymentExecute(r)
@@ -1199,8 +1197,8 @@ Returns a single Deployment by the given ID.
 func (a *DeploymentsApiService) GetDeployment(ctx _context.Context, id string) ApiGetDeploymentRequest {
 	return ApiGetDeploymentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1311,11 +1309,10 @@ func (a *DeploymentsApiService) GetDeploymentExecute(r ApiGetDeploymentRequest) 
 }
 
 type ApiGetDeploymentMetricRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetDeploymentMetricRequest) Execute() (DeploymentAssetMetric, *_nethttp.Response, error) {
 	return r.ApiService.GetDeploymentMetricExecute(r)
@@ -1333,8 +1330,8 @@ Returns historical metric data for a single Deployment.
 func (a *DeploymentsApiService) GetDeploymentMetric(ctx _context.Context, id string) ApiGetDeploymentMetricRequest {
 	return ApiGetDeploymentMetricRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1445,11 +1442,11 @@ func (a *DeploymentsApiService) GetDeploymentMetricExecute(r ApiGetDeploymentMet
 }
 
 type ApiGetDeploymentRunsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Maximum number of results to return
@@ -1457,6 +1454,7 @@ func (r ApiGetDeploymentRunsRequest) Maxresults(maxresults int64) ApiGetDeployme
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetDeploymentRunsRequest) Page(page int64) ApiGetDeploymentRunsRequest {
 	r.page = &page
@@ -1479,8 +1477,8 @@ Returns a collection of the Deployment Runs for a single Deployment.
 func (a *DeploymentsApiService) GetDeploymentRuns(ctx _context.Context, id string) ApiGetDeploymentRunsRequest {
 	return ApiGetDeploymentRunsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1597,12 +1595,12 @@ func (a *DeploymentsApiService) GetDeploymentRunsExecute(r ApiGetDeploymentRunsR
 }
 
 type ApiGetDeploymentRuns1Request struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
 	searchType *string
-	inProject *bool
+	inProject  *bool
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Deployment run status
@@ -1610,16 +1608,19 @@ func (r ApiGetDeploymentRuns1Request) SearchType(searchType string) ApiGetDeploy
 	r.searchType = &searchType
 	return r
 }
+
 // Include project runs
 func (r ApiGetDeploymentRuns1Request) InProject(inProject bool) ApiGetDeploymentRuns1Request {
 	r.inProject = &inProject
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetDeploymentRuns1Request) Maxresults(maxresults int64) ApiGetDeploymentRuns1Request {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetDeploymentRuns1Request) Page(page int64) ApiGetDeploymentRuns1Request {
 	r.page = &page
@@ -1641,7 +1642,7 @@ Returns a collection of the user's relevant Deployment Runs matching a specified
 func (a *DeploymentsApiService) GetDeploymentRuns1(ctx _context.Context) ApiGetDeploymentRuns1Request {
 	return ApiGetDeploymentRuns1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1763,32 +1764,34 @@ func (a *DeploymentsApiService) GetDeploymentRuns1Execute(r ApiGetDeploymentRuns
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDeploymentRunsInVirtualizationRealmRequest struct {
-	ctx _context.Context
+type DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 	searchType *string
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Deployment run status type
-func (r ApiGetDeploymentRunsInVirtualizationRealmRequest) SearchType(searchType string) ApiGetDeploymentRunsInVirtualizationRealmRequest {
+func (r DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest) SearchType(searchType string) DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest {
 	r.searchType = &searchType
 	return r
 }
+
 // Maximum number of results to return
-func (r ApiGetDeploymentRunsInVirtualizationRealmRequest) Maxresults(maxresults int64) ApiGetDeploymentRunsInVirtualizationRealmRequest {
+func (r DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest) Maxresults(maxresults int64) DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
-func (r ApiGetDeploymentRunsInVirtualizationRealmRequest) Page(page int64) ApiGetDeploymentRunsInVirtualizationRealmRequest {
+func (r DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest) Page(page int64) DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest {
 	r.page = &page
 	return r
 }
 
-func (r ApiGetDeploymentRunsInVirtualizationRealmRequest) Execute() ([]MinimalDeploymentRun, *_nethttp.Response, error) {
+func (r DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest) Execute() ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	return r.ApiService.GetDeploymentRunsInVirtualizationRealmExecute(r)
 }
 
@@ -1799,19 +1802,19 @@ Returns a collection of the Deployment Runs launched into the specified Virtuali
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of virtualization realm
- @return ApiGetDeploymentRunsInVirtualizationRealmRequest
+ @return DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest
 */
-func (a *DeploymentsApiService) GetDeploymentRunsInVirtualizationRealm(ctx _context.Context, id string) ApiGetDeploymentRunsInVirtualizationRealmRequest {
-	return ApiGetDeploymentRunsInVirtualizationRealmRequest{
+func (a *DeploymentsApiService) GetDeploymentRunsInVirtualizationRealm(ctx _context.Context, id string) DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest {
+	return DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return []MinimalDeploymentRun
-func (a *DeploymentsApiService) GetDeploymentRunsInVirtualizationRealmExecute(r ApiGetDeploymentRunsInVirtualizationRealmRequest) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) GetDeploymentRunsInVirtualizationRealmExecute(r DeploymentsApiGetDeploymentRunsInVirtualizationRealmRequest) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1926,11 +1929,11 @@ func (a *DeploymentsApiService) GetDeploymentRunsInVirtualizationRealmExecute(r 
 }
 
 type ApiGetDeploymentsRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
+	ctx         _context.Context
+	ApiService  *DeploymentsApiService
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
@@ -1938,11 +1941,13 @@ func (r ApiGetDeploymentsRequest) Categoryids(categoryids []int32) ApiGetDeploym
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetDeploymentsRequest) Maxresults(maxresults int64) ApiGetDeploymentsRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetDeploymentsRequest) Page(page int64) ApiGetDeploymentsRequest {
 	r.page = &page
@@ -1964,7 +1969,7 @@ Returns a collection of the user's relevant Deployments matching a specified que
 func (a *DeploymentsApiService) GetDeployments(ctx _context.Context) ApiGetDeploymentsRequest {
 	return ApiGetDeploymentsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -2091,12 +2096,12 @@ func (a *DeploymentsApiService) GetDeploymentsExecute(r ApiGetDeploymentsRequest
 }
 
 type ApiGetDeploymentsExpandedRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
-	community *bool
+	ctx         _context.Context
+	ApiService  *DeploymentsApiService
+	community   *bool
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Include community assets
@@ -2104,16 +2109,19 @@ func (r ApiGetDeploymentsExpandedRequest) Community(community bool) ApiGetDeploy
 	r.community = &community
 	return r
 }
+
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
 func (r ApiGetDeploymentsExpandedRequest) Categoryids(categoryids []int32) ApiGetDeploymentsExpandedRequest {
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetDeploymentsExpandedRequest) Maxresults(maxresults int64) ApiGetDeploymentsExpandedRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetDeploymentsExpandedRequest) Page(page int64) ApiGetDeploymentsExpandedRequest {
 	r.page = &page
@@ -2135,7 +2143,7 @@ Returns a collection of all relevant Deployments matching a specified query, inc
 func (a *DeploymentsApiService) GetDeploymentsExpanded(ctx _context.Context) ApiGetDeploymentsExpandedRequest {
 	return ApiGetDeploymentsExpandedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -2265,12 +2273,11 @@ func (a *DeploymentsApiService) GetDeploymentsExpandedExecute(r ApiGetDeployment
 }
 
 type ApiGetValidNetworksForVirtualizationRealmRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
-	id string
+	ctx                   _context.Context
+	ApiService            *DeploymentsApiService
+	id                    string
 	virtualizationRealmId string
 }
-
 
 func (r ApiGetValidNetworksForVirtualizationRealmRequest) Execute() ([]MinimalNetwork, *_nethttp.Response, error) {
 	return r.ApiService.GetValidNetworksForVirtualizationRealmExecute(r)
@@ -2288,9 +2295,9 @@ Returns a collection of the Networks that will be created for a single Deploymen
 */
 func (a *DeploymentsApiService) GetValidNetworksForVirtualizationRealm(ctx _context.Context, id string, virtualizationRealmId string) ApiGetValidNetworksForVirtualizationRealmRequest {
 	return ApiGetValidNetworksForVirtualizationRealmRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:            a,
+		ctx:                   ctx,
+		id:                    id,
 		virtualizationRealmId: virtualizationRealmId,
 	}
 }
@@ -2403,9 +2410,9 @@ func (a *DeploymentsApiService) GetValidNetworksForVirtualizationRealmExecute(r 
 }
 
 type ApiLaunchDeploymentRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
-	id string
+	ctx                       _context.Context
+	ApiService                *DeploymentsApiService
+	id                        string
 	inputDeploymentRunOptions *InputDeploymentRunOptions
 }
 
@@ -2439,8 +2446,8 @@ The override of Host passwords may fail due to template password complexity rule
 func (a *DeploymentsApiService) LaunchDeployment(ctx _context.Context, id string) ApiLaunchDeploymentRequest {
 	return ApiLaunchDeploymentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2552,14 +2559,13 @@ func (a *DeploymentsApiService) LaunchDeploymentExecute(r ApiLaunchDeploymentReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDependentAssetsRequest struct {
-	ctx _context.Context
+type DeploymentsApiListDependentAssetsRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
 
-
-func (r ApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
+func (r DeploymentsApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
 	return r.ApiService.ListDependentAssetsExecute(r)
 }
 
@@ -2570,19 +2576,19 @@ Returns a collection of the Composite Assets that include the specified Asset.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiListDependentAssetsRequest
+ @return DeploymentsApiListDependentAssetsRequest
 */
-func (a *DeploymentsApiService) ListDependentAssets(ctx _context.Context, id string) ApiListDependentAssetsRequest {
-	return ApiListDependentAssetsRequest{
+func (a *DeploymentsApiService) ListDependentAssets(ctx _context.Context, id string) DeploymentsApiListDependentAssetsRequest {
+	return DeploymentsApiListDependentAssetsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return []BasicAsset
-func (a *DeploymentsApiService) ListDependentAssetsExecute(r ApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) ListDependentAssetsExecute(r DeploymentsApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -2687,11 +2693,10 @@ func (a *DeploymentsApiService) ListDependentAssetsExecute(r ApiListDependentAss
 }
 
 type ApiListOptionsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiListOptionsRequest) Execute() ([]MinimalDeploymentRunOptions, *_nethttp.Response, error) {
 	return r.ApiService.ListOptionsExecute(r)
@@ -2709,8 +2714,8 @@ Returns a collection of the previously used Run Options for a single Deployment.
 func (a *DeploymentsApiService) ListOptions(ctx _context.Context, id string) ApiListOptionsRequest {
 	return ApiListOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2821,11 +2826,10 @@ func (a *DeploymentsApiService) ListOptionsExecute(r ApiListOptionsRequest) ([]M
 }
 
 type ApiListPropertiesRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiListPropertiesRequest) Execute() ([]Property, *_nethttp.Response, error) {
 	return r.ApiService.ListPropertiesExecute(r)
@@ -2843,8 +2847,8 @@ Returns a collection of the Properties for a single Deployment.
 func (a *DeploymentsApiService) ListProperties(ctx _context.Context, id string) ApiListPropertiesRequest {
 	return ApiListPropertiesRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2955,11 +2959,10 @@ func (a *DeploymentsApiService) ListPropertiesExecute(r ApiListPropertiesRequest
 }
 
 type ApiListSchedulesRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiListSchedulesRequest) Execute() ([]MinimalRecurringSchedule, *_nethttp.Response, error) {
 	return r.ApiService.ListSchedulesExecute(r)
@@ -2977,8 +2980,8 @@ Returns a collection of the active Recurring Schedules for a single Deployment.
 func (a *DeploymentsApiService) ListSchedules(ctx _context.Context, id string) ApiListSchedulesRequest {
 	return ApiListSchedulesRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3089,11 +3092,10 @@ func (a *DeploymentsApiService) ListSchedulesExecute(r ApiListSchedulesRequest) 
 }
 
 type ApiRemoveRecurringScheduleRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiRemoveRecurringScheduleRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RemoveRecurringScheduleExecute(r)
@@ -3111,8 +3113,8 @@ Removes the provided Recurring Schedule from the Deployment.
 func (a *DeploymentsApiService) RemoveRecurringSchedule(ctx _context.Context, id string) ApiRemoveRecurringScheduleRequest {
 	return ApiRemoveRecurringScheduleRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3222,20 +3224,20 @@ func (a *DeploymentsApiService) RemoveRecurringScheduleExecute(r ApiRemoveRecurr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveTrustedProjectRequest struct {
-	ctx _context.Context
+type DeploymentsApiRemoveTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to untrust
-func (r ApiRemoveTrustedProjectRequest) Trustedid(trustedid string) ApiRemoveTrustedProjectRequest {
+func (r DeploymentsApiRemoveTrustedProjectRequest) Trustedid(trustedid string) DeploymentsApiRemoveTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RemoveTrustedProjectExecute(r)
 }
 
@@ -3246,19 +3248,19 @@ Removes the provided Project from the Asset's list of Trusted Projects.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiRemoveTrustedProjectRequest
+ @return DeploymentsApiRemoveTrustedProjectRequest
 */
-func (a *DeploymentsApiService) RemoveTrustedProject(ctx _context.Context, id string) ApiRemoveTrustedProjectRequest {
-	return ApiRemoveTrustedProjectRequest{
+func (a *DeploymentsApiService) RemoveTrustedProject(ctx _context.Context, id string) DeploymentsApiRemoveTrustedProjectRequest {
+	return DeploymentsApiRemoveTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) RemoveTrustedProjectExecute(r DeploymentsApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3366,20 +3368,20 @@ func (a *DeploymentsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedPr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
-	id string
+type DeploymentsApiUpdateAssetRequest struct {
+	ctx                 _context.Context
+	ApiService          *DeploymentsApiService
+	id                  string
 	inputAssetForUpdate *InputAssetForUpdate
 }
 
 // The modified Asset metadata
-func (r ApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) ApiUpdateAssetRequest {
+func (r DeploymentsApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) DeploymentsApiUpdateAssetRequest {
 	r.inputAssetForUpdate = &inputAssetForUpdate
 	return r
 }
 
-func (r ApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetExecute(r)
 }
 
@@ -3390,19 +3392,19 @@ Updates the metadata of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateAssetRequest
+ @return DeploymentsApiUpdateAssetRequest
 */
-func (a *DeploymentsApiService) UpdateAsset(ctx _context.Context, id string) ApiUpdateAssetRequest {
-	return ApiUpdateAssetRequest{
+func (a *DeploymentsApiService) UpdateAsset(ctx _context.Context, id string) DeploymentsApiUpdateAssetRequest {
+	return DeploymentsApiUpdateAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) UpdateAssetExecute(r DeploymentsApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3508,20 +3510,20 @@ func (a *DeploymentsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (boo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetStateRequest struct {
-	ctx _context.Context
+type DeploymentsApiUpdateAssetStateRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	state *string
+	id         string
+	state      *string
 }
 
 // The new asset state type
-func (r ApiUpdateAssetStateRequest) State(state string) ApiUpdateAssetStateRequest {
+func (r DeploymentsApiUpdateAssetStateRequest) State(state string) DeploymentsApiUpdateAssetStateRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetStateExecute(r)
 }
 
@@ -3532,19 +3534,19 @@ Updates the state of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiUpdateAssetStateRequest
+ @return DeploymentsApiUpdateAssetStateRequest
 */
-func (a *DeploymentsApiService) UpdateAssetState(ctx _context.Context, id string) ApiUpdateAssetStateRequest {
-	return ApiUpdateAssetStateRequest{
+func (a *DeploymentsApiService) UpdateAssetState(ctx _context.Context, id string) DeploymentsApiUpdateAssetStateRequest {
+	return DeploymentsApiUpdateAssetStateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) UpdateAssetStateExecute(r DeploymentsApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3652,20 +3654,20 @@ func (a *DeploymentsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetVisibilityQueryRequest struct {
-	ctx _context.Context
+type DeploymentsApiUpdateAssetVisibilityQueryRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
+	id         string
 	visibility *string
 }
 
 // The new asset visibility type
-func (r ApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) ApiUpdateAssetVisibilityQueryRequest {
+func (r DeploymentsApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) DeploymentsApiUpdateAssetVisibilityQueryRequest {
 	r.visibility = &visibility
 	return r
 }
 
-func (r ApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetVisibilityQueryExecute(r)
 }
 
@@ -3676,19 +3678,19 @@ Updates the visibility of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateAssetVisibilityQueryRequest
+ @return DeploymentsApiUpdateAssetVisibilityQueryRequest
 */
-func (a *DeploymentsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) ApiUpdateAssetVisibilityQueryRequest {
-	return ApiUpdateAssetVisibilityQueryRequest{
+func (a *DeploymentsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) DeploymentsApiUpdateAssetVisibilityQueryRequest {
+	return DeploymentsApiUpdateAssetVisibilityQueryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) UpdateAssetVisibilityQueryExecute(r DeploymentsApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3796,20 +3798,20 @@ func (a *DeploymentsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAss
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateImpactLevelRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentsApiService
-	id string
+type DeploymentsApiUpdateImpactLevelRequest struct {
+	ctx         _context.Context
+	ApiService  *DeploymentsApiService
+	id          string
 	impactlevel *string
 }
 
 // The new asset impact level type.
-func (r ApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) ApiUpdateImpactLevelRequest {
+func (r DeploymentsApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) DeploymentsApiUpdateImpactLevelRequest {
 	r.impactlevel = &impactlevel
 	return r
 }
 
-func (r ApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateImpactLevelExecute(r)
 }
 
@@ -3822,19 +3824,19 @@ Updates the Impact Level of a single Asset with the given ID.<br>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateImpactLevelRequest
+ @return DeploymentsApiUpdateImpactLevelRequest
 */
-func (a *DeploymentsApiService) UpdateImpactLevel(ctx _context.Context, id string) ApiUpdateImpactLevelRequest {
-	return ApiUpdateImpactLevelRequest{
+func (a *DeploymentsApiService) UpdateImpactLevel(ctx _context.Context, id string) DeploymentsApiUpdateImpactLevelRequest {
+	return DeploymentsApiUpdateImpactLevelRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) UpdateImpactLevelExecute(r DeploymentsApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3942,20 +3944,20 @@ func (a *DeploymentsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateInstanceLimitRequest struct {
-	ctx _context.Context
+type DeploymentsApiUpdateInstanceLimitRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	limit *int64
+	id         string
+	limit      *int64
 }
 
 // The new asset instance limit
-func (r ApiUpdateInstanceLimitRequest) Limit(limit int64) ApiUpdateInstanceLimitRequest {
+func (r DeploymentsApiUpdateInstanceLimitRequest) Limit(limit int64) DeploymentsApiUpdateInstanceLimitRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateInstanceLimitExecute(r)
 }
 
@@ -3966,19 +3968,19 @@ Updates the instance limit of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateInstanceLimitRequest
+ @return DeploymentsApiUpdateInstanceLimitRequest
 */
-func (a *DeploymentsApiService) UpdateInstanceLimit(ctx _context.Context, id string) ApiUpdateInstanceLimitRequest {
-	return ApiUpdateInstanceLimitRequest{
+func (a *DeploymentsApiService) UpdateInstanceLimit(ctx _context.Context, id string) DeploymentsApiUpdateInstanceLimitRequest {
+	return DeploymentsApiUpdateInstanceLimitRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) UpdateInstanceLimitExecute(r DeploymentsApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -4086,20 +4088,20 @@ func (a *DeploymentsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateOfflineStatusRequest struct {
-	ctx _context.Context
+type DeploymentsApiUpdateOfflineStatusRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentsApiService
-	id string
-	offline *bool
+	id         string
+	offline    *bool
 }
 
 // Set the asset status to offline
-func (r ApiUpdateOfflineStatusRequest) Offline(offline bool) ApiUpdateOfflineStatusRequest {
+func (r DeploymentsApiUpdateOfflineStatusRequest) Offline(offline bool) DeploymentsApiUpdateOfflineStatusRequest {
 	r.offline = &offline
 	return r
 }
 
-func (r ApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentsApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateOfflineStatusExecute(r)
 }
 
@@ -4110,19 +4112,19 @@ Updates the Offline Status of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateOfflineStatusRequest
+ @return DeploymentsApiUpdateOfflineStatusRequest
 */
-func (a *DeploymentsApiService) UpdateOfflineStatus(ctx _context.Context, id string) ApiUpdateOfflineStatusRequest {
-	return ApiUpdateOfflineStatusRequest{
+func (a *DeploymentsApiService) UpdateOfflineStatus(ctx _context.Context, id string) DeploymentsApiUpdateOfflineStatusRequest {
+	return DeploymentsApiUpdateOfflineStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentsApiService) UpdateOfflineStatusExecute(r ApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentsApiService) UpdateOfflineStatusExecute(r DeploymentsApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}

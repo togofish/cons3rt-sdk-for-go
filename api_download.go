@@ -28,26 +28,27 @@ var (
 // DownloadApiService DownloadApi service
 type DownloadApiService service
 
-type ApiDownloadFileFromBucketRequest struct {
-	ctx _context.Context
+type DownloadApiDownloadFileFromBucketRequest struct {
+	ctx        _context.Context
 	ApiService *DownloadApiService
-	id string
-	fileName *string
+	id         string
+	fileName   *string
 	background *bool
 }
 
 // The filename within the bucket to download
-func (r ApiDownloadFileFromBucketRequest) FileName(fileName string) ApiDownloadFileFromBucketRequest {
+func (r DownloadApiDownloadFileFromBucketRequest) FileName(fileName string) DownloadApiDownloadFileFromBucketRequest {
 	r.fileName = &fileName
 	return r
 }
+
 // Force the download to happen in the background
-func (r ApiDownloadFileFromBucketRequest) Background(background bool) ApiDownloadFileFromBucketRequest {
+func (r DownloadApiDownloadFileFromBucketRequest) Background(background bool) DownloadApiDownloadFileFromBucketRequest {
 	r.background = &background
 	return r
 }
 
-func (r ApiDownloadFileFromBucketRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DownloadApiDownloadFileFromBucketRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DownloadFileFromBucketExecute(r)
 }
 
@@ -62,19 +63,19 @@ If the background flag is set to true (or if no value for the background flag is
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of bucket
- @return ApiDownloadFileFromBucketRequest
+ @return DownloadApiDownloadFileFromBucketRequest
 */
-func (a *DownloadApiService) DownloadFileFromBucket(ctx _context.Context, id string) ApiDownloadFileFromBucketRequest {
-	return ApiDownloadFileFromBucketRequest{
+func (a *DownloadApiService) DownloadFileFromBucket(ctx _context.Context, id string) DownloadApiDownloadFileFromBucketRequest {
+	return DownloadApiDownloadFileFromBucketRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DownloadApiService) DownloadFileFromBucketExecute(r ApiDownloadFileFromBucketRequest) (bool, *_nethttp.Response, error) {
+func (a *DownloadApiService) DownloadFileFromBucketExecute(r DownloadApiDownloadFileFromBucketRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

@@ -17,8 +17,8 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
 
 // Linger please
@@ -29,20 +29,20 @@ var (
 // ScenariosApiService ScenariosApi service
 type ScenariosApiService service
 
-type ApiAddTrustedProjectRequest struct {
-	ctx _context.Context
+type ScenariosApiAddTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to trust
-func (r ApiAddTrustedProjectRequest) Trustedid(trustedid string) ApiAddTrustedProjectRequest {
+func (r ScenariosApiAddTrustedProjectRequest) Trustedid(trustedid string) ScenariosApiAddTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiAddTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.AddTrustedProjectExecute(r)
 }
 
@@ -55,19 +55,19 @@ The Asset must have a visibility set to TRUSTED_PROJECT for this to have any eff
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiAddTrustedProjectRequest
+ @return ScenariosApiAddTrustedProjectRequest
 */
-func (a *ScenariosApiService) AddTrustedProject(ctx _context.Context, id string) ApiAddTrustedProjectRequest {
-	return ApiAddTrustedProjectRequest{
+func (a *ScenariosApiService) AddTrustedProject(ctx _context.Context, id string) ScenariosApiAddTrustedProjectRequest {
+	return ScenariosApiAddTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) AddTrustedProjectExecute(r ScenariosApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -176,10 +176,10 @@ func (a *ScenariosApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectReq
 }
 
 type ApiCloneScenarioRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
-	name *string
+	id         string
+	name       *string
 }
 
 // Name of the new scenario
@@ -204,8 +204,8 @@ Clones the specified Scenario to a new Scenario with the provided name.
 func (a *ScenariosApiService) CloneScenario(ctx _context.Context, id string) ApiCloneScenarioRequest {
 	return ApiCloneScenarioRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -320,8 +320,8 @@ func (a *ScenariosApiService) CloneScenarioExecute(r ApiCloneScenarioRequest) (s
 }
 
 type ApiCreateScenarioRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
+	ctx           _context.Context
+	ApiService    *ScenariosApiService
 	inputScenario *InputScenario
 }
 
@@ -348,7 +348,7 @@ All existing Assets used in creation must contain their Asset ID, while Composit
 func (a *ScenariosApiService) CreateScenario(ctx _context.Context) ApiCreateScenarioRequest {
 	return ApiCreateScenarioRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -459,19 +459,19 @@ func (a *ScenariosApiService) CreateScenarioExecute(r ApiCreateScenarioRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateSystemEntireRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
+type ScenariosApiCreateSystemEntireRequest struct {
+	ctx               _context.Context
+	ApiService        *ScenariosApiService
 	inputSystemModule *InputSystemModule
 }
 
 // The System to create
-func (r ApiCreateSystemEntireRequest) InputSystemModule(inputSystemModule InputSystemModule) ApiCreateSystemEntireRequest {
+func (r ScenariosApiCreateSystemEntireRequest) InputSystemModule(inputSystemModule InputSystemModule) ScenariosApiCreateSystemEntireRequest {
 	r.inputSystemModule = &inputSystemModule
 	return r
 }
 
-func (r ApiCreateSystemEntireRequest) Execute() (string, *_nethttp.Response, error) {
+func (r ScenariosApiCreateSystemEntireRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.CreateSystemEntireExecute(r)
 }
 
@@ -483,18 +483,18 @@ Creates a single System.<br>
 All existing Assets used in creation must contain their Asset ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateSystemEntireRequest
+ @return ScenariosApiCreateSystemEntireRequest
 */
-func (a *ScenariosApiService) CreateSystemEntire(ctx _context.Context) ApiCreateSystemEntireRequest {
-	return ApiCreateSystemEntireRequest{
+func (a *ScenariosApiService) CreateSystemEntire(ctx _context.Context) ScenariosApiCreateSystemEntireRequest {
+	return ScenariosApiCreateSystemEntireRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return string
-func (a *ScenariosApiService) CreateSystemEntireExecute(r ApiCreateSystemEntireRequest) (string, *_nethttp.Response, error) {
+func (a *ScenariosApiService) CreateSystemEntireExecute(r ScenariosApiCreateSystemEntireRequest) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -599,20 +599,20 @@ func (a *ScenariosApiService) CreateSystemEntireExecute(r ApiCreateSystemEntireR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAssetRequest struct {
-	ctx _context.Context
+type ScenariosApiDeleteAssetRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
-	force *bool
+	id         string
+	force      *bool
 }
 
 // Allow delete if there are dependent assets
-func (r ApiDeleteAssetRequest) Force(force bool) ApiDeleteAssetRequest {
+func (r ScenariosApiDeleteAssetRequest) Force(force bool) ScenariosApiDeleteAssetRequest {
 	r.force = &force
 	return r
 }
 
-func (r ApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiDeleteAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteAssetExecute(r)
 }
 
@@ -625,19 +625,19 @@ Delete a single Asset with the given ID.<br/>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiDeleteAssetRequest
+ @return ScenariosApiDeleteAssetRequest
 */
-func (a *ScenariosApiService) DeleteAsset(ctx _context.Context, id string) ApiDeleteAssetRequest {
-	return ApiDeleteAssetRequest{
+func (a *ScenariosApiService) DeleteAsset(ctx _context.Context, id string) ScenariosApiDeleteAssetRequest {
+	return ScenariosApiDeleteAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) DeleteAssetExecute(r ScenariosApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -745,9 +745,9 @@ func (a *ScenariosApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool,
 }
 
 type ApiGetBindingsForDeployment1Request struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
-	id string
+	ctx                   _context.Context
+	ApiService            *ScenariosApiService
+	id                    string
 	virtualizationRealmId *int32
 }
 
@@ -773,8 +773,8 @@ Returns a collection of the possible Virtualization Realm bindings for a single 
 func (a *ScenariosApiService) GetBindingsForDeployment1(ctx _context.Context, id string) ApiGetBindingsForDeployment1Request {
 	return ApiGetBindingsForDeployment1Request{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -888,11 +888,10 @@ func (a *ScenariosApiService) GetBindingsForDeployment1Execute(r ApiGetBindingsF
 }
 
 type ApiGetScenarioRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetScenarioRequest) Execute() (FullScenario, *_nethttp.Response, error) {
 	return r.ApiService.GetScenarioExecute(r)
@@ -910,8 +909,8 @@ Returns a single Scenario by the given ID.
 func (a *ScenariosApiService) GetScenario(ctx _context.Context, id string) ApiGetScenarioRequest {
 	return ApiGetScenarioRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1022,11 +1021,11 @@ func (a *ScenariosApiService) GetScenarioExecute(r ApiGetScenarioRequest) (FullS
 }
 
 type ApiGetScenariosRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
+	ctx         _context.Context
+	ApiService  *ScenariosApiService
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
@@ -1034,11 +1033,13 @@ func (r ApiGetScenariosRequest) Categoryids(categoryids []int32) ApiGetScenarios
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetScenariosRequest) Maxresults(maxresults int64) ApiGetScenariosRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetScenariosRequest) Page(page int64) ApiGetScenariosRequest {
 	r.page = &page
@@ -1060,7 +1061,7 @@ Returns a collection of the user's relevant Scenarios matching a specified query
 func (a *ScenariosApiService) GetScenarios(ctx _context.Context) ApiGetScenariosRequest {
 	return ApiGetScenariosRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1187,12 +1188,12 @@ func (a *ScenariosApiService) GetScenariosExecute(r ApiGetScenariosRequest) ([]M
 }
 
 type ApiGetScenariosExpandedRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
-	community *bool
+	ctx         _context.Context
+	ApiService  *ScenariosApiService
+	community   *bool
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Include community assets
@@ -1200,16 +1201,19 @@ func (r ApiGetScenariosExpandedRequest) Community(community bool) ApiGetScenario
 	r.community = &community
 	return r
 }
+
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
 func (r ApiGetScenariosExpandedRequest) Categoryids(categoryids []int32) ApiGetScenariosExpandedRequest {
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetScenariosExpandedRequest) Maxresults(maxresults int64) ApiGetScenariosExpandedRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetScenariosExpandedRequest) Page(page int64) ApiGetScenariosExpandedRequest {
 	r.page = &page
@@ -1231,7 +1235,7 @@ Returns a collection of all relevant Scenarios matching a specified query, inclu
 func (a *ScenariosApiService) GetScenariosExpanded(ctx _context.Context) ApiGetScenariosExpandedRequest {
 	return ApiGetScenariosExpandedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1360,14 +1364,13 @@ func (a *ScenariosApiService) GetScenariosExpandedExecute(r ApiGetScenariosExpan
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDependentAssetsRequest struct {
-	ctx _context.Context
+type ScenariosApiListDependentAssetsRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
+	id         string
 }
 
-
-func (r ApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
+func (r ScenariosApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
 	return r.ApiService.ListDependentAssetsExecute(r)
 }
 
@@ -1378,19 +1381,19 @@ Returns a collection of the Composite Assets that include the specified Asset.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiListDependentAssetsRequest
+ @return ScenariosApiListDependentAssetsRequest
 */
-func (a *ScenariosApiService) ListDependentAssets(ctx _context.Context, id string) ApiListDependentAssetsRequest {
-	return ApiListDependentAssetsRequest{
+func (a *ScenariosApiService) ListDependentAssets(ctx _context.Context, id string) ScenariosApiListDependentAssetsRequest {
+	return ScenariosApiListDependentAssetsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return []BasicAsset
-func (a *ScenariosApiService) ListDependentAssetsExecute(r ApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
+func (a *ScenariosApiService) ListDependentAssetsExecute(r ScenariosApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1495,9 +1498,9 @@ func (a *ScenariosApiService) ListDependentAssetsExecute(r ApiListDependentAsset
 }
 
 type ApiPublishScenarioToCompositionRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
-	id string
+	ctx              _context.Context
+	ApiService       *ScenariosApiService
+	id               string
 	inputComposition *InputComposition
 }
 
@@ -1523,8 +1526,8 @@ Publishes the specified Scenario as a Composition, with the provided Run Options
 func (a *ScenariosApiService) PublishScenarioToComposition(ctx _context.Context, id string) ApiPublishScenarioToCompositionRequest {
 	return ApiPublishScenarioToCompositionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1637,9 +1640,9 @@ func (a *ScenariosApiService) PublishScenarioToCompositionExecute(r ApiPublishSc
 }
 
 type ApiQuickBuildRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
-	id string
+	ctx                       _context.Context
+	ApiService                *ScenariosApiService
+	id                        string
 	inputDeploymentRunOptions *InputDeploymentRunOptions
 }
 
@@ -1669,8 +1672,8 @@ The override of Host passwords may fail due to template password complexity rule
 func (a *ScenariosApiService) QuickBuild(ctx _context.Context, id string) ApiQuickBuildRequest {
 	return ApiQuickBuildRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1782,20 +1785,20 @@ func (a *ScenariosApiService) QuickBuildExecute(r ApiQuickBuildRequest) (string,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiQuickBuild1Request struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
-	id string
+type ScenariosApiQuickBuild1Request struct {
+	ctx                       _context.Context
+	ApiService                *ScenariosApiService
+	id                        string
 	inputDeploymentRunOptions *InputDeploymentRunOptions
 }
 
 // The deployment run options to use when launching the deployment
-func (r ApiQuickBuild1Request) InputDeploymentRunOptions(inputDeploymentRunOptions InputDeploymentRunOptions) ApiQuickBuild1Request {
+func (r ScenariosApiQuickBuild1Request) InputDeploymentRunOptions(inputDeploymentRunOptions InputDeploymentRunOptions) ScenariosApiQuickBuild1Request {
 	r.inputDeploymentRunOptions = &inputDeploymentRunOptions
 	return r
 }
 
-func (r ApiQuickBuild1Request) Execute() (string, *_nethttp.Response, error) {
+func (r ScenariosApiQuickBuild1Request) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.QuickBuild1Execute(r)
 }
 
@@ -1810,19 +1813,19 @@ The override of Host passwords may fail due to template password complexity rule
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of system
- @return ApiQuickBuild1Request
+ @return ScenariosApiQuickBuild1Request
 */
-func (a *ScenariosApiService) QuickBuild1(ctx _context.Context, id string) ApiQuickBuild1Request {
-	return ApiQuickBuild1Request{
+func (a *ScenariosApiService) QuickBuild1(ctx _context.Context, id string) ScenariosApiQuickBuild1Request {
+	return ScenariosApiQuickBuild1Request{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return string
-func (a *ScenariosApiService) QuickBuild1Execute(r ApiQuickBuild1Request) (string, *_nethttp.Response, error) {
+func (a *ScenariosApiService) QuickBuild1Execute(r ScenariosApiQuickBuild1Request) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1928,20 +1931,20 @@ func (a *ScenariosApiService) QuickBuild1Execute(r ApiQuickBuild1Request) (strin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRemoveTrustedProjectRequest struct {
-	ctx _context.Context
+type ScenariosApiRemoveTrustedProjectRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to untrust
-func (r ApiRemoveTrustedProjectRequest) Trustedid(trustedid string) ApiRemoveTrustedProjectRequest {
+func (r ScenariosApiRemoveTrustedProjectRequest) Trustedid(trustedid string) ScenariosApiRemoveTrustedProjectRequest {
 	r.trustedid = &trustedid
 	return r
 }
 
-func (r ApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiRemoveTrustedProjectRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RemoveTrustedProjectExecute(r)
 }
 
@@ -1952,19 +1955,19 @@ Removes the provided Project from the Asset's list of Trusted Projects.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiRemoveTrustedProjectRequest
+ @return ScenariosApiRemoveTrustedProjectRequest
 */
-func (a *ScenariosApiService) RemoveTrustedProject(ctx _context.Context, id string) ApiRemoveTrustedProjectRequest {
-	return ApiRemoveTrustedProjectRequest{
+func (a *ScenariosApiService) RemoveTrustedProject(ctx _context.Context, id string) ScenariosApiRemoveTrustedProjectRequest {
+	return ScenariosApiRemoveTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) RemoveTrustedProjectExecute(r ScenariosApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2072,20 +2075,20 @@ func (a *ScenariosApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedProj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
-	id string
+type ScenariosApiUpdateAssetRequest struct {
+	ctx                 _context.Context
+	ApiService          *ScenariosApiService
+	id                  string
 	inputAssetForUpdate *InputAssetForUpdate
 }
 
 // The modified Asset metadata
-func (r ApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) ApiUpdateAssetRequest {
+func (r ScenariosApiUpdateAssetRequest) InputAssetForUpdate(inputAssetForUpdate InputAssetForUpdate) ScenariosApiUpdateAssetRequest {
 	r.inputAssetForUpdate = &inputAssetForUpdate
 	return r
 }
 
-func (r ApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiUpdateAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetExecute(r)
 }
 
@@ -2096,19 +2099,19 @@ Updates the metadata of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateAssetRequest
+ @return ScenariosApiUpdateAssetRequest
 */
-func (a *ScenariosApiService) UpdateAsset(ctx _context.Context, id string) ApiUpdateAssetRequest {
-	return ApiUpdateAssetRequest{
+func (a *ScenariosApiService) UpdateAsset(ctx _context.Context, id string) ScenariosApiUpdateAssetRequest {
+	return ScenariosApiUpdateAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) UpdateAssetExecute(r ScenariosApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2214,20 +2217,20 @@ func (a *ScenariosApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetStateRequest struct {
-	ctx _context.Context
+type ScenariosApiUpdateAssetStateRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
-	state *string
+	id         string
+	state      *string
 }
 
 // The new asset state type
-func (r ApiUpdateAssetStateRequest) State(state string) ApiUpdateAssetStateRequest {
+func (r ScenariosApiUpdateAssetStateRequest) State(state string) ScenariosApiUpdateAssetStateRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiUpdateAssetStateRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetStateExecute(r)
 }
 
@@ -2238,19 +2241,19 @@ Updates the state of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to delete
- @return ApiUpdateAssetStateRequest
+ @return ScenariosApiUpdateAssetStateRequest
 */
-func (a *ScenariosApiService) UpdateAssetState(ctx _context.Context, id string) ApiUpdateAssetStateRequest {
-	return ApiUpdateAssetStateRequest{
+func (a *ScenariosApiService) UpdateAssetState(ctx _context.Context, id string) ScenariosApiUpdateAssetStateRequest {
+	return ScenariosApiUpdateAssetStateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) UpdateAssetStateExecute(r ScenariosApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2358,20 +2361,20 @@ func (a *ScenariosApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAssetVisibilityQueryRequest struct {
-	ctx _context.Context
+type ScenariosApiUpdateAssetVisibilityQueryRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
+	id         string
 	visibility *string
 }
 
 // The new asset visibility type
-func (r ApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) ApiUpdateAssetVisibilityQueryRequest {
+func (r ScenariosApiUpdateAssetVisibilityQueryRequest) Visibility(visibility string) ScenariosApiUpdateAssetVisibilityQueryRequest {
 	r.visibility = &visibility
 	return r
 }
 
-func (r ApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiUpdateAssetVisibilityQueryRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetVisibilityQueryExecute(r)
 }
 
@@ -2382,19 +2385,19 @@ Updates the visibility of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateAssetVisibilityQueryRequest
+ @return ScenariosApiUpdateAssetVisibilityQueryRequest
 */
-func (a *ScenariosApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) ApiUpdateAssetVisibilityQueryRequest {
-	return ApiUpdateAssetVisibilityQueryRequest{
+func (a *ScenariosApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) ScenariosApiUpdateAssetVisibilityQueryRequest {
+	return ScenariosApiUpdateAssetVisibilityQueryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) UpdateAssetVisibilityQueryExecute(r ScenariosApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2502,20 +2505,20 @@ func (a *ScenariosApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAsset
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateImpactLevelRequest struct {
-	ctx _context.Context
-	ApiService *ScenariosApiService
-	id string
+type ScenariosApiUpdateImpactLevelRequest struct {
+	ctx         _context.Context
+	ApiService  *ScenariosApiService
+	id          string
 	impactlevel *string
 }
 
 // The new asset impact level type.
-func (r ApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) ApiUpdateImpactLevelRequest {
+func (r ScenariosApiUpdateImpactLevelRequest) Impactlevel(impactlevel string) ScenariosApiUpdateImpactLevelRequest {
 	r.impactlevel = &impactlevel
 	return r
 }
 
-func (r ApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiUpdateImpactLevelRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateImpactLevelExecute(r)
 }
 
@@ -2528,19 +2531,19 @@ Updates the Impact Level of a single Asset with the given ID.<br>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateImpactLevelRequest
+ @return ScenariosApiUpdateImpactLevelRequest
 */
-func (a *ScenariosApiService) UpdateImpactLevel(ctx _context.Context, id string) ApiUpdateImpactLevelRequest {
-	return ApiUpdateImpactLevelRequest{
+func (a *ScenariosApiService) UpdateImpactLevel(ctx _context.Context, id string) ScenariosApiUpdateImpactLevelRequest {
+	return ScenariosApiUpdateImpactLevelRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) UpdateImpactLevelExecute(r ScenariosApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2648,20 +2651,20 @@ func (a *ScenariosApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateInstanceLimitRequest struct {
-	ctx _context.Context
+type ScenariosApiUpdateInstanceLimitRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
-	limit *int64
+	id         string
+	limit      *int64
 }
 
 // The new asset instance limit
-func (r ApiUpdateInstanceLimitRequest) Limit(limit int64) ApiUpdateInstanceLimitRequest {
+func (r ScenariosApiUpdateInstanceLimitRequest) Limit(limit int64) ScenariosApiUpdateInstanceLimitRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiUpdateInstanceLimitRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateInstanceLimitExecute(r)
 }
 
@@ -2672,19 +2675,19 @@ Updates the instance limit of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset
- @return ApiUpdateInstanceLimitRequest
+ @return ScenariosApiUpdateInstanceLimitRequest
 */
-func (a *ScenariosApiService) UpdateInstanceLimit(ctx _context.Context, id string) ApiUpdateInstanceLimitRequest {
-	return ApiUpdateInstanceLimitRequest{
+func (a *ScenariosApiService) UpdateInstanceLimit(ctx _context.Context, id string) ScenariosApiUpdateInstanceLimitRequest {
+	return ScenariosApiUpdateInstanceLimitRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) UpdateInstanceLimitExecute(r ScenariosApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2792,20 +2795,20 @@ func (a *ScenariosApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLimi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateOfflineStatusRequest struct {
-	ctx _context.Context
+type ScenariosApiUpdateOfflineStatusRequest struct {
+	ctx        _context.Context
 	ApiService *ScenariosApiService
-	id string
-	offline *bool
+	id         string
+	offline    *bool
 }
 
 // Set the asset status to offline
-func (r ApiUpdateOfflineStatusRequest) Offline(offline bool) ApiUpdateOfflineStatusRequest {
+func (r ScenariosApiUpdateOfflineStatusRequest) Offline(offline bool) ScenariosApiUpdateOfflineStatusRequest {
 	r.offline = &offline
 	return r
 }
 
-func (r ApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ScenariosApiUpdateOfflineStatusRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateOfflineStatusExecute(r)
 }
 
@@ -2816,19 +2819,19 @@ Updates the Offline Status of a single Asset with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of asset to update
- @return ApiUpdateOfflineStatusRequest
+ @return ScenariosApiUpdateOfflineStatusRequest
 */
-func (a *ScenariosApiService) UpdateOfflineStatus(ctx _context.Context, id string) ApiUpdateOfflineStatusRequest {
-	return ApiUpdateOfflineStatusRequest{
+func (a *ScenariosApiService) UpdateOfflineStatus(ctx _context.Context, id string) ScenariosApiUpdateOfflineStatusRequest {
+	return ScenariosApiUpdateOfflineStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *ScenariosApiService) UpdateOfflineStatusExecute(r ApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
+func (a *ScenariosApiService) UpdateOfflineStatusExecute(r ScenariosApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}

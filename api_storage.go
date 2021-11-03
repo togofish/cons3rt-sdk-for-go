@@ -29,9 +29,9 @@ var (
 type StorageApiService service
 
 type ApiCreateBucketRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
-	bucket *Bucket
+	bucket     *Bucket
 }
 
 // The bucket creation information
@@ -55,7 +55,7 @@ Creates a storage bucket as defined by the user
 func (a *StorageApiService) CreateBucket(ctx _context.Context) ApiCreateBucketRequest {
 	return ApiCreateBucketRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -170,11 +170,10 @@ func (a *StorageApiService) CreateBucketExecute(r ApiCreateBucketRequest) (strin
 }
 
 type ApiDeleteBucketRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
-	id string
+	id         string
 }
-
 
 func (r ApiDeleteBucketRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteBucketExecute(r)
@@ -192,8 +191,8 @@ Deletes an existing storage bucket by identifier
 func (a *StorageApiService) DeleteBucket(ctx _context.Context, id string) ApiDeleteBucketRequest {
 	return ApiDeleteBucketRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -304,10 +303,10 @@ func (a *StorageApiService) DeleteBucketExecute(r ApiDeleteBucketRequest) (bool,
 }
 
 type ApiDownloadFileFromBucketRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
-	id string
-	fileName *string
+	id         string
+	fileName   *string
 	background *bool
 }
 
@@ -316,6 +315,7 @@ func (r ApiDownloadFileFromBucketRequest) FileName(fileName string) ApiDownloadF
 	r.fileName = &fileName
 	return r
 }
+
 // Force the download to happen in the background
 func (r ApiDownloadFileFromBucketRequest) Background(background bool) ApiDownloadFileFromBucketRequest {
 	r.background = &background
@@ -342,8 +342,8 @@ If the background flag is set to true (or if no value for the background flag is
 func (a *StorageApiService) DownloadFileFromBucket(ctx _context.Context, id string) ApiDownloadFileFromBucketRequest {
 	return ApiDownloadFileFromBucketRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -461,11 +461,10 @@ func (a *StorageApiService) DownloadFileFromBucketExecute(r ApiDownloadFileFromB
 }
 
 type ApiGetBucketRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetBucketRequest) Execute() (Bucket, *_nethttp.Response, error) {
 	return r.ApiService.GetBucketExecute(r)
@@ -483,8 +482,8 @@ returns a storage bucket
 func (a *StorageApiService) GetBucket(ctx _context.Context, id string) ApiGetBucketRequest {
 	return ApiGetBucketRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -595,11 +594,10 @@ func (a *StorageApiService) GetBucketExecute(r ApiGetBucketRequest) (Bucket, *_n
 }
 
 type ApiGetBucketListingRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetBucketListingRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.GetBucketListingExecute(r)
@@ -617,8 +615,8 @@ lists all files contents for an existing bucket
 func (a *StorageApiService) GetBucketListing(ctx _context.Context, id string) ApiGetBucketListingRequest {
 	return ApiGetBucketListingRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -729,10 +727,10 @@ func (a *StorageApiService) GetBucketListingExecute(r ApiGetBucketListingRequest
 }
 
 type ApiListAvailableCloudsForBucketsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Maximum number of results to return
@@ -740,6 +738,7 @@ func (r ApiListAvailableCloudsForBucketsRequest) Maxresults(maxresults int64) Ap
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiListAvailableCloudsForBucketsRequest) Page(page int64) ApiListAvailableCloudsForBucketsRequest {
 	r.page = &page
@@ -761,7 +760,7 @@ returns a collection of clouds accessible to the user
 func (a *StorageApiService) ListAvailableCloudsForBuckets(ctx _context.Context) ApiListAvailableCloudsForBucketsRequest {
 	return ApiListAvailableCloudsForBucketsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -877,12 +876,12 @@ func (a *StorageApiService) ListAvailableCloudsForBucketsExecute(r ApiListAvaila
 }
 
 type ApiListBucketsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
-	cloud *string
-	project *bool
+	cloud      *string
+	project    *bool
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // ID of the cloud
@@ -890,16 +889,19 @@ func (r ApiListBucketsRequest) Cloud(cloud string) ApiListBucketsRequest {
 	r.cloud = &cloud
 	return r
 }
+
 // Include project buckets
 func (r ApiListBucketsRequest) Project(project bool) ApiListBucketsRequest {
 	r.project = &project
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiListBucketsRequest) Maxresults(maxresults int64) ApiListBucketsRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiListBucketsRequest) Page(page int64) ApiListBucketsRequest {
 	r.page = &page
@@ -921,7 +923,7 @@ returns a collection of storage buckets
 func (a *StorageApiService) ListBuckets(ctx _context.Context) ApiListBucketsRequest {
 	return ApiListBucketsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1043,11 +1045,11 @@ func (a *StorageApiService) ListBucketsExecute(r ApiListBucketsRequest) ([]Bucke
 }
 
 type ApiSubmitBucketResourceToSubmissionServiceRequest struct {
-	ctx _context.Context
-	ApiService *StorageApiService
-	id string
-	submissionServiceId string
-	fileName *string
+	ctx                                      _context.Context
+	ApiService                               *StorageApiService
+	id                                       string
+	submissionServiceId                      string
+	fileName                                 *string
 	inputSubmissionServiceForAssetSubmission *InputSubmissionServiceForAssetSubmission
 }
 
@@ -1056,6 +1058,7 @@ func (r ApiSubmitBucketResourceToSubmissionServiceRequest) FileName(fileName str
 	r.fileName = &fileName
 	return r
 }
+
 // Submission service override values
 func (r ApiSubmitBucketResourceToSubmissionServiceRequest) InputSubmissionServiceForAssetSubmission(inputSubmissionServiceForAssetSubmission InputSubmissionServiceForAssetSubmission) ApiSubmitBucketResourceToSubmissionServiceRequest {
 	r.inputSubmissionServiceForAssetSubmission = &inputSubmissionServiceForAssetSubmission
@@ -1082,9 +1085,9 @@ If the Service's endpoint is an SFTP Host, the Submission will only be able to o
 */
 func (a *StorageApiService) SubmitBucketResourceToSubmissionService(ctx _context.Context, id string, submissionServiceId string) ApiSubmitBucketResourceToSubmissionServiceRequest {
 	return ApiSubmitBucketResourceToSubmissionServiceRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:          a,
+		ctx:                 ctx,
+		id:                  id,
 		submissionServiceId: submissionServiceId,
 	}
 }
@@ -1203,10 +1206,10 @@ func (a *StorageApiService) SubmitBucketResourceToSubmissionServiceExecute(r Api
 }
 
 type ApiUpdateBucketRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *StorageApiService
-	id string
-	bucket *Bucket
+	id         string
+	bucket     *Bucket
 }
 
 // The bucket creation information
@@ -1231,8 +1234,8 @@ updates the configuration information for an existing bucket
 func (a *StorageApiService) UpdateBucket(ctx _context.Context, id string) ApiUpdateBucketRequest {
 	return ApiUpdateBucketRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1347,24 +1350,24 @@ func (a *StorageApiService) UpdateBucketExecute(r ApiUpdateBucketRequest) (Bucke
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUploadFileToBucketRequest struct {
-	ctx _context.Context
+type StorageApiUploadFileToBucketRequest struct {
+	ctx        _context.Context
 	ApiService *StorageApiService
-	id string
-	file *[]*os.File
-	filename *string
+	id         string
+	file       *[]*os.File
+	filename   *string
 }
 
-func (r ApiUploadFileToBucketRequest) File(file []*os.File) ApiUploadFileToBucketRequest {
+func (r StorageApiUploadFileToBucketRequest) File(file []*os.File) StorageApiUploadFileToBucketRequest {
 	r.file = &file
 	return r
 }
-func (r ApiUploadFileToBucketRequest) Filename(filename string) ApiUploadFileToBucketRequest {
+func (r StorageApiUploadFileToBucketRequest) Filename(filename string) StorageApiUploadFileToBucketRequest {
 	r.filename = &filename
 	return r
 }
 
-func (r ApiUploadFileToBucketRequest) Execute() (int32, *_nethttp.Response, error) {
+func (r StorageApiUploadFileToBucketRequest) Execute() (int32, *_nethttp.Response, error) {
 	return r.ApiService.UploadFileToBucketExecute(r)
 }
 
@@ -1379,19 +1382,19 @@ A "Connection: Keep-Alive" configuration may be needed for larger sized files, d
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of bucket
- @return ApiUploadFileToBucketRequest
+ @return StorageApiUploadFileToBucketRequest
 */
-func (a *StorageApiService) UploadFileToBucket(ctx _context.Context, id string) ApiUploadFileToBucketRequest {
-	return ApiUploadFileToBucketRequest{
+func (a *StorageApiService) UploadFileToBucket(ctx _context.Context, id string) StorageApiUploadFileToBucketRequest {
+	return StorageApiUploadFileToBucketRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return int32
-func (a *StorageApiService) UploadFileToBucketExecute(r ApiUploadFileToBucketRequest) (int32, *_nethttp.Response, error) {
+func (a *StorageApiService) UploadFileToBucketExecute(r StorageApiUploadFileToBucketRequest) (int32, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}

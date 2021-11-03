@@ -29,10 +29,10 @@ var (
 type DeploymentRunsApiService service
 
 type ApiAddCategoryToDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	runid *string
+	id         string
+	runid      *string
 }
 
 // ID of run to assign
@@ -59,8 +59,8 @@ Altering the Category will affect future Run filtering.
 func (a *DeploymentRunsApiService) AddCategoryToDeploymentRun(ctx _context.Context, id string) ApiAddCategoryToDeploymentRunRequest {
 	return ApiAddCategoryToDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -174,21 +174,21 @@ func (a *DeploymentRunsApiService) AddCategoryToDeploymentRunExecute(r ApiAddCat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateIdentityRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
+type DeploymentRunsApiCreateIdentityRequest struct {
+	ctx                 _context.Context
+	ApiService          *DeploymentRunsApiService
+	id                  string
+	hostid              string
 	cloudResourceObject *[]CloudResourceObject
 }
 
 // The cloud resources to be accessed by the host identity
-func (r ApiCreateIdentityRequest) CloudResourceObject(cloudResourceObject []CloudResourceObject) ApiCreateIdentityRequest {
+func (r DeploymentRunsApiCreateIdentityRequest) CloudResourceObject(cloudResourceObject []CloudResourceObject) DeploymentRunsApiCreateIdentityRequest {
 	r.cloudResourceObject = &cloudResourceObject
 	return r
 }
 
-func (r ApiCreateIdentityRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
+func (r DeploymentRunsApiCreateIdentityRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
 	return r.ApiService.CreateIdentityExecute(r)
 }
 
@@ -200,20 +200,20 @@ Creates an identity for the deployment run host with access to the resources req
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
  @param hostid ID of host
- @return ApiCreateIdentityRequest
+ @return DeploymentRunsApiCreateIdentityRequest
 */
-func (a *DeploymentRunsApiService) CreateIdentity(ctx _context.Context, id string, hostid string) ApiCreateIdentityRequest {
-	return ApiCreateIdentityRequest{
+func (a *DeploymentRunsApiService) CreateIdentity(ctx _context.Context, id string, hostid string) DeploymentRunsApiCreateIdentityRequest {
+	return DeploymentRunsApiCreateIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
 // Execute executes the request
 //  @return []BaseIdentity
-func (a *DeploymentRunsApiService) CreateIdentityExecute(r ApiCreateIdentityRequest) ([]BaseIdentity, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) CreateIdentityExecute(r DeploymentRunsApiCreateIdentityRequest) ([]BaseIdentity, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -324,10 +324,10 @@ func (a *DeploymentRunsApiService) CreateIdentityExecute(r ApiCreateIdentityRequ
 }
 
 type ApiDeleteDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	purge *bool
+	id         string
+	purge      *bool
 }
 
 // Delete all dependencies of the deployment run
@@ -352,8 +352,8 @@ Deletes a single inactive Deployment Run with the given ID.
 func (a *DeploymentRunsApiService) DeleteDeploymentRun(ctx _context.Context, id string) ApiDeleteDeploymentRunRequest {
 	return ApiDeleteDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -466,15 +466,14 @@ func (a *DeploymentRunsApiService) DeleteDeploymentRunExecute(r ApiDeleteDeploym
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteIdentityRequest struct {
-	ctx _context.Context
+type DeploymentRunsApiDeleteIdentityRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
+	id         string
+	hostid     string
 }
 
-
-func (r ApiDeleteIdentityRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r DeploymentRunsApiDeleteIdentityRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteIdentityExecute(r)
 }
 
@@ -486,20 +485,20 @@ Deletes the identity of a deployment run host.
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
  @param hostid ID of host
- @return ApiDeleteIdentityRequest
+ @return DeploymentRunsApiDeleteIdentityRequest
 */
-func (a *DeploymentRunsApiService) DeleteIdentity(ctx _context.Context, id string, hostid string) ApiDeleteIdentityRequest {
-	return ApiDeleteIdentityRequest{
+func (a *DeploymentRunsApiService) DeleteIdentity(ctx _context.Context, id string, hostid string) DeploymentRunsApiDeleteIdentityRequest {
+	return DeploymentRunsApiDeleteIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *DeploymentRunsApiService) DeleteIdentityExecute(r ApiDeleteIdentityRequest) (bool, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) DeleteIdentityExecute(r DeploymentRunsApiDeleteIdentityRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -604,16 +603,15 @@ func (a *DeploymentRunsApiService) DeleteIdentityExecute(r ApiDeleteIdentityRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteIdentityByIdRequest struct {
-	ctx _context.Context
+type DeploymentRunsApiDeleteIdentityByIdRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
-	username string
+	id         string
+	hostid     string
+	username   string
 }
 
-
-func (r ApiDeleteIdentityByIdRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
+func (r DeploymentRunsApiDeleteIdentityByIdRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
 	return r.ApiService.DeleteIdentityByIdExecute(r)
 }
 
@@ -626,21 +624,21 @@ Deletes an identity for a user specified by name
  @param id ID of deployment run
  @param hostid ID of host
  @param username Username of the identity to be deleted
- @return ApiDeleteIdentityByIdRequest
+ @return DeploymentRunsApiDeleteIdentityByIdRequest
 */
-func (a *DeploymentRunsApiService) DeleteIdentityById(ctx _context.Context, id string, hostid string, username string) ApiDeleteIdentityByIdRequest {
-	return ApiDeleteIdentityByIdRequest{
+func (a *DeploymentRunsApiService) DeleteIdentityById(ctx _context.Context, id string, hostid string, username string) DeploymentRunsApiDeleteIdentityByIdRequest {
+	return DeploymentRunsApiDeleteIdentityByIdRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
-		username: username,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
+		username:   username,
 	}
 }
 
 // Execute executes the request
 //  @return []BaseIdentity
-func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r ApiDeleteIdentityByIdRequest) ([]BaseIdentity, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r DeploymentRunsApiDeleteIdentityByIdRequest) ([]BaseIdentity, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -747,11 +745,11 @@ func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r ApiDeleteIdentity
 }
 
 type ApiDownloadDeploymentRunTestReportRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	file *string
-	number *string
+	id         string
+	file       *string
+	number     *string
 }
 
 // Report file name
@@ -759,6 +757,7 @@ func (r ApiDownloadDeploymentRunTestReportRequest) File(file string) ApiDownload
 	r.file = &file
 	return r
 }
+
 // Report number
 func (r ApiDownloadDeploymentRunTestReportRequest) Number(number string) ApiDownloadDeploymentRunTestReportRequest {
 	r.number = &number
@@ -781,8 +780,8 @@ Downloads a single Test Report for the specified Deployment Run.
 func (a *DeploymentRunsApiService) DownloadDeploymentRunTestReport(ctx _context.Context, id string) ApiDownloadDeploymentRunTestReportRequest {
 	return ApiDownloadDeploymentRunTestReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -888,10 +887,10 @@ func (a *DeploymentRunsApiService) DownloadDeploymentRunTestReportExecute(r ApiD
 }
 
 type ApiDownloadHostRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	role *string
+	id         string
+	role       *string
 	background *bool
 }
 
@@ -900,6 +899,7 @@ func (r ApiDownloadHostRequest) Role(role string) ApiDownloadHostRequest {
 	r.role = &role
 	return r
 }
+
 // Force the download to happen in the background
 func (r ApiDownloadHostRequest) Background(background bool) ApiDownloadHostRequest {
 	r.background = &background
@@ -926,8 +926,8 @@ If the background flag is set to true (or no value for the background flag is pr
 func (a *DeploymentRunsApiService) DownloadHost(ctx _context.Context, id string) ApiDownloadHostRequest {
 	return ApiDownloadHostRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1034,11 +1034,10 @@ func (a *DeploymentRunsApiService) DownloadHostExecute(r ApiDownloadHostRequest)
 }
 
 type ApiGetDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetDeploymentRunRequest) Execute() (FullDeploymentRun, *_nethttp.Response, error) {
 	return r.ApiService.GetDeploymentRunExecute(r)
@@ -1056,8 +1055,8 @@ Returns a single Deployment Run by the given ID.
 func (a *DeploymentRunsApiService) GetDeploymentRun(ctx _context.Context, id string) ApiGetDeploymentRunRequest {
 	return ApiGetDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1168,11 +1167,10 @@ func (a *DeploymentRunsApiService) GetDeploymentRunExecute(r ApiGetDeploymentRun
 }
 
 type ApiGetDeploymentRunReportsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetDeploymentRunReportsRequest) Execute() ([]string, *_nethttp.Response, error) {
 	return r.ApiService.GetDeploymentRunReportsExecute(r)
@@ -1190,8 +1188,8 @@ Returns a collection of the Test Reports for a single Deployment Run.
 func (a *DeploymentRunsApiService) GetDeploymentRunReports(ctx _context.Context, id string) ApiGetDeploymentRunReportsRequest {
 	return ApiGetDeploymentRunReportsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1301,26 +1299,27 @@ func (a *DeploymentRunsApiService) GetDeploymentRunReportsExecute(r ApiGetDeploy
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDeploymentRunsRequest struct {
-	ctx _context.Context
+type DeploymentRunsApiGetDeploymentRunsRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
+	id         string
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Maximum number of results to return
-func (r ApiGetDeploymentRunsRequest) Maxresults(maxresults int64) ApiGetDeploymentRunsRequest {
+func (r DeploymentRunsApiGetDeploymentRunsRequest) Maxresults(maxresults int64) DeploymentRunsApiGetDeploymentRunsRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
-func (r ApiGetDeploymentRunsRequest) Page(page int64) ApiGetDeploymentRunsRequest {
+func (r DeploymentRunsApiGetDeploymentRunsRequest) Page(page int64) DeploymentRunsApiGetDeploymentRunsRequest {
 	r.page = &page
 	return r
 }
 
-func (r ApiGetDeploymentRunsRequest) Execute() ([]MinimalDeploymentRun, *_nethttp.Response, error) {
+func (r DeploymentRunsApiGetDeploymentRunsRequest) Execute() ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	return r.ApiService.GetDeploymentRunsExecute(r)
 }
 
@@ -1331,19 +1330,19 @@ Returns a collection of the Deployment Runs for a single Deployment.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment
- @return ApiGetDeploymentRunsRequest
+ @return DeploymentRunsApiGetDeploymentRunsRequest
 */
-func (a *DeploymentRunsApiService) GetDeploymentRuns(ctx _context.Context, id string) ApiGetDeploymentRunsRequest {
-	return ApiGetDeploymentRunsRequest{
+func (a *DeploymentRunsApiService) GetDeploymentRuns(ctx _context.Context, id string) DeploymentRunsApiGetDeploymentRunsRequest {
+	return DeploymentRunsApiGetDeploymentRunsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return []MinimalDeploymentRun
-func (a *DeploymentRunsApiService) GetDeploymentRunsExecute(r ApiGetDeploymentRunsRequest) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) GetDeploymentRunsExecute(r DeploymentRunsApiGetDeploymentRunsRequest) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1453,37 +1452,40 @@ func (a *DeploymentRunsApiService) GetDeploymentRunsExecute(r ApiGetDeploymentRu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDeploymentRuns1Request struct {
-	ctx _context.Context
+type DeploymentRunsApiGetDeploymentRuns1Request struct {
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
 	searchType *string
-	inProject *bool
+	inProject  *bool
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Deployment run status
-func (r ApiGetDeploymentRuns1Request) SearchType(searchType string) ApiGetDeploymentRuns1Request {
+func (r DeploymentRunsApiGetDeploymentRuns1Request) SearchType(searchType string) DeploymentRunsApiGetDeploymentRuns1Request {
 	r.searchType = &searchType
 	return r
 }
+
 // Include project runs
-func (r ApiGetDeploymentRuns1Request) InProject(inProject bool) ApiGetDeploymentRuns1Request {
+func (r DeploymentRunsApiGetDeploymentRuns1Request) InProject(inProject bool) DeploymentRunsApiGetDeploymentRuns1Request {
 	r.inProject = &inProject
 	return r
 }
+
 // Maximum number of results to return
-func (r ApiGetDeploymentRuns1Request) Maxresults(maxresults int64) ApiGetDeploymentRuns1Request {
+func (r DeploymentRunsApiGetDeploymentRuns1Request) Maxresults(maxresults int64) DeploymentRunsApiGetDeploymentRuns1Request {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
-func (r ApiGetDeploymentRuns1Request) Page(page int64) ApiGetDeploymentRuns1Request {
+func (r DeploymentRunsApiGetDeploymentRuns1Request) Page(page int64) DeploymentRunsApiGetDeploymentRuns1Request {
 	r.page = &page
 	return r
 }
 
-func (r ApiGetDeploymentRuns1Request) Execute() ([]MinimalDeploymentRun, *_nethttp.Response, error) {
+func (r DeploymentRunsApiGetDeploymentRuns1Request) Execute() ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	return r.ApiService.GetDeploymentRuns1Execute(r)
 }
 
@@ -1493,18 +1495,18 @@ GetDeploymentRuns1 List Deployment Runs
 Returns a collection of the user's relevant Deployment Runs matching a specified query.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetDeploymentRuns1Request
+ @return DeploymentRunsApiGetDeploymentRuns1Request
 */
-func (a *DeploymentRunsApiService) GetDeploymentRuns1(ctx _context.Context) ApiGetDeploymentRuns1Request {
-	return ApiGetDeploymentRuns1Request{
+func (a *DeploymentRunsApiService) GetDeploymentRuns1(ctx _context.Context) DeploymentRunsApiGetDeploymentRuns1Request {
+	return DeploymentRunsApiGetDeploymentRuns1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return []MinimalDeploymentRun
-func (a *DeploymentRunsApiService) GetDeploymentRuns1Execute(r ApiGetDeploymentRuns1Request) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) GetDeploymentRuns1Execute(r DeploymentRunsApiGetDeploymentRuns1Request) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1621,12 +1623,11 @@ func (a *DeploymentRunsApiService) GetDeploymentRuns1Execute(r ApiGetDeploymentR
 }
 
 type ApiGetHostRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
+	id         string
+	hostid     string
 }
-
 
 func (r ApiGetHostRequest) Execute() (FullDeploymentRunHost, *_nethttp.Response, error) {
 	return r.ApiService.GetHostExecute(r)
@@ -1645,9 +1646,9 @@ Returns the specified Host in the Deployment Run by the given ID.
 func (a *DeploymentRunsApiService) GetHost(ctx _context.Context, id string, hostid string) ApiGetHostRequest {
 	return ApiGetHostRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
@@ -1759,12 +1760,12 @@ func (a *DeploymentRunsApiService) GetHostExecute(r ApiGetHostRequest) (FullDepl
 }
 
 type ApiGetHostAccessRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
+	id         string
+	hostid     string
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Maximum number of results to return
@@ -1772,6 +1773,7 @@ func (r ApiGetHostAccessRequest) Maxresults(maxresults int64) ApiGetHostAccessRe
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetHostAccessRequest) Page(page int64) ApiGetHostAccessRequest {
 	r.page = &page
@@ -1795,9 +1797,9 @@ Returns a collection of the Host Access Logs for a single Deployment Run.
 func (a *DeploymentRunsApiService) GetHostAccess(ctx _context.Context, id string, hostid string) ApiGetHostAccessRequest {
 	return ApiGetHostAccessRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
@@ -1914,38 +1916,41 @@ func (a *DeploymentRunsApiService) GetHostAccessExecute(r ApiGetHostAccessReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetHostConfigurationMetricsRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentRunsApiService
-	id string
-	start *int64
-	end *int64
-	interval *int64
+type DeploymentRunsApiGetHostConfigurationMetricsRequest struct {
+	ctx          _context.Context
+	ApiService   *DeploymentRunsApiService
+	id           string
+	start        *int64
+	end          *int64
+	interval     *int64
 	intervalUnit *string
 }
 
 // Interval start time, specified in seconds since epoch
-func (r ApiGetHostConfigurationMetricsRequest) Start(start int64) ApiGetHostConfigurationMetricsRequest {
+func (r DeploymentRunsApiGetHostConfigurationMetricsRequest) Start(start int64) DeploymentRunsApiGetHostConfigurationMetricsRequest {
 	r.start = &start
 	return r
 }
+
 // Interval end time, specified in seconds since epoch
-func (r ApiGetHostConfigurationMetricsRequest) End(end int64) ApiGetHostConfigurationMetricsRequest {
+func (r DeploymentRunsApiGetHostConfigurationMetricsRequest) End(end int64) DeploymentRunsApiGetHostConfigurationMetricsRequest {
 	r.end = &end
 	return r
 }
+
 // Number of intervals
-func (r ApiGetHostConfigurationMetricsRequest) Interval(interval int64) ApiGetHostConfigurationMetricsRequest {
+func (r DeploymentRunsApiGetHostConfigurationMetricsRequest) Interval(interval int64) DeploymentRunsApiGetHostConfigurationMetricsRequest {
 	r.interval = &interval
 	return r
 }
+
 // Interval unit
-func (r ApiGetHostConfigurationMetricsRequest) IntervalUnit(intervalUnit string) ApiGetHostConfigurationMetricsRequest {
+func (r DeploymentRunsApiGetHostConfigurationMetricsRequest) IntervalUnit(intervalUnit string) DeploymentRunsApiGetHostConfigurationMetricsRequest {
 	r.intervalUnit = &intervalUnit
 	return r
 }
 
-func (r ApiGetHostConfigurationMetricsRequest) Execute() (string, *_nethttp.Response, error) {
+func (r DeploymentRunsApiGetHostConfigurationMetricsRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.GetHostConfigurationMetricsExecute(r)
 }
 
@@ -1956,19 +1961,19 @@ Returns metric data for Deployment Runs launched by members of the specified Pro
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of project
- @return ApiGetHostConfigurationMetricsRequest
+ @return DeploymentRunsApiGetHostConfigurationMetricsRequest
 */
-func (a *DeploymentRunsApiService) GetHostConfigurationMetrics(ctx _context.Context, id string) ApiGetHostConfigurationMetricsRequest {
-	return ApiGetHostConfigurationMetricsRequest{
+func (a *DeploymentRunsApiService) GetHostConfigurationMetrics(ctx _context.Context, id string) DeploymentRunsApiGetHostConfigurationMetricsRequest {
+	return DeploymentRunsApiGetHostConfigurationMetricsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return string
-func (a *DeploymentRunsApiService) GetHostConfigurationMetricsExecute(r ApiGetHostConfigurationMetricsRequest) (string, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) GetHostConfigurationMetricsExecute(r DeploymentRunsApiGetHostConfigurationMetricsRequest) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -2087,12 +2092,11 @@ func (a *DeploymentRunsApiService) GetHostConfigurationMetricsExecute(r ApiGetHo
 }
 
 type ApiGetHostInstanceTypesRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
+	id         string
+	hostid     string
 }
-
 
 func (r ApiGetHostInstanceTypesRequest) Execute() (TargetInstanceTypes, *_nethttp.Response, error) {
 	return r.ApiService.GetHostInstanceTypesExecute(r)
@@ -2111,9 +2115,9 @@ Returns a collection of available instance types for resizing a Deployment Run H
 func (a *DeploymentRunsApiService) GetHostInstanceTypes(ctx _context.Context, id string, hostid string) ApiGetHostInstanceTypesRequest {
 	return ApiGetHostInstanceTypesRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
@@ -2224,15 +2228,14 @@ func (a *DeploymentRunsApiService) GetHostInstanceTypesExecute(r ApiGetHostInsta
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetIdentitiesRequest struct {
-	ctx _context.Context
+type DeploymentRunsApiGetIdentitiesRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
+	id         string
+	hostid     string
 }
 
-
-func (r ApiGetIdentitiesRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
+func (r DeploymentRunsApiGetIdentitiesRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
 	return r.ApiService.GetIdentitiesExecute(r)
 }
 
@@ -2244,20 +2247,20 @@ Returns a collection of identities for the deployment run host
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
  @param hostid ID of host
- @return ApiGetIdentitiesRequest
+ @return DeploymentRunsApiGetIdentitiesRequest
 */
-func (a *DeploymentRunsApiService) GetIdentities(ctx _context.Context, id string, hostid string) ApiGetIdentitiesRequest {
-	return ApiGetIdentitiesRequest{
+func (a *DeploymentRunsApiService) GetIdentities(ctx _context.Context, id string, hostid string) DeploymentRunsApiGetIdentitiesRequest {
+	return DeploymentRunsApiGetIdentitiesRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
 // Execute executes the request
 //  @return []BaseIdentity
-func (a *DeploymentRunsApiService) GetIdentitiesExecute(r ApiGetIdentitiesRequest) ([]BaseIdentity, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) GetIdentitiesExecute(r DeploymentRunsApiGetIdentitiesRequest) ([]BaseIdentity, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -2362,15 +2365,14 @@ func (a *DeploymentRunsApiService) GetIdentitiesExecute(r ApiGetIdentitiesReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetIdentityRequest struct {
-	ctx _context.Context
+type DeploymentRunsApiGetIdentityRequest struct {
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
+	id         string
+	hostid     string
 }
 
-
-func (r ApiGetIdentityRequest) Execute() ([]CloudResourceAccessListing, *_nethttp.Response, error) {
+func (r DeploymentRunsApiGetIdentityRequest) Execute() ([]CloudResourceAccessListing, *_nethttp.Response, error) {
 	return r.ApiService.GetIdentityExecute(r)
 }
 
@@ -2382,20 +2384,20 @@ Returns the deployment run host identity for the user, if one exists.
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of deployment run
  @param hostid ID of host
- @return ApiGetIdentityRequest
+ @return DeploymentRunsApiGetIdentityRequest
 */
-func (a *DeploymentRunsApiService) GetIdentity(ctx _context.Context, id string, hostid string) ApiGetIdentityRequest {
-	return ApiGetIdentityRequest{
+func (a *DeploymentRunsApiService) GetIdentity(ctx _context.Context, id string, hostid string) DeploymentRunsApiGetIdentityRequest {
+	return DeploymentRunsApiGetIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
 // Execute executes the request
 //  @return []CloudResourceAccessListing
-func (a *DeploymentRunsApiService) GetIdentityExecute(r ApiGetIdentityRequest) ([]CloudResourceAccessListing, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) GetIdentityExecute(r DeploymentRunsApiGetIdentityRequest) ([]CloudResourceAccessListing, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -2501,14 +2503,14 @@ func (a *DeploymentRunsApiService) GetIdentityExecute(r ApiGetIdentityRequest) (
 }
 
 type ApiPerformHostActionRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentRunsApiService
-	id string
+	ctx                 _context.Context
+	ApiService          *DeploymentRunsApiService
+	id                  string
 	deploymentrunhostid *string
-	action *string
-	cpu *int32
-	ram *int32
-	instanceTypeName *string
+	action              *string
+	cpu                 *int32
+	ram                 *int32
+	instanceTypeName    *string
 }
 
 // ID of host
@@ -2516,21 +2518,25 @@ func (r ApiPerformHostActionRequest) Deploymentrunhostid(deploymentrunhostid str
 	r.deploymentrunhostid = &deploymentrunhostid
 	return r
 }
+
 // Action to perform
 func (r ApiPerformHostActionRequest) Action(action string) ApiPerformHostActionRequest {
 	r.action = &action
 	return r
 }
+
 // Desired number of CPUs, if resizing host in a non instance type based virtualization realm
 func (r ApiPerformHostActionRequest) Cpu(cpu int32) ApiPerformHostActionRequest {
 	r.cpu = &cpu
 	return r
 }
+
 // Desired amount of RAM in Mebibytes, if resizing host in a non instance type based virtualization realm
 func (r ApiPerformHostActionRequest) Ram(ram int32) ApiPerformHostActionRequest {
 	r.ram = &ram
 	return r
 }
+
 // The instance type name to resize to, if resizing host in an instance type based virtualization realm
 func (r ApiPerformHostActionRequest) InstanceTypeName(instanceTypeName string) ApiPerformHostActionRequest {
 	r.instanceTypeName = &instanceTypeName
@@ -2553,8 +2559,8 @@ Executes an action against the specified Host in the Deployment Run for the ID p
 func (a *DeploymentRunsApiService) PerformHostAction(ctx _context.Context, id string) ApiPerformHostActionRequest {
 	return ApiPerformHostActionRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2682,11 +2688,10 @@ func (a *DeploymentRunsApiService) PerformHostActionExecute(r ApiPerformHostActi
 }
 
 type ApiPublishDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiPublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.PublishDeploymentRunExecute(r)
@@ -2706,8 +2711,8 @@ Consumers will be able to connect to the run, but will not be able to manage the
 func (a *DeploymentRunsApiService) PublishDeploymentRun(ctx _context.Context, id string) ApiPublishDeploymentRunRequest {
 	return ApiPublishDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2818,11 +2823,11 @@ func (a *DeploymentRunsApiService) PublishDeploymentRunExecute(r ApiPublishDeplo
 }
 
 type ApiRedeployContainerAssetRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentRunsApiService
-	id string
-	hostid string
-	installationid *string
+	ctx                     _context.Context
+	ApiService              *DeploymentRunsApiService
+	id                      string
+	hostid                  string
+	installationid          *string
 	inputContainerComponent *InputContainerComponent
 }
 
@@ -2831,6 +2836,7 @@ func (r ApiRedeployContainerAssetRequest) Installationid(installationid string) 
 	r.installationid = &installationid
 	return r
 }
+
 // The updated Container Component definition
 func (r ApiRedeployContainerAssetRequest) InputContainerComponent(inputContainerComponent InputContainerComponent) ApiRedeployContainerAssetRequest {
 	r.inputContainerComponent = &inputContainerComponent
@@ -2854,9 +2860,9 @@ Re-deploys the specified Container Asset installation on the single Host in the 
 func (a *DeploymentRunsApiService) RedeployContainerAsset(ctx _context.Context, id string, hostid string) ApiRedeployContainerAssetRequest {
 	return ApiRedeployContainerAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		hostid: hostid,
+		ctx:        ctx,
+		id:         id,
+		hostid:     hostid,
 	}
 }
 
@@ -2974,9 +2980,9 @@ func (a *DeploymentRunsApiService) RedeployContainerAssetExecute(r ApiRedeployCo
 }
 
 type ApiRedeployDeploymentRunHostsRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentRunsApiService
-	id string
+	ctx          _context.Context
+	ApiService   *DeploymentRunsApiService
+	id           string
 	restIdObject *[]RestIdObject
 }
 
@@ -3002,8 +3008,8 @@ Requests the redeploy of one or more deployment run hosts.
 func (a *DeploymentRunsApiService) RedeployDeploymentRunHosts(ctx _context.Context, id string) ApiRedeployDeploymentRunHostsRequest {
 	return ApiRedeployDeploymentRunHostsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3116,11 +3122,10 @@ func (a *DeploymentRunsApiService) RedeployDeploymentRunHostsExecute(r ApiRedepl
 }
 
 type ApiRelaunchDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiRelaunchDeploymentRunRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.RelaunchDeploymentRunExecute(r)
@@ -3138,8 +3143,8 @@ Launches a new Deployment Run with the same configuration as the specified Deplo
 func (a *DeploymentRunsApiService) RelaunchDeploymentRun(ctx _context.Context, id string) ApiRelaunchDeploymentRunRequest {
 	return ApiRelaunchDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3250,10 +3255,10 @@ func (a *DeploymentRunsApiService) RelaunchDeploymentRunExecute(r ApiRelaunchDep
 }
 
 type ApiReleaseDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	force *bool
+	id         string
+	force      *bool
 }
 
 // Force the release of this run
@@ -3282,8 +3287,8 @@ If the user is a non-Admin, the force flag is only honored in the event that a r
 func (a *DeploymentRunsApiService) ReleaseDeploymentRun(ctx _context.Context, id string) ApiReleaseDeploymentRunRequest {
 	return ApiReleaseDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3397,10 +3402,10 @@ func (a *DeploymentRunsApiService) ReleaseDeploymentRunExecute(r ApiReleaseDeplo
 }
 
 type ApiRemoveCategoryFromDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	runid *string
+	id         string
+	runid      *string
 }
 
 // ID of run to unassign
@@ -3427,8 +3432,8 @@ Altering the Category will affect future run filtering.
 func (a *DeploymentRunsApiService) RemoveCategoryFromDeploymentRun(ctx _context.Context, id string) ApiRemoveCategoryFromDeploymentRunRequest {
 	return ApiRemoveCategoryFromDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3543,11 +3548,10 @@ func (a *DeploymentRunsApiService) RemoveCategoryFromDeploymentRunExecute(r ApiR
 }
 
 type ApiRetestDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiRetestDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.RetestDeploymentRunExecute(r)
@@ -3565,8 +3569,8 @@ Re-executes all Tests in the specified Deployment Run.
 func (a *DeploymentRunsApiService) RetestDeploymentRun(ctx _context.Context, id string) ApiRetestDeploymentRunRequest {
 	return ApiRetestDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3677,10 +3681,10 @@ func (a *DeploymentRunsApiService) RetestDeploymentRunExecute(r ApiRetestDeploym
 }
 
 type ApiSetDeploymentRunLockRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
-	lock *bool
+	id         string
+	lock       *bool
 }
 
 // The desired lock state
@@ -3705,8 +3709,8 @@ Update the Lock on a single Deployment Run with the given ID.
 func (a *DeploymentRunsApiService) SetDeploymentRunLock(ctx _context.Context, id string) ApiSetDeploymentRunLockRequest {
 	return ApiSetDeploymentRunLockRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3821,9 +3825,9 @@ func (a *DeploymentRunsApiService) SetDeploymentRunLockExecute(r ApiSetDeploymen
 }
 
 type ApiSetPowerScheduleForDeploymentRunRequest struct {
-	ctx _context.Context
-	ApiService *DeploymentRunsApiService
-	id string
+	ctx           _context.Context
+	ApiService    *DeploymentRunsApiService
+	id            string
 	powerSchedule *PowerSchedule
 }
 
@@ -3849,8 +3853,8 @@ Updates the Power Schedule for a single Deployment Run with the given ID.
 func (a *DeploymentRunsApiService) SetPowerScheduleForDeploymentRun(ctx _context.Context, id string) ApiSetPowerScheduleForDeploymentRunRequest {
 	return ApiSetPowerScheduleForDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -3963,11 +3967,10 @@ func (a *DeploymentRunsApiService) SetPowerScheduleForDeploymentRunExecute(r Api
 }
 
 type ApiUnpublishDeploymentRunRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiUnpublishDeploymentRunRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UnpublishDeploymentRunExecute(r)
@@ -3987,8 +3990,8 @@ Consumers will no longer be able to connect to the run, and the run will no long
 func (a *DeploymentRunsApiService) UnpublishDeploymentRun(ctx _context.Context, id string) ApiUnpublishDeploymentRunRequest {
 	return ApiUnpublishDeploymentRunRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 

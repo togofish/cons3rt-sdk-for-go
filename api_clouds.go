@@ -28,20 +28,20 @@ var (
 // CloudsApiService CloudsApi service
 type CloudsApiService service
 
-type ApiAddProjectRequest struct {
-	ctx _context.Context
+type CloudsApiAddProjectRequest struct {
+	ctx        _context.Context
 	ApiService *CloudsApiService
-	id string
-	projectId *string
+	id         string
+	projectId  *string
 }
 
 // ID of project to assign
-func (r ApiAddProjectRequest) ProjectId(projectId string) ApiAddProjectRequest {
+func (r CloudsApiAddProjectRequest) ProjectId(projectId string) CloudsApiAddProjectRequest {
 	r.projectId = &projectId
 	return r
 }
 
-func (r ApiAddProjectRequest) Execute() (int32, *_nethttp.Response, error) {
+func (r CloudsApiAddProjectRequest) Execute() (int32, *_nethttp.Response, error) {
 	return r.ApiService.AddProjectExecute(r)
 }
 
@@ -52,19 +52,19 @@ Provides members of the Project with access to the specified Virtualization Real
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of virtualization realm
- @return ApiAddProjectRequest
+ @return CloudsApiAddProjectRequest
 */
-func (a *CloudsApiService) AddProject(ctx _context.Context, id string) ApiAddProjectRequest {
-	return ApiAddProjectRequest{
+func (a *CloudsApiService) AddProject(ctx _context.Context, id string) CloudsApiAddProjectRequest {
+	return CloudsApiAddProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return int32
-func (a *CloudsApiService) AddProjectExecute(r ApiAddProjectRequest) (int32, *_nethttp.Response, error) {
+func (a *CloudsApiService) AddProjectExecute(r CloudsApiAddProjectRequest) (int32, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -173,9 +173,9 @@ func (a *CloudsApiService) AddProjectExecute(r ApiAddProjectRequest) (int32, *_n
 }
 
 type ApiAllocateVirtualizationRealmRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+	ctx                       _context.Context
+	ApiService                *CloudsApiService
+	id                        string
 	abstractCloudSpaceRequest *AbstractCloudSpaceRequest
 }
 
@@ -203,8 +203,8 @@ Since this call results in the construction of a new Virtualization Realm, it ha
 func (a *CloudsApiService) AllocateVirtualizationRealm(ctx _context.Context, id string) ApiAllocateVirtualizationRealmRequest {
 	return ApiAllocateVirtualizationRealmRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -320,11 +320,11 @@ func (a *CloudsApiService) AllocateVirtualizationRealmExecute(r ApiAllocateVirtu
 }
 
 type ApiAssignManagingTeamRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+	ctx                   _context.Context
+	ApiService            *CloudsApiService
+	id                    string
 	virtualizationRealmId string
-	teamId *int32
+	teamId                *int32
 }
 
 // ID of team to assign
@@ -349,9 +349,9 @@ Assigns the provided Team as a Manager of the Virtualization Realm belonging to 
 */
 func (a *CloudsApiService) AssignManagingTeam(ctx _context.Context, id string, virtualizationRealmId string) ApiAssignManagingTeamRequest {
 	return ApiAssignManagingTeamRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:            a,
+		ctx:                   ctx,
+		id:                    id,
 		virtualizationRealmId: virtualizationRealmId,
 	}
 }
@@ -468,9 +468,9 @@ func (a *CloudsApiService) AssignManagingTeamExecute(r ApiAssignManagingTeamRequ
 }
 
 type ApiDeallocateVirtRealmRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+	ctx         _context.Context
+	ApiService  *CloudsApiService
+	id          string
 	virtRealmId *string
 }
 
@@ -496,8 +496,8 @@ Removes an existing Virtualization Realm from the specified Cloud and destroys t
 func (a *CloudsApiService) DeallocateVirtRealm(ctx _context.Context, id string) ApiDeallocateVirtRealmRequest {
 	return ApiDeallocateVirtRealmRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -612,11 +612,10 @@ func (a *CloudsApiService) DeallocateVirtRealmExecute(r ApiDeallocateVirtRealmRe
 }
 
 type ApiDeleteCloudRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiDeleteCloudRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteCloudExecute(r)
@@ -634,8 +633,8 @@ Deletes the content of a single Cloud with the given ID.
 func (a *CloudsApiService) DeleteCloud(ctx _context.Context, id string) ApiDeleteCloudRequest {
 	return ApiDeleteCloudRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -746,10 +745,10 @@ func (a *CloudsApiService) DeleteCloudExecute(r ApiDeleteCloudRequest) (bool, *_
 }
 
 type ApiEnableMaintenceModeRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
-	enable *bool
+	ctx                    _context.Context
+	ApiService             *CloudsApiService
+	id                     string
+	enable                 *bool
 	maintenanceModeRequest *MaintenanceModeRequest
 }
 
@@ -758,6 +757,7 @@ func (r ApiEnableMaintenceModeRequest) Enable(enable bool) ApiEnableMaintenceMod
 	r.enable = &enable
 	return r
 }
+
 // The maintenance mode request, when enabling maintenance mode
 func (r ApiEnableMaintenceModeRequest) MaintenanceModeRequest(maintenanceModeRequest MaintenanceModeRequest) ApiEnableMaintenceModeRequest {
 	r.maintenanceModeRequest = &maintenanceModeRequest
@@ -780,8 +780,8 @@ Updates the Maintenance status for a single Cloud by the given ID.
 func (a *CloudsApiService) EnableMaintenceMode(ctx _context.Context, id string) ApiEnableMaintenceModeRequest {
 	return ApiEnableMaintenceModeRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -897,11 +897,10 @@ func (a *CloudsApiService) EnableMaintenceModeExecute(r ApiEnableMaintenceModeRe
 }
 
 type ApiGetCloudRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetCloudRequest) Execute() (FullCloud, *_nethttp.Response, error) {
 	return r.ApiService.GetCloudExecute(r)
@@ -919,8 +918,8 @@ Returns a single Cloud by the given ID.
 func (a *CloudsApiService) GetCloud(ctx _context.Context, id string) ApiGetCloudRequest {
 	return ApiGetCloudRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1031,11 +1030,10 @@ func (a *CloudsApiService) GetCloudExecute(r ApiGetCloudRequest) (FullCloud, *_n
 }
 
 type ApiGetCloudResourcesRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetCloudResourcesRequest) Execute() (AbstractCloudResources, *_nethttp.Response, error) {
 	return r.ApiService.GetCloudResourcesExecute(r)
@@ -1053,8 +1051,8 @@ Returns the back-end resources for a single Cloud by the given ID.
 func (a *CloudsApiService) GetCloudResources(ctx _context.Context, id string) ApiGetCloudResourcesRequest {
 	return ApiGetCloudResourcesRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1165,10 +1163,10 @@ func (a *CloudsApiService) GetCloudResourcesExecute(r ApiGetCloudResourcesReques
 }
 
 type ApiGetCloudsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Maximum number of results to return
@@ -1176,6 +1174,7 @@ func (r ApiGetCloudsRequest) Maxresults(maxresults int64) ApiGetCloudsRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetCloudsRequest) Page(page int64) ApiGetCloudsRequest {
 	r.page = &page
@@ -1197,7 +1196,7 @@ Returns a collection of the Clouds you manage.
 func (a *CloudsApiService) GetClouds(ctx _context.Context) ApiGetCloudsRequest {
 	return ApiGetCloudsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1313,10 +1312,9 @@ func (a *CloudsApiService) GetCloudsExecute(r ApiGetCloudsRequest) ([]MinimalClo
 }
 
 type ApiGetDefaultNetworkRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
 }
-
 
 func (r ApiGetDefaultNetworkRequest) Execute() (Network, *_nethttp.Response, error) {
 	return r.ApiService.GetDefaultNetworkExecute(r)
@@ -1333,7 +1331,7 @@ Returns the default CONS3RT Network definition used by all Clouds.
 func (a *CloudsApiService) GetDefaultNetwork(ctx _context.Context) ApiGetDefaultNetworkRequest {
 	return ApiGetDefaultNetworkRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1443,11 +1441,10 @@ func (a *CloudsApiService) GetDefaultNetworkExecute(r ApiGetDefaultNetworkReques
 }
 
 type ApiGetEdgeGatewayIPsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetEdgeGatewayIPsRequest) Execute() ([]string, *_nethttp.Response, error) {
 	return r.ApiService.GetEdgeGatewayIPsExecute(r)
@@ -1465,8 +1462,8 @@ Returns a collection of the Edge Gateway IP addresses belonging to the specified
 func (a *CloudsApiService) GetEdgeGatewayIPs(ctx _context.Context, id string) ApiGetEdgeGatewayIPsRequest {
 	return ApiGetEdgeGatewayIPsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1577,11 +1574,11 @@ func (a *CloudsApiService) GetEdgeGatewayIPsExecute(r ApiGetEdgeGatewayIPsReques
 }
 
 type ApiListVirtRealmsInCloudRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
-	id string
+	id         string
 	maxresults *int64
-	page *int64
+	page       *int64
 }
 
 // Maximum number of results to return
@@ -1589,6 +1586,7 @@ func (r ApiListVirtRealmsInCloudRequest) Maxresults(maxresults int64) ApiListVir
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiListVirtRealmsInCloudRequest) Page(page int64) ApiListVirtRealmsInCloudRequest {
 	r.page = &page
@@ -1611,8 +1609,8 @@ Returns a collection of the Virtualization Realms belonging to the specified Clo
 func (a *CloudsApiService) ListVirtRealmsInCloud(ctx _context.Context, id string) ApiListVirtRealmsInCloudRequest {
 	return ApiListVirtRealmsInCloudRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1729,10 +1727,10 @@ func (a *CloudsApiService) ListVirtRealmsInCloudExecute(r ApiListVirtRealmsInClo
 }
 
 type ApiRegisterCloudRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
+	ctx             _context.Context
+	ApiService      *CloudsApiService
 	cloudATOConsent *bool
-	inputCloud *InputCloud
+	inputCloud      *InputCloud
 }
 
 // Cloud ATO consent
@@ -1740,6 +1738,7 @@ func (r ApiRegisterCloudRequest) CloudATOConsent(cloudATOConsent bool) ApiRegist
 	r.cloudATOConsent = &cloudATOConsent
 	return r
 }
+
 // The Cloud to create
 func (r ApiRegisterCloudRequest) InputCloud(inputCloud InputCloud) ApiRegisterCloudRequest {
 	r.inputCloud = &inputCloud
@@ -1757,7 +1756,7 @@ Creates a single Cloud.<br>
 <br>
 <strong>Cloud Authority To Operate (ATO) Consent.</strong>
 <br>
-<p>Teams are allowed to register their own Clouds and to use the site capabilities to allocate Cloudspaces, configure security, and deploy Systems & Services and/or access them remotely. 
+<p>Teams are allowed to register their own Clouds and to use the site capabilities to allocate Cloudspaces, configure security, and deploy Systems & Services and/or access them remotely.
 However, without a Memorandum of Understanding (MOU) or Memorandum of Agreement (MOA) with the site owner, customer-owned Clouds and Cloudspaces are not covered by the site Authority To Operate (ATO).
 Customers are responsible for compliance with all DoD security requirements for protecting and maintaining their systems.</p>
 <p>By setting <code>cloudATOConsent</code> to true, the user acknowledges that - as a Team Manager - they a) are authorized to represent their organization, and b) they understand that their organization is responsible for all security and authorization to operate requirements for Systems deployed in their Cloudspaces.</p>
@@ -1768,7 +1767,7 @@ Customers are responsible for compliance with all DoD security requirements for 
 func (a *CloudsApiService) RegisterCloud(ctx _context.Context) ApiRegisterCloudRequest {
 	return ApiRegisterCloudRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1883,9 +1882,9 @@ func (a *CloudsApiService) RegisterCloudExecute(r ApiRegisterCloudRequest) (stri
 }
 
 type ApiRegisterVirtualizationRealmRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+	ctx                               _context.Context
+	ApiService                        *CloudsApiService
+	id                                string
 	abstractRegisterCloudSpaceRequest *AbstractRegisterCloudSpaceRequest
 }
 
@@ -1911,8 +1910,8 @@ Adds an existing Virtualization Realm as part of the specified Cloud
 func (a *CloudsApiService) RegisterVirtualizationRealm(ctx _context.Context, id string) ApiRegisterVirtualizationRealmRequest {
 	return ApiRegisterVirtualizationRealmRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2028,9 +2027,9 @@ func (a *CloudsApiService) RegisterVirtualizationRealmExecute(r ApiRegisterVirtu
 }
 
 type ApiRemoveVirtRealmRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+	ctx         _context.Context
+	ApiService  *CloudsApiService
+	id          string
 	virtRealmId *string
 }
 
@@ -2056,8 +2055,8 @@ Removes an existing Virtualization Realm from the specified Cloud.
 func (a *CloudsApiService) RemoveVirtRealm(ctx _context.Context, id string) ApiRemoveVirtRealmRequest {
 	return ApiRemoveVirtRealmRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2172,11 +2171,11 @@ func (a *CloudsApiService) RemoveVirtRealmExecute(r ApiRemoveVirtRealmRequest) (
 }
 
 type ApiUnassignManagingTeamRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+	ctx                   _context.Context
+	ApiService            *CloudsApiService
+	id                    string
 	virtualizationRealmId string
-	teamId *int32
+	teamId                *int32
 }
 
 // ID of team to unassign
@@ -2201,9 +2200,9 @@ Removes the provided Team as a Manager of the Virtualization Realm belonging to 
 */
 func (a *CloudsApiService) UnassignManagingTeam(ctx _context.Context, id string, virtualizationRealmId string) ApiUnassignManagingTeamRequest {
 	return ApiUnassignManagingTeamRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:            a,
+		ctx:                   ctx,
+		id:                    id,
 		virtualizationRealmId: virtualizationRealmId,
 	}
 }
@@ -2320,9 +2319,9 @@ func (a *CloudsApiService) UnassignManagingTeamExecute(r ApiUnassignManagingTeam
 }
 
 type ApiUpdateCloudRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *CloudsApiService
-	id string
+	id         string
 	inputCloud *InputCloud
 }
 
@@ -2348,8 +2347,8 @@ Updates the content of a single Cloud with the given ID.
 func (a *CloudsApiService) UpdateCloud(ctx _context.Context, id string) ApiUpdateCloudRequest {
 	return ApiUpdateCloudRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2462,10 +2461,10 @@ func (a *CloudsApiService) UpdateCloudExecute(r ApiUpdateCloudRequest) (bool, *_
 }
 
 type ApiUpdateVirtRealmRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
-	virtRealmId *string
+	ctx                      _context.Context
+	ApiService               *CloudsApiService
+	id                       string
+	virtRealmId              *string
 	inputVirtualizationRealm *InputVirtualizationRealm
 }
 
@@ -2474,6 +2473,7 @@ func (r ApiUpdateVirtRealmRequest) VirtRealmId(virtRealmId string) ApiUpdateVirt
 	r.virtRealmId = &virtRealmId
 	return r
 }
+
 // The modified virtualization realm information
 func (r ApiUpdateVirtRealmRequest) InputVirtualizationRealm(inputVirtualizationRealm InputVirtualizationRealm) ApiUpdateVirtRealmRequest {
 	r.inputVirtualizationRealm = &inputVirtualizationRealm
@@ -2496,8 +2496,8 @@ Updates the content of a single Virtualization Realm within the specified Cloud.
 func (a *CloudsApiService) UpdateVirtRealm(ctx _context.Context, id string) ApiUpdateVirtRealmRequest {
 	return ApiUpdateVirtRealmRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2616,20 +2616,20 @@ func (a *CloudsApiService) UpdateVirtRealmExecute(r ApiUpdateVirtRealmRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateVirtualizationRealmRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+type CloudsApiUpdateVirtualizationRealmRequest struct {
+	ctx                             _context.Context
+	ApiService                      *CloudsApiService
+	id                              string
 	inputVRAdminVirtualizationRealm *InputVRAdminVirtualizationRealm
 }
 
 // The updated Virtualization Realm data
-func (r ApiUpdateVirtualizationRealmRequest) InputVRAdminVirtualizationRealm(inputVRAdminVirtualizationRealm InputVRAdminVirtualizationRealm) ApiUpdateVirtualizationRealmRequest {
+func (r CloudsApiUpdateVirtualizationRealmRequest) InputVRAdminVirtualizationRealm(inputVRAdminVirtualizationRealm InputVRAdminVirtualizationRealm) CloudsApiUpdateVirtualizationRealmRequest {
 	r.inputVRAdminVirtualizationRealm = &inputVRAdminVirtualizationRealm
 	return r
 }
 
-func (r ApiUpdateVirtualizationRealmRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r CloudsApiUpdateVirtualizationRealmRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.UpdateVirtualizationRealmExecute(r)
 }
 
@@ -2640,19 +2640,19 @@ Updates the content of a single Virtualization Realm with the given ID.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id ID of virtualization realm
- @return ApiUpdateVirtualizationRealmRequest
+ @return CloudsApiUpdateVirtualizationRealmRequest
 */
-func (a *CloudsApiService) UpdateVirtualizationRealm(ctx _context.Context, id string) ApiUpdateVirtualizationRealmRequest {
-	return ApiUpdateVirtualizationRealmRequest{
+func (a *CloudsApiService) UpdateVirtualizationRealm(ctx _context.Context, id string) CloudsApiUpdateVirtualizationRealmRequest {
+	return CloudsApiUpdateVirtualizationRealmRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 //  @return bool
-func (a *CloudsApiService) UpdateVirtualizationRealmExecute(r ApiUpdateVirtualizationRealmRequest) (bool, *_nethttp.Response, error) {
+func (a *CloudsApiService) UpdateVirtualizationRealmExecute(r CloudsApiUpdateVirtualizationRealmRequest) (bool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2759,9 +2759,9 @@ func (a *CloudsApiService) UpdateVirtualizationRealmExecute(r ApiUpdateVirtualiz
 }
 
 type ApiUpdateVirtualizationRealmMaximumImpactLevelRequest struct {
-	ctx _context.Context
-	ApiService *CloudsApiService
-	id string
+	ctx                _context.Context
+	ApiService         *CloudsApiService
+	id                 string
 	maximumimpactlevel *string
 }
 
@@ -2791,8 +2791,8 @@ Maximum Impact Level can only be set to DOD_LEVEL_6 if allowed in the environmen
 func (a *CloudsApiService) UpdateVirtualizationRealmMaximumImpactLevel(ctx _context.Context, id string) ApiUpdateVirtualizationRealmMaximumImpactLevelRequest {
 	return ApiUpdateVirtualizationRealmMaximumImpactLevelRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
