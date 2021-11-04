@@ -96,7 +96,7 @@ type Configuration struct {
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
-	BasePath         *string
+	BasePath         string
 }
 
 // NewConfiguration returns a new Configuration object
