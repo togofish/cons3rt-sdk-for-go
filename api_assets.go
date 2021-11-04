@@ -1507,11 +1507,11 @@ type AssetsApiUpdateAssetContentRequest struct {
 	ctx        _context.Context
 	ApiService *AssetsApiService
 	id         string
-	file       *[]*os.File
+	file       *os.File
 	filename   *string
 }
 
-func (r AssetsApiUpdateAssetContentRequest) File(file []*os.File) AssetsApiUpdateAssetContentRequest {
+func (r AssetsApiUpdateAssetContentRequest) File(file os.File) AssetsApiUpdateAssetContentRequest {
 	r.file = &file
 	return r
 }
@@ -1585,9 +1585,9 @@ func (a *AssetsApiService) UpdateAssetContentExecute(r AssetsApiUpdateAssetConte
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)
@@ -2388,11 +2388,11 @@ type AssetsApiUpdateSoftwareAssetInstallScriptRequest struct {
 	ctx        _context.Context
 	ApiService *AssetsApiService
 	id         string
-	file       *[]*os.File
+	file       *os.File
 	filename   *string
 }
 
-func (r AssetsApiUpdateSoftwareAssetInstallScriptRequest) File(file []*os.File) AssetsApiUpdateSoftwareAssetInstallScriptRequest {
+func (r AssetsApiUpdateSoftwareAssetInstallScriptRequest) File(file os.File) AssetsApiUpdateSoftwareAssetInstallScriptRequest {
 	r.file = &file
 	return r
 }
@@ -2464,9 +2464,9 @@ func (a *AssetsApiService) UpdateSoftwareAssetInstallScriptExecute(r AssetsApiUp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)

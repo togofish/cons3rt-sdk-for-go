@@ -17,6 +17,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"os"
 	"strings"
 )
 
@@ -1354,11 +1355,11 @@ type StorageApiUploadFileToBucketRequest struct {
 	ctx        _context.Context
 	ApiService *StorageApiService
 	id         string
-	file       *[]*os.File
+	file       *os.File
 	filename   *string
 }
 
-func (r StorageApiUploadFileToBucketRequest) File(file []*os.File) StorageApiUploadFileToBucketRequest {
+func (r StorageApiUploadFileToBucketRequest) File(file os.File) StorageApiUploadFileToBucketRequest {
 	r.file = &file
 	return r
 }
@@ -1434,9 +1435,9 @@ func (a *StorageApiService) UploadFileToBucketExecute(r StorageApiUploadFileToBu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)

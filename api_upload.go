@@ -17,6 +17,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"os"
 	"strings"
 )
 
@@ -29,9 +30,9 @@ var (
 type UploadApiService service
 
 type ApiGetFileContentRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *UploadApiService
-	uuid *string
+	uuid       *string
 }
 
 // UUID of the temporary file
@@ -55,7 +56,7 @@ Retrieves content of uploaded temporary file.
 func (a *UploadApiService) GetFileContent(ctx _context.Context) ApiGetFileContentRequest {
 	return ApiGetFileContentRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -169,9 +170,9 @@ func (a *UploadApiService) GetFileContentExecute(r ApiGetFileContentRequest) (st
 }
 
 type ApiGetFileObjectRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *UploadApiService
-	uuid *string
+	uuid       *string
 }
 
 // UUID of the temporary file
@@ -195,7 +196,7 @@ Downloads an uploaded temporary file for UUID handle.
 func (a *UploadApiService) GetFileObject(ctx _context.Context) ApiGetFileObjectRequest {
 	return ApiGetFileObjectRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -298,13 +299,13 @@ func (a *UploadApiService) GetFileObjectExecute(r ApiGetFileObjectRequest) (*_ne
 }
 
 type ApiUploadFile1Request struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *UploadApiService
-	file *[]*os.File
-	filename *string
+	file       *os.File
+	filename   *string
 }
 
-func (r ApiUploadFile1Request) File(file []*os.File) ApiUploadFile1Request {
+func (r ApiUploadFile1Request) File(file os.File) ApiUploadFile1Request {
 	r.file = &file
 	return r
 }
@@ -330,7 +331,7 @@ By default, this file will only be available for 30 minutes.
 func (a *UploadApiService) UploadFile1(ctx _context.Context) ApiUploadFile1Request {
 	return ApiUploadFile1Request{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -375,9 +376,9 @@ func (a *UploadApiService) UploadFile1Execute(r ApiUploadFile1Request) (string, 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)
@@ -454,14 +455,14 @@ func (a *UploadApiService) UploadFile1Execute(r ApiUploadFile1Request) (string, 
 }
 
 type ApiUploadFileToBucketRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *UploadApiService
-	id string
-	file *[]*os.File
-	filename *string
+	id         string
+	file       *os.File
+	filename   *string
 }
 
-func (r ApiUploadFileToBucketRequest) File(file []*os.File) ApiUploadFileToBucketRequest {
+func (r ApiUploadFileToBucketRequest) File(file os.File) ApiUploadFileToBucketRequest {
 	r.file = &file
 	return r
 }
@@ -490,8 +491,8 @@ A "Connection: Keep-Alive" configuration may be needed for larger sized files, d
 func (a *UploadApiService) UploadFileToBucket(ctx _context.Context, id string) ApiUploadFileToBucketRequest {
 	return ApiUploadFileToBucketRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -537,9 +538,9 @@ func (a *UploadApiService) UploadFileToBucketExecute(r ApiUploadFileToBucketRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)

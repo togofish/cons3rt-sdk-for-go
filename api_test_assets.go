@@ -17,8 +17,9 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
+	"os"
 	"reflect"
+	"strings"
 )
 
 // Linger please
@@ -30,10 +31,10 @@ var (
 type TestAssetsApiService service
 
 type ApiAddTestAssetTrustedProjectRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 func (r ApiAddTestAssetTrustedProjectRequest) Trustedid(trustedid string) ApiAddTestAssetTrustedProjectRequest {
@@ -57,8 +58,8 @@ Deprecated
 func (a *TestAssetsApiService) AddTestAssetTrustedProject(ctx _context.Context, id string) ApiAddTestAssetTrustedProjectRequest {
 	return ApiAddTestAssetTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -158,13 +159,13 @@ func (a *TestAssetsApiService) AddTestAssetTrustedProjectExecute(r ApiAddTestAss
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
+		var v string
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -181,10 +182,10 @@ func (a *TestAssetsApiService) AddTestAssetTrustedProjectExecute(r ApiAddTestAss
 }
 
 type ApiAddTrustedProjectRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to trust
@@ -211,8 +212,8 @@ The Asset must have a visibility set to TRUSTED_PROJECT for this to have any eff
 func (a *TestAssetsApiService) AddTrustedProject(ctx _context.Context, id string) ApiAddTrustedProjectRequest {
 	return ApiAddTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -327,10 +328,10 @@ func (a *TestAssetsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectRe
 }
 
 type ApiDeleteAssetRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	force *bool
+	id         string
+	force      *bool
 }
 
 // Allow delete if there are dependent assets
@@ -357,8 +358,8 @@ Delete a single Asset with the given ID.<br/>
 func (a *TestAssetsApiService) DeleteAsset(ctx _context.Context, id string) ApiDeleteAssetRequest {
 	return ApiDeleteAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -472,9 +473,9 @@ func (a *TestAssetsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool
 }
 
 type ApiDownloadRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
+	id         string
 	background *bool
 }
 
@@ -504,8 +505,8 @@ If the background flag is set to true (or if no value for the background flag is
 func (a *TestAssetsApiService) Download(ctx _context.Context, id string) ApiDownloadRequest {
 	return ApiDownloadRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -619,11 +620,10 @@ func (a *TestAssetsApiService) DownloadExecute(r ApiDownloadRequest) (bool, *_ne
 }
 
 type ApiGetTestAssetRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiGetTestAssetRequest) Execute() (FullTestAsset, *_nethttp.Response, error) {
 	return r.ApiService.GetTestAssetExecute(r)
@@ -641,8 +641,8 @@ Returns a single Test Asset by the given ID.
 func (a *TestAssetsApiService) GetTestAsset(ctx _context.Context, id string) ApiGetTestAssetRequest {
 	return ApiGetTestAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -753,12 +753,12 @@ func (a *TestAssetsApiService) GetTestAssetExecute(r ApiGetTestAssetRequest) (Fu
 }
 
 type ApiGetTestAssetsRequest struct {
-	ctx _context.Context
-	ApiService *TestAssetsApiService
-	type_ *string
+	ctx         _context.Context
+	ApiService  *TestAssetsApiService
+	type_       *string
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Test Asset type
@@ -766,16 +766,19 @@ func (r ApiGetTestAssetsRequest) Type_(type_ string) ApiGetTestAssetsRequest {
 	r.type_ = &type_
 	return r
 }
+
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
 func (r ApiGetTestAssetsRequest) Categoryids(categoryids []int32) ApiGetTestAssetsRequest {
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetTestAssetsRequest) Maxresults(maxresults int64) ApiGetTestAssetsRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetTestAssetsRequest) Page(page int64) ApiGetTestAssetsRequest {
 	r.page = &page
@@ -797,7 +800,7 @@ Returns a collection of the user's relevant Test Assets matching a specified que
 func (a *TestAssetsApiService) GetTestAssets(ctx _context.Context) ApiGetTestAssetsRequest {
 	return ApiGetTestAssetsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -927,13 +930,13 @@ func (a *TestAssetsApiService) GetTestAssetsExecute(r ApiGetTestAssetsRequest) (
 }
 
 type ApiGetTestAssetsExpandedRequest struct {
-	ctx _context.Context
-	ApiService *TestAssetsApiService
-	type_ *string
-	community *bool
+	ctx         _context.Context
+	ApiService  *TestAssetsApiService
+	type_       *string
+	community   *bool
 	categoryids *[]int32
-	maxresults *int64
-	page *int64
+	maxresults  *int64
+	page        *int64
 }
 
 // Test Asset type
@@ -941,21 +944,25 @@ func (r ApiGetTestAssetsExpandedRequest) Type_(type_ string) ApiGetTestAssetsExp
 	r.type_ = &type_
 	return r
 }
+
 // Include community assets
 func (r ApiGetTestAssetsExpandedRequest) Community(community bool) ApiGetTestAssetsExpandedRequest {
 	r.community = &community
 	return r
 }
+
 // Category ID(s) to filter by. Multiple categories can be provided with comma-separated strings.
 func (r ApiGetTestAssetsExpandedRequest) Categoryids(categoryids []int32) ApiGetTestAssetsExpandedRequest {
 	r.categoryids = &categoryids
 	return r
 }
+
 // Maximum number of results to return
 func (r ApiGetTestAssetsExpandedRequest) Maxresults(maxresults int64) ApiGetTestAssetsExpandedRequest {
 	r.maxresults = &maxresults
 	return r
 }
+
 // Requested page number
 func (r ApiGetTestAssetsExpandedRequest) Page(page int64) ApiGetTestAssetsExpandedRequest {
 	r.page = &page
@@ -977,7 +984,7 @@ Returns a collection of all relevant Test Assets matching a specified query, inc
 func (a *TestAssetsApiService) GetTestAssetsExpanded(ctx _context.Context) ApiGetTestAssetsExpandedRequest {
 	return ApiGetTestAssetsExpandedRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1110,11 +1117,10 @@ func (a *TestAssetsApiService) GetTestAssetsExpandedExecute(r ApiGetTestAssetsEx
 }
 
 type ApiItarRestrictAssetRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiItarRestrictAssetRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.ItarRestrictAssetExecute(r)
@@ -1136,8 +1142,8 @@ Setting an Export Restriction cannot be undone.
 func (a *TestAssetsApiService) ItarRestrictAsset(ctx _context.Context, id string) ApiItarRestrictAssetRequest {
 	return ApiItarRestrictAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1248,11 +1254,10 @@ func (a *TestAssetsApiService) ItarRestrictAssetExecute(r ApiItarRestrictAssetRe
 }
 
 type ApiListDependentAssetsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
+	id         string
 }
-
 
 func (r ApiListDependentAssetsRequest) Execute() ([]BasicAsset, *_nethttp.Response, error) {
 	return r.ApiService.ListDependentAssetsExecute(r)
@@ -1270,8 +1275,8 @@ Returns a collection of the Composite Assets that include the specified Asset.
 func (a *TestAssetsApiService) ListDependentAssets(ctx _context.Context, id string) ApiListDependentAssetsRequest {
 	return ApiListDependentAssetsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1382,10 +1387,10 @@ func (a *TestAssetsApiService) ListDependentAssetsExecute(r ApiListDependentAsse
 }
 
 type ApiRemoveTrustedProjectRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	trustedid *string
+	id         string
+	trustedid  *string
 }
 
 // ID of project to untrust
@@ -1410,8 +1415,8 @@ Removes the provided Project from the Asset's list of Trusted Projects.
 func (a *TestAssetsApiService) RemoveTrustedProject(ctx _context.Context, id string) ApiRemoveTrustedProjectRequest {
 	return ApiRemoveTrustedProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1526,9 +1531,9 @@ func (a *TestAssetsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedPro
 }
 
 type ApiUpdateAssetRequest struct {
-	ctx _context.Context
-	ApiService *TestAssetsApiService
-	id string
+	ctx                 _context.Context
+	ApiService          *TestAssetsApiService
+	id                  string
 	inputAssetForUpdate *InputAssetForUpdate
 }
 
@@ -1554,8 +1559,8 @@ Updates the metadata of a single Asset with the given ID.
 func (a *TestAssetsApiService) UpdateAsset(ctx _context.Context, id string) ApiUpdateAssetRequest {
 	return ApiUpdateAssetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1668,14 +1673,14 @@ func (a *TestAssetsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool
 }
 
 type ApiUpdateAssetContentRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	file *[]*os.File
-	filename *string
+	id         string
+	file       *os.File
+	filename   *string
 }
 
-func (r ApiUpdateAssetContentRequest) File(file []*os.File) ApiUpdateAssetContentRequest {
+func (r ApiUpdateAssetContentRequest) File(file os.File) ApiUpdateAssetContentRequest {
 	r.file = &file
 	return r
 }
@@ -1702,8 +1707,8 @@ The 'Update Content' call is only available for importable Asset types (i.e. Sof
 func (a *TestAssetsApiService) UpdateAssetContent(ctx _context.Context, id string) ApiUpdateAssetContentRequest {
 	return ApiUpdateAssetContentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1749,9 +1754,9 @@ func (a *TestAssetsApiService) UpdateAssetContentExecute(r ApiUpdateAssetContent
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)
@@ -1828,10 +1833,10 @@ func (a *TestAssetsApiService) UpdateAssetContentExecute(r ApiUpdateAssetContent
 }
 
 type ApiUpdateAssetStateRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	state *string
+	id         string
+	state      *string
 }
 
 // The new asset state type
@@ -1856,8 +1861,8 @@ Updates the state of a single Asset with the given ID.
 func (a *TestAssetsApiService) UpdateAssetState(ctx _context.Context, id string) ApiUpdateAssetStateRequest {
 	return ApiUpdateAssetStateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -1972,9 +1977,9 @@ func (a *TestAssetsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequ
 }
 
 type ApiUpdateAssetVisibilityQueryRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
+	id         string
 	visibility *string
 }
 
@@ -2000,8 +2005,8 @@ Updates the visibility of a single Asset with the given ID.
 func (a *TestAssetsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, id string) ApiUpdateAssetVisibilityQueryRequest {
 	return ApiUpdateAssetVisibilityQueryRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2116,9 +2121,9 @@ func (a *TestAssetsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAsse
 }
 
 type ApiUpdateImpactLevelRequest struct {
-	ctx _context.Context
-	ApiService *TestAssetsApiService
-	id string
+	ctx         _context.Context
+	ApiService  *TestAssetsApiService
+	id          string
 	impactlevel *string
 }
 
@@ -2146,8 +2151,8 @@ Updates the Impact Level of a single Asset with the given ID.<br>
 func (a *TestAssetsApiService) UpdateImpactLevel(ctx _context.Context, id string) ApiUpdateImpactLevelRequest {
 	return ApiUpdateImpactLevelRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2262,10 +2267,10 @@ func (a *TestAssetsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelRe
 }
 
 type ApiUpdateInstanceLimitRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	limit *int64
+	id         string
+	limit      *int64
 }
 
 // The new asset instance limit
@@ -2290,8 +2295,8 @@ Updates the instance limit of a single Asset with the given ID.
 func (a *TestAssetsApiService) UpdateInstanceLimit(ctx _context.Context, id string) ApiUpdateInstanceLimitRequest {
 	return ApiUpdateInstanceLimitRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -2406,10 +2411,10 @@ func (a *TestAssetsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLim
 }
 
 type ApiUpdateOfflineStatusRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *TestAssetsApiService
-	id string
-	offline *bool
+	id         string
+	offline    *bool
 }
 
 // Set the asset status to offline
@@ -2434,8 +2439,8 @@ Updates the Offline Status of a single Asset with the given ID.
 func (a *TestAssetsApiService) UpdateOfflineStatus(ctx _context.Context, id string) ApiUpdateOfflineStatusRequest {
 	return ApiUpdateOfflineStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 

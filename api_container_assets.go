@@ -1818,11 +1818,11 @@ type ContainerApiUpdateAssetContentRequest struct {
 	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
 	id         string
-	file       *[]*os.File
+	file       *os.File
 	filename   *string
 }
 
-func (r ContainerApiUpdateAssetContentRequest) File(file []*os.File) ContainerApiUpdateAssetContentRequest {
+func (r ContainerApiUpdateAssetContentRequest) File(file os.File) ContainerApiUpdateAssetContentRequest {
 	r.file = &file
 	return r
 }
@@ -1896,9 +1896,9 @@ func (a *ContainerAssetsApiService) UpdateAssetContentExecute(r ContainerApiUpda
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)

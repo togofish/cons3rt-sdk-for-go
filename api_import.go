@@ -17,6 +17,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"os"
 )
 
 // Linger please
@@ -28,13 +29,13 @@ var (
 type ImportApiService service
 
 type ApiUploadFileRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *ImportApiService
-	file *[]*os.File
-	filename *string
+	file       *os.File
+	filename   *string
 }
 
-func (r ApiUploadFileRequest) File(file []*os.File) ApiUploadFileRequest {
+func (r ApiUploadFileRequest) File(file os.File) ApiUploadFileRequest {
 	r.file = &file
 	return r
 }
@@ -62,7 +63,7 @@ A "Connection: Keep-Alive" configuration may be needed for larger sized files, d
 func (a *ImportApiService) UploadFile(ctx _context.Context) ApiUploadFileRequest {
 	return ApiUploadFileRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -107,9 +108,9 @@ func (a *ImportApiService) UploadFileExecute(r ApiUploadFileRequest) (int32, *_n
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	localVarFormFileName = "file"
-	var localVarFile []*os.File
+	var localVarFile *os.File
 	if r.file != nil {
-		localVarFile = *r.file
+		localVarFile = r.file
 	}
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)

@@ -15,34 +15,34 @@ import (
 	"encoding/json"
 )
 
-// Configuration struct for Configuration
-type Configuration struct {
-	IdConfiguration *int32 `json:"idConfiguration,omitempty"`
+// ModuleConfiguration struct for ModuleConfiguration
+type ModuleConfiguration struct {
+	IdConfiguration         *int32  `json:"idConfiguration,omitempty"`
 	ConfigurationScriptType *string `json:"configurationScriptType,omitempty"`
-	Script string `json:"script"`
-	ScriptName *string `json:"scriptName,omitempty"`
+	Script                  string  `json:"script"`
+	ScriptName              *string `json:"scriptName,omitempty"`
 }
 
-// NewConfiguration instantiates a new Configuration object
+// NewModuleConfiguration instantiates a new ModuleConfiguration object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConfiguration(script string) *Configuration {
-	this := Configuration{}
+func NewModuleConfiguration(script string) *ModuleConfiguration {
+	this := ModuleConfiguration{}
 	this.Script = script
 	return &this
 }
 
-// NewConfigurationWithDefaults instantiates a new Configuration object
+// NewConfigurationWithDefaults instantiates a new ModuleConfiguration object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewConfigurationWithDefaults() *Configuration {
-	this := Configuration{}
+func NewConfigurationWithDefaults() *ModuleConfiguration {
+	this := ModuleConfiguration{}
 	return &this
 }
 
 // GetIdConfiguration returns the IdConfiguration field value if set, zero value otherwise.
-func (o *Configuration) GetIdConfiguration() int32 {
+func (o *ModuleConfiguration) GetIdConfiguration() int32 {
 	if o == nil || o.IdConfiguration == nil {
 		var ret int32
 		return ret
@@ -52,7 +52,7 @@ func (o *Configuration) GetIdConfiguration() int32 {
 
 // GetIdConfigurationOk returns a tuple with the IdConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Configuration) GetIdConfigurationOk() (*int32, bool) {
+func (o *ModuleConfiguration) GetIdConfigurationOk() (*int32, bool) {
 	if o == nil || o.IdConfiguration == nil {
 		return nil, false
 	}
@@ -60,7 +60,7 @@ func (o *Configuration) GetIdConfigurationOk() (*int32, bool) {
 }
 
 // HasIdConfiguration returns a boolean if a field has been set.
-func (o *Configuration) HasIdConfiguration() bool {
+func (o *ModuleConfiguration) HasIdConfiguration() bool {
 	if o != nil && o.IdConfiguration != nil {
 		return true
 	}
@@ -69,12 +69,12 @@ func (o *Configuration) HasIdConfiguration() bool {
 }
 
 // SetIdConfiguration gets a reference to the given int32 and assigns it to the IdConfiguration field.
-func (o *Configuration) SetIdConfiguration(v int32) {
+func (o *ModuleConfiguration) SetIdConfiguration(v int32) {
 	o.IdConfiguration = &v
 }
 
-// GetConfigurationScriptType returns the ConfigurationScriptType field value if set, zero value otherwise.
-func (o *Configuration) GetConfigurationScriptType() string {
+// GetConfigurationScriptType returns the ModuleConfigurationScriptType field value if set, zero value otherwise.
+func (o *ModuleConfiguration) GetConfigurationScriptType() string {
 	if o == nil || o.ConfigurationScriptType == nil {
 		var ret string
 		return ret
@@ -82,9 +82,9 @@ func (o *Configuration) GetConfigurationScriptType() string {
 	return *o.ConfigurationScriptType
 }
 
-// GetConfigurationScriptTypeOk returns a tuple with the ConfigurationScriptType field value if set, nil otherwise
+// GetConfigurationScriptTypeOk returns a tuple with the ModuleConfigurationScriptType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Configuration) GetConfigurationScriptTypeOk() (*string, bool) {
+func (o *ModuleConfiguration) GetConfigurationScriptTypeOk() (*string, bool) {
 	if o == nil || o.ConfigurationScriptType == nil {
 		return nil, false
 	}
@@ -92,7 +92,7 @@ func (o *Configuration) GetConfigurationScriptTypeOk() (*string, bool) {
 }
 
 // HasConfigurationScriptType returns a boolean if a field has been set.
-func (o *Configuration) HasConfigurationScriptType() bool {
+func (o *ModuleConfiguration) HasConfigurationScriptType() bool {
 	if o != nil && o.ConfigurationScriptType != nil {
 		return true
 	}
@@ -100,13 +100,13 @@ func (o *Configuration) HasConfigurationScriptType() bool {
 	return false
 }
 
-// SetConfigurationScriptType gets a reference to the given string and assigns it to the ConfigurationScriptType field.
-func (o *Configuration) SetConfigurationScriptType(v string) {
+// SetConfigurationScriptType gets a reference to the given string and assigns it to the ModuleConfigurationScriptType field.
+func (o *ModuleConfiguration) SetConfigurationScriptType(v string) {
 	o.ConfigurationScriptType = &v
 }
 
 // GetScript returns the Script field value
-func (o *Configuration) GetScript() string {
+func (o *ModuleConfiguration) GetScript() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -117,20 +117,20 @@ func (o *Configuration) GetScript() string {
 
 // GetScriptOk returns a tuple with the Script field value
 // and a boolean to check if the value has been set.
-func (o *Configuration) GetScriptOk() (*string, bool) {
-	if o == nil  {
+func (o *ModuleConfiguration) GetScriptOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Script, true
 }
 
 // SetScript sets field value
-func (o *Configuration) SetScript(v string) {
+func (o *ModuleConfiguration) SetScript(v string) {
 	o.Script = v
 }
 
 // GetScriptName returns the ScriptName field value if set, zero value otherwise.
-func (o *Configuration) GetScriptName() string {
+func (o *ModuleConfiguration) GetScriptName() string {
 	if o == nil || o.ScriptName == nil {
 		var ret string
 		return ret
@@ -140,7 +140,7 @@ func (o *Configuration) GetScriptName() string {
 
 // GetScriptNameOk returns a tuple with the ScriptName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Configuration) GetScriptNameOk() (*string, bool) {
+func (o *ModuleConfiguration) GetScriptNameOk() (*string, bool) {
 	if o == nil || o.ScriptName == nil {
 		return nil, false
 	}
@@ -148,7 +148,7 @@ func (o *Configuration) GetScriptNameOk() (*string, bool) {
 }
 
 // HasScriptName returns a boolean if a field has been set.
-func (o *Configuration) HasScriptName() bool {
+func (o *ModuleConfiguration) HasScriptName() bool {
 	if o != nil && o.ScriptName != nil {
 		return true
 	}
@@ -157,11 +157,11 @@ func (o *Configuration) HasScriptName() bool {
 }
 
 // SetScriptName gets a reference to the given string and assigns it to the ScriptName field.
-func (o *Configuration) SetScriptName(v string) {
+func (o *ModuleConfiguration) SetScriptName(v string) {
 	o.ScriptName = &v
 }
 
-func (o Configuration) MarshalJSON() ([]byte, error) {
+func (o ModuleConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.IdConfiguration != nil {
 		toSerialize["idConfiguration"] = o.IdConfiguration
@@ -179,15 +179,15 @@ func (o Configuration) MarshalJSON() ([]byte, error) {
 }
 
 type NullableConfiguration struct {
-	value *Configuration
+	value *ModuleConfiguration
 	isSet bool
 }
 
-func (v NullableConfiguration) Get() *Configuration {
+func (v NullableConfiguration) Get() *ModuleConfiguration {
 	return v.value
 }
 
-func (v *NullableConfiguration) Set(val *Configuration) {
+func (v *NullableConfiguration) Set(val *ModuleConfiguration) {
 	v.value = val
 	v.isSet = true
 }
@@ -201,7 +201,7 @@ func (v *NullableConfiguration) Unset() {
 	v.isSet = false
 }
 
-func NewNullableConfiguration(val *Configuration) *NullableConfiguration {
+func NewNullableConfiguration(val *ModuleConfiguration) *NullableConfiguration {
 	return &NullableConfiguration{value: val, isSet: true}
 }
 
@@ -213,5 +213,3 @@ func (v *NullableConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
