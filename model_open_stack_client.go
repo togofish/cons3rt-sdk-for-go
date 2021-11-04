@@ -18,7 +18,10 @@ import (
 // OpenStackClient struct for OpenStackClient
 type OpenStackClient struct {
 	KeystoneVersion *string `json:"keystoneVersion,omitempty"`
-	TenantName *string `json:"tenantName,omitempty"`
+	TenantName      *string `json:"tenantName,omitempty"`
+	Username        string
+	Password        string
+	Subtype         string
 }
 
 // NewOpenStackClient instantiates a new OpenStackClient object
@@ -151,5 +154,3 @@ func (v *NullableOpenStackClient) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,6 +17,8 @@ import (
 
 // S3SubmissionEndpoint struct for S3SubmissionEndpoint
 type S3SubmissionEndpoint struct {
+	Host    string
+	Subtype string
 }
 
 // NewS3SubmissionEndpoint instantiates a new S3SubmissionEndpoint object
@@ -78,5 +80,3 @@ func (v *NullableS3SubmissionEndpoint) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

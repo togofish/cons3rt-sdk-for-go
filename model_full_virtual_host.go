@@ -17,8 +17,9 @@ import (
 
 // FullVirtualHost struct for FullVirtualHost
 type FullVirtualHost struct {
-	Components *[]MinimalAbstractComponent `json:"components,omitempty"`
-	TemplateProfile *MinimalTemplateProfile `json:"templateProfile,omitempty"`
+	Components      *[]MinimalAbstractComponent `json:"components,omitempty"`
+	TemplateProfile *MinimalTemplateProfile     `json:"templateProfile,omitempty"`
+	Subtype         string
 }
 
 // NewFullVirtualHost instantiates a new FullVirtualHost object
@@ -149,5 +150,3 @@ func (v *NullableFullVirtualHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

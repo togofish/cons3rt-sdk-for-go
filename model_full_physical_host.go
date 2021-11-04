@@ -17,8 +17,9 @@ import (
 
 // FullPhysicalHost struct for FullPhysicalHost
 type FullPhysicalHost struct {
-	Components *[]MinimalAbstractComponent `json:"components,omitempty"`
-	PhysicalMachine *GeneralPhysicalMachine `json:"physicalMachine,omitempty"`
+	Components      *[]MinimalAbstractComponent `json:"components,omitempty"`
+	PhysicalMachine *GeneralPhysicalMachine     `json:"physicalMachine,omitempty"`
+	Subtype         string
 }
 
 // NewFullPhysicalHost instantiates a new FullPhysicalHost object
@@ -149,5 +150,3 @@ func (v *NullableFullPhysicalHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

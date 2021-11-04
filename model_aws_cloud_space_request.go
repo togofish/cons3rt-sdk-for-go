@@ -17,8 +17,11 @@ import (
 
 // AwsCloudSpaceRequest struct for AwsCloudSpaceRequest
 type AwsCloudSpaceRequest struct {
-	NatImageId string `json:"natImageId"`
+	NatImageId      string `json:"natImageId"`
 	NatInstanceType string `json:"natInstanceType"`
+	CloudSpaceName  string
+	Cidr            string
+	Subtype         string
 }
 
 // NewAwsCloudSpaceRequest instantiates a new AwsCloudSpaceRequest object
@@ -56,7 +59,7 @@ func (o *AwsCloudSpaceRequest) GetNatImageId() string {
 // GetNatImageIdOk returns a tuple with the NatImageId field value
 // and a boolean to check if the value has been set.
 func (o *AwsCloudSpaceRequest) GetNatImageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageId, true
@@ -80,7 +83,7 @@ func (o *AwsCloudSpaceRequest) GetNatInstanceType() string {
 // GetNatInstanceTypeOk returns a tuple with the NatInstanceType field value
 // and a boolean to check if the value has been set.
 func (o *AwsCloudSpaceRequest) GetNatInstanceTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatInstanceType, true
@@ -137,5 +140,3 @@ func (v *NullableAwsCloudSpaceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

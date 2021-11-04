@@ -17,6 +17,7 @@ import (
 
 // BasicScenario struct for BasicScenario
 type BasicScenario struct {
+	Subtype string
 }
 
 // NewBasicScenario instantiates a new BasicScenario object
@@ -77,5 +78,3 @@ func (v *NullableBasicScenario) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

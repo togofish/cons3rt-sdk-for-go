@@ -17,7 +17,8 @@ import (
 
 // AzureCloudResources struct for AzureCloudResources
 type AzureCloudResources struct {
-	Images *[]ImageReferenceDTO `json:"images,omitempty"`
+	Images  *[]ImageReferenceDTO `json:"images,omitempty"`
+	Subtype string
 }
 
 // NewAzureCloudResources instantiates a new AzureCloudResources object
@@ -113,5 +114,3 @@ func (v *NullableAzureCloudResources) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

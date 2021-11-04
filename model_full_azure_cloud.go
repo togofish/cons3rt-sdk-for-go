@@ -17,12 +17,16 @@ import (
 
 // FullAzureCloud struct for FullAzureCloud
 type FullAzureCloud struct {
-	ClientId string `json:"clientId"`
-	Environment string `json:"environment"`
-	RegionName string `json:"regionName"`
-	SubscriptionId string `json:"subscriptionId"`
-	Tenant string `json:"tenant"`
+	ClientId           string  `json:"clientId"`
+	Environment        string  `json:"environment"`
+	RegionName         string  `json:"regionName"`
+	SubscriptionId     string  `json:"subscriptionId"`
+	Tenant             string  `json:"tenant"`
 	PublicContainerUrl *string `json:"publicContainerUrl,omitempty"`
+	Name               string
+	ExternalIpSource   string
+	MaximumImpactLevel string
+	Subtype            string
 }
 
 // NewFullAzureCloud instantiates a new FullAzureCloud object
@@ -64,7 +68,7 @@ func (o *FullAzureCloud) GetClientId() string {
 // GetClientIdOk returns a tuple with the ClientId field value
 // and a boolean to check if the value has been set.
 func (o *FullAzureCloud) GetClientIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ClientId, true
@@ -88,7 +92,7 @@ func (o *FullAzureCloud) GetEnvironment() string {
 // GetEnvironmentOk returns a tuple with the Environment field value
 // and a boolean to check if the value has been set.
 func (o *FullAzureCloud) GetEnvironmentOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Environment, true
@@ -112,7 +116,7 @@ func (o *FullAzureCloud) GetRegionName() string {
 // GetRegionNameOk returns a tuple with the RegionName field value
 // and a boolean to check if the value has been set.
 func (o *FullAzureCloud) GetRegionNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RegionName, true
@@ -136,7 +140,7 @@ func (o *FullAzureCloud) GetSubscriptionId() string {
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
 // and a boolean to check if the value has been set.
 func (o *FullAzureCloud) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SubscriptionId, true
@@ -160,7 +164,7 @@ func (o *FullAzureCloud) GetTenant() string {
 // GetTenantOk returns a tuple with the Tenant field value
 // and a boolean to check if the value has been set.
 func (o *FullAzureCloud) GetTenantOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Tenant, true
@@ -261,5 +265,3 @@ func (v *NullableFullAzureCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

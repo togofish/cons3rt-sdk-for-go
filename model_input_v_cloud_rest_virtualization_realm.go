@@ -17,9 +17,15 @@ import (
 
 // InputVCloudRestVirtualizationRealm struct for InputVCloudRestVirtualizationRealm
 type InputVCloudRestVirtualizationRealm struct {
-	Organization string `json:"organization"`
+	Organization    string `json:"organization"`
 	OrganizationVdc string `json:"organizationVdc"`
-	VdcNetworkQuota int32 `json:"vdcNetworkQuota"`
+	VdcNetworkQuota int32  `json:"vdcNetworkQuota"`
+	AccountId       string
+	Cidr            string
+	Description     string
+	Name            string
+	Password        string
+	Username        string
 }
 
 // NewInputVCloudRestVirtualizationRealm instantiates a new InputVCloudRestVirtualizationRealm object
@@ -61,7 +67,7 @@ func (o *InputVCloudRestVirtualizationRealm) GetOrganization() string {
 // GetOrganizationOk returns a tuple with the Organization field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestVirtualizationRealm) GetOrganizationOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Organization, true
@@ -85,7 +91,7 @@ func (o *InputVCloudRestVirtualizationRealm) GetOrganizationVdc() string {
 // GetOrganizationVdcOk returns a tuple with the OrganizationVdc field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestVirtualizationRealm) GetOrganizationVdcOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OrganizationVdc, true
@@ -109,7 +115,7 @@ func (o *InputVCloudRestVirtualizationRealm) GetVdcNetworkQuota() int32 {
 // GetVdcNetworkQuotaOk returns a tuple with the VdcNetworkQuota field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestVirtualizationRealm) GetVdcNetworkQuotaOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VdcNetworkQuota, true
@@ -169,5 +175,3 @@ func (v *NullableInputVCloudRestVirtualizationRealm) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

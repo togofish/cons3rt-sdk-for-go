@@ -17,8 +17,14 @@ import (
 
 // InputAwsVirtualizationRealm struct for InputAwsVirtualizationRealm
 type InputAwsVirtualizationRealm struct {
-	Region string `json:"region"`
-	VpcId string `json:"vpcId"`
+	Region      string `json:"region"`
+	VpcId       string `json:"vpcId"`
+	AccountId   string
+	Cidr        string
+	Description string
+	Name        string
+	Password    string
+	Username    string
 }
 
 // NewInputAwsVirtualizationRealm instantiates a new InputAwsVirtualizationRealm object
@@ -59,7 +65,7 @@ func (o *InputAwsVirtualizationRealm) GetRegion() string {
 // GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
 func (o *InputAwsVirtualizationRealm) GetRegionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Region, true
@@ -83,7 +89,7 @@ func (o *InputAwsVirtualizationRealm) GetVpcId() string {
 // GetVpcIdOk returns a tuple with the VpcId field value
 // and a boolean to check if the value has been set.
 func (o *InputAwsVirtualizationRealm) GetVpcIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VpcId, true
@@ -140,5 +146,3 @@ func (v *NullableInputAwsVirtualizationRealm) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

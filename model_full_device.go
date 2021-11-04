@@ -18,9 +18,10 @@ import (
 // FullDevice struct for FullDevice
 type FullDevice struct {
 	Components *[]MinimalAbstractComponent `json:"components,omitempty"`
-	Hostname *string `json:"hostname,omitempty"`
-	IpAddress *string `json:"ipAddress,omitempty"`
-	MacAddress *string `json:"macAddress,omitempty"`
+	Hostname   *string                     `json:"hostname,omitempty"`
+	IpAddress  *string                     `json:"ipAddress,omitempty"`
+	MacAddress *string                     `json:"macAddress,omitempty"`
+	Subtype    string
 }
 
 // NewFullDevice instantiates a new FullDevice object
@@ -221,5 +222,3 @@ func (v *NullableFullDevice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

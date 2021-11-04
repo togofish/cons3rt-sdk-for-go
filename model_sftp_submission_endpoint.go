@@ -17,6 +17,8 @@ import (
 
 // SFTPSubmissionEndpoint struct for SFTPSubmissionEndpoint
 type SFTPSubmissionEndpoint struct {
+	Host    string
+	Subtype string
 }
 
 // NewSFTPSubmissionEndpoint instantiates a new SFTPSubmissionEndpoint object
@@ -78,5 +80,3 @@ func (v *NullableSFTPSubmissionEndpoint) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

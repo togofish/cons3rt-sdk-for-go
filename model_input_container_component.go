@@ -18,6 +18,8 @@ import (
 // InputContainerComponent struct for InputContainerComponent
 type InputContainerComponent struct {
 	Configuration InputContainerConfiguration `json:"configuration"`
+	Asset         InputAsset
+	Subtype       string
 }
 
 // NewInputContainerComponent instantiates a new InputContainerComponent object
@@ -53,7 +55,7 @@ func (o *InputContainerComponent) GetConfiguration() InputContainerConfiguration
 // GetConfigurationOk returns a tuple with the Configuration field value
 // and a boolean to check if the value has been set.
 func (o *InputContainerComponent) GetConfigurationOk() (*InputContainerConfiguration, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Configuration, true
@@ -107,5 +109,3 @@ func (v *NullableInputContainerComponent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

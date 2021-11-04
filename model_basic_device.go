@@ -17,6 +17,7 @@ import (
 
 // BasicDevice struct for BasicDevice
 type BasicDevice struct {
+	Subtype string
 }
 
 // NewBasicDevice instantiates a new BasicDevice object
@@ -77,5 +78,3 @@ func (v *NullableBasicDevice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

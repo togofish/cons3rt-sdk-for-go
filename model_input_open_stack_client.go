@@ -17,6 +17,9 @@ import (
 
 // InputOpenStackClient struct for InputOpenStackClient
 type InputOpenStackClient struct {
+	Username string
+	Password string
+	Subtype  string
 }
 
 // NewInputOpenStackClient instantiates a new InputOpenStackClient object
@@ -79,5 +82,3 @@ func (v *NullableInputOpenStackClient) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

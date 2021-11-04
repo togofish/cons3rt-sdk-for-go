@@ -17,15 +17,21 @@ import (
 
 // AzureRegisterCloudSpaceRequest struct for AzureRegisterCloudSpaceRequest
 type AzureRegisterCloudSpaceRequest struct {
-	AccountId string `json:"accountId"`
-	Environment string `json:"environment"`
+	AccountId                     string  `json:"accountId"`
+	Environment                   string  `json:"environment"`
 	LocalStorageResourceGroupName *string `json:"localStorageResourceGroupName,omitempty"`
-	LocalStorageKey *string `json:"localStorageKey,omitempty"`
-	Region string `json:"region"`
-	ResourceGroupName string `json:"resourceGroupName"`
-	TenantId string `json:"tenantId"`
-	VirtualNetworkName string `json:"virtualNetworkName"`
-	LocalStorageName *string `json:"localStorageName,omitempty"`
+	LocalStorageKey               *string `json:"localStorageKey,omitempty"`
+	Region                        string  `json:"region"`
+	ResourceGroupName             string  `json:"resourceGroupName"`
+	TenantId                      string  `json:"tenantId"`
+	VirtualNetworkName            string  `json:"virtualNetworkName"`
+	LocalStorageName              *string `json:"localStorageName,omitempty"`
+	VirtualizationRealmType       string
+	Name                          string
+	Cons3rtNetworkName            string
+	Password                      string
+	PrimaryNetworkName            string
+	Username                      string
 }
 
 // NewAzureRegisterCloudSpaceRequest instantiates a new AzureRegisterCloudSpaceRequest object
@@ -70,7 +76,7 @@ func (o *AzureRegisterCloudSpaceRequest) GetAccountId() string {
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
 func (o *AzureRegisterCloudSpaceRequest) GetAccountIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AccountId, true
@@ -94,7 +100,7 @@ func (o *AzureRegisterCloudSpaceRequest) GetEnvironment() string {
 // GetEnvironmentOk returns a tuple with the Environment field value
 // and a boolean to check if the value has been set.
 func (o *AzureRegisterCloudSpaceRequest) GetEnvironmentOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Environment, true
@@ -182,7 +188,7 @@ func (o *AzureRegisterCloudSpaceRequest) GetRegion() string {
 // GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
 func (o *AzureRegisterCloudSpaceRequest) GetRegionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Region, true
@@ -206,7 +212,7 @@ func (o *AzureRegisterCloudSpaceRequest) GetResourceGroupName() string {
 // GetResourceGroupNameOk returns a tuple with the ResourceGroupName field value
 // and a boolean to check if the value has been set.
 func (o *AzureRegisterCloudSpaceRequest) GetResourceGroupNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ResourceGroupName, true
@@ -230,7 +236,7 @@ func (o *AzureRegisterCloudSpaceRequest) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *AzureRegisterCloudSpaceRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TenantId, true
@@ -254,7 +260,7 @@ func (o *AzureRegisterCloudSpaceRequest) GetVirtualNetworkName() string {
 // GetVirtualNetworkNameOk returns a tuple with the VirtualNetworkName field value
 // and a boolean to check if the value has been set.
 func (o *AzureRegisterCloudSpaceRequest) GetVirtualNetworkNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VirtualNetworkName, true
@@ -364,5 +370,3 @@ func (v *NullableAzureRegisterCloudSpaceRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

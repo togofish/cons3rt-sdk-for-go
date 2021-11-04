@@ -17,8 +17,10 @@ import (
 
 // AddOpenStackNetworkRequest struct for AddOpenStackNetworkRequest
 type AddOpenStackNetworkRequest struct {
-	NatImageId string `json:"natImageId"`
+	NatImageId        string `json:"natImageId"`
 	NatInstanceFlavor string `json:"natInstanceFlavor"`
+	Network           Network
+	Subtype           string
 }
 
 // NewAddOpenStackNetworkRequest instantiates a new AddOpenStackNetworkRequest object
@@ -55,7 +57,7 @@ func (o *AddOpenStackNetworkRequest) GetNatImageId() string {
 // GetNatImageIdOk returns a tuple with the NatImageId field value
 // and a boolean to check if the value has been set.
 func (o *AddOpenStackNetworkRequest) GetNatImageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageId, true
@@ -79,7 +81,7 @@ func (o *AddOpenStackNetworkRequest) GetNatInstanceFlavor() string {
 // GetNatInstanceFlavorOk returns a tuple with the NatInstanceFlavor field value
 // and a boolean to check if the value has been set.
 func (o *AddOpenStackNetworkRequest) GetNatInstanceFlavorOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatInstanceFlavor, true
@@ -136,5 +138,3 @@ func (v *NullableAddOpenStackNetworkRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,6 +18,7 @@ import (
 // InactiveCompositionStatus struct for InactiveCompositionStatus
 type InactiveCompositionStatus struct {
 	ScenarioHosts *[]MinimalScenarioHost `json:"scenarioHosts,omitempty"`
+	Type          string
 }
 
 // NewInactiveCompositionStatus instantiates a new InactiveCompositionStatus object
@@ -113,5 +114,3 @@ func (v *NullableInactiveCompositionStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

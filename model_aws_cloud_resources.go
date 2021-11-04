@@ -18,8 +18,9 @@ import (
 // AwsCloudResources struct for AwsCloudResources
 type AwsCloudResources struct {
 	AvailabilityZoneNames *[]string `json:"availabilityZoneNames,omitempty"`
-	NatImageNames *[]string `json:"natImageNames,omitempty"`
-	RegionNames *[]string `json:"regionNames,omitempty"`
+	NatImageNames         *[]string `json:"natImageNames,omitempty"`
+	RegionNames           *[]string `json:"regionNames,omitempty"`
+	Subtype               string
 }
 
 // NewAwsCloudResources instantiates a new AwsCloudResources object
@@ -185,5 +186,3 @@ func (v *NullableAwsCloudResources) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

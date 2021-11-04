@@ -17,16 +17,20 @@ import (
 
 // FullVCloudRestCloud struct for FullVCloudRestCloud
 type FullVCloudRestCloud struct {
-	GpuProfileTypes *[]string `json:"gpuProfileTypes,omitempty"`
-	Hostname *string `json:"hostname,omitempty"`
-	Port *int32 `json:"port,omitempty"`
-	Protocol *string `json:"protocol,omitempty"`
-	RemoteAccessInternalIp *string `json:"remoteAccessInternalIp,omitempty"`
-	RemoteAccessPort *int32 `json:"remoteAccessPort,omitempty"`
-	Username *string `json:"username,omitempty"`
-	VsphereApiVersion *string `json:"vsphereApiVersion,omitempty"`
-	VsphereHost *string `json:"vsphereHost,omitempty"`
-	VspherePort *int32 `json:"vspherePort,omitempty"`
+	GpuProfileTypes        *[]string `json:"gpuProfileTypes,omitempty"`
+	Hostname               *string   `json:"hostname,omitempty"`
+	Port                   *int32    `json:"port,omitempty"`
+	Protocol               *string   `json:"protocol,omitempty"`
+	RemoteAccessInternalIp *string   `json:"remoteAccessInternalIp,omitempty"`
+	RemoteAccessPort       *int32    `json:"remoteAccessPort,omitempty"`
+	Username               *string   `json:"username,omitempty"`
+	VsphereApiVersion      *string   `json:"vsphereApiVersion,omitempty"`
+	VsphereHost            *string   `json:"vsphereHost,omitempty"`
+	VspherePort            *int32    `json:"vspherePort,omitempty"`
+	Name                   string
+	ExternalIpSource       string
+	MaximumImpactLevel     string
+	Subtype                string
 }
 
 // NewFullVCloudRestCloud instantiates a new FullVCloudRestCloud object
@@ -440,5 +444,3 @@ func (v *NullableFullVCloudRestCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

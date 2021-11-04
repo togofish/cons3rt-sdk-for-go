@@ -17,6 +17,7 @@ import (
 
 // MinimalAppliance struct for MinimalAppliance
 type MinimalAppliance struct {
+	Subtype string
 }
 
 // NewMinimalAppliance instantiates a new MinimalAppliance object
@@ -77,5 +78,3 @@ func (v *NullableMinimalAppliance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

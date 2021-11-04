@@ -17,7 +17,8 @@ import (
 
 // FullTestAsset struct for FullTestAsset
 type FullTestAsset struct {
-	Type *string `json:"type,omitempty"`
+	Type    *string `json:"type,omitempty"`
+	Subtype string
 }
 
 // NewFullTestAsset instantiates a new FullTestAsset object
@@ -113,5 +114,3 @@ func (v *NullableFullTestAsset) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

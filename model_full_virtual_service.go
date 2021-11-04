@@ -17,10 +17,11 @@ import (
 
 // FullVirtualService struct for FullVirtualService
 type FullVirtualService struct {
-	BasePath *string `json:"basePath,omitempty"`
-	PortString *string `json:"portString,omitempty"`
+	BasePath         *string `json:"basePath,omitempty"`
+	PortString       *string `json:"portString,omitempty"`
 	ServiceImageFile *string `json:"serviceImageFile,omitempty"`
 	ServiceModelFile *string `json:"serviceModelFile,omitempty"`
+	Subtype          string
 }
 
 // NewFullVirtualService instantiates a new FullVirtualService object
@@ -221,5 +222,3 @@ func (v *NullableFullVirtualService) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

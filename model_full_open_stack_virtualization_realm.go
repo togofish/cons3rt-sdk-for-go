@@ -17,6 +17,11 @@ import (
 
 // FullOpenStackVirtualizationRealm struct for FullOpenStackVirtualizationRealm
 type FullOpenStackVirtualizationRealm struct {
+	Name        string
+	AccountId   string
+	Networks    []Network
+	Description string
+	Username    string
 }
 
 // NewFullOpenStackVirtualizationRealm instantiates a new FullOpenStackVirtualizationRealm object
@@ -81,5 +86,3 @@ func (v *NullableFullOpenStackVirtualizationRealm) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

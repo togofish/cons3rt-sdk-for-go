@@ -17,9 +17,15 @@ import (
 
 // VCloudRestVirtualizationRealm struct for VCloudRestVirtualizationRealm
 type VCloudRestVirtualizationRealm struct {
-	Organization *string `json:"organization,omitempty"`
+	Organization    *string `json:"organization,omitempty"`
 	OrganizationVdc *string `json:"organizationVdc,omitempty"`
-	VdcNetworkQuota *int32 `json:"vdcNetworkQuota,omitempty"`
+	VdcNetworkQuota *int32  `json:"vdcNetworkQuota,omitempty"`
+	AccountId       string
+	Cidr            string
+	Description     string
+	Name            string
+	Password        string
+	Username        string
 }
 
 // NewVCloudRestVirtualizationRealm instantiates a new VCloudRestVirtualizationRealm object
@@ -190,5 +196,3 @@ func (v *NullableVCloudRestVirtualizationRealm) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

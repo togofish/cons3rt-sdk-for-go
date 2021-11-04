@@ -17,9 +17,10 @@ import (
 
 // InputVirtualHost struct for InputVirtualHost
 type InputVirtualHost struct {
-	Components *[]InputAbstractComponent `json:"components,omitempty"`
-	Name *string `json:"name,omitempty"`
-	TemplateProfile *InputTemplateProfile `json:"templateProfile,omitempty"`
+	Components      *[]InputAbstractComponent `json:"components,omitempty"`
+	Name            *string                   `json:"name,omitempty"`
+	TemplateProfile *InputTemplateProfile     `json:"templateProfile,omitempty"`
+	Subtype         string
 }
 
 // NewInputVirtualHost instantiates a new InputVirtualHost object
@@ -185,5 +186,3 @@ func (v *NullableInputVirtualHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

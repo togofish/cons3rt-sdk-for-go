@@ -18,6 +18,8 @@ import (
 // ContainerComponent struct for ContainerComponent
 type ContainerComponent struct {
 	Configuration ContainerConfiguration `json:"configuration"`
+	Asset         Asset
+	Subtype       string
 }
 
 // NewContainerComponent instantiates a new ContainerComponent object
@@ -53,7 +55,7 @@ func (o *ContainerComponent) GetConfiguration() ContainerConfiguration {
 // GetConfigurationOk returns a tuple with the Configuration field value
 // and a boolean to check if the value has been set.
 func (o *ContainerComponent) GetConfigurationOk() (*ContainerConfiguration, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Configuration, true
@@ -107,5 +109,3 @@ func (v *NullableContainerComponent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

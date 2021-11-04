@@ -17,8 +17,11 @@ import (
 
 // VCloudClient struct for VCloudClient
 type VCloudClient struct {
-	OrgName *string `json:"orgName,omitempty"`
-	VdcName *string `json:"vdcName,omitempty"`
+	OrgName  *string `json:"orgName,omitempty"`
+	VdcName  *string `json:"vdcName,omitempty"`
+	Username string
+	Password string
+	Subtype  string
 }
 
 // NewVCloudClient instantiates a new VCloudClient object
@@ -151,5 +154,3 @@ func (v *NullableVCloudClient) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

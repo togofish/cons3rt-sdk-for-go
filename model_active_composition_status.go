@@ -17,9 +17,10 @@ import (
 
 // ActiveCompositionStatus struct for ActiveCompositionStatus
 type ActiveCompositionStatus struct {
-	DeploymentRunId *int32 `json:"deploymentRunId,omitempty"`
-	DeploymentRunStatus *string `json:"deploymentRunStatus,omitempty"`
-	DeploymentRunHost *[]MinimalDeploymentRunHost `json:"deploymentRunHost,omitempty"`
+	DeploymentRunId     *int32                      `json:"deploymentRunId,omitempty"`
+	DeploymentRunStatus *string                     `json:"deploymentRunStatus,omitempty"`
+	DeploymentRunHost   *[]MinimalDeploymentRunHost `json:"deploymentRunHost,omitempty"`
+	Type                string
 }
 
 // NewActiveCompositionStatus instantiates a new ActiveCompositionStatus object
@@ -185,5 +186,3 @@ func (v *NullableActiveCompositionStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

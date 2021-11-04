@@ -18,9 +18,15 @@ import (
 // InputAzureVirtualizationRealm struct for InputAzureVirtualizationRealm
 type InputAzureVirtualizationRealm struct {
 	PublicContainerUrl *string `json:"publicContainerUrl,omitempty"`
-	ResourceGroupName string `json:"resourceGroupName"`
-	TenantId string `json:"tenantId"`
-	VirtualNetworkName string `json:"virtualNetworkName"`
+	ResourceGroupName  string  `json:"resourceGroupName"`
+	TenantId           string  `json:"tenantId"`
+	VirtualNetworkName string  `json:"virtualNetworkName"`
+	AccountId          string
+	Cidr               string
+	Description        string
+	Name               string
+	Password           string
+	Username           string
 }
 
 // NewInputAzureVirtualizationRealm instantiates a new InputAzureVirtualizationRealm object
@@ -94,7 +100,7 @@ func (o *InputAzureVirtualizationRealm) GetResourceGroupName() string {
 // GetResourceGroupNameOk returns a tuple with the ResourceGroupName field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureVirtualizationRealm) GetResourceGroupNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ResourceGroupName, true
@@ -118,7 +124,7 @@ func (o *InputAzureVirtualizationRealm) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureVirtualizationRealm) GetTenantIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TenantId, true
@@ -142,7 +148,7 @@ func (o *InputAzureVirtualizationRealm) GetVirtualNetworkName() string {
 // GetVirtualNetworkNameOk returns a tuple with the VirtualNetworkName field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureVirtualizationRealm) GetVirtualNetworkNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VirtualNetworkName, true
@@ -205,5 +211,3 @@ func (v *NullableInputAzureVirtualizationRealm) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

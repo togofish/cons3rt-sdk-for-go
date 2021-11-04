@@ -17,6 +17,9 @@ import (
 
 // InputAwsClient struct for InputAwsClient
 type InputAwsClient struct {
+	Username string
+	Password string
+	Subtype  string
 }
 
 // NewInputAwsClient instantiates a new InputAwsClient object
@@ -79,5 +82,3 @@ func (v *NullableInputAwsClient) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

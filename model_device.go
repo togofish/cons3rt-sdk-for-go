@@ -17,9 +17,10 @@ import (
 
 // Device struct for Device
 type Device struct {
-	Hostname *string `json:"hostname,omitempty"`
-	IpAddress *string `json:"ipAddress,omitempty"`
+	Hostname   *string `json:"hostname,omitempty"`
+	IpAddress  *string `json:"ipAddress,omitempty"`
 	MacAddress *string `json:"macAddress,omitempty"`
+	Subtype    string
 }
 
 // NewDevice instantiates a new Device object
@@ -185,5 +186,3 @@ func (v *NullableDevice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

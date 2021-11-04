@@ -17,12 +17,18 @@ import (
 
 // AzureVirtualizationRealm struct for AzureVirtualizationRealm
 type AzureVirtualizationRealm struct {
-	Environment string `json:"environment"`
+	Environment        string  `json:"environment"`
 	PublicContainerUrl *string `json:"publicContainerUrl,omitempty"`
-	Region string `json:"region"`
-	ResourceGroupName string `json:"resourceGroupName"`
-	TenantId string `json:"tenantId"`
-	VirtualNetworkName string `json:"virtualNetworkName"`
+	Region             string  `json:"region"`
+	ResourceGroupName  string  `json:"resourceGroupName"`
+	TenantId           string  `json:"tenantId"`
+	VirtualNetworkName string  `json:"virtualNetworkName"`
+	AccountId          string
+	Cidr               string
+	Description        string
+	Name               string
+	Password           string
+	Username           string
 }
 
 // NewAzureVirtualizationRealm instantiates a new AzureVirtualizationRealm object
@@ -66,7 +72,7 @@ func (o *AzureVirtualizationRealm) GetEnvironment() string {
 // GetEnvironmentOk returns a tuple with the Environment field value
 // and a boolean to check if the value has been set.
 func (o *AzureVirtualizationRealm) GetEnvironmentOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Environment, true
@@ -122,7 +128,7 @@ func (o *AzureVirtualizationRealm) GetRegion() string {
 // GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
 func (o *AzureVirtualizationRealm) GetRegionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Region, true
@@ -146,7 +152,7 @@ func (o *AzureVirtualizationRealm) GetResourceGroupName() string {
 // GetResourceGroupNameOk returns a tuple with the ResourceGroupName field value
 // and a boolean to check if the value has been set.
 func (o *AzureVirtualizationRealm) GetResourceGroupNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ResourceGroupName, true
@@ -170,7 +176,7 @@ func (o *AzureVirtualizationRealm) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *AzureVirtualizationRealm) GetTenantIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TenantId, true
@@ -194,7 +200,7 @@ func (o *AzureVirtualizationRealm) GetVirtualNetworkName() string {
 // GetVirtualNetworkNameOk returns a tuple with the VirtualNetworkName field value
 // and a boolean to check if the value has been set.
 func (o *AzureVirtualizationRealm) GetVirtualNetworkNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VirtualNetworkName, true
@@ -263,5 +269,3 @@ func (v *NullableAzureVirtualizationRealm) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

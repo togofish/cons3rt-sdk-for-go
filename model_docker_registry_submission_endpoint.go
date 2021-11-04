@@ -18,7 +18,9 @@ import (
 // DockerRegistrySubmissionEndpoint struct for DockerRegistrySubmissionEndpoint
 type DockerRegistrySubmissionEndpoint struct {
 	ImageName string `json:"imageName"`
-	ImageTag string `json:"imageTag"`
+	ImageTag  string `json:"imageTag"`
+	Host      string
+	Subtype   string
 }
 
 // NewDockerRegistrySubmissionEndpoint instantiates a new DockerRegistrySubmissionEndpoint object
@@ -55,7 +57,7 @@ func (o *DockerRegistrySubmissionEndpoint) GetImageName() string {
 // GetImageNameOk returns a tuple with the ImageName field value
 // and a boolean to check if the value has been set.
 func (o *DockerRegistrySubmissionEndpoint) GetImageNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ImageName, true
@@ -79,7 +81,7 @@ func (o *DockerRegistrySubmissionEndpoint) GetImageTag() string {
 // GetImageTagOk returns a tuple with the ImageTag field value
 // and a boolean to check if the value has been set.
 func (o *DockerRegistrySubmissionEndpoint) GetImageTagOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ImageTag, true
@@ -136,5 +138,3 @@ func (v *NullableDockerRegistrySubmissionEndpoint) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

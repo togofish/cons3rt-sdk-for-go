@@ -17,10 +17,11 @@ import (
 
 // InputVirtualHostFull struct for InputVirtualHostFull
 type InputVirtualHostFull struct {
-	Id *int32 `json:"id,omitempty"`
-	TemplateProfile *InputTemplateProfile `json:"templateProfile,omitempty"`
-	Components *[]InputAbstractComponent `json:"components,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Id              *int32                    `json:"id,omitempty"`
+	TemplateProfile *InputTemplateProfile     `json:"templateProfile,omitempty"`
+	Components      *[]InputAbstractComponent `json:"components,omitempty"`
+	Name            *string                   `json:"name,omitempty"`
+	Subtype         string
 }
 
 // NewInputVirtualHostFull instantiates a new InputVirtualHostFull object
@@ -221,5 +222,3 @@ func (v *NullableInputVirtualHostFull) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

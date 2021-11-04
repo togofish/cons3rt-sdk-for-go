@@ -18,6 +18,7 @@ import (
 // FullSoftwareAssetBundle struct for FullSoftwareAssetBundle
 type FullSoftwareAssetBundle struct {
 	SoftwareComponents *[]MinimalSoftwareComponent `json:"softwareComponents,omitempty"`
+	Subtype            string
 }
 
 // NewFullSoftwareAssetBundle instantiates a new FullSoftwareAssetBundle object
@@ -113,5 +114,3 @@ func (v *NullableFullSoftwareAssetBundle) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

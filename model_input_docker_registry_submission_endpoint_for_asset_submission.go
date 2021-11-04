@@ -18,7 +18,8 @@ import (
 // InputDockerRegistrySubmissionEndpointForAssetSubmission struct for InputDockerRegistrySubmissionEndpointForAssetSubmission
 type InputDockerRegistrySubmissionEndpointForAssetSubmission struct {
 	ImageName string `json:"imageName"`
-	ImageTag string `json:"imageTag"`
+	ImageTag  string `json:"imageTag"`
+	Subtype   string
 }
 
 // NewInputDockerRegistrySubmissionEndpointForAssetSubmission instantiates a new InputDockerRegistrySubmissionEndpointForAssetSubmission object
@@ -54,7 +55,7 @@ func (o *InputDockerRegistrySubmissionEndpointForAssetSubmission) GetImageName()
 // GetImageNameOk returns a tuple with the ImageName field value
 // and a boolean to check if the value has been set.
 func (o *InputDockerRegistrySubmissionEndpointForAssetSubmission) GetImageNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ImageName, true
@@ -78,7 +79,7 @@ func (o *InputDockerRegistrySubmissionEndpointForAssetSubmission) GetImageTag() 
 // GetImageTagOk returns a tuple with the ImageTag field value
 // and a boolean to check if the value has been set.
 func (o *InputDockerRegistrySubmissionEndpointForAssetSubmission) GetImageTagOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ImageTag, true
@@ -135,5 +136,3 @@ func (v *NullableInputDockerRegistrySubmissionEndpointForAssetSubmission) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

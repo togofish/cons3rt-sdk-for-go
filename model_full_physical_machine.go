@@ -17,17 +17,18 @@ import (
 
 // FullPhysicalMachine struct for FullPhysicalMachine
 type FullPhysicalMachine struct {
-	HostName *string `json:"hostName,omitempty"`
-	IpAddress *string `json:"ipAddress,omitempty"`
-	MacAddress *string `json:"macAddress,omitempty"`
-	CpuCount *int32 `json:"cpuCount,omitempty"`
-	Ram *int32 `json:"ram,omitempty"`
-	Architecture *string `json:"architecture,omitempty"`
-	Bits *string `json:"bits,omitempty"`
-	OperatingSystem *string `json:"operatingSystem,omitempty"`
-	RemoteAccessCapable *bool `json:"remoteAccessCapable,omitempty"`
+	HostName              *string                        `json:"hostName,omitempty"`
+	IpAddress             *string                        `json:"ipAddress,omitempty"`
+	MacAddress            *string                        `json:"macAddress,omitempty"`
+	CpuCount              *int32                         `json:"cpuCount,omitempty"`
+	Ram                   *int32                         `json:"ram,omitempty"`
+	Architecture          *string                        `json:"architecture,omitempty"`
+	Bits                  *string                        `json:"bits,omitempty"`
+	OperatingSystem       *string                        `json:"operatingSystem,omitempty"`
+	RemoteAccessCapable   *bool                          `json:"remoteAccessCapable,omitempty"`
 	RemoteAccessTemplates *[]MinimalRemoteAccessTemplate `json:"remoteAccessTemplates,omitempty"`
-	BaseDisks *[]FullDisk `json:"baseDisks,omitempty"`
+	BaseDisks             *[]FullDisk                    `json:"baseDisks,omitempty"`
+	Subtype               string
 }
 
 // NewFullPhysicalMachine instantiates a new FullPhysicalMachine object
@@ -473,5 +474,3 @@ func (v *NullableFullPhysicalMachine) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

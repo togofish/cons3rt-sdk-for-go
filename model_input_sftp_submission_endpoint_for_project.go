@@ -17,8 +17,10 @@ import (
 
 // InputSFTPSubmissionEndpointForProject struct for InputSFTPSubmissionEndpointForProject
 type InputSFTPSubmissionEndpointForProject struct {
-	RemotePath *string `json:"remotePath,omitempty"`
-	UseUserDirectoryAsRoot *bool `json:"useUserDirectoryAsRoot,omitempty"`
+	RemotePath             *string `json:"remotePath,omitempty"`
+	UseUserDirectoryAsRoot *bool   `json:"useUserDirectoryAsRoot,omitempty"`
+	Host                   string
+	Subtype                string
 }
 
 // NewInputSFTPSubmissionEndpointForProject instantiates a new InputSFTPSubmissionEndpointForProject object
@@ -150,5 +152,3 @@ func (v *NullableInputSFTPSubmissionEndpointForProject) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

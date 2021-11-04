@@ -17,11 +17,15 @@ import (
 
 // FullAwsCloud struct for FullAwsCloud
 type FullAwsCloud struct {
-	AccessKey *string `json:"accessKey,omitempty"`
-	NatImageId *string `json:"natImageId,omitempty"`
-	NatInstanceType *string `json:"natInstanceType,omitempty"`
-	OwnerId *string `json:"ownerId,omitempty"`
-	RegionName *string `json:"regionName,omitempty"`
+	AccessKey          *string `json:"accessKey,omitempty"`
+	NatImageId         *string `json:"natImageId,omitempty"`
+	NatInstanceType    *string `json:"natInstanceType,omitempty"`
+	OwnerId            *string `json:"ownerId,omitempty"`
+	RegionName         *string `json:"regionName,omitempty"`
+	Name               string
+	ExternalIpSource   string
+	MaximumImpactLevel string
+	Subtype            string
 }
 
 // NewFullAwsCloud instantiates a new FullAwsCloud object
@@ -260,5 +264,3 @@ func (v *NullableFullAwsCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

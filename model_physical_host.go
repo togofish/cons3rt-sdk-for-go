@@ -18,9 +18,10 @@ import (
 // PhysicalHost struct for PhysicalHost
 type PhysicalHost struct {
 	PhysicalMachine *PhysicalMachine `json:"physicalMachine,omitempty"`
-	IpAddress *string `json:"ipAddress,omitempty"`
-	MacAddress *string `json:"macAddress,omitempty"`
-	Hostname *string `json:"hostname,omitempty"`
+	IpAddress       *string          `json:"ipAddress,omitempty"`
+	MacAddress      *string          `json:"macAddress,omitempty"`
+	Hostname        *string          `json:"hostname,omitempty"`
+	Subtype         string
 }
 
 // NewPhysicalHost instantiates a new PhysicalHost object
@@ -221,5 +222,3 @@ func (v *NullablePhysicalHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

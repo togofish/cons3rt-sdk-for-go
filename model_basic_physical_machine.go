@@ -17,9 +17,10 @@ import (
 
 // BasicPhysicalMachine struct for BasicPhysicalMachine
 type BasicPhysicalMachine struct {
-	Architecture *string `json:"architecture,omitempty"`
-	Bits *string `json:"bits,omitempty"`
+	Architecture    *string `json:"architecture,omitempty"`
+	Bits            *string `json:"bits,omitempty"`
 	OperatingSystem *string `json:"operatingSystem,omitempty"`
+	Subtype         string
 }
 
 // NewBasicPhysicalMachine instantiates a new BasicPhysicalMachine object
@@ -185,5 +186,3 @@ func (v *NullableBasicPhysicalMachine) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

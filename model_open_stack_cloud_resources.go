@@ -18,7 +18,8 @@ import (
 // OpenStackCloudResources struct for OpenStackCloudResources
 type OpenStackCloudResources struct {
 	FlavorTypeNames *[]string `json:"flavorTypeNames,omitempty"`
-	NatImageNames *[]string `json:"natImageNames,omitempty"`
+	NatImageNames   *[]string `json:"natImageNames,omitempty"`
+	Subtype         string
 }
 
 // NewOpenStackCloudResources instantiates a new OpenStackCloudResources object
@@ -149,5 +150,3 @@ func (v *NullableOpenStackCloudResources) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

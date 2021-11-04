@@ -18,6 +18,8 @@ import (
 // AddVcloudNetworkRequest struct for AddVcloudNetworkRequest
 type AddVcloudNetworkRequest struct {
 	ExternalNetworkName string `json:"externalNetworkName"`
+	Network             Network
+	Subtype             string
 }
 
 // NewAddVcloudNetworkRequest instantiates a new AddVcloudNetworkRequest object
@@ -53,7 +55,7 @@ func (o *AddVcloudNetworkRequest) GetExternalNetworkName() string {
 // GetExternalNetworkNameOk returns a tuple with the ExternalNetworkName field value
 // and a boolean to check if the value has been set.
 func (o *AddVcloudNetworkRequest) GetExternalNetworkNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExternalNetworkName, true
@@ -107,5 +109,3 @@ func (v *NullableAddVcloudNetworkRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

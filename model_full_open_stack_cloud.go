@@ -17,16 +17,20 @@ import (
 
 // FullOpenStackCloud struct for FullOpenStackCloud
 type FullOpenStackCloud struct {
-	DomainName *string `json:"domainName,omitempty"`
-	KeystoneHostname *string `json:"keystoneHostname,omitempty"`
-	KeystonePort *int32 `json:"keystonePort,omitempty"`
-	KeystoneProtocol *string `json:"keystoneProtocol,omitempty"`
-	KeystoneUsername *string `json:"keystoneUsername,omitempty"`
-	KeystoneVersion *string `json:"keystoneVersion,omitempty"`
-	NatImageId string `json:"natImageId"`
-	NatInstanceType string `json:"natInstanceType"`
-	Tenant string `json:"tenant"`
-	TenantId string `json:"tenantId"`
+	DomainName         *string `json:"domainName,omitempty"`
+	KeystoneHostname   *string `json:"keystoneHostname,omitempty"`
+	KeystonePort       *int32  `json:"keystonePort,omitempty"`
+	KeystoneProtocol   *string `json:"keystoneProtocol,omitempty"`
+	KeystoneUsername   *string `json:"keystoneUsername,omitempty"`
+	KeystoneVersion    *string `json:"keystoneVersion,omitempty"`
+	NatImageId         string  `json:"natImageId"`
+	NatInstanceType    string  `json:"natInstanceType"`
+	Tenant             string  `json:"tenant"`
+	TenantId           string  `json:"tenantId"`
+	Name               string
+	ExternalIpSource   string
+	MaximumImpactLevel string
+	Subtype            string
 }
 
 // NewFullOpenStackCloud instantiates a new FullOpenStackCloud object
@@ -259,7 +263,7 @@ func (o *FullOpenStackCloud) GetNatImageId() string {
 // GetNatImageIdOk returns a tuple with the NatImageId field value
 // and a boolean to check if the value has been set.
 func (o *FullOpenStackCloud) GetNatImageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageId, true
@@ -283,7 +287,7 @@ func (o *FullOpenStackCloud) GetNatInstanceType() string {
 // GetNatInstanceTypeOk returns a tuple with the NatInstanceType field value
 // and a boolean to check if the value has been set.
 func (o *FullOpenStackCloud) GetNatInstanceTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatInstanceType, true
@@ -307,7 +311,7 @@ func (o *FullOpenStackCloud) GetTenant() string {
 // GetTenantOk returns a tuple with the Tenant field value
 // and a boolean to check if the value has been set.
 func (o *FullOpenStackCloud) GetTenantOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Tenant, true
@@ -331,7 +335,7 @@ func (o *FullOpenStackCloud) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *FullOpenStackCloud) GetTenantIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TenantId, true
@@ -412,5 +416,3 @@ func (v *NullableFullOpenStackCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

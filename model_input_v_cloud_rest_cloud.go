@@ -17,17 +17,22 @@ import (
 
 // InputVCloudRestCloud struct for InputVCloudRestCloud
 type InputVCloudRestCloud struct {
-	Hostname string `json:"hostname"`
-	Password string `json:"password"`
-	Port int32 `json:"port"`
-	Protocol string `json:"protocol"`
-	RemoteAccessInternalIp string `json:"remoteAccessInternalIp"`
-	RemoteAccessPort int32 `json:"remoteAccessPort"`
-	Username string `json:"username"`
-	GpuProfileTypes *[]string `json:"gpuProfileTypes,omitempty"`
-	VsphereApiVersion *string `json:"vsphereApiVersion,omitempty"`
-	VsphereHost *string `json:"vsphereHost,omitempty"`
-	VspherePort *int32 `json:"vspherePort,omitempty"`
+	Hostname               string    `json:"hostname"`
+	Password               string    `json:"password"`
+	Port                   int32     `json:"port"`
+	Protocol               string    `json:"protocol"`
+	RemoteAccessInternalIp string    `json:"remoteAccessInternalIp"`
+	RemoteAccessPort       int32     `json:"remoteAccessPort"`
+	Username               string    `json:"username"`
+	GpuProfileTypes        *[]string `json:"gpuProfileTypes,omitempty"`
+	VsphereApiVersion      *string   `json:"vsphereApiVersion,omitempty"`
+	VsphereHost            *string   `json:"vsphereHost,omitempty"`
+	VspherePort            *int32    `json:"vspherePort,omitempty"`
+	Name                   string
+	ExternalIpSource       string
+	MaximumImpactLevel     string
+	OwningTeam             InputTeam
+	Subtype                string
 }
 
 // NewInputVCloudRestCloud instantiates a new InputVCloudRestCloud object
@@ -72,7 +77,7 @@ func (o *InputVCloudRestCloud) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestCloud) GetHostnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hostname, true
@@ -96,7 +101,7 @@ func (o *InputVCloudRestCloud) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestCloud) GetPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Password, true
@@ -120,7 +125,7 @@ func (o *InputVCloudRestCloud) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestCloud) GetPortOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Port, true
@@ -144,7 +149,7 @@ func (o *InputVCloudRestCloud) GetProtocol() string {
 // GetProtocolOk returns a tuple with the Protocol field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestCloud) GetProtocolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Protocol, true
@@ -168,7 +173,7 @@ func (o *InputVCloudRestCloud) GetRemoteAccessInternalIp() string {
 // GetRemoteAccessInternalIpOk returns a tuple with the RemoteAccessInternalIp field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestCloud) GetRemoteAccessInternalIpOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RemoteAccessInternalIp, true
@@ -192,7 +197,7 @@ func (o *InputVCloudRestCloud) GetRemoteAccessPort() int32 {
 // GetRemoteAccessPortOk returns a tuple with the RemoteAccessPort field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestCloud) GetRemoteAccessPortOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RemoteAccessPort, true
@@ -216,7 +221,7 @@ func (o *InputVCloudRestCloud) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value
 // and a boolean to check if the value has been set.
 func (o *InputVCloudRestCloud) GetUsernameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Username, true
@@ -428,5 +433,3 @@ func (v *NullableInputVCloudRestCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,6 +18,8 @@ import (
 // MinimalContainerComponent struct for MinimalContainerComponent
 type MinimalContainerComponent struct {
 	Configuration MinimalContainerConfiguration `json:"configuration"`
+	Asset         MinimalAsset
+	Subtype       string
 }
 
 // NewMinimalContainerComponent instantiates a new MinimalContainerComponent object
@@ -53,7 +55,7 @@ func (o *MinimalContainerComponent) GetConfiguration() MinimalContainerConfigura
 // GetConfigurationOk returns a tuple with the Configuration field value
 // and a boolean to check if the value has been set.
 func (o *MinimalContainerComponent) GetConfigurationOk() (*MinimalContainerConfiguration, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Configuration, true
@@ -107,5 +109,3 @@ func (v *NullableMinimalContainerComponent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

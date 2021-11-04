@@ -17,6 +17,10 @@ import (
 
 // InputVRAdminVCloudRestVirtualizationRealm struct for InputVRAdminVCloudRestVirtualizationRealm
 type InputVRAdminVCloudRestVirtualizationRealm struct {
+	VirtualizationRealmType string
+	Cidr                    string
+	Description             string
+	Name                    string
 }
 
 // NewInputVRAdminVCloudRestVirtualizationRealm instantiates a new InputVRAdminVCloudRestVirtualizationRealm object
@@ -80,5 +84,3 @@ func (v *NullableInputVRAdminVCloudRestVirtualizationRealm) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

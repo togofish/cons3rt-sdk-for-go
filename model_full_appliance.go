@@ -17,8 +17,9 @@ import (
 
 // FullAppliance struct for FullAppliance
 type FullAppliance struct {
-	Components *[]MinimalAbstractComponent `json:"components,omitempty"`
-	TemplateProfile *MinimalTemplateProfile `json:"templateProfile,omitempty"`
+	Components      *[]MinimalAbstractComponent `json:"components,omitempty"`
+	TemplateProfile *MinimalTemplateProfile     `json:"templateProfile,omitempty"`
+	Subtype         string
 }
 
 // NewFullAppliance instantiates a new FullAppliance object
@@ -149,5 +150,3 @@ func (v *NullableFullAppliance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

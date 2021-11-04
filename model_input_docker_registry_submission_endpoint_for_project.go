@@ -17,6 +17,8 @@ import (
 
 // InputDockerRegistrySubmissionEndpointForProject struct for InputDockerRegistrySubmissionEndpointForProject
 type InputDockerRegistrySubmissionEndpointForProject struct {
+	Host    string
+	Subtype string
 }
 
 // NewInputDockerRegistrySubmissionEndpointForProject instantiates a new InputDockerRegistrySubmissionEndpointForProject object
@@ -78,5 +80,3 @@ func (v *NullableInputDockerRegistrySubmissionEndpointForProject) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,10 +17,13 @@ import (
 
 // OpenStackCloudSpaceRequest struct for OpenStackCloudSpaceRequest
 type OpenStackCloudSpaceRequest struct {
-	NatFlavorType string `json:"natFlavorType"`
-	NatImageId string `json:"natImageId"`
+	NatFlavorType        string  `json:"natFlavorType"`
+	NatImageId           string  `json:"natImageId"`
 	DnsServerIpAddresses *string `json:"dnsServerIpAddresses,omitempty"`
-	ExternalNetworkName string `json:"externalNetworkName"`
+	ExternalNetworkName  string  `json:"externalNetworkName"`
+	CloudSpaceName       string
+	Cidr                 string
+	Subtype              string
 }
 
 // NewOpenStackCloudSpaceRequest instantiates a new OpenStackCloudSpaceRequest object
@@ -59,7 +62,7 @@ func (o *OpenStackCloudSpaceRequest) GetNatFlavorType() string {
 // GetNatFlavorTypeOk returns a tuple with the NatFlavorType field value
 // and a boolean to check if the value has been set.
 func (o *OpenStackCloudSpaceRequest) GetNatFlavorTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatFlavorType, true
@@ -83,7 +86,7 @@ func (o *OpenStackCloudSpaceRequest) GetNatImageId() string {
 // GetNatImageIdOk returns a tuple with the NatImageId field value
 // and a boolean to check if the value has been set.
 func (o *OpenStackCloudSpaceRequest) GetNatImageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageId, true
@@ -139,7 +142,7 @@ func (o *OpenStackCloudSpaceRequest) GetExternalNetworkName() string {
 // GetExternalNetworkNameOk returns a tuple with the ExternalNetworkName field value
 // and a boolean to check if the value has been set.
 func (o *OpenStackCloudSpaceRequest) GetExternalNetworkNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExternalNetworkName, true
@@ -202,5 +205,3 @@ func (v *NullableOpenStackCloudSpaceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

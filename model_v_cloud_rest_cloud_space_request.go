@@ -17,14 +17,17 @@ import (
 
 // VCloudRestCloudSpaceRequest struct for VCloudRestCloudSpaceRequest
 type VCloudRestCloudSpaceRequest struct {
-	ProviderVdcName string `json:"providerVdcName"`
-	VdcNetworkPoolName string `json:"vdcNetworkPoolName"`
-	Username string `json:"username"`
-	Password string `json:"password"`
-	EmailAddress string `json:"emailAddress"`
-	ExternalNetworkName string `json:"externalNetworkName"`
-	LocalCatalogName *string `json:"localCatalogName,omitempty"`
-	VdcNetworkQuota int32 `json:"vdcNetworkQuota"`
+	ProviderVdcName     string  `json:"providerVdcName"`
+	VdcNetworkPoolName  string  `json:"vdcNetworkPoolName"`
+	Username            string  `json:"username"`
+	Password            string  `json:"password"`
+	EmailAddress        string  `json:"emailAddress"`
+	ExternalNetworkName string  `json:"externalNetworkName"`
+	LocalCatalogName    *string `json:"localCatalogName,omitempty"`
+	VdcNetworkQuota     int32   `json:"vdcNetworkQuota"`
+	CloudSpaceName      string
+	Cidr                string
+	Subtype             string
 }
 
 // NewVCloudRestCloudSpaceRequest instantiates a new VCloudRestCloudSpaceRequest object
@@ -67,7 +70,7 @@ func (o *VCloudRestCloudSpaceRequest) GetProviderVdcName() string {
 // GetProviderVdcNameOk returns a tuple with the ProviderVdcName field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloudSpaceRequest) GetProviderVdcNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ProviderVdcName, true
@@ -91,7 +94,7 @@ func (o *VCloudRestCloudSpaceRequest) GetVdcNetworkPoolName() string {
 // GetVdcNetworkPoolNameOk returns a tuple with the VdcNetworkPoolName field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloudSpaceRequest) GetVdcNetworkPoolNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VdcNetworkPoolName, true
@@ -115,7 +118,7 @@ func (o *VCloudRestCloudSpaceRequest) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloudSpaceRequest) GetUsernameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Username, true
@@ -139,7 +142,7 @@ func (o *VCloudRestCloudSpaceRequest) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloudSpaceRequest) GetPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Password, true
@@ -163,7 +166,7 @@ func (o *VCloudRestCloudSpaceRequest) GetEmailAddress() string {
 // GetEmailAddressOk returns a tuple with the EmailAddress field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloudSpaceRequest) GetEmailAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EmailAddress, true
@@ -187,7 +190,7 @@ func (o *VCloudRestCloudSpaceRequest) GetExternalNetworkName() string {
 // GetExternalNetworkNameOk returns a tuple with the ExternalNetworkName field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloudSpaceRequest) GetExternalNetworkNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExternalNetworkName, true
@@ -243,7 +246,7 @@ func (o *VCloudRestCloudSpaceRequest) GetVdcNetworkQuota() int32 {
 // GetVdcNetworkQuotaOk returns a tuple with the VdcNetworkQuota field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloudSpaceRequest) GetVdcNetworkQuotaOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VdcNetworkQuota, true
@@ -318,5 +321,3 @@ func (v *NullableVCloudRestCloudSpaceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

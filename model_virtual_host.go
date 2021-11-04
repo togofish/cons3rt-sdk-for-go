@@ -17,6 +17,7 @@ import (
 
 // VirtualHost struct for VirtualHost
 type VirtualHost struct {
+	Subtype string
 }
 
 // NewVirtualHost instantiates a new VirtualHost object
@@ -77,5 +78,3 @@ func (v *NullableVirtualHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

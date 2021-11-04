@@ -18,7 +18,8 @@ import (
 // PathBasedSubmissionEndpoint struct for PathBasedSubmissionEndpoint
 type PathBasedSubmissionEndpoint struct {
 	RemotePath *string `json:"remotePath,omitempty"`
-	Subtype string `json:"subtype"`
+	Subtype    string  `json:"subtype"`
+	Host       string
 }
 
 // NewPathBasedSubmissionEndpoint instantiates a new PathBasedSubmissionEndpoint object
@@ -85,7 +86,7 @@ func (o *PathBasedSubmissionEndpoint) GetSubtype() string {
 // GetSubtypeOk returns a tuple with the Subtype field value
 // and a boolean to check if the value has been set.
 func (o *PathBasedSubmissionEndpoint) GetSubtypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Subtype, true
@@ -142,5 +143,3 @@ func (v *NullablePathBasedSubmissionEndpoint) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

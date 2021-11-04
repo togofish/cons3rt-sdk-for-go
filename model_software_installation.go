@@ -17,9 +17,10 @@ import (
 
 // SoftwareInstallation struct for SoftwareInstallation
 type SoftwareInstallation struct {
-	AssetType *string `json:"assetType,omitempty"`
-	RebootDelaySeconds *int32 `json:"rebootDelaySeconds,omitempty"`
-	RebootRequired *bool `json:"rebootRequired,omitempty"`
+	AssetType          *string `json:"assetType,omitempty"`
+	RebootDelaySeconds *int32  `json:"rebootDelaySeconds,omitempty"`
+	RebootRequired     *bool   `json:"rebootRequired,omitempty"`
+	Subtype            string
 }
 
 // NewSoftwareInstallation instantiates a new SoftwareInstallation object
@@ -185,5 +186,3 @@ func (v *NullableSoftwareInstallation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

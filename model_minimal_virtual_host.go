@@ -17,6 +17,7 @@ import (
 
 // MinimalVirtualHost struct for MinimalVirtualHost
 type MinimalVirtualHost struct {
+	Subtype string
 }
 
 // NewMinimalVirtualHost instantiates a new MinimalVirtualHost object
@@ -77,5 +78,3 @@ func (v *NullableMinimalVirtualHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,9 +17,10 @@ import (
 
 // InputPhysicalHost struct for InputPhysicalHost
 type InputPhysicalHost struct {
-	Name *string `json:"name,omitempty"`
-	PhysicalMachine *InputPhysicalMachine `json:"physicalMachine,omitempty"`
-	Components *[]InputAbstractComponent `json:"components,omitempty"`
+	Name            *string                   `json:"name,omitempty"`
+	PhysicalMachine *InputPhysicalMachine     `json:"physicalMachine,omitempty"`
+	Components      *[]InputAbstractComponent `json:"components,omitempty"`
+	Subtype         string
 }
 
 // NewInputPhysicalHost instantiates a new InputPhysicalHost object
@@ -185,5 +186,3 @@ func (v *NullableInputPhysicalHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

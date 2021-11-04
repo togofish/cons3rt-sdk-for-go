@@ -17,13 +17,18 @@ import (
 
 // FullAwsVirtualizationRealm struct for FullAwsVirtualizationRealm
 type FullAwsVirtualizationRealm struct {
-	NatImageId *string `json:"natImageId,omitempty"`
-	NatInstanceType *string `json:"natInstanceType,omitempty"`
-	Region *string `json:"region,omitempty"`
-	SecurityGroupId *string `json:"securityGroupId,omitempty"`
+	NatImageId         *string `json:"natImageId,omitempty"`
+	NatInstanceType    *string `json:"natInstanceType,omitempty"`
+	Region             *string `json:"region,omitempty"`
+	SecurityGroupId    *string `json:"securityGroupId,omitempty"`
 	VirtualNetworkName *string `json:"virtualNetworkName,omitempty"`
-	VpcId *string `json:"vpcId,omitempty"`
-	VpcSubnetName *string `json:"vpcSubnetName,omitempty"`
+	VpcId              *string `json:"vpcId,omitempty"`
+	VpcSubnetName      *string `json:"vpcSubnetName,omitempty"`
+	Name               string
+	AccountId          string
+	Networks           []Network
+	Description        string
+	Username           string
 }
 
 // NewFullAwsVirtualizationRealm instantiates a new FullAwsVirtualizationRealm object
@@ -333,5 +338,3 @@ func (v *NullableFullAwsVirtualizationRealm) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

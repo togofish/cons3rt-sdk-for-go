@@ -17,9 +17,15 @@ import (
 
 // VCloudRestRegisterCloudSpaceRequest struct for VCloudRestRegisterCloudSpaceRequest
 type VCloudRestRegisterCloudSpaceRequest struct {
-	LocalStorageName *string `json:"localStorageName,omitempty"`
-	Organization string `json:"organization"`
-	OrganizationVdc string `json:"organizationVdc"`
+	LocalStorageName        *string `json:"localStorageName,omitempty"`
+	Organization            string  `json:"organization"`
+	OrganizationVdc         string  `json:"organizationVdc"`
+	VirtualizationRealmType string
+	Name                    string
+	Cons3rtNetworkName      string
+	Password                string
+	PrimaryNetworkName      string
+	Username                string
 }
 
 // NewVCloudRestRegisterCloudSpaceRequest instantiates a new VCloudRestRegisterCloudSpaceRequest object
@@ -92,7 +98,7 @@ func (o *VCloudRestRegisterCloudSpaceRequest) GetOrganization() string {
 // GetOrganizationOk returns a tuple with the Organization field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestRegisterCloudSpaceRequest) GetOrganizationOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Organization, true
@@ -116,7 +122,7 @@ func (o *VCloudRestRegisterCloudSpaceRequest) GetOrganizationVdc() string {
 // GetOrganizationVdcOk returns a tuple with the OrganizationVdc field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestRegisterCloudSpaceRequest) GetOrganizationVdcOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OrganizationVdc, true
@@ -176,5 +182,3 @@ func (v *NullableVCloudRestRegisterCloudSpaceRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

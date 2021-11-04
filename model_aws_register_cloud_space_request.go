@@ -17,11 +17,17 @@ import (
 
 // AwsRegisterCloudSpaceRequest struct for AwsRegisterCloudSpaceRequest
 type AwsRegisterCloudSpaceRequest struct {
-	AccountId string `json:"accountId"`
-	Region string `json:"region"`
-	VpcId string `json:"vpcId"`
-	UserKeyName *string `json:"userKeyName,omitempty"`
+	AccountId               string            `json:"accountId"`
+	Region                  string            `json:"region"`
+	VpcId                   string            `json:"vpcId"`
+	UserKeyName             *string           `json:"userKeyName,omitempty"`
 	NetworkSecurityGroupMap map[string]string `json:"networkSecurityGroupMap"`
+	VirtualizationRealmType string
+	Name                    string
+	Cons3rtNetworkName      string
+	Password                string
+	PrimaryNetworkName      string
+	Username                string
 }
 
 // NewAwsRegisterCloudSpaceRequest instantiates a new AwsRegisterCloudSpaceRequest object
@@ -64,7 +70,7 @@ func (o *AwsRegisterCloudSpaceRequest) GetAccountId() string {
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
 func (o *AwsRegisterCloudSpaceRequest) GetAccountIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AccountId, true
@@ -88,7 +94,7 @@ func (o *AwsRegisterCloudSpaceRequest) GetRegion() string {
 // GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
 func (o *AwsRegisterCloudSpaceRequest) GetRegionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Region, true
@@ -112,7 +118,7 @@ func (o *AwsRegisterCloudSpaceRequest) GetVpcId() string {
 // GetVpcIdOk returns a tuple with the VpcId field value
 // and a boolean to check if the value has been set.
 func (o *AwsRegisterCloudSpaceRequest) GetVpcIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VpcId, true
@@ -168,7 +174,7 @@ func (o *AwsRegisterCloudSpaceRequest) GetNetworkSecurityGroupMap() map[string]s
 // GetNetworkSecurityGroupMapOk returns a tuple with the NetworkSecurityGroupMap field value
 // and a boolean to check if the value has been set.
 func (o *AwsRegisterCloudSpaceRequest) GetNetworkSecurityGroupMapOk() (*map[string]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NetworkSecurityGroupMap, true
@@ -234,5 +240,3 @@ func (v *NullableAwsRegisterCloudSpaceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,7 +18,9 @@ import (
 // AddAwsNetworkRequest struct for AddAwsNetworkRequest
 type AddAwsNetworkRequest struct {
 	NatInstanceType string `json:"natInstanceType"`
-	NatImageId string `json:"natImageId"`
+	NatImageId      string `json:"natImageId"`
+	Network         Network
+	Subtype         string
 }
 
 // NewAddAwsNetworkRequest instantiates a new AddAwsNetworkRequest object
@@ -55,7 +57,7 @@ func (o *AddAwsNetworkRequest) GetNatInstanceType() string {
 // GetNatInstanceTypeOk returns a tuple with the NatInstanceType field value
 // and a boolean to check if the value has been set.
 func (o *AddAwsNetworkRequest) GetNatInstanceTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatInstanceType, true
@@ -79,7 +81,7 @@ func (o *AddAwsNetworkRequest) GetNatImageId() string {
 // GetNatImageIdOk returns a tuple with the NatImageId field value
 // and a boolean to check if the value has been set.
 func (o *AddAwsNetworkRequest) GetNatImageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageId, true
@@ -136,5 +138,3 @@ func (v *NullableAddAwsNetworkRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

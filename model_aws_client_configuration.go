@@ -18,7 +18,11 @@ import (
 // AwsClientConfiguration struct for AwsClientConfiguration
 type AwsClientConfiguration struct {
 	SessionToken *string `json:"sessionToken,omitempty"`
-	RegionName string `json:"regionName"`
+	RegionName   string  `json:"regionName"`
+	AccountId    string
+	Password     string
+	Username     string
+	Subtype      string
 }
 
 // NewAwsClientConfiguration instantiates a new AwsClientConfiguration object
@@ -88,7 +92,7 @@ func (o *AwsClientConfiguration) GetRegionName() string {
 // GetRegionNameOk returns a tuple with the RegionName field value
 // and a boolean to check if the value has been set.
 func (o *AwsClientConfiguration) GetRegionNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RegionName, true
@@ -145,5 +149,3 @@ func (v *NullableAwsClientConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

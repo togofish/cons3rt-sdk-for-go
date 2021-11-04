@@ -17,10 +17,16 @@ import (
 
 // AwsCloud struct for AwsCloud
 type AwsCloud struct {
-	AccessKey string `json:"accessKey"`
-	OwnerId string `json:"ownerId"`
-	RegionName string `json:"regionName"`
-	SecretAccessKey string `json:"secretAccessKey"`
+	AccessKey          string `json:"accessKey"`
+	OwnerId            string `json:"ownerId"`
+	RegionName         string `json:"regionName"`
+	SecretAccessKey    string `json:"secretAccessKey"`
+	Description        string
+	Name               string
+	ExternalIpSource   string
+	MaximumImpactLevel string
+	OwningTeam         Team
+	Subtype            string
 }
 
 // NewAwsCloud instantiates a new AwsCloud object
@@ -63,7 +69,7 @@ func (o *AwsCloud) GetAccessKey() string {
 // GetAccessKeyOk returns a tuple with the AccessKey field value
 // and a boolean to check if the value has been set.
 func (o *AwsCloud) GetAccessKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AccessKey, true
@@ -87,7 +93,7 @@ func (o *AwsCloud) GetOwnerId() string {
 // GetOwnerIdOk returns a tuple with the OwnerId field value
 // and a boolean to check if the value has been set.
 func (o *AwsCloud) GetOwnerIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OwnerId, true
@@ -111,7 +117,7 @@ func (o *AwsCloud) GetRegionName() string {
 // GetRegionNameOk returns a tuple with the RegionName field value
 // and a boolean to check if the value has been set.
 func (o *AwsCloud) GetRegionNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RegionName, true
@@ -135,7 +141,7 @@ func (o *AwsCloud) GetSecretAccessKey() string {
 // GetSecretAccessKeyOk returns a tuple with the SecretAccessKey field value
 // and a boolean to check if the value has been set.
 func (o *AwsCloud) GetSecretAccessKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SecretAccessKey, true
@@ -198,5 +204,3 @@ func (v *NullableAwsCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

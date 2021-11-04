@@ -17,6 +17,9 @@ import (
 
 // InputVCloudClient struct for InputVCloudClient
 type InputVCloudClient struct {
+	Username string
+	Password string
+	Subtype  string
 }
 
 // NewInputVCloudClient instantiates a new InputVCloudClient object
@@ -79,5 +82,3 @@ func (v *NullableInputVCloudClient) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

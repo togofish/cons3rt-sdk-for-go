@@ -18,8 +18,9 @@ import (
 // VCloudCloudResources struct for VCloudCloudResources
 type VCloudCloudResources struct {
 	ExternalNetworkNames *[]string `json:"externalNetworkNames,omitempty"`
-	ProviderVdcNames *[]string `json:"providerVdcNames,omitempty"`
-	VdcNetworkPoolNames *[]string `json:"vdcNetworkPoolNames,omitempty"`
+	ProviderVdcNames     *[]string `json:"providerVdcNames,omitempty"`
+	VdcNetworkPoolNames  *[]string `json:"vdcNetworkPoolNames,omitempty"`
+	Subtype              string
 }
 
 // NewVCloudCloudResources instantiates a new VCloudCloudResources object
@@ -185,5 +186,3 @@ func (v *NullableVCloudCloudResources) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

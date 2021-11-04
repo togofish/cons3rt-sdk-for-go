@@ -17,6 +17,7 @@ import (
 
 // MinimalDevice struct for MinimalDevice
 type MinimalDevice struct {
+	Subtype string
 }
 
 // NewMinimalDevice instantiates a new MinimalDevice object
@@ -77,5 +78,3 @@ func (v *NullableMinimalDevice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

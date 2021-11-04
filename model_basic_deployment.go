@@ -17,6 +17,7 @@ import (
 
 // BasicDeployment struct for BasicDeployment
 type BasicDeployment struct {
+	Subtype string
 }
 
 // NewBasicDeployment instantiates a new BasicDeployment object
@@ -77,5 +78,3 @@ func (v *NullableBasicDeployment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

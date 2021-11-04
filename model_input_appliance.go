@@ -17,8 +17,9 @@ import (
 
 // InputAppliance struct for InputAppliance
 type InputAppliance struct {
-	Name *string `json:"name,omitempty"`
+	Name            *string               `json:"name,omitempty"`
 	TemplateProfile *InputTemplateProfile `json:"templateProfile,omitempty"`
+	Subtype         string
 }
 
 // NewInputAppliance instantiates a new InputAppliance object
@@ -149,5 +150,3 @@ func (v *NullableInputAppliance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

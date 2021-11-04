@@ -18,9 +18,10 @@ import (
 // FullDeployment struct for FullDeployment
 type FullDeployment struct {
 	RecurringSchedules *[]MinimalRecurringSchedule `json:"recurringSchedules,omitempty"`
-	Scenario *[]GeneralScenario `json:"scenario,omitempty"`
-	TestBundles *[]MinimalTestBundle `json:"testBundles,omitempty"`
-	DeploymentHosts *[]MinimalDeploymentHost `json:"deploymentHosts,omitempty"`
+	Scenario           *[]GeneralScenario          `json:"scenario,omitempty"`
+	TestBundles        *[]MinimalTestBundle        `json:"testBundles,omitempty"`
+	DeploymentHosts    *[]MinimalDeploymentHost    `json:"deploymentHosts,omitempty"`
+	Subtype            string
 }
 
 // NewFullDeployment instantiates a new FullDeployment object
@@ -221,5 +222,3 @@ func (v *NullableFullDeployment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

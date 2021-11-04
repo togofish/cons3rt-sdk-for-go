@@ -17,6 +17,7 @@ import (
 
 // MinimalPhysicalHost struct for MinimalPhysicalHost
 type MinimalPhysicalHost struct {
+	Subtype string
 }
 
 // NewMinimalPhysicalHost instantiates a new MinimalPhysicalHost object
@@ -77,5 +78,3 @@ func (v *NullableMinimalPhysicalHost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

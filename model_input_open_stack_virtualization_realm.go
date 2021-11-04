@@ -17,6 +17,12 @@ import (
 
 // InputOpenStackVirtualizationRealm struct for InputOpenStackVirtualizationRealm
 type InputOpenStackVirtualizationRealm struct {
+	AccountId   string
+	Cidr        string
+	Description string
+	Name        string
+	Password    string
+	Username    string
 }
 
 // NewInputOpenStackVirtualizationRealm instantiates a new InputOpenStackVirtualizationRealm object
@@ -82,5 +88,3 @@ func (v *NullableInputOpenStackVirtualizationRealm) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

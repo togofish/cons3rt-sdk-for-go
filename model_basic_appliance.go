@@ -17,6 +17,7 @@ import (
 
 // BasicAppliance struct for BasicAppliance
 type BasicAppliance struct {
+	Subtype string
 }
 
 // NewBasicAppliance instantiates a new BasicAppliance object
@@ -77,5 +78,3 @@ func (v *NullableBasicAppliance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

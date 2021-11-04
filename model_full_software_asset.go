@@ -17,30 +17,31 @@ import (
 
 // FullSoftwareAsset struct for FullSoftwareAsset
 type FullSoftwareAsset struct {
-	Architecture *string `json:"architecture,omitempty"`
-	Bits *string `json:"bits,omitempty"`
-	Dependencies *string `json:"dependencies,omitempty"`
-	OsFamily *string `json:"osFamily,omitempty"`
-	ProductFamily *string `json:"productFamily,omitempty"`
-	RequiredCpu *int32 `json:"requiredCpu,omitempty"`
-	RequiredCpuSpeed *int32 `json:"requiredCpuSpeed,omitempty"`
-	ApplicationType *string `json:"applicationType,omitempty"`
-	VendorMessage *string `json:"vendorMessage,omitempty"`
-	BuildEngine *string `json:"buildEngine,omitempty"`
-	BuildScript *string `json:"buildScript,omitempty"`
-	BuildScriptName *string `json:"buildScriptName,omitempty"`
-	CheckoutScript *string `json:"checkoutScript,omitempty"`
+	Architecture       *string `json:"architecture,omitempty"`
+	Bits               *string `json:"bits,omitempty"`
+	Dependencies       *string `json:"dependencies,omitempty"`
+	OsFamily           *string `json:"osFamily,omitempty"`
+	ProductFamily      *string `json:"productFamily,omitempty"`
+	RequiredCpu        *int32  `json:"requiredCpu,omitempty"`
+	RequiredCpuSpeed   *int32  `json:"requiredCpuSpeed,omitempty"`
+	ApplicationType    *string `json:"applicationType,omitempty"`
+	VendorMessage      *string `json:"vendorMessage,omitempty"`
+	BuildEngine        *string `json:"buildEngine,omitempty"`
+	BuildScript        *string `json:"buildScript,omitempty"`
+	BuildScriptName    *string `json:"buildScriptName,omitempty"`
+	CheckoutScript     *string `json:"checkoutScript,omitempty"`
 	CheckoutScriptName *string `json:"checkoutScriptName,omitempty"`
-	DeployScript *string `json:"deployScript,omitempty"`
-	DeployScriptName *string `json:"deployScriptName,omitempty"`
-	InstallScript *string `json:"installScript,omitempty"`
-	InstallScriptName *string `json:"installScriptName,omitempty"`
-	RequiredDisk *int32 `json:"requiredDisk,omitempty"`
-	RequiredRam *int32 `json:"requiredRam,omitempty"`
-	SoftwareType *string `json:"softwareType,omitempty"`
-	Version *string `json:"version,omitempty"`
-	SourceCodeType *string `json:"sourceCodeType,omitempty"`
-	Vendor *string `json:"vendor,omitempty"`
+	DeployScript       *string `json:"deployScript,omitempty"`
+	DeployScriptName   *string `json:"deployScriptName,omitempty"`
+	InstallScript      *string `json:"installScript,omitempty"`
+	InstallScriptName  *string `json:"installScriptName,omitempty"`
+	RequiredDisk       *int32  `json:"requiredDisk,omitempty"`
+	RequiredRam        *int32  `json:"requiredRam,omitempty"`
+	SoftwareType       *string `json:"softwareType,omitempty"`
+	Version            *string `json:"version,omitempty"`
+	SourceCodeType     *string `json:"sourceCodeType,omitempty"`
+	Vendor             *string `json:"vendor,omitempty"`
+	Subtype            string
 }
 
 // NewFullSoftwareAsset instantiates a new FullSoftwareAsset object
@@ -941,5 +942,3 @@ func (v *NullableFullSoftwareAsset) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

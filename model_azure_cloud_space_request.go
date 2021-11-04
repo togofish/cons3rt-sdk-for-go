@@ -18,7 +18,10 @@ import (
 // AzureCloudSpaceRequest struct for AzureCloudSpaceRequest
 type AzureCloudSpaceRequest struct {
 	NatImageReference ImageReferenceDTO `json:"natImageReference"`
-	NatInstanceType string `json:"natInstanceType"`
+	NatInstanceType   string            `json:"natInstanceType"`
+	CloudSpaceName    string
+	Cidr              string
+	Subtype           string
 }
 
 // NewAzureCloudSpaceRequest instantiates a new AzureCloudSpaceRequest object
@@ -56,7 +59,7 @@ func (o *AzureCloudSpaceRequest) GetNatImageReference() ImageReferenceDTO {
 // GetNatImageReferenceOk returns a tuple with the NatImageReference field value
 // and a boolean to check if the value has been set.
 func (o *AzureCloudSpaceRequest) GetNatImageReferenceOk() (*ImageReferenceDTO, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageReference, true
@@ -80,7 +83,7 @@ func (o *AzureCloudSpaceRequest) GetNatInstanceType() string {
 // GetNatInstanceTypeOk returns a tuple with the NatInstanceType field value
 // and a boolean to check if the value has been set.
 func (o *AzureCloudSpaceRequest) GetNatInstanceTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatInstanceType, true
@@ -137,5 +140,3 @@ func (v *NullableAzureCloudSpaceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

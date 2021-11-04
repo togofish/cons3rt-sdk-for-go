@@ -17,17 +17,22 @@ import (
 
 // InputOpenStackCloud struct for InputOpenStackCloud
 type InputOpenStackCloud struct {
-	DomainName *string `json:"domainName,omitempty"`
-	KeystoneHostname string `json:"keystoneHostname"`
-	KeystonePassword string `json:"keystonePassword"`
-	KeystonePort int32 `json:"keystonePort"`
-	KeystoneProtocol string `json:"keystoneProtocol"`
-	KeystoneUsername string `json:"keystoneUsername"`
-	KeystoneVersion string `json:"keystoneVersion"`
-	NatImageId string `json:"natImageId"`
-	NatInstanceType string `json:"natInstanceType"`
-	Tenant string `json:"tenant"`
-	TenantId string `json:"tenantId"`
+	DomainName         *string `json:"domainName,omitempty"`
+	KeystoneHostname   string  `json:"keystoneHostname"`
+	KeystonePassword   string  `json:"keystonePassword"`
+	KeystonePort       int32   `json:"keystonePort"`
+	KeystoneProtocol   string  `json:"keystoneProtocol"`
+	KeystoneUsername   string  `json:"keystoneUsername"`
+	KeystoneVersion    string  `json:"keystoneVersion"`
+	NatImageId         string  `json:"natImageId"`
+	NatInstanceType    string  `json:"natInstanceType"`
+	Tenant             string  `json:"tenant"`
+	TenantId           string  `json:"tenantId"`
+	Name               string
+	ExternalIpSource   string
+	MaximumImpactLevel string
+	OwningTeam         InputTeam
+	Subtype            string
 }
 
 // NewInputOpenStackCloud instantiates a new InputOpenStackCloud object
@@ -107,7 +112,7 @@ func (o *InputOpenStackCloud) GetKeystoneHostname() string {
 // GetKeystoneHostnameOk returns a tuple with the KeystoneHostname field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetKeystoneHostnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.KeystoneHostname, true
@@ -131,7 +136,7 @@ func (o *InputOpenStackCloud) GetKeystonePassword() string {
 // GetKeystonePasswordOk returns a tuple with the KeystonePassword field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetKeystonePasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.KeystonePassword, true
@@ -155,7 +160,7 @@ func (o *InputOpenStackCloud) GetKeystonePort() int32 {
 // GetKeystonePortOk returns a tuple with the KeystonePort field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetKeystonePortOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.KeystonePort, true
@@ -179,7 +184,7 @@ func (o *InputOpenStackCloud) GetKeystoneProtocol() string {
 // GetKeystoneProtocolOk returns a tuple with the KeystoneProtocol field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetKeystoneProtocolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.KeystoneProtocol, true
@@ -203,7 +208,7 @@ func (o *InputOpenStackCloud) GetKeystoneUsername() string {
 // GetKeystoneUsernameOk returns a tuple with the KeystoneUsername field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetKeystoneUsernameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.KeystoneUsername, true
@@ -227,7 +232,7 @@ func (o *InputOpenStackCloud) GetKeystoneVersion() string {
 // GetKeystoneVersionOk returns a tuple with the KeystoneVersion field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetKeystoneVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.KeystoneVersion, true
@@ -251,7 +256,7 @@ func (o *InputOpenStackCloud) GetNatImageId() string {
 // GetNatImageIdOk returns a tuple with the NatImageId field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetNatImageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageId, true
@@ -275,7 +280,7 @@ func (o *InputOpenStackCloud) GetNatInstanceType() string {
 // GetNatInstanceTypeOk returns a tuple with the NatInstanceType field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetNatInstanceTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatInstanceType, true
@@ -299,7 +304,7 @@ func (o *InputOpenStackCloud) GetTenant() string {
 // GetTenantOk returns a tuple with the Tenant field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetTenantOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Tenant, true
@@ -323,7 +328,7 @@ func (o *InputOpenStackCloud) GetTenantId() string {
 // GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *InputOpenStackCloud) GetTenantIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TenantId, true
@@ -407,5 +412,3 @@ func (v *NullableInputOpenStackCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

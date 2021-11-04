@@ -17,13 +17,18 @@ import (
 
 // InputAzureCloud struct for InputAzureCloud
 type InputAzureCloud struct {
-	ClientId string `json:"clientId"`
-	Environment string `json:"environment"`
-	RegionName string `json:"regionName"`
-	SecretAccessKey string `json:"secretAccessKey"`
-	SubscriptionId string `json:"subscriptionId"`
-	Tenant string `json:"tenant"`
+	ClientId           string  `json:"clientId"`
+	Environment        string  `json:"environment"`
+	RegionName         string  `json:"regionName"`
+	SecretAccessKey    string  `json:"secretAccessKey"`
+	SubscriptionId     string  `json:"subscriptionId"`
+	Tenant             string  `json:"tenant"`
 	PublicContainerUrl *string `json:"publicContainerUrl,omitempty"`
+	Name               string
+	ExternalIpSource   string
+	MaximumImpactLevel string
+	OwningTeam         InputTeam
+	Subtype            string
 }
 
 // NewInputAzureCloud instantiates a new InputAzureCloud object
@@ -67,7 +72,7 @@ func (o *InputAzureCloud) GetClientId() string {
 // GetClientIdOk returns a tuple with the ClientId field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureCloud) GetClientIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ClientId, true
@@ -91,7 +96,7 @@ func (o *InputAzureCloud) GetEnvironment() string {
 // GetEnvironmentOk returns a tuple with the Environment field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureCloud) GetEnvironmentOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Environment, true
@@ -115,7 +120,7 @@ func (o *InputAzureCloud) GetRegionName() string {
 // GetRegionNameOk returns a tuple with the RegionName field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureCloud) GetRegionNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RegionName, true
@@ -139,7 +144,7 @@ func (o *InputAzureCloud) GetSecretAccessKey() string {
 // GetSecretAccessKeyOk returns a tuple with the SecretAccessKey field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureCloud) GetSecretAccessKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SecretAccessKey, true
@@ -163,7 +168,7 @@ func (o *InputAzureCloud) GetSubscriptionId() string {
 // GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureCloud) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SubscriptionId, true
@@ -187,7 +192,7 @@ func (o *InputAzureCloud) GetTenant() string {
 // GetTenantOk returns a tuple with the Tenant field value
 // and a boolean to check if the value has been set.
 func (o *InputAzureCloud) GetTenantOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Tenant, true
@@ -291,5 +296,3 @@ func (v *NullableInputAzureCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,8 +17,10 @@ import (
 
 // AddAzureNetworkRequest struct for AddAzureNetworkRequest
 type AddAzureNetworkRequest struct {
-	NatInstanceType string `json:"natInstanceType"`
+	NatInstanceType   string            `json:"natInstanceType"`
 	NatImageReference ImageReferenceDTO `json:"natImageReference"`
+	Network           Network
+	Subtype           string
 }
 
 // NewAddAzureNetworkRequest instantiates a new AddAzureNetworkRequest object
@@ -55,7 +57,7 @@ func (o *AddAzureNetworkRequest) GetNatInstanceType() string {
 // GetNatInstanceTypeOk returns a tuple with the NatInstanceType field value
 // and a boolean to check if the value has been set.
 func (o *AddAzureNetworkRequest) GetNatInstanceTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatInstanceType, true
@@ -79,7 +81,7 @@ func (o *AddAzureNetworkRequest) GetNatImageReference() ImageReferenceDTO {
 // GetNatImageReferenceOk returns a tuple with the NatImageReference field value
 // and a boolean to check if the value has been set.
 func (o *AddAzureNetworkRequest) GetNatImageReferenceOk() (*ImageReferenceDTO, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NatImageReference, true
@@ -136,5 +138,3 @@ func (v *NullableAddAzureNetworkRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,8 +17,9 @@ import (
 
 // ContainerInstallation struct for ContainerInstallation
 type ContainerInstallation struct {
-	AssetType *string `json:"assetType,omitempty"`
+	AssetType    *string `json:"assetType,omitempty"`
 	RunArguments *string `json:"runArguments,omitempty"`
+	Subtype      string
 }
 
 // NewContainerInstallation instantiates a new ContainerInstallation object
@@ -149,5 +150,3 @@ func (v *NullableContainerInstallation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

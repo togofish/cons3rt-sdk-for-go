@@ -17,10 +17,15 @@ import (
 
 // InputAwsCloud struct for InputAwsCloud
 type InputAwsCloud struct {
-	AccessKey string `json:"accessKey"`
-	OwnerId string `json:"ownerId"`
-	RegionName string `json:"regionName"`
-	SecretAccessKey string `json:"secretAccessKey"`
+	AccessKey          string `json:"accessKey"`
+	OwnerId            string `json:"ownerId"`
+	RegionName         string `json:"regionName"`
+	SecretAccessKey    string `json:"secretAccessKey"`
+	Name               string
+	ExternalIpSource   string
+	MaximumImpactLevel string
+	OwningTeam         InputTeam
+	Subtype            string
 }
 
 // NewInputAwsCloud instantiates a new InputAwsCloud object
@@ -62,7 +67,7 @@ func (o *InputAwsCloud) GetAccessKey() string {
 // GetAccessKeyOk returns a tuple with the AccessKey field value
 // and a boolean to check if the value has been set.
 func (o *InputAwsCloud) GetAccessKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AccessKey, true
@@ -86,7 +91,7 @@ func (o *InputAwsCloud) GetOwnerId() string {
 // GetOwnerIdOk returns a tuple with the OwnerId field value
 // and a boolean to check if the value has been set.
 func (o *InputAwsCloud) GetOwnerIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OwnerId, true
@@ -110,7 +115,7 @@ func (o *InputAwsCloud) GetRegionName() string {
 // GetRegionNameOk returns a tuple with the RegionName field value
 // and a boolean to check if the value has been set.
 func (o *InputAwsCloud) GetRegionNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RegionName, true
@@ -134,7 +139,7 @@ func (o *InputAwsCloud) GetSecretAccessKey() string {
 // GetSecretAccessKeyOk returns a tuple with the SecretAccessKey field value
 // and a boolean to check if the value has been set.
 func (o *InputAwsCloud) GetSecretAccessKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SecretAccessKey, true
@@ -197,5 +202,3 @@ func (v *NullableInputAwsCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,22 +17,28 @@ import (
 
 // VCloudRestCloud struct for VCloudRestCloud
 type VCloudRestCloud struct {
-	GpuProfileTypes *[]string `json:"gpuProfileTypes,omitempty"`
-	Hostname string `json:"hostname"`
-	Password string `json:"password"`
-	Port int32 `json:"port"`
-	Protocol string `json:"protocol"`
-	RemoteAccessInternalIp string `json:"remoteAccessInternalIp"`
-	RemoteAccessPort int32 `json:"remoteAccessPort"`
-	StorageServiceHostname *string `json:"storageServiceHostname,omitempty"`
-	StorageServicePassword *string `json:"storageServicePassword,omitempty"`
-	StorageServicePort *int32 `json:"storageServicePort,omitempty"`
-	StorageServiceProtocol *string `json:"storageServiceProtocol,omitempty"`
-	StorageServiceUsername *string `json:"storageServiceUsername,omitempty"`
-	Username string `json:"username"`
-	VsphereApiVersion *string `json:"vsphereApiVersion,omitempty"`
-	VsphereHost *string `json:"vsphereHost,omitempty"`
-	VspherePort *int32 `json:"vspherePort,omitempty"`
+	GpuProfileTypes        *[]string `json:"gpuProfileTypes,omitempty"`
+	Hostname               string    `json:"hostname"`
+	Password               string    `json:"password"`
+	Port                   int32     `json:"port"`
+	Protocol               string    `json:"protocol"`
+	RemoteAccessInternalIp string    `json:"remoteAccessInternalIp"`
+	RemoteAccessPort       int32     `json:"remoteAccessPort"`
+	StorageServiceHostname *string   `json:"storageServiceHostname,omitempty"`
+	StorageServicePassword *string   `json:"storageServicePassword,omitempty"`
+	StorageServicePort     *int32    `json:"storageServicePort,omitempty"`
+	StorageServiceProtocol *string   `json:"storageServiceProtocol,omitempty"`
+	StorageServiceUsername *string   `json:"storageServiceUsername,omitempty"`
+	Username               string    `json:"username"`
+	VsphereApiVersion      *string   `json:"vsphereApiVersion,omitempty"`
+	VsphereHost            *string   `json:"vsphereHost,omitempty"`
+	VspherePort            *int32    `json:"vspherePort,omitempty"`
+	Description            string
+	Name                   string
+	ExternalIpSource       string
+	MaximumImpactLevel     string
+	OwningTeam             Team
+	Subtype                string
 }
 
 // NewVCloudRestCloud instantiates a new VCloudRestCloud object
@@ -110,7 +116,7 @@ func (o *VCloudRestCloud) GetHostname() string {
 // GetHostnameOk returns a tuple with the Hostname field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloud) GetHostnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hostname, true
@@ -134,7 +140,7 @@ func (o *VCloudRestCloud) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloud) GetPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Password, true
@@ -158,7 +164,7 @@ func (o *VCloudRestCloud) GetPort() int32 {
 // GetPortOk returns a tuple with the Port field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloud) GetPortOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Port, true
@@ -182,7 +188,7 @@ func (o *VCloudRestCloud) GetProtocol() string {
 // GetProtocolOk returns a tuple with the Protocol field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloud) GetProtocolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Protocol, true
@@ -206,7 +212,7 @@ func (o *VCloudRestCloud) GetRemoteAccessInternalIp() string {
 // GetRemoteAccessInternalIpOk returns a tuple with the RemoteAccessInternalIp field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloud) GetRemoteAccessInternalIpOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RemoteAccessInternalIp, true
@@ -230,7 +236,7 @@ func (o *VCloudRestCloud) GetRemoteAccessPort() int32 {
 // GetRemoteAccessPortOk returns a tuple with the RemoteAccessPort field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloud) GetRemoteAccessPortOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RemoteAccessPort, true
@@ -414,7 +420,7 @@ func (o *VCloudRestCloud) GetUsername() string {
 // GetUsernameOk returns a tuple with the Username field value
 // and a boolean to check if the value has been set.
 func (o *VCloudRestCloud) GetUsernameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Username, true
@@ -609,5 +615,3 @@ func (v *NullableVCloudRestCloud) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

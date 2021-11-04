@@ -17,7 +17,8 @@ import (
 
 // InputDevice struct for InputDevice
 type InputDevice struct {
-	Id int32 `json:"id"`
+	Id      int32 `json:"id"`
+	Subtype string
 }
 
 // NewInputDevice instantiates a new InputDevice object
@@ -52,7 +53,7 @@ func (o *InputDevice) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *InputDevice) GetIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -106,5 +107,3 @@ func (v *NullableInputDevice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -17,7 +17,10 @@ import (
 
 // AwsClient struct for AwsClient
 type AwsClient struct {
-	Region *string `json:"region,omitempty"`
+	Region   *string `json:"region,omitempty"`
+	Username string
+	Password string
+	Subtype  string
 }
 
 // NewAwsClient instantiates a new AwsClient object
@@ -115,5 +118,3 @@ func (v *NullableAwsClient) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
