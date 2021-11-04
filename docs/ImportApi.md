@@ -25,15 +25,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     file := []*os.File{"TODO"} // []*os.File |  (optional)
     filename := "filename_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ImportApi.UploadFile(context.Background()).File(file).Filename(filename).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ImportApi.UploadFile``: %v\n", err)

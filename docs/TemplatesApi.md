@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -33,8 +33,8 @@ func main() {
     includeRegistrations := true // bool | Include templates registered to this virtualization realm (optional) (default to true)
     includeSubscriptions := true // bool | Include templates this virtualization realm is subscribed to (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TemplatesApi.ListVirtualizationRealmTemplates(context.Background()).VirtualizationRealmId(virtualizationRealmId).IncludeRegistrations(includeRegistrations).IncludeSubscriptions(includeSubscriptions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TemplatesApi.ListVirtualizationRealmTemplates``: %v\n", err)

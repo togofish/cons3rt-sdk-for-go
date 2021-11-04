@@ -35,15 +35,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of team
     username := "username_example" // string | Username of desired manager
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.AddTeamManagerToTeam(context.Background(), id).Username(username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.AddTeamManagerToTeam``: %v\n", err)
@@ -107,14 +107,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
-    inputTeamFull := *openapiclient.NewInputTeamFull(*openapiclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example"), []openapiclient.InputUser{*openapiclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example")}, "Name_example", *openapiclient.NewPocInfo(), "State_example", int32(123)) // InputTeamFull | The Team to create (optional)
+    inputTeamFull := *cons3rtclient.NewInputTeamFull(*cons3rtclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example"), []cons3rtclient.InputUser{*cons3rtclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example")}, "Name_example", *cons3rtclient.NewPocInfo(), "State_example", int32(123)) // InputTeamFull | The Team to create (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.CreateTeam(context.Background()).InputTeamFull(inputTeamFull).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.CreateTeam``: %v\n", err)
@@ -173,14 +173,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of team
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.DeleteTeam(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.DeleteTeam``: %v\n", err)
@@ -243,7 +243,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -251,8 +251,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.GetTeamOwnedClouds(context.Background(), id).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.GetTeamOwnedClouds``: %v\n", err)
@@ -317,7 +317,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -325,8 +325,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.GetTeamOwnedOrManagedVirtualizationRealms(context.Background(), id).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.GetTeamOwnedOrManagedVirtualizationRealms``: %v\n", err)
@@ -391,15 +391,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.GetTeams(context.Background()).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.GetTeams``: %v\n", err)
@@ -459,15 +459,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of team
     username := "username_example" // string | Username of manager to remove
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.RemoveTeamManagerFromTeam(context.Background(), id).Username(username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.RemoveTeamManagerFromTeam``: %v\n", err)
@@ -531,14 +531,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of team
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.RetrieveTeam(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.RetrieveTeam``: %v\n", err)
@@ -601,16 +601,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of team
     projectId := "projectId_example" // string | ID of project
-    projectLimits := *openapiclient.NewProjectLimits(int32(123), int32(123), int32(123), int32(123), int32(123)) // ProjectLimits | The desired project limits
+    projectLimits := *cons3rtclient.NewProjectLimits(int32(123), int32(123), int32(123), int32(123), int32(123)) // ProjectLimits | The desired project limits
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.SetProjectLimits(context.Background(), id, projectId).ProjectLimits(projectLimits).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.SetProjectLimits``: %v\n", err)
@@ -676,15 +676,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of team
-    inputTeamFull := *openapiclient.NewInputTeamFull(*openapiclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example"), []openapiclient.InputUser{*openapiclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example")}, "Name_example", *openapiclient.NewPocInfo(), "State_example", int32(123)) // InputTeamFull | The modified team definition (optional)
+    inputTeamFull := *cons3rtclient.NewInputTeamFull(*cons3rtclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example"), []cons3rtclient.InputUser{*cons3rtclient.NewInputUser("Username_example", "Email_example", "Firstname_example", "Lastname_example")}, "Name_example", *cons3rtclient.NewPocInfo(), "State_example", int32(123)) // InputTeamFull | The modified team definition (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.UpdateTeam(context.Background(), id).InputTeamFull(inputTeamFull).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UpdateTeam``: %v\n", err)
@@ -748,15 +748,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of team
     state := "state_example" // string | Updated team state type
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.TeamsApi.UpdateTeamState(context.Background(), id).State(state).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TeamsApi.UpdateTeamState``: %v\n", err)

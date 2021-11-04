@@ -62,15 +62,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
-    abstractAddNetworkCloudSpaceRequest := *openapiclient.NewAbstractAddNetworkCloudSpaceRequest(*openapiclient.NewNetwork("Cidr_example", []openapiclient.DnatRule{*openapiclient.NewDnatRule(false, "DnatPort_example", "DnatProtocol_example", "DnatTargetIp_example", "DnatTargetPort_example")}, []openapiclient.FirewallRule{*openapiclient.NewFirewallRule(int32(123), "Protocol_example", "RuleAction_example", "RuleDestination_example", false, "RuleSource_example")}, "Name_example"), "Subtype_example") // AbstractAddNetworkCloudSpaceRequest | The network allocation information
+    abstractAddNetworkCloudSpaceRequest := *cons3rtclient.NewAbstractAddNetworkCloudSpaceRequest(*cons3rtclient.NewNetwork("Cidr_example", []cons3rtclient.DnatRule{*cons3rtclient.NewDnatRule(false, "DnatPort_example", "DnatProtocol_example", "DnatTargetIp_example", "DnatTargetPort_example")}, []cons3rtclient.FirewallRule{*cons3rtclient.NewFirewallRule(int32(123), "Protocol_example", "RuleAction_example", "RuleDestination_example", false, "RuleSource_example")}, "Name_example"), "Subtype_example") // AbstractAddNetworkCloudSpaceRequest | The network allocation information
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.AddNetwork(context.Background(), id).AbstractAddNetworkCloudSpaceRequest(abstractAddNetworkCloudSpaceRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.AddNetwork``: %v\n", err)
@@ -134,15 +134,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     projectId := "projectId_example" // string | ID of project to assign
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.AddProject(context.Background(), id).ProjectId(projectId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.AddProject``: %v\n", err)
@@ -206,15 +206,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
     registrationId := int32(56) // int32 | ID of template registration
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.CreateTemplateSubsciption(context.Background(), id).RegistrationId(registrationId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.CreateTemplateSubsciption``: %v\n", err)
@@ -278,7 +278,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -286,8 +286,8 @@ func main() {
     networkId := int32(56) // int32 | ID of network
     deallocate := true // bool | Attempt to delete all back-end resources (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.DeleteNetwork(context.Background(), id, networkId).Deallocate(deallocate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.DeleteNetwork``: %v\n", err)
@@ -353,15 +353,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
     subscriptionId := int32(56) // int32 | ID of template subscription
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.DeleteTemplateSubscription(context.Background(), id, subscriptionId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.DeleteTemplateSubscription``: %v\n", err)
@@ -426,14 +426,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.DisableVirtRealmRemoteAccess(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.DisableVirtRealmRemoteAccess``: %v\n", err)
@@ -496,16 +496,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     enable := true // bool | Enable or disable maintenance mode (optional)
-    maintenanceModeRequest := *openapiclient.NewMaintenanceModeRequest() // MaintenanceModeRequest | The maintenance mode request, when enabling maintenance mode (optional)
+    maintenanceModeRequest := *cons3rtclient.NewMaintenanceModeRequest() // MaintenanceModeRequest | The maintenance mode request, when enabling maintenance mode (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.EnableMaintenceMode1(context.Background(), id).Enable(enable).MaintenanceModeRequest(maintenanceModeRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.EnableMaintenceMode1``: %v\n", err)
@@ -570,15 +570,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     instanceType := "instanceType_example" // string | Remote access server instance type (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.EnableVirtRealmRemoteAccess(context.Background(), id).InstanceType(instanceType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.EnableVirtRealmRemoteAccess``: %v\n", err)
@@ -642,7 +642,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -651,8 +651,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetDeploymentRunsInVirtualizationRealm(context.Background(), id).SearchType(searchType).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetDeploymentRunsInVirtualizationRealm``: %v\n", err)
@@ -718,7 +718,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -728,8 +728,8 @@ func main() {
     interval := int64(789) // int64 | Number of intervals (optional) (default to 1)
     intervalUnit := "intervalUnit_example" // string | Interval unit (optional) (default to "HOURS")
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetHostConfigurationMetrics1(context.Background(), id).Start(start).End(end).Interval(interval).IntervalUnit(intervalUnit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetHostConfigurationMetrics1``: %v\n", err)
@@ -796,15 +796,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     networkId := int32(56) // int32 | ID of network
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetNetwork(context.Background(), id, networkId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetNetwork``: %v\n", err)
@@ -869,14 +869,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetNetworks(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetNetworks``: %v\n", err)
@@ -939,15 +939,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
     subscriptionId := int32(56) // int32 | ID of template subscription
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetTemplateSubscription(context.Background(), id, subscriptionId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetTemplateSubscription``: %v\n", err)
@@ -1012,7 +1012,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -1020,8 +1020,8 @@ func main() {
     includeRegistrations := true // bool | Include templates registered to the virtualization realm (optional) (default to true)
     includeSubscriptions := true // bool | Include templates subscribed to by the virtualization realm (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetTemplatesInVirtualizationRealm(context.Background(), id).IncludeRegistrations(includeRegistrations).IncludeSubscriptions(includeSubscriptions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetTemplatesInVirtualizationRealm``: %v\n", err)
@@ -1086,14 +1086,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetUnregisteredNetworks(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetUnregisteredNetworks``: %v\n", err)
@@ -1156,7 +1156,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -1166,8 +1166,8 @@ func main() {
     interval := int64(789) // int64 | Number of intervals (optional) (default to 1)
     intervalUnit := "intervalUnit_example" // string | Interval unit (optional) (default to "HOURS")
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetVirtualMachineCountMetrics1(context.Background(), id).Start(start).End(end).Interval(interval).IntervalUnit(intervalUnit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetVirtualMachineCountMetrics1``: %v\n", err)
@@ -1234,14 +1234,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetVirtualizationRealm(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetVirtualizationRealm``: %v\n", err)
@@ -1304,14 +1304,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetVirtualizationRealmResources(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetVirtualizationRealmResources``: %v\n", err)
@@ -1374,15 +1374,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.GetVirtualizationRealms(context.Background()).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.GetVirtualizationRealms``: %v\n", err)
@@ -1442,14 +1442,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.InvalidateTemplateCacheInVirtualizationRealm(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.InvalidateTemplateCacheInVirtualizationRealm``: %v\n", err)
@@ -1512,14 +1512,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.ListPendingTemplateSubscriptions(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.ListPendingTemplateSubscriptions``: %v\n", err)
@@ -1582,7 +1582,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -1590,8 +1590,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.ListProjects(context.Background(), id).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.ListProjects``: %v\n", err)
@@ -1656,14 +1656,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.ListTemplateRegistrations(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.ListTemplateRegistrations``: %v\n", err)
@@ -1726,14 +1726,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.ListTemplateSubscriptions(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.ListTemplateSubscriptions``: %v\n", err)
@@ -1796,14 +1796,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.ListUnregisteredTemplates(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.ListUnregisteredTemplates``: %v\n", err)
@@ -1866,15 +1866,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     networkIdentifier := "networkIdentifier_example" // string | Back-end network identifier
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.RegisterNetwork(context.Background(), id, networkIdentifier).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.RegisterNetwork``: %v\n", err)
@@ -1939,15 +1939,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
-    inputRegisterTemplateObject := *openapiclient.NewInputRegisterTemplateObject(*openapiclient.NewInputCons3rtTemplateData("VirtRealmTemplateName_example", "OperatingSystem_example")) // InputRegisterTemplateObject | The template registration data (optional)
+    inputRegisterTemplateObject := *cons3rtclient.NewInputRegisterTemplateObject(*cons3rtclient.NewInputCons3rtTemplateData("VirtRealmTemplateName_example", "OperatingSystem_example")) // InputRegisterTemplateObject | The template registration data (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.RegisterTemplate(context.Background(), id).InputRegisterTemplateObject(inputRegisterTemplateObject).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.RegisterTemplate``: %v\n", err)
@@ -2011,15 +2011,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     projectId := "projectId_example" // string | ID of project to unassign
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.RemoveProject(context.Background(), id).ProjectId(projectId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.RemoveProject``: %v\n", err)
@@ -2083,15 +2083,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
     registrationId := int32(56) // int32 | ID of template registration
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.RetrieveTemplateRegistration(context.Background(), id, registrationId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.RetrieveTemplateRegistration``: %v\n", err)
@@ -2156,15 +2156,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     activate := true // bool | Activate or deactivate virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.SetVirtualizationRealmActive(context.Background(), id).Activate(activate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.SetVirtualizationRealmActive``: %v\n", err)
@@ -2228,7 +2228,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -2236,8 +2236,8 @@ func main() {
     registrationId := int32(56) // int32 | ID of template registration
     targetRealmIds := []int32{int32(123)} // []int32 | ID(s) of external virtualization realms to share template registration with
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.ShareTemplateRegistration(context.Background(), id, registrationId).TargetRealmIds(targetRealmIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.ShareTemplateRegistration``: %v\n", err)
@@ -2303,16 +2303,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
     registrationId := int32(56) // int32 | ID of template registration
-    inputUnregisterTemplateObject := *openapiclient.NewInputUnregisterTemplateObject(false) // InputUnregisterTemplateObject | The deletion settings
+    inputUnregisterTemplateObject := *cons3rtclient.NewInputUnregisterTemplateObject(false) // InputUnregisterTemplateObject | The deletion settings
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.UnregisterTemplate(context.Background(), id, registrationId).InputUnregisterTemplateObject(inputUnregisterTemplateObject).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.UnregisterTemplate``: %v\n", err)
@@ -2378,7 +2378,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -2386,8 +2386,8 @@ func main() {
     registrationId := int32(56) // int32 | ID of template registration
     targetRealmId := int32(56) // int32 | ID of external virtualization realm to revoke template registration access for
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.UnshareTemplateRegistration(context.Background(), id, registrationId).TargetRealmId(targetRealmId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.UnshareTemplateRegistration``: %v\n", err)
@@ -2453,17 +2453,17 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
     registrationId := int32(56) // int32 | ID of template registration
-    inputCons3rtTemplateData := *openapiclient.NewInputCons3rtTemplateData("VirtRealmTemplateName_example", "OperatingSystem_example") // InputCons3rtTemplateData | The modified template registration data
+    inputCons3rtTemplateData := *cons3rtclient.NewInputCons3rtTemplateData("VirtRealmTemplateName_example", "OperatingSystem_example") // InputCons3rtTemplateData | The modified template registration data
     offline := true // bool | The desired template registration state (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.UpdateTemplateRegistration(context.Background(), id, registrationId).InputCons3rtTemplateData(inputCons3rtTemplateData).Offline(offline).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.UpdateTemplateRegistration``: %v\n", err)
@@ -2530,17 +2530,17 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := int32(56) // int32 | ID of virtualization realm
     subscriptionId := int32(56) // int32 | ID of template subscription
-    inputTemplateSubscription := *openapiclient.NewInputTemplateSubscription() // InputTemplateSubscription | The modified template subscription data
+    inputTemplateSubscription := *cons3rtclient.NewInputTemplateSubscription() // InputTemplateSubscription | The modified template subscription data
     offline := true // bool | The desired template subscription state (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.UpdateTemplateSubscription(context.Background(), id, subscriptionId).InputTemplateSubscription(inputTemplateSubscription).Offline(offline).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.UpdateTemplateSubscription``: %v\n", err)
@@ -2607,15 +2607,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
-    remoteAccessConfig := *openapiclient.NewRemoteAccessConfig("RemoteAccessIpAddress_example", int32(123), "InstanceType_example") // RemoteAccessConfig | The updated remote access configuration
+    remoteAccessConfig := *cons3rtclient.NewRemoteAccessConfig("RemoteAccessIpAddress_example", int32(123), "InstanceType_example") // RemoteAccessConfig | The updated remote access configuration
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.UpdateVirtRealmRemoteAccessConfig(context.Background(), id).RemoteAccessConfig(remoteAccessConfig).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.UpdateVirtRealmRemoteAccessConfig``: %v\n", err)
@@ -2679,15 +2679,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
-    inputVRAdminVirtualizationRealm := *openapiclient.NewInputVRAdminVirtualizationRealm("VirtualizationRealmType_example", "Cidr_example", "Description_example", "Name_example") // InputVRAdminVirtualizationRealm | The updated Virtualization Realm data (optional)
+    inputVRAdminVirtualizationRealm := *cons3rtclient.NewInputVRAdminVirtualizationRealm("VirtualizationRealmType_example", "Cidr_example", "Description_example", "Name_example") // InputVRAdminVirtualizationRealm | The updated Virtualization Realm data (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.UpdateVirtualizationRealm(context.Background(), id).InputVRAdminVirtualizationRealm(inputVRAdminVirtualizationRealm).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.UpdateVirtualizationRealm``: %v\n", err)
@@ -2749,14 +2749,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.VirtualizationRealmsApi.UpdateVirtualizationRealmReachability(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationRealmsApi.UpdateVirtualizationRealmReachability``: %v\n", err)

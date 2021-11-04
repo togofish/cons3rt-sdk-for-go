@@ -31,14 +31,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of composition to delete
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CompositionsApi.DeleteComposition(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompositionsApi.DeleteComposition``: %v\n", err)
@@ -101,14 +101,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of composition to return
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CompositionsApi.GetComposition(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompositionsApi.GetComposition``: %v\n", err)
@@ -171,15 +171,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CompositionsApi.ListCompositions(context.Background()).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompositionsApi.ListCompositions``: %v\n", err)
@@ -239,14 +239,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CompositionsApi.PublishDeploymentRun(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompositionsApi.PublishDeploymentRun``: %v\n", err)
@@ -309,15 +309,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | 
-    inputComposition := *openapiclient.NewInputComposition("Name_example", *openapiclient.NewInputCompositionRunOptions(int32(123))) // InputComposition | The composition definition used when launching the deployment (optional)
+    inputComposition := *cons3rtclient.NewInputComposition("Name_example", *cons3rtclient.NewInputCompositionRunOptions(int32(123))) // InputComposition | The composition definition used when launching the deployment (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CompositionsApi.PublishScenarioToComposition(context.Background(), id).InputComposition(inputComposition).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompositionsApi.PublishScenarioToComposition``: %v\n", err)
@@ -381,14 +381,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CompositionsApi.UnpublishDeploymentRun(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompositionsApi.UnpublishDeploymentRun``: %v\n", err)
@@ -451,15 +451,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of Composition to update
-    inputComposition := *openapiclient.NewInputComposition("Name_example", *openapiclient.NewInputCompositionRunOptions(int32(123))) // InputComposition | The modified Composition definition (optional)
+    inputComposition := *cons3rtclient.NewInputComposition("Name_example", *cons3rtclient.NewInputCompositionRunOptions(int32(123))) // InputComposition | The modified Composition definition (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CompositionsApi.UpdateComposition(context.Background(), id).InputComposition(inputComposition).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CompositionsApi.UpdateComposition``: %v\n", err)

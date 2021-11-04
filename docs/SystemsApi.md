@@ -47,15 +47,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     trustedid := "trustedid_example" // string | ID of project to trust
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.AddTrustedProject(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.AddTrustedProject``: %v\n", err)
@@ -119,15 +119,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system
     name := "name_example" // string | Name of the new system
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.CloneSystem(context.Background(), id).Name(name).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.CloneSystem``: %v\n", err)
@@ -191,7 +191,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -199,8 +199,8 @@ func main() {
     name := "name_example" // string | Name of the new scenario
     role := "role_example" // string | System role name in the new scenario
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.CreateScenario1(context.Background(), id).Name(name).Role(role).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.CreateScenario1``: %v\n", err)
@@ -265,7 +265,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -273,8 +273,8 @@ func main() {
     name := "name_example" // string | Name of the new software bundle
     body := "body_example" // string | Description of the new software bundle (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.CreateSoftwareBundleFromSystemModule(context.Background(), id).Name(name).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.CreateSoftwareBundleFromSystemModule``: %v\n", err)
@@ -339,14 +339,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
-    inputSystemModule := *openapiclient.NewInputSystemModule("Subtype_example") // InputSystemModule | The System to create (optional)
+    inputSystemModule := *cons3rtclient.NewInputSystemModule("Subtype_example") // InputSystemModule | The System to create (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.CreateSystemEntire(context.Background()).InputSystemModule(inputSystemModule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.CreateSystemEntire``: %v\n", err)
@@ -405,15 +405,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to delete
     force := true // bool | Allow delete if there are dependent assets (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.DeleteAsset(context.Background(), id).Force(force).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.DeleteAsset``: %v\n", err)
@@ -477,14 +477,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.GetSystem(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.GetSystem``: %v\n", err)
@@ -547,7 +547,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -556,8 +556,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.GetSystems(context.Background()).Type_(type_).Categoryids(categoryids).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.GetSystems``: %v\n", err)
@@ -619,7 +619,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -629,8 +629,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.GetSystemsExpanded(context.Background()).Type_(type_).Community(community).Categoryids(categoryids).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.GetSystemsExpanded``: %v\n", err)
@@ -693,14 +693,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.ListDependentAssets(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.ListDependentAssets``: %v\n", err)
@@ -763,15 +763,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system
-    inputDeploymentRunOptions := *openapiclient.NewInputDeploymentRunOptions("EndState_example", "Username_example", "Password_example") // InputDeploymentRunOptions | The deployment run options to use when launching the deployment (optional)
+    inputDeploymentRunOptions := *cons3rtclient.NewInputDeploymentRunOptions("EndState_example", "Username_example", "Password_example") // InputDeploymentRunOptions | The deployment run options to use when launching the deployment (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.QuickBuild1(context.Background(), id).InputDeploymentRunOptions(inputDeploymentRunOptions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.QuickBuild1``: %v\n", err)
@@ -835,15 +835,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     trustedid := "trustedid_example" // string | ID of project to untrust
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.RemoveTrustedProject(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.RemoveTrustedProject``: %v\n", err)
@@ -907,7 +907,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -915,8 +915,8 @@ func main() {
     componentid := "componentid_example" // string | ID of software component to modify
     assetid := "assetid_example" // string | ID of desired software asset
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.ReplaceSoftwareAssetForSoftwareComponent(context.Background(), id).Componentid(componentid).Assetid(assetid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.ReplaceSoftwareAssetForSoftwareComponent``: %v\n", err)
@@ -981,15 +981,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
-    inputAssetForUpdate := *openapiclient.NewInputAssetForUpdate() // InputAssetForUpdate | The modified Asset metadata (optional)
+    inputAssetForUpdate := *cons3rtclient.NewInputAssetForUpdate() // InputAssetForUpdate | The modified Asset metadata (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateAsset(context.Background(), id).InputAssetForUpdate(inputAssetForUpdate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateAsset``: %v\n", err)
@@ -1053,15 +1053,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to delete
     state := "state_example" // string | The new asset state type
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateAssetState(context.Background(), id).State(state).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateAssetState``: %v\n", err)
@@ -1125,15 +1125,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to update
     visibility := "visibility_example" // string | The new asset visibility type
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateAssetVisibilityQuery(context.Background(), id).Visibility(visibility).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateAssetVisibilityQuery``: %v\n", err)
@@ -1197,15 +1197,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     impactlevel := "impactlevel_example" // string | The new asset impact level type.
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateImpactLevel(context.Background(), id).Impactlevel(impactlevel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateImpactLevel``: %v\n", err)
@@ -1269,15 +1269,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     limit := int64(789) // int64 | The new asset instance limit
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateInstanceLimit(context.Background(), id).Limit(limit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateInstanceLimit``: %v\n", err)
@@ -1341,15 +1341,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to update
     offline := true // bool | Set the asset status to offline (optional) (default to true)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateOfflineStatus(context.Background(), id).Offline(offline).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateOfflineStatus``: %v\n", err)
@@ -1413,16 +1413,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system module
     componentid := "componentid_example" // string | ID of software component to modify
-    inputSoftwareComponent := *openapiclient.NewInputSoftwareComponent(*openapiclient.NewInputAsset(int32(123))) // InputSoftwareComponent | The modified Software Component
+    inputSoftwareComponent := *cons3rtclient.NewInputSoftwareComponent(*cons3rtclient.NewInputAsset(int32(123))) // InputSoftwareComponent | The modified Software Component
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateSoftwareComponentForSystemModule(context.Background(), id, componentid).InputSoftwareComponent(inputSoftwareComponent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateSoftwareComponentForSystemModule``: %v\n", err)
@@ -1488,15 +1488,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system module
-    inputSoftwareComponent := []openapiclient.InputSoftwareComponent{*openapiclient.NewInputSoftwareComponent(*openapiclient.NewInputAsset(int32(123)))} // []InputSoftwareComponent | The updated software components
+    inputSoftwareComponent := []cons3rtclient.InputSoftwareComponent{*cons3rtclient.NewInputSoftwareComponent(*cons3rtclient.NewInputAsset(int32(123)))} // []InputSoftwareComponent | The updated software components
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateSoftwareComponentsForSystemModule(context.Background(), id).InputSoftwareComponent(inputSoftwareComponent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateSoftwareComponentsForSystemModule``: %v\n", err)
@@ -1560,15 +1560,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system module
-    inputSoftwareComponent := []openapiclient.InputSoftwareComponent{*openapiclient.NewInputSoftwareComponent(*openapiclient.NewInputAsset(int32(123)))} // []InputSoftwareComponent | The updated software components
+    inputSoftwareComponent := []cons3rtclient.InputSoftwareComponent{*cons3rtclient.NewInputSoftwareComponent(*cons3rtclient.NewInputAsset(int32(123)))} // []InputSoftwareComponent | The updated software components
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateSoftwareConfigurationForSystemModule(context.Background(), id).InputSoftwareComponent(inputSoftwareComponent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateSoftwareConfigurationForSystemModule``: %v\n", err)
@@ -1632,15 +1632,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system module
-    inputTemplateProfile := *openapiclient.NewInputTemplateProfile(int32(123), int32(123)) // InputTemplateProfile | The modified Template Profile
+    inputTemplateProfile := *cons3rtclient.NewInputTemplateProfile(int32(123), int32(123)) // InputTemplateProfile | The modified Template Profile
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemsApi.UpdateTemplateProfileForSystemModule(context.Background(), id).InputTemplateProfile(inputTemplateProfile).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemsApi.UpdateTemplateProfileForSystemModule``: %v\n", err)

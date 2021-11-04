@@ -42,15 +42,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     assetid := "assetid_example" // string | ID of asset to assign
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.AddCategoryToAsset(context.Background(), id).Assetid(assetid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.AddCategoryToAsset``: %v\n", err)
@@ -114,15 +114,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     trustedid := "trustedid_example" // string | ID of project to trust
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.AddTrustedProject(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.AddTrustedProject``: %v\n", err)
@@ -186,15 +186,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to delete
     force := true // bool | Allow delete if there are dependent assets (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.DeleteAsset(context.Background(), id).Force(force).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.DeleteAsset``: %v\n", err)
@@ -258,15 +258,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     background := true // bool | Force the download to happen in the background (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.Download(context.Background(), id).Background(background).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.Download``: %v\n", err)
@@ -330,14 +330,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.ItarRestrictAsset(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.ItarRestrictAsset``: %v\n", err)
@@ -400,14 +400,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.ListDependentAssets(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.ListDependentAssets``: %v\n", err)
@@ -470,15 +470,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     assetid := "assetid_example" // string | ID of asset to unassign
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.RemoveCategoryFromAsset(context.Background(), id).Assetid(assetid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.RemoveCategoryFromAsset``: %v\n", err)
@@ -542,15 +542,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     trustedid := "trustedid_example" // string | ID of project to untrust
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.RemoveTrustedProject(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.RemoveTrustedProject``: %v\n", err)
@@ -614,7 +614,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -624,8 +624,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.Search(context.Background()).Id(id).Text(text).Categoryids(categoryids).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.Search``: %v\n", err)
@@ -688,15 +688,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
-    inputAssetForUpdate := *openapiclient.NewInputAssetForUpdate() // InputAssetForUpdate | The modified Asset metadata (optional)
+    inputAssetForUpdate := *cons3rtclient.NewInputAssetForUpdate() // InputAssetForUpdate | The modified Asset metadata (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateAsset(context.Background(), id).InputAssetForUpdate(inputAssetForUpdate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateAsset``: %v\n", err)
@@ -760,7 +760,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -768,8 +768,8 @@ func main() {
     file := []*os.File{"TODO"} // []*os.File |  (optional)
     filename := "filename_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateAssetContent(context.Background(), id).File(file).Filename(filename).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateAssetContent``: %v\n", err)
@@ -834,15 +834,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to delete
     state := "state_example" // string | The new asset state type
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateAssetState(context.Background(), id).State(state).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateAssetState``: %v\n", err)
@@ -906,15 +906,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to update
     visibility := "visibility_example" // string | The new asset visibility type
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateAssetVisibilityQuery(context.Background(), id).Visibility(visibility).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateAssetVisibilityQuery``: %v\n", err)
@@ -978,15 +978,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     impactlevel := "impactlevel_example" // string | The new asset impact level type.
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateImpactLevel(context.Background(), id).Impactlevel(impactlevel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateImpactLevel``: %v\n", err)
@@ -1050,15 +1050,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     limit := int64(789) // int64 | The new asset instance limit
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateInstanceLimit(context.Background(), id).Limit(limit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateInstanceLimit``: %v\n", err)
@@ -1122,15 +1122,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to update
     offline := true // bool | Set the asset status to offline (optional) (default to true)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateOfflineStatus(context.Background(), id).Offline(offline).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateOfflineStatus``: %v\n", err)
@@ -1194,7 +1194,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -1202,8 +1202,8 @@ func main() {
     file := []*os.File{"TODO"} // []*os.File |  (optional)
     filename := "filename_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateSoftwareAssetInstallScript(context.Background(), id).File(file).Filename(filename).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateSoftwareAssetInstallScript``: %v\n", err)
@@ -1268,15 +1268,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
     maximumimpactlevel := "maximumimpactlevel_example" // string | The maximum impact level type.
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.AssetsApi.UpdateVirtualizationRealmMaximumImpactLevel(context.Background(), id).Maximumimpactlevel(maximumimpactlevel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.UpdateVirtualizationRealmMaximumImpactLevel``: %v\n", err)

@@ -28,14 +28,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     uuid := "uuid_example" // string | UUID of the temporary file
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.UploadApi.GetFileContent(context.Background()).Uuid(uuid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UploadApi.GetFileContent``: %v\n", err)
@@ -94,14 +94,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     uuid := "uuid_example" // string | UUID of the temporary file
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.UploadApi.GetFileObject(context.Background()).Uuid(uuid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UploadApi.GetFileObject``: %v\n", err)
@@ -158,15 +158,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     file := []*os.File{"TODO"} // []*os.File |  (optional)
     filename := "filename_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.UploadApi.UploadFile1(context.Background()).File(file).Filename(filename).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UploadApi.UploadFile1``: %v\n", err)
@@ -226,7 +226,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -234,8 +234,8 @@ func main() {
     file := []*os.File{"TODO"} // []*os.File |  (optional)
     filename := "filename_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.UploadApi.UploadFileToBucket(context.Background(), id).File(file).Filename(filename).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UploadApi.UploadFileToBucket``: %v\n", err)

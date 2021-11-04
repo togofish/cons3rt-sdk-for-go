@@ -44,15 +44,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     trustedid := "trustedid_example" // string | ID of project to trust
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.AddTrustedProject(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.AddTrustedProject``: %v\n", err)
@@ -116,15 +116,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of scenario
     name := "name_example" // string | Name of the new scenario
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.CloneScenario(context.Background(), id).Name(name).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.CloneScenario``: %v\n", err)
@@ -188,14 +188,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
-    inputScenario := *openapiclient.NewInputScenario() // InputScenario | The Scenario to create (optional)
+    inputScenario := *cons3rtclient.NewInputScenario() // InputScenario | The Scenario to create (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.CreateScenario(context.Background()).InputScenario(inputScenario).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.CreateScenario``: %v\n", err)
@@ -254,14 +254,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
-    inputSystemModule := *openapiclient.NewInputSystemModule("Subtype_example") // InputSystemModule | The System to create (optional)
+    inputSystemModule := *cons3rtclient.NewInputSystemModule("Subtype_example") // InputSystemModule | The System to create (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.CreateSystemEntire(context.Background()).InputSystemModule(inputSystemModule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.CreateSystemEntire``: %v\n", err)
@@ -320,15 +320,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to delete
     force := true // bool | Allow delete if there are dependent assets (optional) (default to false)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.DeleteAsset(context.Background(), id).Force(force).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.DeleteAsset``: %v\n", err)
@@ -392,15 +392,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of scenario
     virtualizationRealmId := int32(56) // int32 | ID of preferred virtualization realm (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.GetBindingsForDeployment1(context.Background(), id).VirtualizationRealmId(virtualizationRealmId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.GetBindingsForDeployment1``: %v\n", err)
@@ -464,14 +464,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of scenario
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.GetScenario(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.GetScenario``: %v\n", err)
@@ -534,7 +534,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -542,8 +542,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.GetScenarios(context.Background()).Categoryids(categoryids).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.GetScenarios``: %v\n", err)
@@ -604,7 +604,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -613,8 +613,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.GetScenariosExpanded(context.Background()).Community(community).Categoryids(categoryids).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.GetScenariosExpanded``: %v\n", err)
@@ -676,14 +676,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.ListDependentAssets(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.ListDependentAssets``: %v\n", err)
@@ -746,15 +746,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | 
-    inputComposition := *openapiclient.NewInputComposition("Name_example", *openapiclient.NewInputCompositionRunOptions(int32(123))) // InputComposition | The composition definition used when launching the deployment (optional)
+    inputComposition := *cons3rtclient.NewInputComposition("Name_example", *cons3rtclient.NewInputCompositionRunOptions(int32(123))) // InputComposition | The composition definition used when launching the deployment (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.PublishScenarioToComposition(context.Background(), id).InputComposition(inputComposition).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.PublishScenarioToComposition``: %v\n", err)
@@ -818,15 +818,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of scenario
-    inputDeploymentRunOptions := *openapiclient.NewInputDeploymentRunOptions("EndState_example", "Username_example", "Password_example") // InputDeploymentRunOptions | The deployment run options to use when launching the deployment (optional)
+    inputDeploymentRunOptions := *cons3rtclient.NewInputDeploymentRunOptions("EndState_example", "Username_example", "Password_example") // InputDeploymentRunOptions | The deployment run options to use when launching the deployment (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.QuickBuild(context.Background(), id).InputDeploymentRunOptions(inputDeploymentRunOptions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.QuickBuild``: %v\n", err)
@@ -890,15 +890,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of system
-    inputDeploymentRunOptions := *openapiclient.NewInputDeploymentRunOptions("EndState_example", "Username_example", "Password_example") // InputDeploymentRunOptions | The deployment run options to use when launching the deployment (optional)
+    inputDeploymentRunOptions := *cons3rtclient.NewInputDeploymentRunOptions("EndState_example", "Username_example", "Password_example") // InputDeploymentRunOptions | The deployment run options to use when launching the deployment (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.QuickBuild1(context.Background(), id).InputDeploymentRunOptions(inputDeploymentRunOptions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.QuickBuild1``: %v\n", err)
@@ -962,15 +962,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     trustedid := "trustedid_example" // string | ID of project to untrust
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.RemoveTrustedProject(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.RemoveTrustedProject``: %v\n", err)
@@ -1034,15 +1034,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
-    inputAssetForUpdate := *openapiclient.NewInputAssetForUpdate() // InputAssetForUpdate | The modified Asset metadata (optional)
+    inputAssetForUpdate := *cons3rtclient.NewInputAssetForUpdate() // InputAssetForUpdate | The modified Asset metadata (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.UpdateAsset(context.Background(), id).InputAssetForUpdate(inputAssetForUpdate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.UpdateAsset``: %v\n", err)
@@ -1106,15 +1106,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to delete
     state := "state_example" // string | The new asset state type
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.UpdateAssetState(context.Background(), id).State(state).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.UpdateAssetState``: %v\n", err)
@@ -1178,15 +1178,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to update
     visibility := "visibility_example" // string | The new asset visibility type
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.UpdateAssetVisibilityQuery(context.Background(), id).Visibility(visibility).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.UpdateAssetVisibilityQuery``: %v\n", err)
@@ -1250,15 +1250,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     impactlevel := "impactlevel_example" // string | The new asset impact level type.
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.UpdateImpactLevel(context.Background(), id).Impactlevel(impactlevel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.UpdateImpactLevel``: %v\n", err)
@@ -1322,15 +1322,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset
     limit := int64(789) // int64 | The new asset instance limit
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.UpdateInstanceLimit(context.Background(), id).Limit(limit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.UpdateInstanceLimit``: %v\n", err)
@@ -1394,15 +1394,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of asset to update
     offline := true // bool | Set the asset status to offline (optional) (default to true)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.ScenariosApi.UpdateOfflineStatus(context.Background(), id).Offline(offline).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ScenariosApi.UpdateOfflineStatus``: %v\n", err)

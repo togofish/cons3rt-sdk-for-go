@@ -44,15 +44,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
     projectId := "projectId_example" // string | ID of project to assign
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.AddProject(context.Background(), id).ProjectId(projectId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.AddProject``: %v\n", err)
@@ -116,15 +116,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
-    abstractCloudSpaceRequest := *openapiclient.NewAbstractCloudSpaceRequest("CloudSpaceName_example", "Cidr_example", "Subtype_example") // AbstractCloudSpaceRequest | The virtualization realm allocation information
+    abstractCloudSpaceRequest := *cons3rtclient.NewAbstractCloudSpaceRequest("CloudSpaceName_example", "Cidr_example", "Subtype_example") // AbstractCloudSpaceRequest | The virtualization realm allocation information
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.AllocateVirtualizationRealm(context.Background(), id).AbstractCloudSpaceRequest(abstractCloudSpaceRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.AllocateVirtualizationRealm``: %v\n", err)
@@ -188,7 +188,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -196,8 +196,8 @@ func main() {
     virtualizationRealmId := "virtualizationRealmId_example" // string | ID of virtualization realm
     teamId := int32(56) // int32 | ID of team to assign
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.AssignManagingTeam(context.Background(), id, virtualizationRealmId).TeamId(teamId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.AssignManagingTeam``: %v\n", err)
@@ -263,15 +263,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
     virtRealmId := "virtRealmId_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.DeallocateVirtRealm(context.Background(), id).VirtRealmId(virtRealmId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.DeallocateVirtRealm``: %v\n", err)
@@ -335,14 +335,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.DeleteCloud(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.DeleteCloud``: %v\n", err)
@@ -405,16 +405,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
     enable := true // bool | Enable or disable maintenance mode (optional)
-    maintenanceModeRequest := *openapiclient.NewMaintenanceModeRequest() // MaintenanceModeRequest | The maintenance mode request, when enabling maintenance mode (optional)
+    maintenanceModeRequest := *cons3rtclient.NewMaintenanceModeRequest() // MaintenanceModeRequest | The maintenance mode request, when enabling maintenance mode (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.EnableMaintenceMode(context.Background(), id).Enable(enable).MaintenanceModeRequest(maintenanceModeRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.EnableMaintenceMode``: %v\n", err)
@@ -479,14 +479,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.GetCloud(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.GetCloud``: %v\n", err)
@@ -549,14 +549,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.GetCloudResources(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.GetCloudResources``: %v\n", err)
@@ -619,15 +619,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.GetClouds(context.Background()).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.GetClouds``: %v\n", err)
@@ -687,13 +687,13 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.GetDefaultNetwork(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.GetDefaultNetwork``: %v\n", err)
@@ -748,14 +748,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.GetEdgeGatewayIPs(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.GetEdgeGatewayIPs``: %v\n", err)
@@ -818,7 +818,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -826,8 +826,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.ListVirtRealmsInCloud(context.Background(), id).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.ListVirtRealmsInCloud``: %v\n", err)
@@ -892,15 +892,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     cloudATOConsent := true // bool | Cloud ATO consent (optional) (default to false)
-    inputCloud := *openapiclient.NewInputCloud("Name_example", "ExternalIpSource_example", "MaximumImpactLevel_example", *openapiclient.NewInputTeam(int32(123)), "Subtype_example") // InputCloud | The Cloud to create (optional)
+    inputCloud := *cons3rtclient.NewInputCloud("Name_example", "ExternalIpSource_example", "MaximumImpactLevel_example", *cons3rtclient.NewInputTeam(int32(123)), "Subtype_example") // InputCloud | The Cloud to create (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.RegisterCloud(context.Background()).CloudATOConsent(cloudATOConsent).InputCloud(inputCloud).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.RegisterCloud``: %v\n", err)
@@ -960,15 +960,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
-    abstractRegisterCloudSpaceRequest := *openapiclient.NewAbstractRegisterCloudSpaceRequest("VirtualizationRealmType_example", "Name_example", "Cons3rtNetworkName_example", "Password_example", "PrimaryNetworkName_example", "Username_example") // AbstractRegisterCloudSpaceRequest | The virtualization realm registration information
+    abstractRegisterCloudSpaceRequest := *cons3rtclient.NewAbstractRegisterCloudSpaceRequest("VirtualizationRealmType_example", "Name_example", "Cons3rtNetworkName_example", "Password_example", "PrimaryNetworkName_example", "Username_example") // AbstractRegisterCloudSpaceRequest | The virtualization realm registration information
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.RegisterVirtualizationRealm(context.Background(), id).AbstractRegisterCloudSpaceRequest(abstractRegisterCloudSpaceRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.RegisterVirtualizationRealm``: %v\n", err)
@@ -1032,15 +1032,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
     virtRealmId := "virtRealmId_example" // string | ID of virtualization realm
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.RemoveVirtRealm(context.Background(), id).VirtRealmId(virtRealmId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.RemoveVirtRealm``: %v\n", err)
@@ -1104,7 +1104,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
@@ -1112,8 +1112,8 @@ func main() {
     virtualizationRealmId := "virtualizationRealmId_example" // string | ID of virtualization realm
     teamId := int32(56) // int32 | ID of team to unassign
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.UnassignManagingTeam(context.Background(), id, virtualizationRealmId).TeamId(teamId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.UnassignManagingTeam``: %v\n", err)
@@ -1179,15 +1179,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
-    inputCloud := *openapiclient.NewInputCloud("Name_example", "ExternalIpSource_example", "MaximumImpactLevel_example", *openapiclient.NewInputTeam(int32(123)), "Subtype_example") // InputCloud | The modified Cloud data (optional)
+    inputCloud := *cons3rtclient.NewInputCloud("Name_example", "ExternalIpSource_example", "MaximumImpactLevel_example", *cons3rtclient.NewInputTeam(int32(123)), "Subtype_example") // InputCloud | The modified Cloud data (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.UpdateCloud(context.Background(), id).InputCloud(inputCloud).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.UpdateCloud``: %v\n", err)
@@ -1251,16 +1251,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
     virtRealmId := "virtRealmId_example" // string | ID of virtualization realm
-    inputVirtualizationRealm := *openapiclient.NewInputVirtualizationRealm("AccountId_example", "Cidr_example", "Description_example", "Name_example", "Password_example", "Username_example") // InputVirtualizationRealm | The modified virtualization realm information
+    inputVirtualizationRealm := *cons3rtclient.NewInputVirtualizationRealm("AccountId_example", "Cidr_example", "Description_example", "Name_example", "Password_example", "Username_example") // InputVirtualizationRealm | The modified virtualization realm information
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.UpdateVirtRealm(context.Background(), id).VirtRealmId(virtRealmId).InputVirtualizationRealm(inputVirtualizationRealm).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.UpdateVirtRealm``: %v\n", err)
@@ -1325,15 +1325,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of virtualization realm
-    inputVRAdminVirtualizationRealm := *openapiclient.NewInputVRAdminVirtualizationRealm("VirtualizationRealmType_example", "Cidr_example", "Description_example", "Name_example") // InputVRAdminVirtualizationRealm | The updated Virtualization Realm data (optional)
+    inputVRAdminVirtualizationRealm := *cons3rtclient.NewInputVRAdminVirtualizationRealm("VirtualizationRealmType_example", "Cidr_example", "Description_example", "Name_example") // InputVRAdminVirtualizationRealm | The updated Virtualization Realm data (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.UpdateVirtualizationRealm(context.Background(), id).InputVRAdminVirtualizationRealm(inputVRAdminVirtualizationRealm).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.UpdateVirtualizationRealm``: %v\n", err)
@@ -1397,15 +1397,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    cons3rtclient "./gocons3rt"
 )
 
 func main() {
     id := "id_example" // string | ID of cloud
     maximumimpactlevel := "maximumimpactlevel_example" // string | The maximum impact level type.
 
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
+    configuration := cons3rtclient.NewConfiguration()
+    api_client := cons3rtclient.NewAPIClient(configuration)
     resp, r, err := api_client.CloudsApi.UpdateVirtualizationRealmMaximumImpactLevel(context.Background(), id).Maximumimpactlevel(maximumimpactlevel).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CloudsApi.UpdateVirtualizationRealmMaximumImpactLevel``: %v\n", err)
