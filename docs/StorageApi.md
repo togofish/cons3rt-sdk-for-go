@@ -34,14 +34,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
-    bucket := *cons3rtclient.NewBucket("CloudResourceVisibility_example", "Name_example") // Bucket | The bucket creation information
+    bucket := *openapiclient.NewBucket("CloudResourceVisibility_example", "Name_example") // Bucket | The bucket creation information
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.CreateBucket(context.Background()).Bucket(bucket).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.CreateBucket``: %v\n", err)
@@ -100,14 +100,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of bucket
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.DeleteBucket(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.DeleteBucket``: %v\n", err)
@@ -170,7 +170,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -178,8 +178,8 @@ func main() {
     fileName := "fileName_example" // string | The filename within the bucket to download
     background := true // bool | Force the download to happen in the background (optional) (default to false)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.DownloadFileFromBucket(context.Background(), id).FileName(fileName).Background(background).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.DownloadFileFromBucket``: %v\n", err)
@@ -244,14 +244,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of bucket
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.GetBucket(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.GetBucket``: %v\n", err)
@@ -314,14 +314,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of bucket
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.GetBucketListing(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.GetBucketListing``: %v\n", err)
@@ -384,15 +384,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.ListAvailableCloudsForBuckets(context.Background()).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.ListAvailableCloudsForBuckets``: %v\n", err)
@@ -452,7 +452,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -461,8 +461,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.ListBuckets(context.Background()).Cloud(cloud).Project(project).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.ListBuckets``: %v\n", err)
@@ -524,17 +524,17 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of the bucket to publish a resource from
     submissionServiceId := "submissionServiceId_example" // string | ID of project submission service
     fileName := "fileName_example" // string | The filename within the bucket to download
-    inputSubmissionServiceForAssetSubmission := *cons3rtclient.NewInputSubmissionServiceForAssetSubmission(*cons3rtclient.NewInputSubmissionEndpointForAssetSubmission("Subtype_example")) // InputSubmissionServiceForAssetSubmission | Submission service override values (optional)
+    inputSubmissionServiceForAssetSubmission := *openapiclient.NewInputSubmissionServiceForAssetSubmission(*openapiclient.NewInputSubmissionEndpointForAssetSubmission("Subtype_example")) // InputSubmissionServiceForAssetSubmission | Submission service override values (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.SubmitBucketResourceToSubmissionService(context.Background(), id, submissionServiceId).FileName(fileName).InputSubmissionServiceForAssetSubmission(inputSubmissionServiceForAssetSubmission).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.SubmitBucketResourceToSubmissionService``: %v\n", err)
@@ -601,15 +601,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of bucket
-    bucket := *cons3rtclient.NewBucket("CloudResourceVisibility_example", "Name_example") // Bucket | The bucket creation information
+    bucket := *openapiclient.NewBucket("CloudResourceVisibility_example", "Name_example") // Bucket | The bucket creation information
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.UpdateBucket(context.Background(), id).Bucket(bucket).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.UpdateBucket``: %v\n", err)
@@ -673,7 +673,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -681,8 +681,8 @@ func main() {
     file := []*os.File{"TODO"} // []*os.File |  (optional)
     filename := "filename_example" // string |  (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.StorageApi.UploadFileToBucket(context.Background(), id).File(file).Filename(filename).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StorageApi.UploadFileToBucket``: %v\n", err)

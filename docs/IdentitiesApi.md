@@ -29,16 +29,16 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
-    cloudResourceObject := []cons3rtclient.CloudResourceObject{*cons3rtclient.NewCloudResourceObject("Type_example", "Identifier_example")} // []CloudResourceObject | The cloud resources to be accessed by the host identity
+    cloudResourceObject := []openapiclient.CloudResourceObject{*openapiclient.NewCloudResourceObject("Type_example", "Identifier_example")} // []CloudResourceObject | The cloud resources to be accessed by the host identity
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.IdentitiesApi.CreateIdentity(context.Background(), id, hostid).CloudResourceObject(cloudResourceObject).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesApi.CreateIdentity``: %v\n", err)
@@ -104,15 +104,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.IdentitiesApi.DeleteIdentity(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesApi.DeleteIdentity``: %v\n", err)
@@ -177,7 +177,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -185,8 +185,8 @@ func main() {
     hostid := "hostid_example" // string | ID of host
     username := "username_example" // string | Username of the identity to be deleted
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.IdentitiesApi.DeleteIdentityById(context.Background(), id, hostid, username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesApi.DeleteIdentityById``: %v\n", err)
@@ -253,15 +253,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.IdentitiesApi.GetIdentities(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesApi.GetIdentities``: %v\n", err)
@@ -326,15 +326,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.IdentitiesApi.GetIdentity(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesApi.GetIdentity``: %v\n", err)

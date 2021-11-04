@@ -33,15 +33,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     assetid := "assetid_example" // string | ID of asset to assign
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.AddCategoryToAsset(context.Background(), id).Assetid(assetid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.AddCategoryToAsset``: %v\n", err)
@@ -105,15 +105,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     runid := "runid_example" // string | ID of run to assign
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.AddCategoryToDeploymentRun(context.Background(), id).Runid(runid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.AddCategoryToDeploymentRun``: %v\n", err)
@@ -177,14 +177,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
-    inputCategory := *cons3rtclient.NewInputCategory("Name_example") // InputCategory | The Category to create (optional)
+    inputCategory := *openapiclient.NewInputCategory("Name_example") // InputCategory | The Category to create (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.CreateCategory(context.Background()).InputCategory(inputCategory).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.CreateCategory``: %v\n", err)
@@ -243,14 +243,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category to delete
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.DeleteCategory(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.DeleteCategory``: %v\n", err)
@@ -313,13 +313,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.GetCategories(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.GetCategories``: %v\n", err)
@@ -374,15 +374,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     assetid := "assetid_example" // string | ID of asset to unassign
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.RemoveCategoryFromAsset(context.Background(), id).Assetid(assetid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.RemoveCategoryFromAsset``: %v\n", err)
@@ -446,15 +446,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     runid := "runid_example" // string | ID of run to unassign
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.RemoveCategoryFromDeploymentRun(context.Background(), id).Runid(runid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.RemoveCategoryFromDeploymentRun``: %v\n", err)
@@ -518,15 +518,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category to modify
     parentid := "parentid_example" // string | ID of desired parent category
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.SetCategoryParent(context.Background(), id).Parentid(parentid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.SetCategoryParent``: %v\n", err)
@@ -590,15 +590,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of Category to update
-    inputCategory := *cons3rtclient.NewInputCategory("Name_example") // InputCategory | The modified Category definition (optional)
+    inputCategory := *openapiclient.NewInputCategory("Name_example") // InputCategory | The modified Category definition (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.CategoriesApi.UpdateCategory(context.Background(), id).InputCategory(inputCategory).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CategoriesApi.UpdateCategory``: %v\n", err)

@@ -30,13 +30,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.GetBuildNumber(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetBuildNumber``: %v\n", err)
@@ -89,13 +89,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.GetBuildTimestamp(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetBuildTimestamp``: %v\n", err)
@@ -148,13 +148,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.GetCons3rtVersion(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetCons3rtVersion``: %v\n", err)
@@ -207,13 +207,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.GetRevision(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetRevision``: %v\n", err)
@@ -266,13 +266,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.GetRootHtml(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetRootHtml``: %v\n", err)
@@ -325,13 +325,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.GetShortVersion(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetShortVersion``: %v\n", err)
@@ -384,13 +384,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.GetVersion(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetVersion``: %v\n", err)
@@ -443,13 +443,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DefaultApi.ValidateCredentials(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.ValidateCredentials``: %v\n", err)

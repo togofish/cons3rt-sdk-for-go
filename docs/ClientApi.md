@@ -26,15 +26,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of composition to launch
-    compositionLaunchOptions := *cons3rtclient.NewCompositionLaunchOptions("Username_example", "Password_example") // CompositionLaunchOptions | The Composition launch options (optional)
+    compositionLaunchOptions := *openapiclient.NewCompositionLaunchOptions("Username_example", "Password_example") // CompositionLaunchOptions | The Composition launch options (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ClientApi.LaunchComposition(context.Background(), id).CompositionLaunchOptions(compositionLaunchOptions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ClientApi.LaunchComposition``: %v\n", err)
@@ -98,13 +98,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ClientApi.ListCompositionStatus(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ClientApi.ListCompositionStatus``: %v\n", err)

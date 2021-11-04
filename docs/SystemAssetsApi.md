@@ -30,14 +30,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
-    inputSystemAsset := *cons3rtclient.NewInputSystemAsset("Type_example") // InputSystemAsset | The System Asset definition (optional)
+    inputSystemAsset := *openapiclient.NewInputSystemAsset("Type_example") // InputSystemAsset | The System Asset definition (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemAssetsApi.CreateSystemAsset(context.Background()).InputSystemAsset(inputSystemAsset).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemAssetsApi.CreateSystemAsset``: %v\n", err)
@@ -96,14 +96,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of system asset to delete
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemAssetsApi.DeleteSystemAsset(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemAssetsApi.DeleteSystemAsset``: %v\n", err)
@@ -166,14 +166,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of system asset to import
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemAssetsApi.ImportSystemAsset(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemAssetsApi.ImportSystemAsset``: %v\n", err)
@@ -236,13 +236,13 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemAssetsApi.ListSystemAssets(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemAssetsApi.ListSystemAssets``: %v\n", err)
@@ -297,14 +297,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of System Asset
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemAssetsApi.RetrieveSystemAsset(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemAssetsApi.RetrieveSystemAsset``: %v\n", err)
@@ -367,15 +367,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of System Asset to update
-    inputSystemAsset := *cons3rtclient.NewInputSystemAsset("Type_example") // InputSystemAsset | The modified System Asset definition (optional)
+    inputSystemAsset := *openapiclient.NewInputSystemAsset("Type_example") // InputSystemAsset | The modified System Asset definition (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.SystemAssetsApi.UpdateSystemAsset(context.Background(), id).InputSystemAsset(inputSystemAsset).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SystemAssetsApi.UpdateSystemAsset``: %v\n", err)

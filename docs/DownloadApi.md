@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -33,8 +33,8 @@ func main() {
     fileName := "fileName_example" // string | The filename within the bucket to download
     background := true // bool | Force the download to happen in the background (optional) (default to false)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DownloadApi.DownloadFileFromBucket(context.Background(), id).FileName(fileName).Background(background).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DownloadApi.DownloadFileFromBucket``: %v\n", err)

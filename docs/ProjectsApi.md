@@ -48,15 +48,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     username := "username_example" // string | Username of desired member
     id := "id_example" // string | ID of project
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.AddProjectMember(context.Background(), id).Username(username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.AddProjectMember``: %v\n", err)
@@ -120,7 +120,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -128,8 +128,8 @@ func main() {
     username := "username_example" // string | Username of project member
     role := "role_example" // string | Project role to add
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.AddRoleToProjectMember(context.Background(), id).Username(username).Role(role).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.AddRoleToProjectMember``: %v\n", err)
@@ -194,15 +194,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
-    inputSubmissionServiceForProject := *cons3rtclient.NewInputSubmissionServiceForProject(*cons3rtclient.NewInputSubmissionEndpointForProject("Host_example", "Subtype_example")) // InputSubmissionServiceForProject | The submission service
+    inputSubmissionServiceForProject := *openapiclient.NewInputSubmissionServiceForProject(*openapiclient.NewInputSubmissionEndpointForProject("Host_example", "Subtype_example")) // InputSubmissionServiceForProject | The submission service
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.AddSubmissionServiceToProject(context.Background(), id).InputSubmissionServiceForProject(inputSubmissionServiceForProject).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.AddSubmissionServiceToProject``: %v\n", err)
@@ -266,15 +266,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     trustedid := "trustedid_example" // string | ID of trusted project
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.AddTrustedProject1(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.AddTrustedProject1``: %v\n", err)
@@ -338,14 +338,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
-    inputProjectFull := *cons3rtclient.NewInputProjectFull("Name_example", *cons3rtclient.NewProjectLimits(int32(123), int32(123), int32(123), int32(123), int32(123))) // InputProjectFull | The Project to create (optional)
+    inputProjectFull := *openapiclient.NewInputProjectFull("Name_example", *openapiclient.NewProjectLimits(int32(123), int32(123), int32(123), int32(123), int32(123))) // InputProjectFull | The Project to create (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.CreateProject(context.Background()).InputProjectFull(inputProjectFull).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.CreateProject``: %v\n", err)
@@ -404,15 +404,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     force := true // bool | Delete all dependencies (optional) (default to false)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.DeleteProject(context.Background(), id).Force(force).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.DeleteProject``: %v\n", err)
@@ -476,7 +476,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -486,8 +486,8 @@ func main() {
     interval := int64(789) // int64 | Number of intervals (optional) (default to 1)
     intervalUnit := "intervalUnit_example" // string | Interval unit (optional) (default to "HOURS")
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.GetHostConfigurationMetrics(context.Background(), id).Start(start).End(end).Interval(interval).IntervalUnit(intervalUnit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetHostConfigurationMetrics``: %v\n", err)
@@ -554,14 +554,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.GetProject(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetProject``: %v\n", err)
@@ -624,14 +624,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.GetProjectVirtRealms(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetProjectVirtRealms``: %v\n", err)
@@ -694,15 +694,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.GetProjects(context.Background()).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetProjects``: %v\n", err)
@@ -762,15 +762,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.GetProjectsExpanded(context.Background()).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetProjectsExpanded``: %v\n", err)
@@ -830,7 +830,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -840,8 +840,8 @@ func main() {
     interval := int64(789) // int64 | Number of intervals (optional) (default to 1)
     intervalUnit := "intervalUnit_example" // string | Interval unit (optional) (default to "HOURS")
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.GetVirtualMachineCountMetrics(context.Background(), id).Start(start).End(end).Interval(interval).IntervalUnit(intervalUnit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetVirtualMachineCountMetrics``: %v\n", err)
@@ -908,7 +908,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -919,8 +919,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.ListMembers(context.Background(), id).MembershipState(membershipState).Role(role).Name(name).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ListMembers``: %v\n", err)
@@ -988,14 +988,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.ListSubmissionSerivcesForProject(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ListSubmissionSerivcesForProject``: %v\n", err)
@@ -1058,15 +1058,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     username := "username_example" // string | Username of desired member
     id := "id_example" // string | ID of project
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.RemoveProjectMember(context.Background(), id).Username(username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.RemoveProjectMember``: %v\n", err)
@@ -1130,7 +1130,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1138,8 +1138,8 @@ func main() {
     username := "username_example" // string | Username of project member
     role := "role_example" // string | Project role to remove
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.RemoveRoleFromProjectMember(context.Background(), id).Username(username).Role(role).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.RemoveRoleFromProjectMember``: %v\n", err)
@@ -1204,15 +1204,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     submissionServiceId := "submissionServiceId_example" // string | ID of submission service
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.RemoveSubmissionServiceFromProject(context.Background(), id, submissionServiceId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.RemoveSubmissionServiceFromProject``: %v\n", err)
@@ -1277,15 +1277,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     trustedid := "trustedid_example" // string | ID of trusted project
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.RemoveTrustedProject1(context.Background(), id).Trustedid(trustedid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.RemoveTrustedProject1``: %v\n", err)
@@ -1349,15 +1349,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     email := "email_example" // string | Email address of invitee
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.RequestProjectInvitation(context.Background(), id).Email(email).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.RequestProjectInvitation``: %v\n", err)
@@ -1421,15 +1421,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
-    powerSchedule := *cons3rtclient.NewPowerSchedule("Mode_example") // PowerSchedule | The desired power schedule (optional)
+    powerSchedule := *openapiclient.NewPowerSchedule("Mode_example") // PowerSchedule | The desired power schedule (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.SetProjectDefaultPowerSchedule(context.Background(), id).PowerSchedule(powerSchedule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.SetProjectDefaultPowerSchedule``: %v\n", err)
@@ -1493,15 +1493,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     virtualizationrealmid := "virtualizationrealmid_example" // string | ID of virtualization realm
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.SetProjectDefaultVirtualizationRealm(context.Background(), id).Virtualizationrealmid(virtualizationrealmid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.SetProjectDefaultVirtualizationRealm``: %v\n", err)
@@ -1565,15 +1565,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     message := "message_example" // string | Additional information about the export restriction (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.SetProjectItarInformation(context.Background(), id).Message(message).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.SetProjectItarInformation``: %v\n", err)
@@ -1637,15 +1637,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
-    inputProjectUpdate := *cons3rtclient.NewInputProjectUpdate("Name_example") // InputProjectUpdate | The modified Project (optional)
+    inputProjectUpdate := *openapiclient.NewInputProjectUpdate("Name_example") // InputProjectUpdate | The modified Project (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.UpdateProject(context.Background(), id).InputProjectUpdate(inputProjectUpdate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.UpdateProject``: %v\n", err)
@@ -1709,16 +1709,16 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of project
     submissionServiceId := "submissionServiceId_example" // string | ID of submission service
-    inputSubmissionServiceForProject := *cons3rtclient.NewInputSubmissionServiceForProject(*cons3rtclient.NewInputSubmissionEndpointForProject("Host_example", "Subtype_example")) // InputSubmissionServiceForProject | The submission service
+    inputSubmissionServiceForProject := *openapiclient.NewInputSubmissionServiceForProject(*openapiclient.NewInputSubmissionEndpointForProject("Host_example", "Subtype_example")) // InputSubmissionServiceForProject | The submission service
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.ProjectsApi.UpdateSubmissionService(context.Background(), id, submissionServiceId).InputSubmissionServiceForProject(inputSubmissionServiceForProject).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.UpdateSubmissionService``: %v\n", err)

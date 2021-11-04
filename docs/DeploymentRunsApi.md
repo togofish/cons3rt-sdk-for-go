@@ -52,15 +52,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     runid := "runid_example" // string | ID of run to assign
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.AddCategoryToDeploymentRun(context.Background(), id).Runid(runid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.AddCategoryToDeploymentRun``: %v\n", err)
@@ -124,16 +124,16 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
-    cloudResourceObject := []cons3rtclient.CloudResourceObject{*cons3rtclient.NewCloudResourceObject("Type_example", "Identifier_example")} // []CloudResourceObject | The cloud resources to be accessed by the host identity
+    cloudResourceObject := []openapiclient.CloudResourceObject{*openapiclient.NewCloudResourceObject("Type_example", "Identifier_example")} // []CloudResourceObject | The cloud resources to be accessed by the host identity
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.CreateIdentity(context.Background(), id, hostid).CloudResourceObject(cloudResourceObject).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.CreateIdentity``: %v\n", err)
@@ -199,15 +199,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     purge := true // bool | Delete all dependencies of the deployment run (optional) (default to false)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.DeleteDeploymentRun(context.Background(), id).Purge(purge).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.DeleteDeploymentRun``: %v\n", err)
@@ -271,15 +271,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.DeleteIdentity(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.DeleteIdentity``: %v\n", err)
@@ -344,7 +344,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -352,8 +352,8 @@ func main() {
     hostid := "hostid_example" // string | ID of host
     username := "username_example" // string | Username of the identity to be deleted
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.DeleteIdentityById(context.Background(), id, hostid, username).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.DeleteIdentityById``: %v\n", err)
@@ -420,7 +420,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -428,8 +428,8 @@ func main() {
     file := "file_example" // string | Report file name (optional)
     number := "number_example" // string | Report number (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.DownloadDeploymentRunTestReport(context.Background(), id).File(file).Number(number).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.DownloadDeploymentRunTestReport``: %v\n", err)
@@ -492,7 +492,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -500,8 +500,8 @@ func main() {
     role := "role_example" // string | Name of host to bundle for download
     background := true // bool | Force the download to happen in the background (optional) (default to false)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.DownloadHost(context.Background(), id).Role(role).Background(background).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.DownloadHost``: %v\n", err)
@@ -564,14 +564,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetDeploymentRun(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetDeploymentRun``: %v\n", err)
@@ -634,14 +634,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetDeploymentRunReports(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetDeploymentRunReports``: %v\n", err)
@@ -704,7 +704,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -712,8 +712,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetDeploymentRuns(context.Background(), id).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetDeploymentRuns``: %v\n", err)
@@ -778,7 +778,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -787,8 +787,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetDeploymentRuns1(context.Background()).SearchType(searchType).InProject(inProject).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetDeploymentRuns1``: %v\n", err)
@@ -850,15 +850,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetHost(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetHost``: %v\n", err)
@@ -923,7 +923,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -932,8 +932,8 @@ func main() {
     maxresults := int64(789) // int64 | Maximum number of results to return (optional) (default to 40)
     page := int64(789) // int64 | Requested page number (optional) (default to 0)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetHostAccess(context.Background(), id, hostid).Maxresults(maxresults).Page(page).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetHostAccess``: %v\n", err)
@@ -1000,7 +1000,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1010,8 +1010,8 @@ func main() {
     interval := int64(789) // int64 | Number of intervals (optional) (default to 1)
     intervalUnit := "intervalUnit_example" // string | Interval unit (optional) (default to "HOURS")
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetHostConfigurationMetrics(context.Background(), id).Start(start).End(end).Interval(interval).IntervalUnit(intervalUnit).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetHostConfigurationMetrics``: %v\n", err)
@@ -1078,15 +1078,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetHostInstanceTypes(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetHostInstanceTypes``: %v\n", err)
@@ -1151,15 +1151,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetIdentities(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetIdentities``: %v\n", err)
@@ -1224,15 +1224,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.GetIdentity(context.Background(), id, hostid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.GetIdentity``: %v\n", err)
@@ -1297,7 +1297,7 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1308,8 +1308,8 @@ func main() {
     ram := int32(56) // int32 | Desired amount of RAM in Mebibytes, if resizing host in a non instance type based virtualization realm (optional)
     instanceTypeName := "instanceTypeName_example" // string | The instance type name to resize to, if resizing host in an instance type based virtualization realm (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.PerformHostAction(context.Background(), id).Deploymentrunhostid(deploymentrunhostid).Action(action).Cpu(cpu).Ram(ram).InstanceTypeName(instanceTypeName).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.PerformHostAction``: %v\n", err)
@@ -1377,14 +1377,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.PublishDeploymentRun(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.PublishDeploymentRun``: %v\n", err)
@@ -1447,17 +1447,17 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     hostid := "hostid_example" // string | ID of host
     installationid := "installationid_example" // string | ID of container asset installation
-    inputContainerComponent := *cons3rtclient.NewInputContainerComponent(*cons3rtclient.NewInputContainerConfiguration("ContainerName_example"), *cons3rtclient.NewInputAsset(int32(123)), "Subtype_example") // InputContainerComponent | The updated Container Component definition (optional)
+    inputContainerComponent := *openapiclient.NewInputContainerComponent(*openapiclient.NewInputContainerConfiguration("ContainerName_example"), *openapiclient.NewInputAsset(int32(123)), "Subtype_example") // InputContainerComponent | The updated Container Component definition (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.RedeployContainerAsset(context.Background(), id, hostid).Installationid(installationid).InputContainerComponent(inputContainerComponent).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.RedeployContainerAsset``: %v\n", err)
@@ -1524,15 +1524,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
-    restIdObject := []cons3rtclient.RestIdObject{*cons3rtclient.NewRestIdObject("Id_example")} // []RestIdObject | The collection of deployment run host ids to redeploy (optional)
+    restIdObject := []openapiclient.RestIdObject{*openapiclient.NewRestIdObject("Id_example")} // []RestIdObject | The collection of deployment run host ids to redeploy (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.RedeployDeploymentRunHosts(context.Background(), id).RestIdObject(restIdObject).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.RedeployDeploymentRunHosts``: %v\n", err)
@@ -1596,14 +1596,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.RelaunchDeploymentRun(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.RelaunchDeploymentRun``: %v\n", err)
@@ -1666,15 +1666,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     force := true // bool | Force the release of this run (optional) (default to false)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.ReleaseDeploymentRun(context.Background(), id).Force(force).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.ReleaseDeploymentRun``: %v\n", err)
@@ -1738,15 +1738,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of category
     runid := "runid_example" // string | ID of run to unassign
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.RemoveCategoryFromDeploymentRun(context.Background(), id).Runid(runid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.RemoveCategoryFromDeploymentRun``: %v\n", err)
@@ -1810,14 +1810,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.RetestDeploymentRun(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.RetestDeploymentRun``: %v\n", err)
@@ -1880,15 +1880,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
     lock := true // bool | The desired lock state
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.SetDeploymentRunLock(context.Background(), id).Lock(lock).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.SetDeploymentRunLock``: %v\n", err)
@@ -1952,15 +1952,15 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
-    powerSchedule := *cons3rtclient.NewPowerSchedule("Mode_example") // PowerSchedule | The desired power schedule (optional)
+    powerSchedule := *openapiclient.NewPowerSchedule("Mode_example") // PowerSchedule | The desired power schedule (optional)
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.SetPowerScheduleForDeploymentRun(context.Background(), id).PowerSchedule(powerSchedule).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.SetPowerScheduleForDeploymentRun``: %v\n", err)
@@ -2024,14 +2024,14 @@ import (
     "context"
     "fmt"
     "os"
-    cons3rtclient "./gocons3rt"
+    openapiclient "./openapi"
 )
 
 func main() {
     id := "id_example" // string | ID of deployment run
 
-    configuration := cons3rtclient.NewConfiguration()
-    api_client := cons3rtclient.NewAPIClient(configuration)
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
     resp, r, err := api_client.DeploymentRunsApi.UnpublishDeploymentRun(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeploymentRunsApi.UnpublishDeploymentRun``: %v\n", err)
