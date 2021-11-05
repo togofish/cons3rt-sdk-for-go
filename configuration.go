@@ -13,6 +13,7 @@ package gocons3rt
 
 import (
 	"context"
+	"crypto/tls"
 	"fmt"
 	"net/http"
 	"strings"
@@ -86,6 +87,20 @@ type ServerConfiguration struct {
 // ServerConfigurations stores multiple ServerConfiguration items
 type ServerConfigurations []ServerConfiguration
 
+type NewTLSCertificate func(string, string) (*tls.Config, error)
+
+type CertPassword struct {
+	Password string
+}
+
+type CertPath struct {
+	Path string
+}
+
+type Token struct {
+	Token string
+}
+
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	Host             string            `json:"host,omitempty"`
@@ -97,6 +112,9 @@ type Configuration struct {
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
 	BasePath         string
+	CertPassword     string
+	CertPath         string
+	Token            string
 }
 
 // NewConfiguration returns a new Configuration object

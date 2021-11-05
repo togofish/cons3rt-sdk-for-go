@@ -188,7 +188,7 @@ func (r DeploymentRunsApiCreateIdentityRequest) CloudResourceObject(cloudResourc
 	return r
 }
 
-func (r DeploymentRunsApiCreateIdentityRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
+func (r DeploymentRunsApiCreateIdentityRequest) Execute() (BaseCredentials, *_nethttp.Response, error) {
 	return r.ApiService.CreateIdentityExecute(r)
 }
 
@@ -212,15 +212,15 @@ func (a *DeploymentRunsApiService) CreateIdentity(ctx _context.Context, id strin
 }
 
 // Execute executes the request
-//  @return []BaseIdentity
-func (a *DeploymentRunsApiService) CreateIdentityExecute(r DeploymentRunsApiCreateIdentityRequest) ([]BaseIdentity, *_nethttp.Response, error) {
+//  @return BaseCredentials
+func (a *DeploymentRunsApiService) CreateIdentityExecute(r DeploymentRunsApiCreateIdentityRequest) (BaseCredentials, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []BaseIdentity
+		localVarReturnValue  BaseCredentials
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.CreateIdentity")
@@ -611,7 +611,7 @@ type DeploymentRunsApiDeleteIdentityByIdRequest struct {
 	username   string
 }
 
-func (r DeploymentRunsApiDeleteIdentityByIdRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
+func (r DeploymentRunsApiDeleteIdentityByIdRequest) Execute() (BaseCredentials, *_nethttp.Response, error) {
 	return r.ApiService.DeleteIdentityByIdExecute(r)
 }
 
@@ -637,15 +637,15 @@ func (a *DeploymentRunsApiService) DeleteIdentityById(ctx _context.Context, id s
 }
 
 // Execute executes the request
-//  @return []BaseIdentity
-func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r DeploymentRunsApiDeleteIdentityByIdRequest) ([]BaseIdentity, *_nethttp.Response, error) {
+//  @return BaseCredentials
+func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r DeploymentRunsApiDeleteIdentityByIdRequest) (BaseCredentials, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []BaseIdentity
+		localVarReturnValue  BaseCredentials
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.DeleteIdentityById")
@@ -2235,7 +2235,7 @@ type DeploymentRunsApiGetIdentitiesRequest struct {
 	hostid     string
 }
 
-func (r DeploymentRunsApiGetIdentitiesRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
+func (r DeploymentRunsApiGetIdentitiesRequest) Execute() (BaseCredentials, *_nethttp.Response, error) {
 	return r.ApiService.GetIdentitiesExecute(r)
 }
 
@@ -2259,15 +2259,15 @@ func (a *DeploymentRunsApiService) GetIdentities(ctx _context.Context, id string
 }
 
 // Execute executes the request
-//  @return []BaseIdentity
-func (a *DeploymentRunsApiService) GetIdentitiesExecute(r DeploymentRunsApiGetIdentitiesRequest) ([]BaseIdentity, *_nethttp.Response, error) {
+//  @return BaseCredentials
+func (a *DeploymentRunsApiService) GetIdentitiesExecute(r DeploymentRunsApiGetIdentitiesRequest) (BaseCredentials, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []BaseIdentity
+		localVarReturnValue  BaseCredentials
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetIdentities")

@@ -11,6 +11,7 @@ Contact: support@cons3rt.com
 
 package gocons3rt
 
+import "C"
 import (
 	"bytes"
 	"context"
@@ -110,7 +111,14 @@ type service struct {
 // NewAPIClient creates a new API client. Requires a userAgent string describing your application.
 // optionally a custom http.Client to allow for advanced features such as caching.
 func NewAPIClient(cfg *Configuration) *APIClient {
-	if cfg.HTTPClient == nil {
+
+	// there may be a case in the future where we want to support custom HTTPClient in addition to certs
+	if &cfg.CertPath == nil && cfg.HTTPClient == nil {
+		cfg.HTTPClient = http.DefaultClient
+	} else if &cfg.CertPath != nil && &cfg.CertPassword != nil {
+		certificate, _ := NewTLSClientCertificate(cfg.CertPath, cfg.CertPassword)
+		cfg.HTTPClient = &http.Client{Transport: &http.Transport{TLSClientConfig: certificate}}
+	} else {
 		cfg.HTTPClient = http.DefaultClient
 	}
 
@@ -345,6 +353,12 @@ func (c *APIClient) prepareRequest(
 	}
 
 	// Setup path and query parameters
+
+	// Override request path, if applicable
+	if c.cfg.BasePath != "" {
+		path = c.cfg.BasePath + path
+	}
+
 	url, err := url.Parse(path)
 	if err != nil {
 		return nil, err
@@ -398,6 +412,11 @@ func (c *APIClient) prepareRequest(
 		localVarRequest = localVarRequest.WithContext(ctx)
 
 		// Walk through any authentication.
+
+		// CONS3RT token authentication
+		if &c.cfg.Token != nil {
+			localVarRequest.Header.Add("token", c.cfg.Token)
+		}
 
 		// OAuth2 authentication
 		if tok, ok := ctx.Value(ContextOAuth2).(oauth2.TokenSource); ok {
