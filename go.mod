@@ -1,4 +1,4 @@
-module github.com/togofish/cons3rt
+module github.com/togofish/cons3rt-sdk-for-go
 
 go 1.13
 
