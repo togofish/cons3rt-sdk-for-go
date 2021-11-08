@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cons3rt.iml" filepath="$PROJECT_DIR$/.idea/cons3rt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cons3rt-sdk-for-go.iml" filepath="$PROJECT_DIR$/.idea/cons3rt-sdk-for-go.iml" />
     </modules>
   </component>
 </project>
