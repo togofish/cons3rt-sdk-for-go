@@ -23,12 +23,33 @@ import (
 // Since these are string, it is possible to get a short description of the
 // context key for logging and debugging using key.String().
 
-func NewTLSClientCertificate(certFile string, certPassword string) (*tls.Config, error) {
+func NewTLSClientCertificateFromFile(certFile string, certPassword string) (*tls.Config, error) {
 	p12, err := ioutil.ReadFile(certFile)
 	if err != nil {
 		log.Fatal(err)
 	}
 	blocks, err := pkcs12.ToPEM(p12, certPassword)
+	if err != nil {
+		panic(err)
+	}
+
+	var pemData []byte
+	for _, b := range blocks {
+		pemData = append(pemData, pem.EncodeToMemory(b)...)
+	}
+
+	// then use PEM data for tls to construct tls certificate:
+	cert, err := tls.X509KeyPair(pemData, pemData)
+	if err != nil {
+		panic(err)
+	}
+
+	config := tls.Config{Certificates: []tls.Certificate{cert}, Renegotiation: tls.RenegotiateOnceAsClient}
+	return &config, err
+}
+
+func NewTLSClientCertificate(certificate []byte, certPassword string) (*tls.Config, error) {
+	blocks, err := pkcs12.ToPEM(certificate, certPassword)
 	if err != nil {
 		panic(err)
 	}
