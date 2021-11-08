@@ -116,10 +116,10 @@ type Configuration struct {
 	OperationServers map[string]ServerConfigurations
 	HTTPClient       *http.Client
 	BasePath         string
-	CertPassword     string
-	CertPath         string
-	Token            string
-	Cert             []byte
+	CertPassword     string `json:"certPassword,omitempty"`
+	CertPath         string `json:"certPath,omitempty"`
+	Token            string `json:"token,omitempty"`
+	Cert             []byte `json:"cert,omitempty"`
 }
 
 // NewConfiguration returns a new Configuration object

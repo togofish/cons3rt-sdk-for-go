@@ -113,10 +113,13 @@ type service struct {
 func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// there may be a case in the future where we want to support custom HTTPClient in addition to certs
-	if &cfg.CertPath == nil && cfg.HTTPClient == nil {
+	if cfg.CertPath == "" && string(cfg.Cert) == "" && cfg.HTTPClient == nil {
 		cfg.HTTPClient = http.DefaultClient
-	} else if &cfg.CertPath != nil && &cfg.CertPassword != nil {
-		certificate, _ := NewTLSClientCertificate(cfg.CertPath, cfg.CertPassword)
+	} else if cfg.CertPath != "" && cfg.CertPassword != "" {
+		certificate, _ := NewTLSClientCertificateFromFile(cfg.CertPath, cfg.CertPassword)
+		cfg.HTTPClient = &http.Client{Transport: &http.Transport{TLSClientConfig: certificate}}
+	} else if string(cfg.Cert) != "" && cfg.CertPassword != "" {
+		certificate, _ := NewTLSClientCertificate(cfg.Cert, cfg.CertPassword)
 		cfg.HTTPClient = &http.Client{Transport: &http.Transport{TLSClientConfig: certificate}}
 	} else {
 		cfg.HTTPClient = http.DefaultClient
