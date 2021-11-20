@@ -1520,7 +1520,7 @@ func (r AssetsApiUpdateAssetContentRequest) Filename(filename string) AssetsApiU
 	return r
 }
 
-func (r AssetsApiUpdateAssetContentRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r AssetsApiUpdateAssetContentRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetContentExecute(r)
 }
 
@@ -1545,14 +1545,14 @@ func (a *AssetsApiService) UpdateAssetContent(ctx _context.Context, id string) A
 
 // Execute executes the request
 //  @return bool
-func (a *AssetsApiService) UpdateAssetContentExecute(r AssetsApiUpdateAssetContentRequest) (bool, *_nethttp.Response, error) {
+func (a *AssetsApiService) UpdateAssetContentExecute(r AssetsApiUpdateAssetContentRequest) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.UpdateAssetContent")
