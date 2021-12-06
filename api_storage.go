@@ -389,7 +389,7 @@ func (a *StorageApiService) DownloadFileFromBucketExecute(r ApiDownloadFileFromB
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
