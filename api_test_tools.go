@@ -55,12 +55,10 @@ func (a *TestToolsApiService) GetTestTools(ctx _context.Context) ApiGetTestTools
 //  @return []TestTool
 func (a *TestToolsApiService) GetTestToolsExecute(r ApiGetTestToolsRequest) ([]TestTool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []TestTool
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []TestTool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestToolsApiService.GetTestTools")
@@ -119,7 +117,7 @@ func (a *TestToolsApiService) GetTestToolsExecute(r ApiGetTestToolsRequest) ([]T
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

@@ -69,12 +69,10 @@ func (a *VirtualizationRealmsApiService) AddNetwork(ctx _context.Context, id str
 //  @return MinimalVirtualizationRealm
 func (a *VirtualizationRealmsApiService) AddNetworkExecute(r ApiAddNetworkRequest) (MinimalVirtualizationRealm, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  MinimalVirtualizationRealm
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue MinimalVirtualizationRealm
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.AddNetwork")
@@ -139,7 +137,7 @@ func (a *VirtualizationRealmsApiService) AddNetworkExecute(r ApiAddNetworkReques
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -214,12 +212,10 @@ func (a *VirtualizationRealmsApiService) AddProject(ctx _context.Context, id str
 //  @return int32
 func (a *VirtualizationRealmsApiService) AddProjectExecute(r ApiAddProjectRequest) (int32, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  int32
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue int32
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.AddProject")
@@ -283,7 +279,7 @@ func (a *VirtualizationRealmsApiService) AddProjectExecute(r ApiAddProjectReques
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -358,12 +354,10 @@ func (a *VirtualizationRealmsApiService) CreateTemplateSubsciption(ctx _context.
 //  @return FullTemplateSubscription
 func (a *VirtualizationRealmsApiService) CreateTemplateSubsciptionExecute(r ApiCreateTemplateSubsciptionRequest) (FullTemplateSubscription, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullTemplateSubscription
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullTemplateSubscription
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.CreateTemplateSubsciption")
@@ -427,7 +421,7 @@ func (a *VirtualizationRealmsApiService) CreateTemplateSubsciptionExecute(r ApiC
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -505,12 +499,10 @@ func (a *VirtualizationRealmsApiService) DeleteNetwork(ctx _context.Context, id 
 //  @return bool
 func (a *VirtualizationRealmsApiService) DeleteNetworkExecute(r ApiDeleteNetworkRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.DeleteNetwork")
@@ -574,7 +566,7 @@ func (a *VirtualizationRealmsApiService) DeleteNetworkExecute(r ApiDeleteNetwork
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -645,12 +637,10 @@ func (a *VirtualizationRealmsApiService) DeleteTemplateSubscription(ctx _context
 //  @return bool
 func (a *VirtualizationRealmsApiService) DeleteTemplateSubscriptionExecute(r ApiDeleteTemplateSubscriptionRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.DeleteTemplateSubscription")
@@ -711,7 +701,7 @@ func (a *VirtualizationRealmsApiService) DeleteTemplateSubscriptionExecute(r Api
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -779,12 +769,10 @@ func (a *VirtualizationRealmsApiService) DisableVirtRealmRemoteAccess(ctx _conte
 //  @return bool
 func (a *VirtualizationRealmsApiService) DisableVirtRealmRemoteAccessExecute(r ApiDisableVirtRealmRemoteAccessRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.DisableVirtRealmRemoteAccess")
@@ -844,7 +832,7 @@ func (a *VirtualizationRealmsApiService) DisableVirtRealmRemoteAccessExecute(r A
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -926,12 +914,10 @@ func (a *VirtualizationRealmsApiService) EnableMaintenceMode1(ctx _context.Conte
 //  @return bool
 func (a *VirtualizationRealmsApiService) EnableMaintenceMode1Execute(r ApiEnableMaintenceMode1Request) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.EnableMaintenceMode1")
@@ -996,7 +982,7 @@ func (a *VirtualizationRealmsApiService) EnableMaintenceMode1Execute(r ApiEnable
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1075,12 +1061,10 @@ func (a *VirtualizationRealmsApiService) EnableVirtRealmRemoteAccess(ctx _contex
 //  @return bool
 func (a *VirtualizationRealmsApiService) EnableVirtRealmRemoteAccessExecute(r ApiEnableVirtRealmRemoteAccessRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.EnableVirtRealmRemoteAccess")
@@ -1143,7 +1127,7 @@ func (a *VirtualizationRealmsApiService) EnableVirtRealmRemoteAccessExecute(r Ap
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1232,12 +1216,10 @@ func (a *VirtualizationRealmsApiService) GetDeploymentRunsInVirtualizationRealm(
 //  @return []MinimalDeploymentRun
 func (a *VirtualizationRealmsApiService) GetDeploymentRunsInVirtualizationRealmExecute(r ApiGetDeploymentRunsInVirtualizationRealmRequest) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalDeploymentRun
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalDeploymentRun
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetDeploymentRunsInVirtualizationRealm")
@@ -1307,7 +1289,7 @@ func (a *VirtualizationRealmsApiService) GetDeploymentRunsInVirtualizationRealmE
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1403,12 +1385,10 @@ func (a *VirtualizationRealmsApiService) GetHostConfigurationMetrics1(ctx _conte
 //  @return string
 func (a *VirtualizationRealmsApiService) GetHostConfigurationMetrics1Execute(r ApiGetHostConfigurationMetrics1Request) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetHostConfigurationMetrics1")
@@ -1482,7 +1462,7 @@ func (a *VirtualizationRealmsApiService) GetHostConfigurationMetrics1Execute(r A
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1553,12 +1533,10 @@ func (a *VirtualizationRealmsApiService) GetNetwork(ctx _context.Context, id str
 //  @return Network
 func (a *VirtualizationRealmsApiService) GetNetworkExecute(r ApiGetNetworkRequest) (Network, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  Network
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue Network
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetNetwork")
@@ -1619,7 +1597,7 @@ func (a *VirtualizationRealmsApiService) GetNetworkExecute(r ApiGetNetworkReques
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1687,12 +1665,10 @@ func (a *VirtualizationRealmsApiService) GetNetworks(ctx _context.Context, id st
 //  @return []MinimalNetwork
 func (a *VirtualizationRealmsApiService) GetNetworksExecute(r ApiGetNetworksRequest) ([]MinimalNetwork, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalNetwork
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalNetwork
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetNetworks")
@@ -1752,7 +1728,7 @@ func (a *VirtualizationRealmsApiService) GetNetworksExecute(r ApiGetNetworksRequ
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1823,12 +1799,10 @@ func (a *VirtualizationRealmsApiService) GetTemplateSubscription(ctx _context.Co
 //  @return FullTemplateSubscription
 func (a *VirtualizationRealmsApiService) GetTemplateSubscriptionExecute(r ApiGetTemplateSubscriptionRequest) (FullTemplateSubscription, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullTemplateSubscription
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullTemplateSubscription
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetTemplateSubscription")
@@ -1889,7 +1863,7 @@ func (a *VirtualizationRealmsApiService) GetTemplateSubscriptionExecute(r ApiGet
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1971,12 +1945,10 @@ func (a *VirtualizationRealmsApiService) GetTemplatesInVirtualizationRealm(ctx _
 //  @return []MinimalCons3rtTemplateData
 func (a *VirtualizationRealmsApiService) GetTemplatesInVirtualizationRealmExecute(r ApiGetTemplatesInVirtualizationRealmRequest) ([]MinimalCons3rtTemplateData, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalCons3rtTemplateData
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalCons3rtTemplateData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetTemplatesInVirtualizationRealm")
@@ -2042,7 +2014,7 @@ func (a *VirtualizationRealmsApiService) GetTemplatesInVirtualizationRealmExecut
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2110,12 +2082,10 @@ func (a *VirtualizationRealmsApiService) GetUnregisteredNetworks(ctx _context.Co
 //  @return []Subnet
 func (a *VirtualizationRealmsApiService) GetUnregisteredNetworksExecute(r ApiGetUnregisteredNetworksRequest) ([]Subnet, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []Subnet
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Subnet
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetUnregisteredNetworks")
@@ -2175,7 +2145,7 @@ func (a *VirtualizationRealmsApiService) GetUnregisteredNetworksExecute(r ApiGet
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2271,12 +2241,10 @@ func (a *VirtualizationRealmsApiService) GetVirtualMachineCountMetrics1(ctx _con
 //  @return string
 func (a *VirtualizationRealmsApiService) GetVirtualMachineCountMetrics1Execute(r ApiGetVirtualMachineCountMetrics1Request) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetVirtualMachineCountMetrics1")
@@ -2350,7 +2318,7 @@ func (a *VirtualizationRealmsApiService) GetVirtualMachineCountMetrics1Execute(r
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2418,12 +2386,10 @@ func (a *VirtualizationRealmsApiService) GetVirtualizationRealm(ctx _context.Con
 //  @return FullVirtualizationRealm
 func (a *VirtualizationRealmsApiService) GetVirtualizationRealmExecute(r ApiGetVirtualizationRealmRequest) (FullVirtualizationRealm, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullVirtualizationRealm
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullVirtualizationRealm
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetVirtualizationRealm")
@@ -2483,7 +2449,7 @@ func (a *VirtualizationRealmsApiService) GetVirtualizationRealmExecute(r ApiGetV
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2551,12 +2517,10 @@ func (a *VirtualizationRealmsApiService) GetVirtualizationRealmResources(ctx _co
 //  @return AbstractCloudResources
 func (a *VirtualizationRealmsApiService) GetVirtualizationRealmResourcesExecute(r ApiGetVirtualizationRealmResourcesRequest) (AbstractCloudResources, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  AbstractCloudResources
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue AbstractCloudResources
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetVirtualizationRealmResources")
@@ -2616,7 +2580,7 @@ func (a *VirtualizationRealmsApiService) GetVirtualizationRealmResourcesExecute(
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2695,12 +2659,10 @@ func (a *VirtualizationRealmsApiService) GetVirtualizationRealms(ctx _context.Co
 //  @return []MinimalVirtualizationRealm
 func (a *VirtualizationRealmsApiService) GetVirtualizationRealmsExecute(r ApiGetVirtualizationRealmsRequest) ([]MinimalVirtualizationRealm, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalVirtualizationRealm
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalVirtualizationRealm
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.GetVirtualizationRealms")
@@ -2765,7 +2727,7 @@ func (a *VirtualizationRealmsApiService) GetVirtualizationRealmsExecute(r ApiGet
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2833,12 +2795,10 @@ func (a *VirtualizationRealmsApiService) InvalidateTemplateCacheInVirtualization
 //  @return bool
 func (a *VirtualizationRealmsApiService) InvalidateTemplateCacheInVirtualizationRealmExecute(r ApiInvalidateTemplateCacheInVirtualizationRealmRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.InvalidateTemplateCacheInVirtualizationRealm")
@@ -2898,7 +2858,7 @@ func (a *VirtualizationRealmsApiService) InvalidateTemplateCacheInVirtualization
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2966,12 +2926,10 @@ func (a *VirtualizationRealmsApiService) ListPendingTemplateSubscriptions(ctx _c
 //  @return []FullTemplateRegistrationForSubscription
 func (a *VirtualizationRealmsApiService) ListPendingTemplateSubscriptionsExecute(r ApiListPendingTemplateSubscriptionsRequest) ([]FullTemplateRegistrationForSubscription, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []FullTemplateRegistrationForSubscription
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FullTemplateRegistrationForSubscription
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.ListPendingTemplateSubscriptions")
@@ -3031,7 +2989,7 @@ func (a *VirtualizationRealmsApiService) ListPendingTemplateSubscriptionsExecute
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3113,12 +3071,10 @@ func (a *VirtualizationRealmsApiService) ListProjects(ctx _context.Context, id s
 //  @return []MinimalProject
 func (a *VirtualizationRealmsApiService) ListProjectsExecute(r ApiListProjectsRequest) ([]MinimalProject, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalProject
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalProject
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.ListProjects")
@@ -3184,7 +3140,7 @@ func (a *VirtualizationRealmsApiService) ListProjectsExecute(r ApiListProjectsRe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3252,12 +3208,10 @@ func (a *VirtualizationRealmsApiService) ListTemplateRegistrations(ctx _context.
 //  @return []MinimalTemplateRegistration
 func (a *VirtualizationRealmsApiService) ListTemplateRegistrationsExecute(r ApiListTemplateRegistrationsRequest) ([]MinimalTemplateRegistration, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalTemplateRegistration
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalTemplateRegistration
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.ListTemplateRegistrations")
@@ -3317,7 +3271,7 @@ func (a *VirtualizationRealmsApiService) ListTemplateRegistrationsExecute(r ApiL
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3385,12 +3339,10 @@ func (a *VirtualizationRealmsApiService) ListTemplateSubscriptions(ctx _context.
 //  @return []MinimalTemplateSubscription
 func (a *VirtualizationRealmsApiService) ListTemplateSubscriptionsExecute(r ApiListTemplateSubscriptionsRequest) ([]MinimalTemplateSubscription, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalTemplateSubscription
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalTemplateSubscription
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.ListTemplateSubscriptions")
@@ -3450,7 +3402,7 @@ func (a *VirtualizationRealmsApiService) ListTemplateSubscriptionsExecute(r ApiL
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3518,12 +3470,10 @@ func (a *VirtualizationRealmsApiService) ListUnregisteredTemplates(ctx _context.
 //  @return []Cons3rtTemplateTagData
 func (a *VirtualizationRealmsApiService) ListUnregisteredTemplatesExecute(r ApiListUnregisteredTemplatesRequest) ([]Cons3rtTemplateTagData, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []Cons3rtTemplateTagData
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Cons3rtTemplateTagData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.ListUnregisteredTemplates")
@@ -3583,7 +3533,7 @@ func (a *VirtualizationRealmsApiService) ListUnregisteredTemplatesExecute(r ApiL
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3654,12 +3604,10 @@ func (a *VirtualizationRealmsApiService) RegisterNetwork(ctx _context.Context, i
 //  @return bool
 func (a *VirtualizationRealmsApiService) RegisterNetworkExecute(r ApiRegisterNetworkRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.RegisterNetwork")
@@ -3720,7 +3668,7 @@ func (a *VirtualizationRealmsApiService) RegisterNetworkExecute(r ApiRegisterNet
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3795,12 +3743,10 @@ func (a *VirtualizationRealmsApiService) RegisterTemplate(ctx _context.Context, 
 //  @return FullTemplateRegistration
 func (a *VirtualizationRealmsApiService) RegisterTemplateExecute(r ApiRegisterTemplateRequest) (FullTemplateRegistration, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullTemplateRegistration
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullTemplateRegistration
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.RegisterTemplate")
@@ -3862,7 +3808,7 @@ func (a *VirtualizationRealmsApiService) RegisterTemplateExecute(r ApiRegisterTe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3937,12 +3883,10 @@ func (a *VirtualizationRealmsApiService) RemoveProject(ctx _context.Context, id 
 //  @return bool
 func (a *VirtualizationRealmsApiService) RemoveProjectExecute(r ApiRemoveProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.RemoveProject")
@@ -4006,7 +3950,7 @@ func (a *VirtualizationRealmsApiService) RemoveProjectExecute(r ApiRemoveProject
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4077,12 +4021,10 @@ func (a *VirtualizationRealmsApiService) RetrieveTemplateRegistration(ctx _conte
 //  @return FullTemplateRegistration
 func (a *VirtualizationRealmsApiService) RetrieveTemplateRegistrationExecute(r ApiRetrieveTemplateRegistrationRequest) (FullTemplateRegistration, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullTemplateRegistration
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullTemplateRegistration
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.RetrieveTemplateRegistration")
@@ -4143,7 +4085,7 @@ func (a *VirtualizationRealmsApiService) RetrieveTemplateRegistrationExecute(r A
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4218,12 +4160,10 @@ func (a *VirtualizationRealmsApiService) SetVirtualizationRealmActive(ctx _conte
 //  @return bool
 func (a *VirtualizationRealmsApiService) SetVirtualizationRealmActiveExecute(r ApiSetVirtualizationRealmActiveRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.SetVirtualizationRealmActive")
@@ -4287,7 +4227,7 @@ func (a *VirtualizationRealmsApiService) SetVirtualizationRealmActiveExecute(r A
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4365,12 +4305,10 @@ func (a *VirtualizationRealmsApiService) ShareTemplateRegistration(ctx _context.
 //  @return bool
 func (a *VirtualizationRealmsApiService) ShareTemplateRegistrationExecute(r ApiShareTemplateRegistrationRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.ShareTemplateRegistration")
@@ -4445,7 +4383,7 @@ func (a *VirtualizationRealmsApiService) ShareTemplateRegistrationExecute(r ApiS
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4525,12 +4463,10 @@ func (a *VirtualizationRealmsApiService) UnregisterTemplate(ctx _context.Context
 //  @return bool
 func (a *VirtualizationRealmsApiService) UnregisterTemplateExecute(r ApiUnregisterTemplateRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.UnregisterTemplate")
@@ -4596,7 +4532,7 @@ func (a *VirtualizationRealmsApiService) UnregisterTemplateExecute(r ApiUnregist
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4674,12 +4610,10 @@ func (a *VirtualizationRealmsApiService) UnshareTemplateRegistration(ctx _contex
 //  @return bool
 func (a *VirtualizationRealmsApiService) UnshareTemplateRegistrationExecute(r ApiUnshareTemplateRegistrationRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.UnshareTemplateRegistration")
@@ -4744,7 +4678,7 @@ func (a *VirtualizationRealmsApiService) UnshareTemplateRegistrationExecute(r Ap
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4833,12 +4767,10 @@ func (a *VirtualizationRealmsApiService) UpdateTemplateRegistration(ctx _context
 //  @return bool
 func (a *VirtualizationRealmsApiService) UpdateTemplateRegistrationExecute(r ApiUpdateTemplateRegistrationRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.UpdateTemplateRegistration")
@@ -4907,7 +4839,7 @@ func (a *VirtualizationRealmsApiService) UpdateTemplateRegistrationExecute(r Api
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -4996,12 +4928,10 @@ func (a *VirtualizationRealmsApiService) UpdateTemplateSubscription(ctx _context
 //  @return bool
 func (a *VirtualizationRealmsApiService) UpdateTemplateSubscriptionExecute(r ApiUpdateTemplateSubscriptionRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.UpdateTemplateSubscription")
@@ -5070,7 +5000,7 @@ func (a *VirtualizationRealmsApiService) UpdateTemplateSubscriptionExecute(r Api
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5147,12 +5077,10 @@ func (a *VirtualizationRealmsApiService) UpdateVirtRealmRemoteAccessConfig(ctx _
 //  @return bool
 func (a *VirtualizationRealmsApiService) UpdateVirtRealmRemoteAccessConfigExecute(r ApiUpdateVirtRealmRemoteAccessConfigRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.UpdateVirtRealmRemoteAccessConfig")
@@ -5217,7 +5145,7 @@ func (a *VirtualizationRealmsApiService) UpdateVirtRealmRemoteAccessConfigExecut
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5292,12 +5220,10 @@ func (a *VirtualizationRealmsApiService) UpdateVirtualizationRealm(ctx _context.
 //  @return bool
 func (a *VirtualizationRealmsApiService) UpdateVirtualizationRealmExecute(r ApiUpdateVirtualizationRealmRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.UpdateVirtualizationRealm")
@@ -5359,7 +5285,7 @@ func (a *VirtualizationRealmsApiService) UpdateVirtualizationRealmExecute(r ApiU
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -5425,12 +5351,10 @@ func (a *VirtualizationRealmsApiService) UpdateVirtualizationRealmReachability(c
 //  @return bool
 func (a *VirtualizationRealmsApiService) UpdateVirtualizationRealmReachabilityExecute(r ApiUpdateVirtualizationRealmReachabilityRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VirtualizationRealmsApiService.UpdateVirtualizationRealmReachability")
@@ -5490,7 +5414,7 @@ func (a *VirtualizationRealmsApiService) UpdateVirtualizationRealmReachabilityEx
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

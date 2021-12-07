@@ -68,12 +68,10 @@ func (a *TestAssetsApiService) AddTestAssetTrustedProject(ctx _context.Context, 
 // Deprecated
 func (a *TestAssetsApiService) AddTestAssetTrustedProjectExecute(r ApiAddTestAssetTrustedProjectRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.AddTestAssetTrustedProject")
@@ -137,7 +135,7 @@ func (a *TestAssetsApiService) AddTestAssetTrustedProjectExecute(r ApiAddTestAss
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -221,12 +219,10 @@ func (a *TestAssetsApiService) AddTrustedProject(ctx _context.Context, id string
 //  @return bool
 func (a *TestAssetsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.AddTrustedProject")
@@ -290,7 +286,7 @@ func (a *TestAssetsApiService) AddTrustedProjectExecute(r ApiAddTrustedProjectRe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -367,12 +363,10 @@ func (a *TestAssetsApiService) DeleteAsset(ctx _context.Context, id string) ApiD
 //  @return bool
 func (a *TestAssetsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.DeleteAsset")
@@ -435,7 +429,7 @@ func (a *TestAssetsApiService) DeleteAssetExecute(r ApiDeleteAssetRequest) (bool
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -514,12 +508,10 @@ func (a *TestAssetsApiService) Download(ctx _context.Context, id string) ApiDown
 //  @return bool
 func (a *TestAssetsApiService) DownloadExecute(r ApiDownloadRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.Download")
@@ -582,7 +574,7 @@ func (a *TestAssetsApiService) DownloadExecute(r ApiDownloadRequest) (bool, *_ne
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -650,12 +642,10 @@ func (a *TestAssetsApiService) GetTestAsset(ctx _context.Context, id string) Api
 //  @return FullTestAsset
 func (a *TestAssetsApiService) GetTestAssetExecute(r ApiGetTestAssetRequest) (FullTestAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullTestAsset
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullTestAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.GetTestAsset")
@@ -715,7 +705,7 @@ func (a *TestAssetsApiService) GetTestAssetExecute(r ApiGetTestAssetRequest) (Fu
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -808,12 +798,10 @@ func (a *TestAssetsApiService) GetTestAssets(ctx _context.Context) ApiGetTestAss
 //  @return []MinimalTestAsset
 func (a *TestAssetsApiService) GetTestAssetsExecute(r ApiGetTestAssetsRequest) ([]MinimalTestAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalTestAsset
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalTestAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.GetTestAssets")
@@ -892,7 +880,7 @@ func (a *TestAssetsApiService) GetTestAssetsExecute(r ApiGetTestAssetsRequest) (
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -992,12 +980,10 @@ func (a *TestAssetsApiService) GetTestAssetsExpanded(ctx _context.Context) ApiGe
 //  @return []BasicTestAsset
 func (a *TestAssetsApiService) GetTestAssetsExpandedExecute(r ApiGetTestAssetsExpandedRequest) ([]BasicTestAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []BasicTestAsset
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []BasicTestAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.GetTestAssetsExpanded")
@@ -1079,7 +1065,7 @@ func (a *TestAssetsApiService) GetTestAssetsExpandedExecute(r ApiGetTestAssetsEx
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1151,12 +1137,10 @@ func (a *TestAssetsApiService) ItarRestrictAsset(ctx _context.Context, id string
 //  @return bool
 func (a *TestAssetsApiService) ItarRestrictAssetExecute(r ApiItarRestrictAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.ItarRestrictAsset")
@@ -1216,7 +1200,7 @@ func (a *TestAssetsApiService) ItarRestrictAssetExecute(r ApiItarRestrictAssetRe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1284,12 +1268,10 @@ func (a *TestAssetsApiService) ListDependentAssets(ctx _context.Context, id stri
 //  @return []BasicAsset
 func (a *TestAssetsApiService) ListDependentAssetsExecute(r ApiListDependentAssetsRequest) ([]BasicAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []BasicAsset
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []BasicAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.ListDependentAssets")
@@ -1349,7 +1331,7 @@ func (a *TestAssetsApiService) ListDependentAssetsExecute(r ApiListDependentAsse
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1424,12 +1406,10 @@ func (a *TestAssetsApiService) RemoveTrustedProject(ctx _context.Context, id str
 //  @return bool
 func (a *TestAssetsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedProjectRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.RemoveTrustedProject")
@@ -1493,7 +1473,7 @@ func (a *TestAssetsApiService) RemoveTrustedProjectExecute(r ApiRemoveTrustedPro
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1568,12 +1548,10 @@ func (a *TestAssetsApiService) UpdateAsset(ctx _context.Context, id string) ApiU
 //  @return bool
 func (a *TestAssetsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.UpdateAsset")
@@ -1635,7 +1613,7 @@ func (a *TestAssetsApiService) UpdateAssetExecute(r ApiUpdateAssetRequest) (bool
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1716,12 +1694,10 @@ func (a *TestAssetsApiService) UpdateAssetContent(ctx _context.Context, id strin
 //  @return bool
 func (a *TestAssetsApiService) UpdateAssetContentExecute(r ApiUpdateAssetContentRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.UpdateAssetContent")
@@ -1753,17 +1729,23 @@ func (a *TestAssetsApiService) UpdateAssetContentExecute(r ApiUpdateAssetContent
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarFormFileName = "file"
-	var localVarFile *os.File
+	var fileLocalVarFormFileName string
+	var fileLocalVarFileName string
+	var fileLocalVarFileBytes []byte
+
+	fileLocalVarFormFileName = "file"
+
+	var fileLocalVarFile *os.File
 	if r.file != nil {
-		localVarFile = r.file
+		fileLocalVarFile = r.file
 	}
-	if localVarFile != nil {
-		fbs, _ := _ioutil.ReadAll(localVarFile)
-		localVarFileBytes = fbs
-		localVarFileName = localVarFile.Name()
-		localVarFile.Close()
+	if fileLocalVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(fileLocalVarFile)
+		fileLocalVarFileBytes = fbs
+		fileLocalVarFileName = fileLocalVarFile.Name()
+		fileLocalVarFile.Close()
 	}
+	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	if r.filename != nil {
 		localVarFormParams.Add("filename", parameterToString(*r.filename, ""))
 	}
@@ -1795,7 +1777,7 @@ func (a *TestAssetsApiService) UpdateAssetContentExecute(r ApiUpdateAssetContent
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1870,12 +1852,10 @@ func (a *TestAssetsApiService) UpdateAssetState(ctx _context.Context, id string)
 //  @return bool
 func (a *TestAssetsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.UpdateAssetState")
@@ -1939,7 +1919,7 @@ func (a *TestAssetsApiService) UpdateAssetStateExecute(r ApiUpdateAssetStateRequ
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2014,12 +1994,10 @@ func (a *TestAssetsApiService) UpdateAssetVisibilityQuery(ctx _context.Context, 
 //  @return bool
 func (a *TestAssetsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAssetVisibilityQueryRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.UpdateAssetVisibilityQuery")
@@ -2083,7 +2061,7 @@ func (a *TestAssetsApiService) UpdateAssetVisibilityQueryExecute(r ApiUpdateAsse
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2160,12 +2138,10 @@ func (a *TestAssetsApiService) UpdateImpactLevel(ctx _context.Context, id string
 //  @return bool
 func (a *TestAssetsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.UpdateImpactLevel")
@@ -2229,7 +2205,7 @@ func (a *TestAssetsApiService) UpdateImpactLevelExecute(r ApiUpdateImpactLevelRe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2304,12 +2280,10 @@ func (a *TestAssetsApiService) UpdateInstanceLimit(ctx _context.Context, id stri
 //  @return bool
 func (a *TestAssetsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLimitRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.UpdateInstanceLimit")
@@ -2373,7 +2347,7 @@ func (a *TestAssetsApiService) UpdateInstanceLimitExecute(r ApiUpdateInstanceLim
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2448,12 +2422,10 @@ func (a *TestAssetsApiService) UpdateOfflineStatus(ctx _context.Context, id stri
 //  @return bool
 func (a *TestAssetsApiService) UpdateOfflineStatusExecute(r ApiUpdateOfflineStatusRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestAssetsApiService.UpdateOfflineStatus")
@@ -2516,7 +2488,7 @@ func (a *TestAssetsApiService) UpdateOfflineStatusExecute(r ApiUpdateOfflineStat
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

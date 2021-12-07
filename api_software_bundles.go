@@ -78,12 +78,10 @@ func (a *SoftwareBundlesApiService) CreateSoftwareAssetBundleFromSystemModule(ct
 //  @return string
 func (a *SoftwareBundlesApiService) CreateSoftwareAssetBundleFromSystemModuleExecute(r ApiCreateSoftwareAssetBundleFromSystemModuleRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SoftwareBundlesApiService.CreateSoftwareAssetBundleFromSystemModule")
@@ -152,7 +150,7 @@ func (a *SoftwareBundlesApiService) CreateSoftwareAssetBundleFromSystemModuleExe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -220,12 +218,10 @@ func (a *SoftwareBundlesApiService) DeleteSoftwareAssetBundle(ctx _context.Conte
 //  @return bool
 func (a *SoftwareBundlesApiService) DeleteSoftwareAssetBundleExecute(r ApiDeleteSoftwareAssetBundleRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SoftwareBundlesApiService.DeleteSoftwareAssetBundle")
@@ -285,7 +281,7 @@ func (a *SoftwareBundlesApiService) DeleteSoftwareAssetBundleExecute(r ApiDelete
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -378,12 +374,10 @@ func (a *SoftwareBundlesApiService) GetSoftwareAssetBundleExpanded(ctx _context.
 //  @return []BasicSoftwareAssetBundle
 func (a *SoftwareBundlesApiService) GetSoftwareAssetBundleExpandedExecute(r ApiGetSoftwareAssetBundleExpandedRequest) ([]BasicSoftwareAssetBundle, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []BasicSoftwareAssetBundle
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []BasicSoftwareAssetBundle
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SoftwareBundlesApiService.GetSoftwareAssetBundleExpanded")
@@ -462,7 +456,7 @@ func (a *SoftwareBundlesApiService) GetSoftwareAssetBundleExpandedExecute(r ApiG
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -530,12 +524,10 @@ func (a *SoftwareBundlesApiService) GetSoftwareBundle(ctx _context.Context, id s
 //  @return FullSoftwareAssetBundle
 func (a *SoftwareBundlesApiService) GetSoftwareBundleExecute(r ApiGetSoftwareBundleRequest) (FullSoftwareAssetBundle, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullSoftwareAssetBundle
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullSoftwareAssetBundle
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SoftwareBundlesApiService.GetSoftwareBundle")
@@ -595,7 +587,7 @@ func (a *SoftwareBundlesApiService) GetSoftwareBundleExecute(r ApiGetSoftwareBun
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -681,12 +673,10 @@ func (a *SoftwareBundlesApiService) GetSoftwareBundles(ctx _context.Context) Api
 //  @return []MinimalSoftwareAssetBundle
 func (a *SoftwareBundlesApiService) GetSoftwareBundlesExecute(r ApiGetSoftwareBundlesRequest) ([]MinimalSoftwareAssetBundle, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalSoftwareAssetBundle
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalSoftwareAssetBundle
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SoftwareBundlesApiService.GetSoftwareBundles")
@@ -762,7 +752,7 @@ func (a *SoftwareBundlesApiService) GetSoftwareBundlesExecute(r ApiGetSoftwareBu
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

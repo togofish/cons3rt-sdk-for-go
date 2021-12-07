@@ -63,12 +63,10 @@ func (a *SystemAssetsApiService) CreateSystemAsset(ctx _context.Context) ApiCrea
 //  @return []FullSystemAsset
 func (a *SystemAssetsApiService) CreateSystemAssetExecute(r ApiCreateSystemAssetRequest) ([]FullSystemAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []FullSystemAsset
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FullSystemAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemAssetsApiService.CreateSystemAsset")
@@ -129,7 +127,7 @@ func (a *SystemAssetsApiService) CreateSystemAssetExecute(r ApiCreateSystemAsset
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -197,12 +195,10 @@ func (a *SystemAssetsApiService) DeleteSystemAsset(ctx _context.Context, id stri
 //  @return bool
 func (a *SystemAssetsApiService) DeleteSystemAssetExecute(r ApiDeleteSystemAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemAssetsApiService.DeleteSystemAsset")
@@ -262,7 +258,7 @@ func (a *SystemAssetsApiService) DeleteSystemAssetExecute(r ApiDeleteSystemAsset
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -330,12 +326,10 @@ func (a *SystemAssetsApiService) ImportSystemAsset(ctx _context.Context, id stri
 //  @return bool
 func (a *SystemAssetsApiService) ImportSystemAssetExecute(r ApiImportSystemAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemAssetsApiService.ImportSystemAsset")
@@ -395,7 +389,7 @@ func (a *SystemAssetsApiService) ImportSystemAssetExecute(r ApiImportSystemAsset
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -460,12 +454,10 @@ func (a *SystemAssetsApiService) ListSystemAssets(ctx _context.Context) ApiListS
 //  @return []MinimalSystemAsset
 func (a *SystemAssetsApiService) ListSystemAssetsExecute(r ApiListSystemAssetsRequest) ([]MinimalSystemAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalSystemAsset
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalSystemAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemAssetsApiService.ListSystemAssets")
@@ -524,7 +516,7 @@ func (a *SystemAssetsApiService) ListSystemAssetsExecute(r ApiListSystemAssetsRe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -592,12 +584,10 @@ func (a *SystemAssetsApiService) RetrieveSystemAsset(ctx _context.Context, id st
 //  @return []FullSystemAsset
 func (a *SystemAssetsApiService) RetrieveSystemAssetExecute(r ApiRetrieveSystemAssetRequest) ([]FullSystemAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []FullSystemAsset
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FullSystemAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemAssetsApiService.RetrieveSystemAsset")
@@ -657,7 +647,7 @@ func (a *SystemAssetsApiService) RetrieveSystemAssetExecute(r ApiRetrieveSystemA
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -732,12 +722,10 @@ func (a *SystemAssetsApiService) UpdateSystemAsset(ctx _context.Context, id stri
 //  @return FullSystemAsset
 func (a *SystemAssetsApiService) UpdateSystemAssetExecute(r ApiUpdateSystemAssetRequest) (FullSystemAsset, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullSystemAsset
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullSystemAsset
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SystemAssetsApiService.UpdateSystemAsset")
@@ -799,7 +787,7 @@ func (a *SystemAssetsApiService) UpdateSystemAssetExecute(r ApiUpdateSystemAsset
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

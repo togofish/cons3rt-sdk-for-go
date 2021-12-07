@@ -76,12 +76,10 @@ func (a *TemplatesApiService) ListVirtualizationRealmTemplates(ctx _context.Cont
 //  @return []MinimalCons3rtTemplateData
 func (a *TemplatesApiService) ListVirtualizationRealmTemplatesExecute(r ApiListVirtualizationRealmTemplatesRequest) ([]MinimalCons3rtTemplateData, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalCons3rtTemplateData
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalCons3rtTemplateData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesApiService.ListVirtualizationRealmTemplates")
@@ -150,7 +148,7 @@ func (a *TemplatesApiService) ListVirtualizationRealmTemplatesExecute(r ApiListV
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

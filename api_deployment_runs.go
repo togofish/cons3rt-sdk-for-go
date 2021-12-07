@@ -68,12 +68,10 @@ func (a *DeploymentRunsApiService) AddCategoryToDeploymentRun(ctx _context.Conte
 //  @return bool
 func (a *DeploymentRunsApiService) AddCategoryToDeploymentRunExecute(r ApiAddCategoryToDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.AddCategoryToDeploymentRun")
@@ -137,7 +135,7 @@ func (a *DeploymentRunsApiService) AddCategoryToDeploymentRunExecute(r ApiAddCat
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -188,7 +186,7 @@ func (r DeploymentRunsApiCreateIdentityRequest) CloudResourceObject(cloudResourc
 	return r
 }
 
-func (r DeploymentRunsApiCreateIdentityRequest) Execute() (BaseCredentials, *_nethttp.Response, error) {
+func (r DeploymentRunsApiCreateIdentityRequest) Execute() ([]BaseCredentials, *_nethttp.Response, error) {
 	return r.ApiService.CreateIdentityExecute(r)
 }
 
@@ -213,14 +211,12 @@ func (a *DeploymentRunsApiService) CreateIdentity(ctx _context.Context, id strin
 
 // Execute executes the request
 //  @return BaseCredentials
-func (a *DeploymentRunsApiService) CreateIdentityExecute(r DeploymentRunsApiCreateIdentityRequest) (BaseCredentials, *_nethttp.Response, error) {
+func (a *DeploymentRunsApiService) CreateIdentityExecute(r DeploymentRunsApiCreateIdentityRequest) ([]BaseCredentials, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  BaseCredentials
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []BaseCredentials
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.CreateIdentity")
@@ -286,7 +282,7 @@ func (a *DeploymentRunsApiService) CreateIdentityExecute(r DeploymentRunsApiCrea
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -361,12 +357,10 @@ func (a *DeploymentRunsApiService) DeleteDeploymentRun(ctx _context.Context, id 
 //  @return bool
 func (a *DeploymentRunsApiService) DeleteDeploymentRunExecute(r ApiDeleteDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.DeleteDeploymentRun")
@@ -429,7 +423,7 @@ func (a *DeploymentRunsApiService) DeleteDeploymentRunExecute(r ApiDeleteDeploym
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -500,12 +494,10 @@ func (a *DeploymentRunsApiService) DeleteIdentity(ctx _context.Context, id strin
 //  @return bool
 func (a *DeploymentRunsApiService) DeleteIdentityExecute(r DeploymentRunsApiDeleteIdentityRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.DeleteIdentity")
@@ -566,7 +558,7 @@ func (a *DeploymentRunsApiService) DeleteIdentityExecute(r DeploymentRunsApiDele
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -611,7 +603,7 @@ type DeploymentRunsApiDeleteIdentityByIdRequest struct {
 	username   string
 }
 
-func (r DeploymentRunsApiDeleteIdentityByIdRequest) Execute() (BaseCredentials, *_nethttp.Response, error) {
+func (r DeploymentRunsApiDeleteIdentityByIdRequest) Execute() (bool, *_nethttp.Response, error) {
 	return r.ApiService.DeleteIdentityByIdExecute(r)
 }
 
@@ -637,15 +629,13 @@ func (a *DeploymentRunsApiService) DeleteIdentityById(ctx _context.Context, id s
 }
 
 // Execute executes the request
-//  @return BaseCredentials
-func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r DeploymentRunsApiDeleteIdentityByIdRequest) (BaseCredentials, *_nethttp.Response, error) {
+//  @return bool
+func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r DeploymentRunsApiDeleteIdentityByIdRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  BaseCredentials
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.DeleteIdentityById")
@@ -707,7 +697,7 @@ func (a *DeploymentRunsApiService) DeleteIdentityByIdExecute(r DeploymentRunsApi
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -788,11 +778,9 @@ func (a *DeploymentRunsApiService) DownloadDeploymentRunTestReport(ctx _context.
 // Execute executes the request
 func (a *DeploymentRunsApiService) DownloadDeploymentRunTestReportExecute(r ApiDownloadDeploymentRunTestReportRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		localVarHTTPMethod = _nethttp.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.DownloadDeploymentRunTestReport")
@@ -858,7 +846,7 @@ func (a *DeploymentRunsApiService) DownloadDeploymentRunTestReportExecute(r ApiD
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -934,11 +922,9 @@ func (a *DeploymentRunsApiService) DownloadHost(ctx _context.Context, id string)
 // Execute executes the request
 func (a *DeploymentRunsApiService) DownloadHostExecute(r ApiDownloadHostRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		localVarHTTPMethod = _nethttp.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.DownloadHost")
@@ -1005,7 +991,7 @@ func (a *DeploymentRunsApiService) DownloadHostExecute(r ApiDownloadHostRequest)
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -1064,12 +1050,10 @@ func (a *DeploymentRunsApiService) GetDeploymentRun(ctx _context.Context, id str
 //  @return FullDeploymentRun
 func (a *DeploymentRunsApiService) GetDeploymentRunExecute(r ApiGetDeploymentRunRequest) (FullDeploymentRun, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullDeploymentRun
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullDeploymentRun
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetDeploymentRun")
@@ -1129,7 +1113,7 @@ func (a *DeploymentRunsApiService) GetDeploymentRunExecute(r ApiGetDeploymentRun
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1197,12 +1181,10 @@ func (a *DeploymentRunsApiService) GetDeploymentRunReports(ctx _context.Context,
 //  @return []string
 func (a *DeploymentRunsApiService) GetDeploymentRunReportsExecute(r ApiGetDeploymentRunReportsRequest) ([]string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []string
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetDeploymentRunReports")
@@ -1262,7 +1244,7 @@ func (a *DeploymentRunsApiService) GetDeploymentRunReportsExecute(r ApiGetDeploy
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1344,12 +1326,10 @@ func (a *DeploymentRunsApiService) GetDeploymentRuns(ctx _context.Context, id st
 //  @return []MinimalDeploymentRun
 func (a *DeploymentRunsApiService) GetDeploymentRunsExecute(r DeploymentRunsApiGetDeploymentRunsRequest) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalDeploymentRun
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalDeploymentRun
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetDeploymentRuns")
@@ -1415,7 +1395,7 @@ func (a *DeploymentRunsApiService) GetDeploymentRunsExecute(r DeploymentRunsApiG
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1508,12 +1488,10 @@ func (a *DeploymentRunsApiService) GetDeploymentRuns1(ctx _context.Context) Depl
 //  @return []MinimalDeploymentRun
 func (a *DeploymentRunsApiService) GetDeploymentRuns1Execute(r DeploymentRunsApiGetDeploymentRuns1Request) ([]MinimalDeploymentRun, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []MinimalDeploymentRun
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []MinimalDeploymentRun
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetDeploymentRuns1")
@@ -1585,7 +1563,7 @@ func (a *DeploymentRunsApiService) GetDeploymentRuns1Execute(r DeploymentRunsApi
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1656,12 +1634,10 @@ func (a *DeploymentRunsApiService) GetHost(ctx _context.Context, id string, host
 //  @return FullDeploymentRunHost
 func (a *DeploymentRunsApiService) GetHostExecute(r ApiGetHostRequest) (FullDeploymentRunHost, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullDeploymentRunHost
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullDeploymentRunHost
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetHost")
@@ -1722,7 +1698,7 @@ func (a *DeploymentRunsApiService) GetHostExecute(r ApiGetHostRequest) (FullDepl
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1807,12 +1783,10 @@ func (a *DeploymentRunsApiService) GetHostAccess(ctx _context.Context, id string
 //  @return []RemoteAccessSession
 func (a *DeploymentRunsApiService) GetHostAccessExecute(r ApiGetHostAccessRequest) ([]RemoteAccessSession, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []RemoteAccessSession
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []RemoteAccessSession
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetHostAccess")
@@ -1879,7 +1853,7 @@ func (a *DeploymentRunsApiService) GetHostAccessExecute(r ApiGetHostAccessReques
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1975,12 +1949,10 @@ func (a *DeploymentRunsApiService) GetHostConfigurationMetrics(ctx _context.Cont
 //  @return string
 func (a *DeploymentRunsApiService) GetHostConfigurationMetricsExecute(r DeploymentRunsApiGetHostConfigurationMetricsRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetHostConfigurationMetrics")
@@ -2054,7 +2026,7 @@ func (a *DeploymentRunsApiService) GetHostConfigurationMetricsExecute(r Deployme
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2125,12 +2097,10 @@ func (a *DeploymentRunsApiService) GetHostInstanceTypes(ctx _context.Context, id
 //  @return TargetInstanceTypes
 func (a *DeploymentRunsApiService) GetHostInstanceTypesExecute(r ApiGetHostInstanceTypesRequest) (TargetInstanceTypes, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  TargetInstanceTypes
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue TargetInstanceTypes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetHostInstanceTypes")
@@ -2191,7 +2161,7 @@ func (a *DeploymentRunsApiService) GetHostInstanceTypesExecute(r ApiGetHostInsta
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2235,7 +2205,7 @@ type DeploymentRunsApiGetIdentitiesRequest struct {
 	hostid     string
 }
 
-func (r DeploymentRunsApiGetIdentitiesRequest) Execute() (BaseCredentials, *_nethttp.Response, error) {
+func (r DeploymentRunsApiGetIdentitiesRequest) Execute() ([]BaseIdentity, *_nethttp.Response, error) {
 	return r.ApiService.GetIdentitiesExecute(r)
 }
 
@@ -2259,15 +2229,13 @@ func (a *DeploymentRunsApiService) GetIdentities(ctx _context.Context, id string
 }
 
 // Execute executes the request
-//  @return BaseCredentials
-func (a *DeploymentRunsApiService) GetIdentitiesExecute(r DeploymentRunsApiGetIdentitiesRequest) (BaseCredentials, *_nethttp.Response, error) {
+//  @return []BaseIdentity
+func (a *DeploymentRunsApiService) GetIdentitiesExecute(r DeploymentRunsApiGetIdentitiesRequest) ([]BaseIdentity, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  BaseCredentials
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []BaseIdentity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetIdentities")
@@ -2328,7 +2296,7 @@ func (a *DeploymentRunsApiService) GetIdentitiesExecute(r DeploymentRunsApiGetId
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2399,12 +2367,10 @@ func (a *DeploymentRunsApiService) GetIdentity(ctx _context.Context, id string, 
 //  @return []CloudResourceAccessListing
 func (a *DeploymentRunsApiService) GetIdentityExecute(r DeploymentRunsApiGetIdentityRequest) ([]CloudResourceAccessListing, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []CloudResourceAccessListing
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []CloudResourceAccessListing
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.GetIdentity")
@@ -2465,7 +2431,7 @@ func (a *DeploymentRunsApiService) GetIdentityExecute(r DeploymentRunsApiGetIden
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2568,12 +2534,10 @@ func (a *DeploymentRunsApiService) PerformHostAction(ctx _context.Context, id st
 //  @return bool
 func (a *DeploymentRunsApiService) PerformHostActionExecute(r ApiPerformHostActionRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.PerformHostAction")
@@ -2650,7 +2614,7 @@ func (a *DeploymentRunsApiService) PerformHostActionExecute(r ApiPerformHostActi
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2720,12 +2684,10 @@ func (a *DeploymentRunsApiService) PublishDeploymentRun(ctx _context.Context, id
 //  @return bool
 func (a *DeploymentRunsApiService) PublishDeploymentRunExecute(r DeploymentRunsApiPublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.PublishDeploymentRun")
@@ -2785,7 +2747,7 @@ func (a *DeploymentRunsApiService) PublishDeploymentRunExecute(r DeploymentRunsA
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2870,12 +2832,10 @@ func (a *DeploymentRunsApiService) RedeployContainerAsset(ctx _context.Context, 
 //  @return bool
 func (a *DeploymentRunsApiService) RedeployContainerAssetExecute(r ApiRedeployContainerAssetRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.RedeployContainerAsset")
@@ -2942,7 +2902,7 @@ func (a *DeploymentRunsApiService) RedeployContainerAssetExecute(r ApiRedeployCo
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3017,12 +2977,10 @@ func (a *DeploymentRunsApiService) RedeployDeploymentRunHosts(ctx _context.Conte
 //  @return bool
 func (a *DeploymentRunsApiService) RedeployDeploymentRunHostsExecute(r ApiRedeployDeploymentRunHostsRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.RedeployDeploymentRunHosts")
@@ -3084,7 +3042,7 @@ func (a *DeploymentRunsApiService) RedeployDeploymentRunHostsExecute(r ApiRedepl
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3152,12 +3110,10 @@ func (a *DeploymentRunsApiService) RelaunchDeploymentRun(ctx _context.Context, i
 //  @return string
 func (a *DeploymentRunsApiService) RelaunchDeploymentRunExecute(r ApiRelaunchDeploymentRunRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.RelaunchDeploymentRun")
@@ -3217,7 +3173,7 @@ func (a *DeploymentRunsApiService) RelaunchDeploymentRunExecute(r ApiRelaunchDep
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3296,12 +3252,10 @@ func (a *DeploymentRunsApiService) ReleaseDeploymentRun(ctx _context.Context, id
 //  @return bool
 func (a *DeploymentRunsApiService) ReleaseDeploymentRunExecute(r ApiReleaseDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.ReleaseDeploymentRun")
@@ -3364,7 +3318,7 @@ func (a *DeploymentRunsApiService) ReleaseDeploymentRunExecute(r ApiReleaseDeplo
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3441,12 +3395,10 @@ func (a *DeploymentRunsApiService) RemoveCategoryFromDeploymentRun(ctx _context.
 //  @return bool
 func (a *DeploymentRunsApiService) RemoveCategoryFromDeploymentRunExecute(r ApiRemoveCategoryFromDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.RemoveCategoryFromDeploymentRun")
@@ -3510,7 +3462,7 @@ func (a *DeploymentRunsApiService) RemoveCategoryFromDeploymentRunExecute(r ApiR
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3578,12 +3530,10 @@ func (a *DeploymentRunsApiService) RetestDeploymentRun(ctx _context.Context, id 
 //  @return bool
 func (a *DeploymentRunsApiService) RetestDeploymentRunExecute(r ApiRetestDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.RetestDeploymentRun")
@@ -3643,7 +3593,7 @@ func (a *DeploymentRunsApiService) RetestDeploymentRunExecute(r ApiRetestDeploym
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3718,12 +3668,10 @@ func (a *DeploymentRunsApiService) SetDeploymentRunLock(ctx _context.Context, id
 //  @return bool
 func (a *DeploymentRunsApiService) SetDeploymentRunLockExecute(r ApiSetDeploymentRunLockRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.SetDeploymentRunLock")
@@ -3787,7 +3735,7 @@ func (a *DeploymentRunsApiService) SetDeploymentRunLockExecute(r ApiSetDeploymen
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3862,12 +3810,10 @@ func (a *DeploymentRunsApiService) SetPowerScheduleForDeploymentRun(ctx _context
 //  @return bool
 func (a *DeploymentRunsApiService) SetPowerScheduleForDeploymentRunExecute(r ApiSetPowerScheduleForDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.SetPowerScheduleForDeploymentRun")
@@ -3929,7 +3875,7 @@ func (a *DeploymentRunsApiService) SetPowerScheduleForDeploymentRunExecute(r Api
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -3999,12 +3945,10 @@ func (a *DeploymentRunsApiService) UnpublishDeploymentRun(ctx _context.Context, 
 //  @return bool
 func (a *DeploymentRunsApiService) UnpublishDeploymentRunExecute(r DeploymentRunsApiUnpublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentRunsApiService.UnpublishDeploymentRun")
@@ -4064,7 +4008,7 @@ func (a *DeploymentRunsApiService) UnpublishDeploymentRunExecute(r DeploymentRun
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

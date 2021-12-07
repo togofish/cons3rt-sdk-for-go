@@ -59,12 +59,10 @@ func (a *CompositionsApiService) DeleteComposition(ctx _context.Context, id stri
 //  @return bool
 func (a *CompositionsApiService) DeleteCompositionExecute(r ApiDeleteCompositionRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompositionsApiService.DeleteComposition")
@@ -124,7 +122,7 @@ func (a *CompositionsApiService) DeleteCompositionExecute(r ApiDeleteComposition
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -192,12 +190,10 @@ func (a *CompositionsApiService) GetComposition(ctx _context.Context, id string)
 //  @return FullComposition
 func (a *CompositionsApiService) GetCompositionExecute(r ApiGetCompositionRequest) (FullComposition, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullComposition
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullComposition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompositionsApiService.GetComposition")
@@ -257,7 +253,7 @@ func (a *CompositionsApiService) GetCompositionExecute(r ApiGetCompositionReques
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -336,12 +332,10 @@ func (a *CompositionsApiService) ListCompositions(ctx _context.Context) ApiListC
 //  @return []FullComposition
 func (a *CompositionsApiService) ListCompositionsExecute(r ApiListCompositionsRequest) ([]FullComposition, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []FullComposition
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FullComposition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompositionsApiService.ListCompositions")
@@ -406,7 +400,7 @@ func (a *CompositionsApiService) ListCompositionsExecute(r ApiListCompositionsRe
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -476,12 +470,10 @@ func (a *CompositionsApiService) PublishDeploymentRun(ctx _context.Context, id s
 //  @return bool
 func (a *CompositionsApiService) PublishDeploymentRunExecute(r CompositionsApiPublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompositionsApiService.PublishDeploymentRun")
@@ -541,7 +533,7 @@ func (a *CompositionsApiService) PublishDeploymentRunExecute(r CompositionsApiPu
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -616,12 +608,10 @@ func (a *CompositionsApiService) PublishScenarioToComposition(ctx _context.Conte
 //  @return string
 func (a *CompositionsApiService) PublishScenarioToCompositionExecute(r CompositionsApiPublishScenarioToCompositionRequest) (string, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  string
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompositionsApiService.PublishScenarioToComposition")
@@ -683,7 +673,7 @@ func (a *CompositionsApiService) PublishScenarioToCompositionExecute(r Compositi
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -753,12 +743,10 @@ func (a *CompositionsApiService) UnpublishDeploymentRun(ctx _context.Context, id
 //  @return bool
 func (a *CompositionsApiService) UnpublishDeploymentRunExecute(r CompositionsApiUnpublishDeploymentRunRequest) (bool, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  bool
+		localVarHTTPMethod  = _nethttp.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompositionsApiService.UnpublishDeploymentRun")
@@ -818,7 +806,7 @@ func (a *CompositionsApiService) UnpublishDeploymentRunExecute(r CompositionsApi
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -893,12 +881,10 @@ func (a *CompositionsApiService) UpdateComposition(ctx _context.Context, id stri
 //  @return FullComposition
 func (a *CompositionsApiService) UpdateCompositionExecute(r ApiUpdateCompositionRequest) (FullComposition, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FullComposition
+		localVarHTTPMethod  = _nethttp.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue FullComposition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompositionsApiService.UpdateComposition")
@@ -960,7 +946,7 @@ func (a *CompositionsApiService) UpdateCompositionExecute(r ApiUpdateComposition
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
