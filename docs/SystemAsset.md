@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSystemAsset
 
-`func NewSystemAsset(password string, url string, username string, type_ string, ) *SystemAsset`
+`func NewSystemAsset(password string, clientUrl string, username string, type_ string, ) *SystemAsset`
 
 NewSystemAsset instantiates a new SystemAsset object
 This constructor will assign default values to properties that have it defined,

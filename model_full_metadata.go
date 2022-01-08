@@ -20,14 +20,14 @@ type FullMetadata struct {
 	AssetDirectory  *string       `json:"assetDirectory,omitempty"`
 	Version         *int32        `json:"version,omitempty"`
 	Cloud           *MinimalCloud `json:"cloud,omitempty"`
-	CreationDate    *int32        `json:"creationDate,omitempty"`
+	CreationDate    *int64        `json:"creationDate,omitempty"`
 	Documentation   *string       `json:"documentation,omitempty"`
 	Id              *int32        `json:"id,omitempty"`
 	InstanceLimit   *int32        `json:"instanceLimit,omitempty"`
 	ItarRestricted  *bool         `json:"itarRestricted,omitempty"`
 	License         *string       `json:"license,omitempty"`
 	Modifier        *MinimalUser  `json:"modifier,omitempty"`
-	ModifierDate    *int32        `json:"modifierDate,omitempty"`
+	ModifierDate    *int64        `json:"modifierDate,omitempty"`
 	Properties      *[]Property   `json:"properties,omitempty"`
 	Uri             *string       `json:"uri,omitempty"`
 	Validated       *bool         `json:"validated,omitempty"`
@@ -148,9 +148,9 @@ func (o *FullMetadata) SetCloud(v MinimalCloud) {
 }
 
 // GetCreationDate returns the CreationDate field value if set, zero value otherwise.
-func (o *FullMetadata) GetCreationDate() int32 {
+func (o *FullMetadata) GetCreationDate() int64 {
 	if o == nil || o.CreationDate == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CreationDate
@@ -158,7 +158,7 @@ func (o *FullMetadata) GetCreationDate() int32 {
 
 // GetCreationDateOk returns a tuple with the CreationDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullMetadata) GetCreationDateOk() (*int32, bool) {
+func (o *FullMetadata) GetCreationDateOk() (*int64, bool) {
 	if o == nil || o.CreationDate == nil {
 		return nil, false
 	}
@@ -175,7 +175,7 @@ func (o *FullMetadata) HasCreationDate() bool {
 }
 
 // SetCreationDate gets a reference to the given int32 and assigns it to the CreationDate field.
-func (o *FullMetadata) SetCreationDate(v int32) {
+func (o *FullMetadata) SetCreationDate(v int64) {
 	o.CreationDate = &v
 }
 
@@ -372,9 +372,9 @@ func (o *FullMetadata) SetModifier(v MinimalUser) {
 }
 
 // GetModifierDate returns the ModifierDate field value if set, zero value otherwise.
-func (o *FullMetadata) GetModifierDate() int32 {
+func (o *FullMetadata) GetModifierDate() int64 {
 	if o == nil || o.ModifierDate == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ModifierDate
@@ -382,7 +382,7 @@ func (o *FullMetadata) GetModifierDate() int32 {
 
 // GetModifierDateOk returns a tuple with the ModifierDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullMetadata) GetModifierDateOk() (*int32, bool) {
+func (o *FullMetadata) GetModifierDateOk() (*int64, bool) {
 	if o == nil || o.ModifierDate == nil {
 		return nil, false
 	}
@@ -399,7 +399,7 @@ func (o *FullMetadata) HasModifierDate() bool {
 }
 
 // SetModifierDate gets a reference to the given int32 and assigns it to the ModifierDate field.
-func (o *FullMetadata) SetModifierDate(v int32) {
+func (o *FullMetadata) SetModifierDate(v int64) {
 	o.ModifierDate = &v
 }
 

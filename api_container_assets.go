@@ -1807,7 +1807,7 @@ func (r ContainerApiUpdateAssetContentRequest) Filename(filename string) Contain
 	return r
 }
 
-func (r ContainerApiUpdateAssetContentRequest) Execute() (bool, *_nethttp.Response, error) {
+func (r ContainerApiUpdateAssetContentRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.UpdateAssetContentExecute(r)
 }
 
@@ -1832,12 +1832,12 @@ func (a *ContainerAssetsApiService) UpdateAssetContent(ctx _context.Context, id 
 
 // Execute executes the request
 //  @return bool
-func (a *ContainerAssetsApiService) UpdateAssetContentExecute(r ContainerApiUpdateAssetContentRequest) (bool, *_nethttp.Response, error) {
+func (a *ContainerAssetsApiService) UpdateAssetContentExecute(r ContainerApiUpdateAssetContentRequest) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod  = _nethttp.MethodPut
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue bool
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContainerAssetsApiService.UpdateAssetContent")
