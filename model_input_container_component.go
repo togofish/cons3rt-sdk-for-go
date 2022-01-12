@@ -18,8 +18,8 @@ import (
 // InputContainerComponent struct for InputContainerComponent
 type InputContainerComponent struct {
 	Configuration InputContainerConfiguration `json:"configuration"`
-	Asset         InputAsset
-	Subtype       string
+	Asset         InputAsset                  `json:"asset"`
+	Subtype       string                      `json:"subtype"`
 }
 
 // NewInputContainerComponent instantiates a new InputContainerComponent object
@@ -66,10 +66,60 @@ func (o *InputContainerComponent) SetConfiguration(v InputContainerConfiguration
 	o.Configuration = v
 }
 
+// GetAsset returns the Asset field value
+func (o *InputContainerComponent) GetAsset() InputAsset {
+	if o == nil {
+		var ret InputAsset
+		return ret
+	}
+
+	return o.Asset
+}
+
+// GetAssetOk returns a tuple with the Asset field value
+// and a boolean to check if the value has been set.
+func (o *InputContainerComponent) GetAssetOk() (*InputAsset, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Asset, true
+}
+
+// SetAsset sets field value
+func (o *InputContainerComponent) SetAsset(v InputAsset) {
+	o.Asset = v
+}
+
+// GetSubtype returns the Asset field value
+func (o *InputContainerComponent) GetSubtype() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Subtype
+}
+
+// GetSubtypeOk returns a tuple with the Asset field value
+// and a boolean to check if the value has been set.
+func (o *InputContainerComponent) GetSubtypeOk() (string, bool) {
+	if o == nil {
+		return "", false
+	}
+	return o.Subtype, true
+}
+
+// SetSubtype sets field value
+func (o *InputContainerComponent) SetSubtype(v string) {
+	o.Subtype = v
+}
+
 func (o InputContainerComponent) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["configuration"] = o.Configuration
+		toSerialize["asset"] = o.Asset
+		toSerialize["subtype"] = o.Subtype
 	}
 	return json.Marshal(toSerialize)
 }
