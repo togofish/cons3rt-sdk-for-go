@@ -17,14 +17,14 @@ import (
 
 // AbstractInstallation struct for AbstractInstallation
 type AbstractInstallation struct {
-	AssetId                 *int32  `json:"assetId,omitempty"`
+	AssetId                 *int64  `json:"assetId,omitempty"`
 	AssetName               *string `json:"assetName,omitempty"`
 	AverageInstallationTime *int64  `json:"averageInstallationTime,omitempty"`
-	EndDate                 *int32  `json:"endDate,omitempty"`
+	EndDate                 *int64  `json:"endDate,omitempty"`
 	Error                   *string `json:"error,omitempty"`
-	Id                      *int32  `json:"id,omitempty"`
-	LoadOrder               *int32  `json:"loadOrder,omitempty"`
-	StartDate               *int32  `json:"startDate,omitempty"`
+	Id                      *int64  `json:"id,omitempty"`
+	LoadOrder               *int64  `json:"loadOrder,omitempty"`
+	StartDate               *int64  `json:"startDate,omitempty"`
 	Status                  *string `json:"status,omitempty"`
 	Subtype                 string  `json:"subtype"`
 }
@@ -48,9 +48,9 @@ func NewAbstractInstallationWithDefaults() *AbstractInstallation {
 }
 
 // GetAssetId returns the AssetId field value if set, zero value otherwise.
-func (o *AbstractInstallation) GetAssetId() int32 {
+func (o *AbstractInstallation) GetAssetId() int64 {
 	if o == nil || o.AssetId == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AssetId
@@ -58,7 +58,7 @@ func (o *AbstractInstallation) GetAssetId() int32 {
 
 // GetAssetIdOk returns a tuple with the AssetId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AbstractInstallation) GetAssetIdOk() (*int32, bool) {
+func (o *AbstractInstallation) GetAssetIdOk() (*int64, bool) {
 	if o == nil || o.AssetId == nil {
 		return nil, false
 	}
@@ -74,8 +74,8 @@ func (o *AbstractInstallation) HasAssetId() bool {
 	return false
 }
 
-// SetAssetId gets a reference to the given int32 and assigns it to the AssetId field.
-func (o *AbstractInstallation) SetAssetId(v int32) {
+// SetAssetId gets a reference to the given int64 and assigns it to the AssetId field.
+func (o *AbstractInstallation) SetAssetId(v int64) {
 	o.AssetId = &v
 }
 
@@ -144,9 +144,9 @@ func (o *AbstractInstallation) SetAverageInstallationTime(v int64) {
 }
 
 // GetEndDate returns the EndDate field value if set, zero value otherwise.
-func (o *AbstractInstallation) GetEndDate() int32 {
+func (o *AbstractInstallation) GetEndDate() int64 {
 	if o == nil || o.EndDate == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EndDate
@@ -154,7 +154,7 @@ func (o *AbstractInstallation) GetEndDate() int32 {
 
 // GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AbstractInstallation) GetEndDateOk() (*int32, bool) {
+func (o *AbstractInstallation) GetEndDateOk() (*int64, bool) {
 	if o == nil || o.EndDate == nil {
 		return nil, false
 	}
@@ -170,8 +170,8 @@ func (o *AbstractInstallation) HasEndDate() bool {
 	return false
 }
 
-// SetEndDate gets a reference to the given int32 and assigns it to the EndDate field.
-func (o *AbstractInstallation) SetEndDate(v int32) {
+// SetEndDate gets a reference to the given int64 and assigns it to the EndDate field.
+func (o *AbstractInstallation) SetEndDate(v int64) {
 	o.EndDate = &v
 }
 
@@ -208,9 +208,9 @@ func (o *AbstractInstallation) SetError(v string) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *AbstractInstallation) GetId() int32 {
+func (o *AbstractInstallation) GetId() int64 {
 	if o == nil || o.Id == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -218,7 +218,7 @@ func (o *AbstractInstallation) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AbstractInstallation) GetIdOk() (*int32, bool) {
+func (o *AbstractInstallation) GetIdOk() (*int64, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -234,15 +234,15 @@ func (o *AbstractInstallation) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *AbstractInstallation) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *AbstractInstallation) SetId(v int64) {
 	o.Id = &v
 }
 
 // GetLoadOrder returns the LoadOrder field value if set, zero value otherwise.
-func (o *AbstractInstallation) GetLoadOrder() int32 {
+func (o *AbstractInstallation) GetLoadOrder() int64 {
 	if o == nil || o.LoadOrder == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LoadOrder
@@ -250,7 +250,7 @@ func (o *AbstractInstallation) GetLoadOrder() int32 {
 
 // GetLoadOrderOk returns a tuple with the LoadOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AbstractInstallation) GetLoadOrderOk() (*int32, bool) {
+func (o *AbstractInstallation) GetLoadOrderOk() (*int64, bool) {
 	if o == nil || o.LoadOrder == nil {
 		return nil, false
 	}
@@ -266,15 +266,15 @@ func (o *AbstractInstallation) HasLoadOrder() bool {
 	return false
 }
 
-// SetLoadOrder gets a reference to the given int32 and assigns it to the LoadOrder field.
-func (o *AbstractInstallation) SetLoadOrder(v int32) {
+// SetLoadOrder gets a reference to the given int64 and assigns it to the LoadOrder field.
+func (o *AbstractInstallation) SetLoadOrder(v int64) {
 	o.LoadOrder = &v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
-func (o *AbstractInstallation) GetStartDate() int32 {
+func (o *AbstractInstallation) GetStartDate() int64 {
 	if o == nil || o.StartDate == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StartDate
@@ -282,7 +282,7 @@ func (o *AbstractInstallation) GetStartDate() int32 {
 
 // GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AbstractInstallation) GetStartDateOk() (*int32, bool) {
+func (o *AbstractInstallation) GetStartDateOk() (*int64, bool) {
 	if o == nil || o.StartDate == nil {
 		return nil, false
 	}
@@ -298,8 +298,8 @@ func (o *AbstractInstallation) HasStartDate() bool {
 	return false
 }
 
-// SetStartDate gets a reference to the given int32 and assigns it to the StartDate field.
-func (o *AbstractInstallation) SetStartDate(v int32) {
+// SetStartDate gets a reference to the given int64 and assigns it to the StartDate field.
+func (o *AbstractInstallation) SetStartDate(v int64) {
 	o.StartDate = &v
 }
 

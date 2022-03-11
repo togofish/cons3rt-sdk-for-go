@@ -18,10 +18,10 @@ import (
 // MinimalDeploymentRun struct for MinimalDeploymentRun
 type MinimalDeploymentRun struct {
 	Creator                 *MinimalUser    `json:"creator,omitempty"`
-	Id                      *int32          `json:"id,omitempty"`
+	Id                      *int64          `json:"id,omitempty"`
 	Project                 *MinimalProject `json:"project,omitempty"`
 	Result                  *string         `json:"result,omitempty"`
-	StartTime               *int32          `json:"startTime,omitempty"`
+	StartTime               *int64          `json:"startTime,omitempty"`
 	Canceled                *bool           `json:"canceled,omitempty"`
 	DeploymentRunStatus     *string         `json:"deploymentRunStatus,omitempty"`
 	Description             *string         `json:"description,omitempty"`
@@ -81,9 +81,9 @@ func (o *MinimalDeploymentRun) SetCreator(v MinimalUser) {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *MinimalDeploymentRun) GetId() int32 {
+func (o *MinimalDeploymentRun) GetId() int64 {
 	if o == nil || o.Id == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -91,7 +91,7 @@ func (o *MinimalDeploymentRun) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MinimalDeploymentRun) GetIdOk() (*int32, bool) {
+func (o *MinimalDeploymentRun) GetIdOk() (*int64, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -108,7 +108,7 @@ func (o *MinimalDeploymentRun) HasId() bool {
 }
 
 // SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *MinimalDeploymentRun) SetId(v int32) {
+func (o *MinimalDeploymentRun) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -177,9 +177,9 @@ func (o *MinimalDeploymentRun) SetResult(v string) {
 }
 
 // GetStartTime returns the StartTime field value if set, zero value otherwise.
-func (o *MinimalDeploymentRun) GetStartTime() int32 {
+func (o *MinimalDeploymentRun) GetStartTime() int64 {
 	if o == nil || o.StartTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StartTime
@@ -187,7 +187,7 @@ func (o *MinimalDeploymentRun) GetStartTime() int32 {
 
 // GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MinimalDeploymentRun) GetStartTimeOk() (*int32, bool) {
+func (o *MinimalDeploymentRun) GetStartTimeOk() (*int64, bool) {
 	if o == nil || o.StartTime == nil {
 		return nil, false
 	}
@@ -203,8 +203,8 @@ func (o *MinimalDeploymentRun) HasStartTime() bool {
 	return false
 }
 
-// SetStartTime gets a reference to the given int32 and assigns it to the StartTime field.
-func (o *MinimalDeploymentRun) SetStartTime(v int32) {
+// SetStartTime gets a reference to the given int64 and assigns it to the StartTime field.
+func (o *MinimalDeploymentRun) SetStartTime(v int64) {
 	o.StartTime = &v
 }
 

@@ -19,19 +19,19 @@ import (
 type FullDeploymentRun struct {
 	Categories              *[]MinimalCategory          `json:"categories,omitempty"`
 	Creator                 *MinimalUser                `json:"creator,omitempty"`
-	EarliestStartTime       *int32                      `json:"earliestStartTime,omitempty"`
-	EndTime                 *int32                      `json:"endTime,omitempty"`
-	LeaseTime               *int32                      `json:"leaseTime,omitempty"`
-	EstimatedReadyTime      *int32                      `json:"estimatedReadyTime,omitempty"`
-	EstimatedStartTime      *int32                      `json:"estimatedStartTime,omitempty"`
-	Id                      *int32                      `json:"id,omitempty"`
+	EarliestStartTime       *int64                      `json:"earliestStartTime,omitempty"`
+	EndTime                 *int64                      `json:"endTime,omitempty"`
+	LeaseTime               *int64                      `json:"leaseTime,omitempty"`
+	EstimatedReadyTime      *int64                      `json:"estimatedReadyTime,omitempty"`
+	EstimatedStartTime      *int64                      `json:"estimatedStartTime,omitempty"`
+	Id                      *int64                      `json:"id,omitempty"`
 	LogEntries              *[]MinimalLogEntry          `json:"logEntries,omitempty"`
 	Message                 *string                     `json:"message,omitempty"`
 	Project                 *MinimalProject             `json:"project,omitempty"`
-	ReadyTime               *int32                      `json:"readyTime,omitempty"`
+	ReadyTime               *int64                      `json:"readyTime,omitempty"`
 	Result                  *string                     `json:"result,omitempty"`
-	StartTime               *int32                      `json:"startTime,omitempty"`
-	TimeOfRequest           *int32                      `json:"timeOfRequest,omitempty"`
+	StartTime               *int64                      `json:"startTime,omitempty"`
+	TimeOfRequest           *int64                      `json:"timeOfRequest,omitempty"`
 	Canceled                *bool                       `json:"canceled,omitempty"`
 	Deployment              *MinimalDeployment          `json:"deployment,omitempty"`
 	DeploymentRunHosts      *[]MinimalDeploymentRunHost `json:"deploymentRunHosts,omitempty"`
@@ -135,9 +135,9 @@ func (o *FullDeploymentRun) SetCreator(v MinimalUser) {
 }
 
 // GetEarliestStartTime returns the EarliestStartTime field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetEarliestStartTime() int32 {
+func (o *FullDeploymentRun) GetEarliestStartTime() int64 {
 	if o == nil || o.EarliestStartTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EarliestStartTime
@@ -145,7 +145,7 @@ func (o *FullDeploymentRun) GetEarliestStartTime() int32 {
 
 // GetEarliestStartTimeOk returns a tuple with the EarliestStartTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetEarliestStartTimeOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetEarliestStartTimeOk() (*int64, bool) {
 	if o == nil || o.EarliestStartTime == nil {
 		return nil, false
 	}
@@ -161,15 +161,15 @@ func (o *FullDeploymentRun) HasEarliestStartTime() bool {
 	return false
 }
 
-// SetEarliestStartTime gets a reference to the given int32 and assigns it to the EarliestStartTime field.
-func (o *FullDeploymentRun) SetEarliestStartTime(v int32) {
+// SetEarliestStartTime gets a reference to the given int64 and assigns it to the EarliestStartTime field.
+func (o *FullDeploymentRun) SetEarliestStartTime(v int64) {
 	o.EarliestStartTime = &v
 }
 
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetEndTime() int32 {
+func (o *FullDeploymentRun) GetEndTime() int64 {
 	if o == nil || o.EndTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EndTime
@@ -177,7 +177,7 @@ func (o *FullDeploymentRun) GetEndTime() int32 {
 
 // GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetEndTimeOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetEndTimeOk() (*int64, bool) {
 	if o == nil || o.EndTime == nil {
 		return nil, false
 	}
@@ -193,15 +193,15 @@ func (o *FullDeploymentRun) HasEndTime() bool {
 	return false
 }
 
-// SetEndTime gets a reference to the given int32 and assigns it to the EndTime field.
-func (o *FullDeploymentRun) SetEndTime(v int32) {
+// SetEndTime gets a reference to the given int64 and assigns it to the EndTime field.
+func (o *FullDeploymentRun) SetEndTime(v int64) {
 	o.EndTime = &v
 }
 
 // GetLeaseTime returns the LeaseTime field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetLeaseTime() int32 {
+func (o *FullDeploymentRun) GetLeaseTime() int64 {
 	if o == nil || o.LeaseTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LeaseTime
@@ -209,7 +209,7 @@ func (o *FullDeploymentRun) GetLeaseTime() int32 {
 
 // GetLeaseTimeOk returns a tuple with the LeaseTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetLeaseTimeOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetLeaseTimeOk() (*int64, bool) {
 	if o == nil || o.LeaseTime == nil {
 		return nil, false
 	}
@@ -225,15 +225,15 @@ func (o *FullDeploymentRun) HasLeaseTime() bool {
 	return false
 }
 
-// SetLeaseTime gets a reference to the given int32 and assigns it to the LeaseTime field.
-func (o *FullDeploymentRun) SetLeaseTime(v int32) {
+// SetLeaseTime gets a reference to the given int64 and assigns it to the LeaseTime field.
+func (o *FullDeploymentRun) SetLeaseTime(v int64) {
 	o.LeaseTime = &v
 }
 
 // GetEstimatedReadyTime returns the EstimatedReadyTime field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetEstimatedReadyTime() int32 {
+func (o *FullDeploymentRun) GetEstimatedReadyTime() int64 {
 	if o == nil || o.EstimatedReadyTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EstimatedReadyTime
@@ -241,7 +241,7 @@ func (o *FullDeploymentRun) GetEstimatedReadyTime() int32 {
 
 // GetEstimatedReadyTimeOk returns a tuple with the EstimatedReadyTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetEstimatedReadyTimeOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetEstimatedReadyTimeOk() (*int64, bool) {
 	if o == nil || o.EstimatedReadyTime == nil {
 		return nil, false
 	}
@@ -257,15 +257,15 @@ func (o *FullDeploymentRun) HasEstimatedReadyTime() bool {
 	return false
 }
 
-// SetEstimatedReadyTime gets a reference to the given int32 and assigns it to the EstimatedReadyTime field.
-func (o *FullDeploymentRun) SetEstimatedReadyTime(v int32) {
+// SetEstimatedReadyTime gets a reference to the given int64 and assigns it to the EstimatedReadyTime field.
+func (o *FullDeploymentRun) SetEstimatedReadyTime(v int64) {
 	o.EstimatedReadyTime = &v
 }
 
 // GetEstimatedStartTime returns the EstimatedStartTime field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetEstimatedStartTime() int32 {
+func (o *FullDeploymentRun) GetEstimatedStartTime() int64 {
 	if o == nil || o.EstimatedStartTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EstimatedStartTime
@@ -273,7 +273,7 @@ func (o *FullDeploymentRun) GetEstimatedStartTime() int32 {
 
 // GetEstimatedStartTimeOk returns a tuple with the EstimatedStartTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetEstimatedStartTimeOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetEstimatedStartTimeOk() (*int64, bool) {
 	if o == nil || o.EstimatedStartTime == nil {
 		return nil, false
 	}
@@ -289,15 +289,15 @@ func (o *FullDeploymentRun) HasEstimatedStartTime() bool {
 	return false
 }
 
-// SetEstimatedStartTime gets a reference to the given int32 and assigns it to the EstimatedStartTime field.
-func (o *FullDeploymentRun) SetEstimatedStartTime(v int32) {
+// SetEstimatedStartTime gets a reference to the given int64 and assigns it to the EstimatedStartTime field.
+func (o *FullDeploymentRun) SetEstimatedStartTime(v int64) {
 	o.EstimatedStartTime = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetId() int32 {
+func (o *FullDeploymentRun) GetId() int64 {
 	if o == nil || o.Id == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -305,7 +305,7 @@ func (o *FullDeploymentRun) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetIdOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetIdOk() (*int64, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -321,8 +321,8 @@ func (o *FullDeploymentRun) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *FullDeploymentRun) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *FullDeploymentRun) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -423,9 +423,9 @@ func (o *FullDeploymentRun) SetProject(v MinimalProject) {
 }
 
 // GetReadyTime returns the ReadyTime field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetReadyTime() int32 {
+func (o *FullDeploymentRun) GetReadyTime() int64 {
 	if o == nil || o.ReadyTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReadyTime
@@ -433,7 +433,7 @@ func (o *FullDeploymentRun) GetReadyTime() int32 {
 
 // GetReadyTimeOk returns a tuple with the ReadyTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetReadyTimeOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetReadyTimeOk() (*int64, bool) {
 	if o == nil || o.ReadyTime == nil {
 		return nil, false
 	}
@@ -449,8 +449,8 @@ func (o *FullDeploymentRun) HasReadyTime() bool {
 	return false
 }
 
-// SetReadyTime gets a reference to the given int32 and assigns it to the ReadyTime field.
-func (o *FullDeploymentRun) SetReadyTime(v int32) {
+// SetReadyTime gets a reference to the given int64 and assigns it to the ReadyTime field.
+func (o *FullDeploymentRun) SetReadyTime(v int64) {
 	o.ReadyTime = &v
 }
 
@@ -487,9 +487,9 @@ func (o *FullDeploymentRun) SetResult(v string) {
 }
 
 // GetStartTime returns the StartTime field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetStartTime() int32 {
+func (o *FullDeploymentRun) GetStartTime() int64 {
 	if o == nil || o.StartTime == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StartTime
@@ -497,7 +497,7 @@ func (o *FullDeploymentRun) GetStartTime() int32 {
 
 // GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetStartTimeOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetStartTimeOk() (*int64, bool) {
 	if o == nil || o.StartTime == nil {
 		return nil, false
 	}
@@ -513,15 +513,15 @@ func (o *FullDeploymentRun) HasStartTime() bool {
 	return false
 }
 
-// SetStartTime gets a reference to the given int32 and assigns it to the StartTime field.
-func (o *FullDeploymentRun) SetStartTime(v int32) {
+// SetStartTime gets a reference to the given int64 and assigns it to the StartTime field.
+func (o *FullDeploymentRun) SetStartTime(v int64) {
 	o.StartTime = &v
 }
 
 // GetTimeOfRequest returns the TimeOfRequest field value if set, zero value otherwise.
-func (o *FullDeploymentRun) GetTimeOfRequest() int32 {
+func (o *FullDeploymentRun) GetTimeOfRequest() int64 {
 	if o == nil || o.TimeOfRequest == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.TimeOfRequest
@@ -529,7 +529,7 @@ func (o *FullDeploymentRun) GetTimeOfRequest() int32 {
 
 // GetTimeOfRequestOk returns a tuple with the TimeOfRequest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FullDeploymentRun) GetTimeOfRequestOk() (*int32, bool) {
+func (o *FullDeploymentRun) GetTimeOfRequestOk() (*int64, bool) {
 	if o == nil || o.TimeOfRequest == nil {
 		return nil, false
 	}
@@ -545,8 +545,8 @@ func (o *FullDeploymentRun) HasTimeOfRequest() bool {
 	return false
 }
 
-// SetTimeOfRequest gets a reference to the given int32 and assigns it to the TimeOfRequest field.
-func (o *FullDeploymentRun) SetTimeOfRequest(v int32) {
+// SetTimeOfRequest gets a reference to the given int64 and assigns it to the TimeOfRequest field.
+func (o *FullDeploymentRun) SetTimeOfRequest(v int64) {
 	o.TimeOfRequest = &v
 }
 

@@ -17,14 +17,14 @@ import (
 
 // InputAsset struct for InputAsset
 type InputAsset struct {
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 }
 
 // NewInputAsset instantiates a new InputAsset object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInputAsset(id int32) *InputAsset {
+func NewInputAsset(id int64) *InputAsset {
 	this := InputAsset{}
 	this.Id = id
 	return &this
@@ -39,9 +39,9 @@ func NewInputAssetWithDefaults() *InputAsset {
 }
 
 // GetId returns the Id field value
-func (o *InputAsset) GetId() int32 {
+func (o *InputAsset) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -50,7 +50,7 @@ func (o *InputAsset) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *InputAsset) GetIdOk() (*int32, bool) {
+func (o *InputAsset) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -58,7 +58,7 @@ func (o *InputAsset) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *InputAsset) SetId(v int32) {
+func (o *InputAsset) SetId(v int64) {
 	o.Id = v
 }
 

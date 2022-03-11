@@ -1022,7 +1022,7 @@ func (a *DeploymentRunsApiService) DownloadHostExecute(r ApiDownloadHostRequest)
 type ApiGetDeploymentRunRequest struct {
 	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id         string
+	id         int64
 }
 
 func (r ApiGetDeploymentRunRequest) Execute() (FullDeploymentRun, *_nethttp.Response, error) {
@@ -1038,7 +1038,7 @@ Returns a single Deployment Run by the given ID.
  @param id ID of deployment run
  @return ApiGetDeploymentRunRequest
 */
-func (a *DeploymentRunsApiService) GetDeploymentRun(ctx _context.Context, id string) ApiGetDeploymentRunRequest {
+func (a *DeploymentRunsApiService) GetDeploymentRun(ctx _context.Context, id int64) ApiGetDeploymentRunRequest {
 	return ApiGetDeploymentRunRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1603,8 +1603,8 @@ func (a *DeploymentRunsApiService) GetDeploymentRuns1Execute(r DeploymentRunsApi
 type ApiGetHostRequest struct {
 	ctx        _context.Context
 	ApiService *DeploymentRunsApiService
-	id         string
-	hostid     string
+	id         int64
+	hostid     int64
 }
 
 func (r ApiGetHostRequest) Execute() (FullDeploymentRunHost, *_nethttp.Response, error) {
@@ -1621,7 +1621,7 @@ Returns the specified Host in the Deployment Run by the given ID.
  @param hostid ID of host
  @return ApiGetHostRequest
 */
-func (a *DeploymentRunsApiService) GetHost(ctx _context.Context, id string, hostid string) ApiGetHostRequest {
+func (a *DeploymentRunsApiService) GetHost(ctx _context.Context, id int64, hostid int64) ApiGetHostRequest {
 	return ApiGetHostRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -2787,14 +2787,14 @@ func (a *DeploymentRunsApiService) PublishDeploymentRunExecute(r DeploymentRunsA
 type ApiRedeployContainerAssetRequest struct {
 	ctx                     _context.Context
 	ApiService              *DeploymentRunsApiService
-	id                      string
-	hostid                  string
-	installationid          *string
+	id                      int64
+	hostid                  int64
+	installationid          *int64
 	inputContainerComponent *InputContainerComponent
 }
 
 // ID of container asset installation
-func (r ApiRedeployContainerAssetRequest) Installationid(installationid string) ApiRedeployContainerAssetRequest {
+func (r ApiRedeployContainerAssetRequest) Installationid(installationid int64) ApiRedeployContainerAssetRequest {
 	r.installationid = &installationid
 	return r
 }
@@ -2819,7 +2819,7 @@ Re-deploys the specified Container Asset installation on the single Host in the 
  @param hostid ID of host
  @return ApiRedeployContainerAssetRequest
 */
-func (a *DeploymentRunsApiService) RedeployContainerAsset(ctx _context.Context, id string, hostid string) ApiRedeployContainerAssetRequest {
+func (a *DeploymentRunsApiService) RedeployContainerAsset(ctx _context.Context, id int64, hostid int64) ApiRedeployContainerAssetRequest {
 	return ApiRedeployContainerAssetRequest{
 		ApiService: a,
 		ctx:        ctx,

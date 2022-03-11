@@ -465,7 +465,7 @@ func (a *ContainerAssetsApiService) DownloadExecute(r ContainerApiDownloadReques
 type ApiGetContainerRequest struct {
 	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id         string
+	id         int64
 }
 
 func (r ApiGetContainerRequest) Execute() (FullContainerAsset, *_nethttp.Response, error) {
@@ -481,7 +481,7 @@ Returns a single Container Asset event by the given ID.
  @param id ID of container to return
  @return ApiGetContainerRequest
 */
-func (a *ContainerAssetsApiService) GetContainer(ctx _context.Context, id string) ApiGetContainerRequest {
+func (a *ContainerAssetsApiService) GetContainer(ctx _context.Context, id int64) ApiGetContainerRequest {
 	return ApiGetContainerRequest{
 		ApiService: a,
 		ctx:        ctx,
@@ -1793,7 +1793,7 @@ func (a *ContainerAssetsApiService) UpdateAssetExecute(r ContainerApiUpdateAsset
 type ContainerApiUpdateAssetContentRequest struct {
 	ctx        _context.Context
 	ApiService *ContainerAssetsApiService
-	id         string
+	id         int64
 	file       *os.File
 	filename   *string
 }
@@ -1822,7 +1822,7 @@ The 'Update Content' call is only available for importable Asset types (i.e. Sof
  @param id ID of asset
  @return ContainerApiUpdateAssetContentRequest
 */
-func (a *ContainerAssetsApiService) UpdateAssetContent(ctx _context.Context, id string) ContainerApiUpdateAssetContentRequest {
+func (a *ContainerAssetsApiService) UpdateAssetContent(ctx _context.Context, id int64) ContainerApiUpdateAssetContentRequest {
 	return ContainerApiUpdateAssetContentRequest{
 		ApiService: a,
 		ctx:        ctx,

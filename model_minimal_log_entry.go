@@ -17,12 +17,12 @@ import (
 
 // MinimalLogEntry struct for MinimalLogEntry
 type MinimalLogEntry struct {
-	Id          *int32  `json:"id,omitempty"`
+	Id          *int64  `json:"id,omitempty"`
 	Message     *string `json:"message,omitempty"`
 	ProjectName *string `json:"projectName,omitempty"`
 	Severity    *string `json:"severity,omitempty"`
 	Source      *string `json:"source,omitempty"`
-	Time        *int32  `json:"time,omitempty"`
+	Time        *int64  `json:"time,omitempty"`
 	Username    *string `json:"username,omitempty"`
 }
 
@@ -44,9 +44,9 @@ func NewMinimalLogEntryWithDefaults() *MinimalLogEntry {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *MinimalLogEntry) GetId() int32 {
+func (o *MinimalLogEntry) GetId() int64 {
 	if o == nil || o.Id == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -54,7 +54,7 @@ func (o *MinimalLogEntry) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MinimalLogEntry) GetIdOk() (*int32, bool) {
+func (o *MinimalLogEntry) GetIdOk() (*int64, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -70,8 +70,8 @@ func (o *MinimalLogEntry) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *MinimalLogEntry) SetId(v int32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *MinimalLogEntry) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -204,9 +204,9 @@ func (o *MinimalLogEntry) SetSource(v string) {
 }
 
 // GetTime returns the Time field value if set, zero value otherwise.
-func (o *MinimalLogEntry) GetTime() int32 {
+func (o *MinimalLogEntry) GetTime() int64 {
 	if o == nil || o.Time == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Time
@@ -214,7 +214,7 @@ func (o *MinimalLogEntry) GetTime() int32 {
 
 // GetTimeOk returns a tuple with the Time field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MinimalLogEntry) GetTimeOk() (*int32, bool) {
+func (o *MinimalLogEntry) GetTimeOk() (*int64, bool) {
 	if o == nil || o.Time == nil {
 		return nil, false
 	}
@@ -230,8 +230,8 @@ func (o *MinimalLogEntry) HasTime() bool {
 	return false
 }
 
-// SetTime gets a reference to the given int32 and assigns it to the Time field.
-func (o *MinimalLogEntry) SetTime(v int32) {
+// SetTime gets a reference to the given int64 and assigns it to the Time field.
+func (o *MinimalLogEntry) SetTime(v int64) {
 	o.Time = &v
 }
 
