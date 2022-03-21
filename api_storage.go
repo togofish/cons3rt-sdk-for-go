@@ -1350,7 +1350,7 @@ func (r StorageApiUploadFileToBucketRequest) Filename(filename string) StorageAp
 	return r
 }
 
-func (r StorageApiUploadFileToBucketRequest) Execute() (int32, *_nethttp.Response, error) {
+func (r StorageApiUploadFileToBucketRequest) Execute() (string, *_nethttp.Response, error) {
 	return r.ApiService.UploadFileToBucketExecute(r)
 }
 
@@ -1377,12 +1377,12 @@ func (a *StorageApiService) UploadFileToBucket(ctx _context.Context, id string) 
 
 // Execute executes the request
 //  @return int32
-func (a *StorageApiService) UploadFileToBucketExecute(r StorageApiUploadFileToBucketRequest) (int32, *_nethttp.Response, error) {
+func (a *StorageApiService) UploadFileToBucketExecute(r StorageApiUploadFileToBucketRequest) (string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod  = _nethttp.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue int32
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StorageApiService.UploadFileToBucket")
